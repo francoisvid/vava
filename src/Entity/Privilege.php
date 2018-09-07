@@ -59,4 +59,6 @@ class Privilege
 
         return $this;
     }
+
+
 }
