@@ -79,9 +79,20 @@ class Utilisateur
      */
     private $actualites;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Favoris", mappedBy="utilisateur", orphanRemoval=true)
+     */
+    private $favoris;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sexe;
+
     public function __construct()
     {
         $this->actualites = new ArrayCollection();
+        $this->favoris = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -248,6 +259,49 @@ class Utilisateur
                 $actualite->setAuteur(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Favoris[]
+     */
+    public function getFavoris(): Collection
+    {
+        return $this->favoris;
+    }
+
+    public function addFavori(Favoris $favori): self
+    {
+        if (!$this->favoris->contains($favori)) {
+            $this->favoris[] = $favori;
+            $favori->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavori(Favoris $favori): self
+    {
+        if ($this->favoris->contains($favori)) {
+            $this->favoris->removeElement($favori);
+            // set the owning side to null (unless already changed)
+            if ($favori->getUtilisateur() === $this) {
+                $favori->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(?string $sexe): self
+    {
+        $this->sexe = $sexe;
 
         return $this;
     }
