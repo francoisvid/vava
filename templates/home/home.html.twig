@@ -3,15 +3,17 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-    <div class="jumbotron">
-        <div class="container" style="text-align: center">
-            <h1 class="display-3">Bienvenue sur Signe</h1>
-            <p class="lead">
-                <div class="ui icon input" style="margin-top: 130px; width: 300px">
-                    <input type="text" placeholder="Rechercher...">
-                <a href="{{ path('connexion') }}"><i class="circular search link icon" style="color: white;"></i></a>
-                </div>
-            </p>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container" style="text-align: center">
+                <h1 class="display-3">Bienvenue sur Signe</h1>
+                <p class="lead">
+                    <div class="ui icon input" style="margin-top: 130px; width: 300px">
+                        <input type="text" placeholder="Rechercher...">
+                    <a href="{{ path('connexion') }}"><i class="circular search link icon" style="color: white;"></i></a>
+                    </div>
+                </p>
+            </div>
         </div>
     </div>
     <div class="container">
