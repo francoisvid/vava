@@ -98,7 +98,7 @@
     <body>
         <div class="ui small menu">
             <a href="{{ path('home') }}" class="active item">Signe</a>
-            <a class="item">Accueil</a>
+            <a class="item" href="{{ path('map') }}">Accueil</a>
             <a class="item">Qui sommes nous ?</a>
             <a class="item">Télécharger l'application</a>
             <a class="item">Actualité</a>
@@ -119,13 +119,13 @@
         {% block body %}
         {% endblock %}
         {% block javascripts %}
+            <script src="semantic/dist/semantic.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-            <script src="semantic/dist/semantic.min.js"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZn0jO7-L-Z0eOD7vCS6KbGZCzBg2gbs&callback=initMap" async defer></script>
         {% endblock %}
     </body>
 </html>
