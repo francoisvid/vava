@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('connexion');
         }
 
         return $this->render(
@@ -59,7 +59,7 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="login")
+     * @Route("/connexion", name="connexion")
      */
     public function login(AuthenticationUtils $authenticationUtils)
     {
