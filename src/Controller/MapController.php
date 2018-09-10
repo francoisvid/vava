@@ -79,7 +79,7 @@ class MapController extends AbstractController
 
     // Si ell est null alors j'affiche un message de fail
 
-   // Utiliser un switch qui sera mieux !      
+   // Utiliser un switch qui sera mieux !
 
     if (!empty($newCategorie)) {
         // On va get toutes les boites qui on la categorie rechercher
@@ -89,7 +89,11 @@ class MapController extends AbstractController
             'categorie' => $newCategorie[0]->getId()
         ));
 
-       var_dump($newCategorieEntreprise);
+       foreach ($newCategorieEntreprise as $entry){
+        var_dump($entry->getEntreprise()->getNom());
+       }
+
+
 
 
 
