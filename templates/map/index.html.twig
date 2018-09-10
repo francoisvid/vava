@@ -4,109 +4,130 @@
 
 
 {% block body %}
-    <html>
-        <head>
-            <title>Simple Map</title>
-            <meta name="viewport" content="initial-scale=1.0">
-            <meta charset="utf-8">
-            <style>
-                /* Always set the map height explicitly to define the size of the div
-                 * element that contains the map. */
-                #map {
-                    height: 100%;
-                }
-                /* Optional: Makes the sample page fill the window. */
-                html, body {
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-            </style>
-        </head>
-        <body>
-        <div class="container">
 
-            <div class="jumbotron">
-                <div class="container" style="text-align: center">
-                    <h1 class="display-3">Bienvenue sur Signe</h1>
-                </div>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <div class="container" style="text-align: center">
+                <h1 class="display-3">Bienvenue sur Signe</h1>
             </div>
         </div>
-            <div class="container" id="map"></div>
-        </body>
-        <!------ Include the above in your HEAD tag ---------->
+    </div>
+    <div class="container">
 
-        <!-- Footer -->
+        <div id="map"></div>
+
+    </div>
+    </body>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Footer -->
+    <div class="container">
+
+    </div>
+    <section id="footer">
         <div class="container">
-
-        </div>
-        <section id="footer">
-            <div class="container">
-                <div class="row text-center text-xs-center text-sm-left text-md-left">
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-                        </ul>
-                    </div>
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                        <ul class="list-unstyled list-inline social text-center">
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                        </ul>
-                    </div>
-                    </hr>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                        <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
-                    </div>
-                    </hr>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
-        <!-- ./Footer -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </section>
+    <!-- ./Footer -->
 
     </html>
 
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
-            });
-        }
-    </script>
+
 {% endblock %}
 
+{% block javascripts %}
+    <script>
+        var locations = [
+            {% for d in data %}
+                {% set counter = ( counter | default(0) ) + 1 %}
+
+                ['{{ d.nom }} - {{ d.adresse }}',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
+            {% endfor %}
+
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: new google.maps.LatLng(41.45, 34.45),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    </script>
+
+{% endblock %}
