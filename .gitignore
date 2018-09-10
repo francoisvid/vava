@@ -27,3 +27,5 @@ yarn-error.log
 \.idea/php\.xml
 
 \.idea/signe\.iml
+
+\.idea/modules\.xml
