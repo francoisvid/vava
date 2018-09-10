@@ -1,21 +1,21 @@
-{% extends 'base.html.twig' %}
+{#{% extends 'base.html.twig' %}#}
 
-{% block body %}
-    <div class="container">
-        <h1>Connexion</h1>
+{#{% block body %}#}
+    {#<div class="container">#}
+        {#<h1>Connexion</h1>#}
 
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    {#{% if error %}#}
+        {#<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
+    {#{% endif %}#}
 
-    <form action="{{ path('connexion') }}" method="POST">
-        <label for="mail">Email:</label>
-        <input type="text" id="mail" name="_username" />
+    {#<form action="{{ path('connexion') }}" method="POST">#}
+        {#<label for="mail">Email:</label>#}
+        {#<input type="text" id="mail" name="_username" />#}
 
-        <label for="mdp">Password:</label>
-        <input type="password" id="mdp" name="_password" />
+        {#<label for="mdp">Password:</label>#}
+        {#<input type="password" id="mdp" name="_password" />#}
 
 
-        <button type="submit">login</button>
-    </form>
-{% endblock body %}
+        {#<button type="submit">login</button>#}
+    {#</form>#}
+{#{% endblock body %}#}

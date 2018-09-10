@@ -78,9 +78,9 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/deconnexion", name="security_logout")
+     * @Route("/deconnexion", name="deconnexion")
      */
     public function logout(){
-
+        return $this->redirectToRoute('home');
     }
 }
