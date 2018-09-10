@@ -14,13 +14,14 @@ security:
             security: false
         main:
             provider: user_db
-            anonymous: ~
+            anonymous: true
             form_login:
                 login_path: login
                 check_path: login
 
             logout:
                 path: security_logout
+                invalidate_session: true
                 target: home
 
 
@@ -29,3 +30,5 @@ security:
     access_control:
         # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         # - { path: ^/profile, roles: ROLE_USER }
+
+

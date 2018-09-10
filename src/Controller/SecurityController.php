@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
 
             $hash= $encoder->encodePassword($user, $user->getPassword());
 
-            $user->setRole($manager->find(Privilege::class,1))
+            $user->setPrivilege($manager->find(Privilege::class,1))
                  ->setDateCreation(new \DateTime())
                  ->setActif(true)
                  ->setIsDeleted(false)
