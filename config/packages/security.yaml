@@ -16,8 +16,8 @@ security:
             provider: user_db
             anonymous: true
             form_login:
-                login_path: login
-                check_path: login
+                login_path: connexion
+                check_path: connexion
 
             logout:
                 path: security_logout
