@@ -1,45 +1,30 @@
 {% extends 'base.html.twig' %}
-
+ 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
-
-
+ 
+ 
 {% block body %}
-    <html>
-        <head>
-            <title>Simple Map</title>
-            <meta name="viewport" content="initial-scale=1.0">
-            <meta charset="utf-8">
+ 
             <style>
-                /* Always set the map height explicitly to define the size of the div
-                 * element that contains the map. */
                 #map {
-                    height: 100%;
-                }
-                /* Optional: Makes the sample page fill the window. */
-                html, body {
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
+                    height: 400px;
+                    width: 100%;
                 }
             </style>
-        </head>
-        <body>
+ 
         <div class="container">
-
+ 
             <div class="jumbotron">
                 <div class="container" style="text-align: center">
                     <h1 class="display-3">Bienvenue sur Signe</h1>
                 </div>
             </div>
         </div>
-            <div class="container" id="map"></div>
+            <div id="map"></div>
         </body>
         <!------ Include the above in your HEAD tag ---------->
-
+ 
         <!-- Footer -->
-        <div class="container">
-
-        </div>
         <section id="footer">
             <div class="container">
                 <div class="row text-center text-xs-center text-sm-left text-md-left">
@@ -96,17 +81,63 @@
             </div>
         </section>
         <!-- ./Footer -->
-
+ 
     </html>
-
+ 
+ 
+{% endblock %}
+ 
+{#            {% for d in data %}
+            ['{{ d.nom }} - {{ d.adresse }}',  {{ d.la }},  {{ d.lo }}, 1],
+            {% endfor %}#}
+{% block javascripts %}
     <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -34.397, lng: 150.644},
-                zoom: 8
+        var locations = [ "Montpellier"
+
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: new google.maps.LatLng(41.45, 34.45),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
             });
+            infoWindow = new google.maps.InfoWindow;
+
+            //si le navigateur à eu la permission d'accéder à la position on récupere les coordonées
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    marker = new google.maps.Marker({
+                        position: pos,
+                        map: map
+                    })
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Target acquired');
+                    infoWindow.open(map, marker);
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
         }
     </script>
+ 
 {% endblock %}
-
