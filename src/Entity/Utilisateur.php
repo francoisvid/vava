@@ -2,14 +2,24 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
+ * @UniqueEntity(
+ * fields={"mail"},
+ * message="L'email que vous avez indiqué est déjà utilisé !"
+ * )
  */
-class Utilisateur
+class Utilisateur implements UserInterface, SerializerInterface
 {
     /**
      * @ORM\Id()
@@ -35,8 +45,14 @@ class Utilisateur
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=8, minMessage="Votre mot de passe doit faire minimum 8 caractères")
      */
     private $mdp;
+
+    /**
+     * @Assert\EqualTo(propertyPath="mdp", message="Les mots de passe ne correspondent pas. Veuillez réessayer.")
+     */
+    public $confirm_mdp;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -63,14 +79,10 @@ class Utilisateur
      */
     private $isDeleted;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Privilege", inversedBy="adresse", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $role;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs")
+     * @ORM\ManyToOne(targetEntity="Adresse", inversedBy="utilisateurs")
      */
     private $adresse;
 
@@ -89,16 +101,23 @@ class Utilisateur
      */
     private $sexe;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Privilege", inversedBy="utilisateurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $privilege;
+
     public function __construct()
     {
         $this->actualites = new ArrayCollection();
         $this->favoris = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
+
 
     public function getNom(): ?string
     {
@@ -148,43 +167,43 @@ class Utilisateur
         return $this;
     }
 
-    public function getTel(): ?int
+    public function getTel(): int
     {
         return $this->tel;
     }
 
-    public function setTel(?int $tel): self
+    public function setTel(int $tel): self
     {
         $this->tel = $tel;
 
         return $this;
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    public function getDateNaissance(): DateTimeInterface
     {
         return $this->dateNaissance;
     }
 
-    public function setDateNaissance(?\DateTimeInterface $dateNaissance): self
+    public function setDateNaissance(DateTimeInterface $dateNaissance): self
     {
         $this->dateNaissance = $dateNaissance;
 
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
+    public function getDateCreation(): DateTimeInterface
     {
         return $this->DateCreation;
     }
 
-    public function setDateCreation(\DateTimeInterface $DateCreation): self
+    public function setDateCreation(DateTimeInterface $DateCreation): self
     {
         $this->DateCreation = $DateCreation;
 
         return $this;
     }
 
-    public function getActif(): ?bool
+    public function getActif(): bool
     {
         return $this->actif;
     }
@@ -196,7 +215,7 @@ class Utilisateur
         return $this;
     }
 
-    public function getIsDeleted(): ?bool
+    public function getIsDeleted(): bool
     {
         return $this->isDeleted;
     }
@@ -208,24 +227,13 @@ class Utilisateur
         return $this;
     }
 
-    public function getRole(): ?Privilege
-    {
-        return $this->role;
-    }
 
-    public function setRole(Privilege $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?Adresse
+    public function getAdresse(): Adresse
     {
         return $this->adresse;
     }
 
-    public function setAdresse(?Adresse $adresse): self
+    public function setAdresse(Adresse $adresse): self
     {
         $this->adresse = $adresse;
 
@@ -294,14 +302,98 @@ class Utilisateur
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getSexe(): string
     {
         return $this->sexe;
     }
 
-    public function setSexe(?string $sexe): self
+    public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
+
+        return $this;
+    }
+
+    public function deserialize($data, $type, $format, array $context = array()): object {
+        return "";
+    }
+
+    public function serialize($data, $format, array $context = array()): string {
+        return "";
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * <code>
+     * public function getRoles()
+     * {
+     *     return array('ROLE_USER');
+     * }
+     * </code>
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+    /**
+     * Returns the password used to authenticate the user.
+     *
+     * This should be the encoded password. On authentication, a plain-text
+     * password will be salted, encoded, and then compared to this value.
+     *
+     * @return string The password
+     */
+    public function getPassword()
+    {
+        return $this->mdp;
+    }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    public function getUsername()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials(){}
+
+    public function getPrivilege(): ?Privilege
+    {
+        return $this->privilege;
+    }
+
+    public function setPrivilege(?Privilege $privilege): self
+    {
+        $this->privilege = $privilege;
 
         return $this;
     }

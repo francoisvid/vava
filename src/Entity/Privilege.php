@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,9 +24,15 @@ class Privilege
     private $role;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Utilisateur", mappedBy="role", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="privilege")
      */
-    private $utilisateur;
+    private $utilisateurs;
+
+    public function __construct()
+    {
+        $this->utilisateurs = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -43,20 +51,36 @@ class Privilege
         return $this;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    /**
+     * @return Collection|Utilisateur[]
+     */
+    public function getUtilisateurs(): Collection
     {
-        return $this->utilisateur;
+        return $this->utilisateurs;
     }
 
-    public function setUtilisateur(Utilisateur $adresse): self
+    public function addUtilisateur(Utilisateur $utilisateur): self
     {
-        $this->utilisateur = $utilisateur;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $adresse->getRole()) {
-            $adresse->setRole($this);
+        if (!$this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs[] = $utilisateur;
+            $utilisateur->setPrivilege($this);
         }
 
         return $this;
     }
+
+    public function removeUtilisateur(Utilisateur $utilisateur): self
+    {
+        if ($this->utilisateurs->contains($utilisateur)) {
+            $this->utilisateurs->removeElement($utilisateur);
+            // set the owning side to null (unless already changed)
+            if ($utilisateur->getPrivilege() === $this) {
+                $utilisateur->setPrivilege(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }
