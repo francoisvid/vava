@@ -31,7 +31,7 @@
                 section {
                     padding: 60px 0;
                 }
-
+ 
                 section .section-title {
                     text-align: center;
                     color: #8EB626;
@@ -92,7 +92,7 @@
                 #footer ul.quick-links li:hover a i {
                     font-weight: 700;
                 }
-
+ 
                 @media (max-width:767px){
                     #footer h5 {
                         padding-left: 0;
@@ -192,10 +192,14 @@
         {#<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
         {#<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>#}
 
-        {% block javascripts %}
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZn0jO7-L-Z0eOD7vCS6KbGZCzBg2gbs&callback=initMap" async defer></script>
-        {% endblock %}
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="semantic/dist/semantic.min.js"></script>
+                {#            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZn0jO7-L-Z0eOD7vCS6KbGZCzBg2gbs&callback=initMap" ></script>#}
+                <script src="https://maps.google.com/maps/api/js?sensor=false"type="text/javascript"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+                {% block javascripts %}
+                {% endblock %}
     </body>
 </html>
