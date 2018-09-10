@@ -3,6 +3,8 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
+
+<body>
     <div class="container">
         <div class="jumbotron">
             <div class="container" style="text-align: center">
@@ -10,12 +12,13 @@
                 <p class="lead">
                     <div class="ui icon input" style="margin-top: 130px; width: 300px">
                         <input type="text" placeholder="Rechercher...">
-                    <a href="{{ path('connexion') }}"><i class="circular search link icon" style="color: white;"></i></a>
                     </div>
                 </p>
             </div>
         </div>
     </div>
+
+
     <div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
@@ -102,13 +105,16 @@
     </section>
     <!-- ./Footer -->
 {% endblock %}
-{% block javascripts %}
 
+{% block javascripts %}
+    <script>
+
+
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock %}

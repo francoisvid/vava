@@ -16,3 +16,14 @@
 ###< symfony/web-server-bundle ###
 
 \.idea/workspace\.xml
+
+###> symfony/webpack-encore-pack ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-pack ###
+
+\.idea/php\.xml
+
+\.idea/signe\.iml

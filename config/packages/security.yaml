@@ -20,7 +20,7 @@ security:
                 check_path: connexion
 
             logout:
-                path: security_logout
+                path: deconnexion
                 invalidate_session: true
                 target: home
 
