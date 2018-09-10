@@ -17,7 +17,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/inscription", name="security_register")
+     * @Route("/inscription", name="inscription")
      *
      */
     public function register(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
@@ -32,7 +32,7 @@ class SecurityController extends AbstractController
 
             $hash= $encoder->encodePassword($user, $user->getPassword());
 
-            $user->setRole($manager->find(Privilege::class,1))
+            $user->setPrivilege($manager->find(Privilege::class,1))
                  ->setDateCreation(new \DateTime())
                  ->setActif(true)
                  ->setIsDeleted(false)
