@@ -2,18 +2,24 @@
 
 namespace App\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
+ * @UniqueEntity(
+ * fields={"mail"},
+ * message="L'email que vous avez indiqué est déjà utilisé !"
+ * )
  */
-class Utilisateur implements UserInterface, \Serializable
+class Utilisateur implements UserInterface, SerializerInterface
 {
     /**
      * @ORM\Id()
@@ -73,14 +79,10 @@ class Utilisateur implements UserInterface, \Serializable
      */
     private $isDeleted;
 
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Privilege", inversedBy="adresse", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $role;
+
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Adresse", inversedBy="utilisateurs")
+     * @ORM\ManyToOne(targetEntity="Adresse", inversedBy="utilisateurs")
      */
     private $adresse;
 
@@ -99,16 +101,23 @@ class Utilisateur implements UserInterface, \Serializable
      */
     private $sexe;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Privilege", inversedBy="utilisateurs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $privilege;
+
     public function __construct()
     {
         $this->actualites = new ArrayCollection();
         $this->favoris = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }
+
 
     public function getNom(): ?string
     {
@@ -158,43 +167,43 @@ class Utilisateur implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getTel(): ?int
+    public function getTel(): int
     {
         return $this->tel;
     }
 
-    public function setTel(?int $tel): self
+    public function setTel(int $tel): self
     {
         $this->tel = $tel;
 
         return $this;
     }
 
-    public function getDateNaissance(): ?\DateTimeInterface
+    public function getDateNaissance(): DateTimeInterface
     {
         return $this->dateNaissance;
     }
 
-    public function setDateNaissance(?\DateTimeInterface $dateNaissance): self
+    public function setDateNaissance(DateTimeInterface $dateNaissance): self
     {
         $this->dateNaissance = $dateNaissance;
 
         return $this;
     }
 
-    public function getDateCreation(): ?\DateTimeInterface
+    public function getDateCreation(): DateTimeInterface
     {
         return $this->DateCreation;
     }
 
-    public function setDateCreation(\DateTimeInterface $DateCreation): self
+    public function setDateCreation(DateTimeInterface $DateCreation): self
     {
         $this->DateCreation = $DateCreation;
 
         return $this;
     }
 
-    public function getActif(): ?bool
+    public function getActif(): bool
     {
         return $this->actif;
     }
@@ -206,7 +215,7 @@ class Utilisateur implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getIsDeleted(): ?bool
+    public function getIsDeleted(): bool
     {
         return $this->isDeleted;
     }
@@ -218,24 +227,13 @@ class Utilisateur implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getRole(): ?Privilege
-    {
-        return $this->role;
-    }
 
-    public function setRole(Privilege $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?Adresse
+    public function getAdresse(): Adresse
     {
         return $this->adresse;
     }
 
-    public function setAdresse(?Adresse $adresse): self
+    public function setAdresse(Adresse $adresse): self
     {
         $this->adresse = $adresse;
 
@@ -304,41 +302,24 @@ class Utilisateur implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getSexe(): ?string
+    public function getSexe(): string
     {
         return $this->sexe;
     }
 
-    public function setSexe(?string $sexe): self
+    public function setSexe(string $sexe): self
     {
         $this->sexe = $sexe;
 
         return $this;
     }
 
-    /**
-     * String representation of object
-     * @link https://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
-     */
-    public function serialize()
-    {
-        // TODO: Implement serialize() method.
+    public function deserialize($data, $type, $format, array $context = array()): object {
+        return "";
     }
 
-    /**
-     * Constructs the object
-     * @link https://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     * The string representation of the object.
-     * </p>
-     * @return void
-     * @since 5.1.0
-     */
-    public function unserialize($serialized)
-    {
-        // TODO: Implement unserialize() method.
+    public function serialize($data, $format, array $context = array()): string {
+        return "";
     }
 
     /**
@@ -372,7 +353,7 @@ class Utilisateur implements UserInterface, \Serializable
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->mdp;
     }
 
     /**
@@ -394,7 +375,7 @@ class Utilisateur implements UserInterface, \Serializable
      */
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->nom;
     }
 
     /**
@@ -403,8 +384,17 @@ class Utilisateur implements UserInterface, \Serializable
      * This is important if, at any given point, sensitive information like
      * the plain-text password is stored on this object.
      */
-    public function eraseCredentials()
+    public function eraseCredentials(){}
+
+    public function getPrivilege(): ?Privilege
     {
-        // TODO: Implement eraseCredentials() method.
+        return $this->privilege;
+    }
+
+    public function setPrivilege(?Privilege $privilege): self
+    {
+        $this->privilege = $privilege;
+
+        return $this;
     }
 }
