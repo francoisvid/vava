@@ -79,6 +79,8 @@ class MapController extends AbstractController
 
     // Si ell est null alors j'affiche un message de fail
 
+   // Utiliser un switch qui sera mieux !      
+
     if (!empty($newCategorie)) {
         // On va get toutes les boites qui on la categorie rechercher
         // On va les foutre dans un array histoire de la passer dans ma vue soon pour afficher les points
