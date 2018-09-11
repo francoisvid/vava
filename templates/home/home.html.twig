@@ -10,9 +10,10 @@
             <div class="container" style="text-align: center">
                 <h1 class="display-3">Bienvenue sur Signe</h1>
                 <p class="lead">
-                    <div class="ui icon input" style="margin-top: 130px; width: 300px">
-                        <input type="text" placeholder="Rechercher...">
-                    </div>
+                    <div class="ui icon input" id="search" style="margin-top: 130px; width: 300px">
+                    <input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">
+
+                </div>
                 </p>
             </div>
         </div>
@@ -21,9 +22,11 @@
 
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="http://placehold.it/1080x200" alt="First slide">
                 </div>
+
                 <div class="carousel-item">
                     <img class="d-block w-100" src="http://placehold.it/1080x200" alt="Second slide">
                 </div>
@@ -40,6 +43,29 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+    <!-- DEBUT CODE MISE EN PAGE XML PAR ACTIFPUB V2 -->
+    <div class="container">
+
+        <div class="ui top attached tabular menu">
+            <a class="active item">
+                Bio
+            </a>
+            <a class="item">
+                Photos
+            </a>
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui transparent icon input">
+                        <input type="text" placeholder="Search users...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached segment">
+            <p></p>
+        </div>
+    </div>
     <!------ Include the above in your HEAD tag ---------->
 
     <!-- Footer -->
@@ -106,7 +132,29 @@
 
 {% block javascripts %}
     <script>
+        var geocoder = new google.maps.Geocoder();
 
+        google.maps.event.addListener(marker, 'drag',function(){
+            setPostion(marker);
+        });
+        $('#search').keypress(function(e){
+            if(e.keyCode == 13){
+                var request = {
+                    address : $(this).val()
+                }
+
+                geocoder.geocode(request, function(results, status){
+                    if(status == google.maps.GeocoderStatus.OK){
+                        var pos = results[0].geometry.location;
+                        map.setCenter(pos);
+                        marker.setPosition(pos);
+                        setPostion(marker);
+                    }
+                });
+                return false;
+            }
+
+        });
 
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

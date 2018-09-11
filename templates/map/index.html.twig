@@ -185,7 +185,7 @@
             {% endfor %}#}
 {% block javascripts %}
     <script>
-        var locations = [ "Montpellier" ];
+        var locations = [ "" ];
         // var map = new google.maps.LatLgn(43.610769,3.8767159999999876);
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
@@ -217,7 +217,7 @@
                         position: pos,
                         map: map,
                         title : 'Bougez le curseur',
-                        draggable: false
+                        draggable: true
                     });
 
                     infoWindow.setPosition(pos);
