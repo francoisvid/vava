@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Adresse;
+use App\Entity\AdresseEnteprise;
 use App\Entity\Categorie;
 use App\Entity\CategorieEntreprise;
 use App\Entity\Entreprise;
@@ -69,29 +70,64 @@ class MapController extends AbstractController
     //Init de CategorieEntreprise
     $newCategorieEntreprise = new CategorieEntreprise();
 
+    //Init de
+    $newAdresseEntreprise = new AdresseEnteprise();
+
 
     //Je regarde si en bdd la data existe
     $newCategorie = $this->getDoctrine()->getRepository(Categorie::class)->findBy(array(
         'type' => $data
     ));
 
-
-
     // Si ell est null alors j'affiche un message de fail
-
-   // Utiliser un switch qui sera mieux !
 
     if (!empty($newCategorie)) {
         // On va get toutes les boites qui on la categorie rechercher
-        // On va les foutre dans un array histoire de la passer dans ma vue soon pour afficher les points
+               $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
+                    'categorie' => $newCategorie[0]->getId()
+                ));
+                // On boucle pour recup le nom de l'entreprise via son id
+               foreach ($newCategorieEntreprise as $entry){
+                   //Je stocke le nom pour le reutiliser
+                   $nomentreprise = $entry->getEntreprise()->getNom();
 
-       $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
-            'categorie' => $newCategorie[0]->getId()
-        ));
+                   //Je regarde en bdd ce que contien mon enrtreprise via son nom
+                   $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
+                       'nom' => $nomentreprise
+                    ));
 
-       foreach ($newCategorieEntreprise as $entry){
-        var_dump($entry->getEntreprise()->getNom());
-       }
+                   //Je boucle dans mon entreprise pour recup son id
+                  foreach ($entreprise as $t){
+
+                      $ide = $t->getId();
+                      // Je me sert de son id pour aller chercher son adresse.
+                      $yolo = $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                          'id'=> $ide
+                      ));
+                       //Je boucle pour sortir les info
+                      foreach ($yolo as $y){
+
+
+                          echo $nomentreprise .' ';
+                          $y->getAdresse()->getNumero();
+                          $y->getAdresse()->getRue();
+                          $y->getAdresse()->getVille();
+                          $y->getAdresse()->getCodePostal();
+                          $y->getAdresse()->getLatitude();
+                          $y->getAdresse()->getLongitude();
+                          
+
+                      }
+
+
+
+
+                  }
+
+
+               }
+
+
 
 
 
