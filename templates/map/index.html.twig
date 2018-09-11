@@ -22,6 +22,7 @@
     </div>
     <div class="container">
 
+        {{ dump(data) }}
         <div id="map"></div>
 
     </div>
@@ -97,11 +98,7 @@
 {% block javascripts %}
     <script>
         var locations = [
-            {% for d in data %}
-                {% set counter = ( counter | default(0) ) + 1 %}
 
-                ['{{ d.nom }} - {{ d.adresse }}',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
-            {% endfor %}
 
         ];
 
