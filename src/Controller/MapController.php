@@ -93,15 +93,18 @@ class MapController extends AbstractController
                 ));
 
                 foreach ($newEntreprise as $item) {
-                    $nou = array(
-                        "nom"=>$item->getNom(),
-                        "numero"=>  $na->getNumero(),
-                        "rue"=>$na->getRue(),
-                        "ville"=>$na->getVille(),
-                        "codePostal"=>$na->getCodePostal(),
-                        "la"=>$na->getLatitude(),
-                        "lo"=>$na->getLongitude()
-                    );
+                    if($item->getIsDeleted() != 1){
+                        $nou = array(
+                            "nom"=>$item->getNom(),
+                            "numero"=>  $na->getNumero(),
+                            "rue"=>$na->getRue(),
+                            "ville"=>$na->getVille(),
+                            "codePostal"=>$na->getCodePostal(),
+                            "la"=>$na->getLatitude(),
+                            "lo"=>$na->getLongitude()
+                        );
+                    }
+
 
 
                     array_push($arrayVide, $nou);
@@ -160,6 +163,7 @@ class MapController extends AbstractController
 
                     //Je boucle pour sortir les info
                     foreach ($yolo as $y){
+                     if( $entry->getEntreprise()->getIsDeleted() != 1){
                         $nou = array(
                             "nom"=>$nomentreprise,
                             "numero"=>  $y->getAdresse()->getNumero(),
@@ -171,7 +175,7 @@ class MapController extends AbstractController
                         );
 
                         array_push($arrayVide, $nou);
-
+                     }
                     }
                 }
 
@@ -217,15 +221,17 @@ class MapController extends AbstractController
 
                 foreach ($newEntreprise as $item) {
 
-                    $nou = array(
-                        "nom"=>$item->getNom(),
-                        "numero"=>  $na->getNumero(),
-                        "rue"=>$na->getRue(),
-                        "ville"=>$na->getVille(),
-                        "codePostal"=>$na->getCodePostal(),
-                        "la"=>$na->getLatitude(),
-                        "lo"=>$na->getLongitude()
-                    );
+                    if($item->getIsDeleted() != 1){
+                        $nou = array(
+                            "nom"=>$item->getNom(),
+                            "numero"=>  $na->getNumero(),
+                            "rue"=>$na->getRue(),
+                            "ville"=>$na->getVille(),
+                            "codePostal"=>$na->getCodePostal(),
+                            "la"=>$na->getLatitude(),
+                            "lo"=>$na->getLongitude()
+                        );
+                    }
 
 
                     array_push($arrayVide, $nou);
