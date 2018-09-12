@@ -21,8 +21,7 @@
         </div>
     </div>
     <div class="container">
-
-        {{ dump(data) }}
+{{ dump(data) }}
         <div id="map"></div>
 
     </div>
@@ -98,13 +97,18 @@
 {% block javascripts %}
     <script>
         var locations = [
+            {% for d in data %}
+            {% set counter = ( counter | default(0) ) + 1 %}
+
+            ['{{ d.nom }} - {{ d.rue }}',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
+            {% endfor %}
 
 
         ];
 
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
-            center: new google.maps.LatLng(41.45, 34.45),
+            center: new google.maps.LatLng(43.6759607, 4.1334817),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 

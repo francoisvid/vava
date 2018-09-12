@@ -45,8 +45,17 @@ class MapController extends AbstractController
 
     public function recherche($data){
 
-        //return $this->rechercheCategorie($data);
-        return $this->rechercheVille($data);
+
+
+        if (!empty( $this->rechercheVille($data))){
+            return  $this->rechercheVille($data);
+        }elseif (!empty($this->rechercheCategorie($data))){
+            return $this->rechercheCategorie($data);
+        }elseif (!empty($this->rechercheAdresse($data))){
+            return $this->rechercheAdresse($data);
+        }else{
+            return "La y'a rien en bdd bb :(";
+        }
 
 
 
@@ -60,6 +69,8 @@ class MapController extends AbstractController
         $newAdresse = new Adresse();
         $newAdresseEntreprise = new AdresseEnteprise();
         $newEntreprise = new Entreprise();
+
+        $arrayVide = array();
 
         $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
             'ville' => $data
@@ -80,10 +91,22 @@ class MapController extends AbstractController
                 ));
 
                 foreach ($newEntreprise as $item) {
-                    echo $item->getNom();
+                    $nou = array(
+                        "nom"=>$item->getNom(),
+                        "numero"=>  $na->getNumero(),
+                        "rue"=>$na->getRue(),
+                        "ville"=>$na->getVille(),
+                        "codePostal"=>$na->getCodePostal(),
+                        "la"=>$na->getLatitude(),
+                        "lo"=>$na->getLongitude()
+                    );
+
+
+                    array_push($arrayVide, $nou);
                 }
 
             }
+            return $arrayVide;
 
         }
 
@@ -102,6 +125,8 @@ class MapController extends AbstractController
         //Init de categorie
         $newCategorie = new Categorie();
 
+        $arrayVide = array();
+
 
         //Je regarde si en bdd la data existe
         $newCategorie = $this->getDoctrine()->getRepository(Categorie::class)->findBy(array(
@@ -116,8 +141,6 @@ class MapController extends AbstractController
             foreach ($newCategorieEntreprise as $entry){
                 //Je stocke le nom pour le reutiliser
                 $nomentreprise = $entry->getEntreprise()->getNom();
-
-                $arrayVide = array();
 
                 //Je regarde en bdd ce que contien mon enrtreprise via son nom
                 $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
@@ -164,10 +187,16 @@ class MapController extends AbstractController
         $newAdresseEntreprise = new AdresseEnteprise();
         $newEntreprise = new Entreprise();
 
+        $arrayVide = array();
+
+
         $newdata = str_replace("%20", " ", $data);
+
         $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
             'rue' => $newdata
         ));
+
+
 
         if (!empty($newAdresse)){
 
@@ -179,15 +208,30 @@ class MapController extends AbstractController
                    'id' => $idadresse
                ));
 
+
                $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
                     'id'=>$newAdresseEntreprise
                 ));
 
                 foreach ($newEntreprise as $item) {
-                    echo $item->getNom();
+
+                    $nou = array(
+                        "nom"=>$item->getNom(),
+                        "numero"=>  $na->getNumero(),
+                        "rue"=>$na->getRue(),
+                        "ville"=>$na->getVille(),
+                        "codePostal"=>$na->getCodePostal(),
+                        "la"=>$na->getLatitude(),
+                        "lo"=>$na->getLongitude()
+                    );
+
+
+                    array_push($arrayVide, $nou);
                }
 
             }
+
+            return $arrayVide;
 
         }
 
