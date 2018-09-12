@@ -54,7 +54,9 @@ class MapController extends AbstractController
         }elseif (!empty($this->rechercheAdresse($data))){
             return $this->rechercheAdresse($data);
         }else{
-            return "La y'a rien en bdd bb :(";
+            //return "La y'a rien en bdd bb :(";
+
+            $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
 
 
