@@ -18,13 +18,12 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     //CSS
-    .addStyleEntry('appCSS', './assets/css/app.css')
-    .addStyleEntry('semantic', './assets/css/semantic.min.css')
+//    .addStyleEntry('appCSS', './assets/css/app.css')
+//    .addStyleEntry('semantic', './assets/css/semantic.min.css')
 
     //JavaScript
-    .addEntry('appJS', './assets/js/app.js')
-    .addEntry('semanticJS', './assets/js/semantic.min.js')
-    .addEntry('package', './assets/js/package.js')
+//    .addEntry('appJS', './assets/js/app.js')
+//    .addEntry('semanticJS', './assets/js/semantic.min.js')
 
     /*
      * FEATURE CONFIG
@@ -42,12 +41,16 @@ Encore
     // enables Sass/SCSS support
     //.enableSassLoader()
 
+    .addEntry('img', './assets/js/recursifEncore.js')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
-;
+    .autoProvidejQuery()
 
+
+     .configureFilenames({
+         images: 'image/[name].[ext]'
+     });
 module.exports = Encore.getWebpackConfig();
 
