@@ -21,16 +21,6 @@ class MapController extends AbstractController
         // Je regarde ce qui est pas ser dans l'uri avec le parametre "q" que j'envoie dans ma fonction recherche
         $recherche = $this->recherche($request->query->get('q'));
 
-        $entreprise = array(
-            array(
-                'nom'=>'Nom 1',
-                'adresse'=>'une adresse',
-                'lo'=>37.4555,
-                'la'=>41.455555,
-                'pub'=>'une pub',
-            ),
-        );
-
         $apikey = 'AIzaSyCiGsX1wx-4Ry3eEOG6HCT7e3Xz9lwJqZY';
         $ney = "sdqedqezdqzd";
 
@@ -95,6 +85,7 @@ class MapController extends AbstractController
                 foreach ($newEntreprise as $item) {
                     if($item->getIsDeleted() != 1){
                         $nou = array(
+                            "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
                             "numero"=>  $na->getNumero(),
                             "rue"=>$na->getRue(),
@@ -165,6 +156,7 @@ class MapController extends AbstractController
                     foreach ($yolo as $y){
                      if( $entry->getEntreprise()->getIsDeleted() != 1){
                         $nou = array(
+                            "id"=>$ide,
                             "nom"=>$nomentreprise,
                             "numero"=>  $y->getAdresse()->getNumero(),
                             "rue"=>$y->getAdresse()->getRue(),
@@ -223,6 +215,7 @@ class MapController extends AbstractController
 
                     if($item->getIsDeleted() != 1){
                         $nou = array(
+                            "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
                             "numero"=>  $na->getNumero(),
                             "rue"=>$na->getRue(),

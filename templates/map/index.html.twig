@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="container">
-{{ dump(data) }}
+
         <div id="map"></div>
 
     </div>
@@ -100,7 +100,25 @@
             {% for d in data %}
             {% set counter = ( counter | default(0) ) + 1 %}
 
-            ['{{ d.nom }} - {{ d.rue }}',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
+            {% if not app.user %}
+
+            ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
+            '  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +
+            '  <a class="ui primary button"><i class="phone icon"></i> Appler</a>\n' +
+            '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
+            '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
+
+            {% else %}
+
+            ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
+            '  <a class="ui primary button" href="{{ path('favoris_add_entreprise', { 'id_entreprise': d.id, 'id_user' : app.user.id }) }}"><i class="star icon"></i> Favoris</a>\n' +
+            '  <a class="ui primary button"><i class="phone icon"></i> Appler</a>\n' +
+            '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
+            '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
+
+            {% endif %}
+
+
             {% endfor %}
 
 
