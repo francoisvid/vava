@@ -3,12 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <title>SIGNE</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/popup.css">
+        <link rel="stylesheet" type="text/css" href="../semantic/out/semantic.min.css">
+        <script
+                src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+                crossorigin="anonymous"></script>
+        <script src="../semantic/out/semantic.min.js"></script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" async defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/menu.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">#}
+        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/popup.css">#}
+        <link rel="shortcut icon" href="../assets/img/logovava.png" type="image/x-icon">
+        <link rel="icon" href="../assets/img/logovava.png" type="image/x-icon">
+
+
+
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" async defer></script>#}
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>#}
 
         {#Pour utiliser vuetify : #}
 
@@ -112,7 +125,7 @@
     <body>
 
         <div class="ui small menu">
-            <a href="{{ path('home') }}" class="active item">Signe</a>
+            <a href="{{ path('home') }}" class="active item"><img src="../assets/img/logovava.png" style="width: 70px" alt=""></a>
             <a class="item" href="{{ path('map') }}">Accueil</a>
             <a class="item">Qui sommes nous ?</a>
             <a class="item">Télécharger l'application</a>
@@ -192,10 +205,9 @@
         {#<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
         {#<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>#}
 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script src="semantic/dist/semantic.min.js"></script>
-                {#            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZn0jO7-L-Z0eOD7vCS6KbGZCzBg2gbs&callback=initMap" ></script>#}
-                <script src="https://maps.google.com/maps/api/js?sensor=false"type="text/javascript"></script>
+                {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVZn0jO7-L-Z0eOD7vCS6KbGZCzBg2gbs&callback=initMap" ></script>
+                {#<script src="https://maps.google.com/maps/api/js?sensor=false"type="text/javascript"></script>#}
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
