@@ -45,55 +45,68 @@ class MapController extends AbstractController
 
     public function recherche($data){
 
-    return $this->rechercheCategorie($data);
+        //return $this->rechercheCategorie($data);
+        return $this->rechercheVille($data);
 
-
-
-
-    // ADRESSE
-        $newdata = str_replace("%20", " ", $data);
-
-        $rue = $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
-            'rue' => $newdata
-        ));
-        $ville = $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
-            'ville' => $newdata
-        ));
-
-        $numero = $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
-            'numero' => $newdata
-        ));
-
-    // Si ell est null alors j'affiche un message de fail
 
 
 
     }
 
-
+////////////////////  VILLR ////////////////////
 
     public function rechercheVille($data){
 
+        $newAdresse = new Adresse();
+        $newAdresseEntreprise = new AdresseEnteprise();
+        $newEntreprise = new Entreprise();
+
+        $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
+            'ville' => $data
+        ));
+
+        if (!empty($newAdresse)){
+
+            foreach ($newAdresse as $na){
+
+                $idadresse =  $na->getId();
+
+                $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                    'id' => $idadresse
+                ));
+
+                $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
+                    'id'=>$newAdresseEntreprise
+                ));
+
+                foreach ($newEntreprise as $item) {
+                    echo $item->getNom();
+                }
+
+            }
+
+        }
+
     }
+
+////////////////////  CATEGORIE ////////////////////
     public function rechercheCategorie($data){
         //Init de l'adresse
         $newAdresse = new Adresse();
-
         //Init de entreprise
         $newEntreprise = new Entreprise();
-
         //Init de CategorieEntreprise
         $newCategorieEntreprise = new CategorieEntreprise();
-
         //Init de
         $newAdresseEntreprise = new AdresseEnteprise();
         //Init de categorie
         $newCategorie = new Categorie();
+
+
         //Je regarde si en bdd la data existe
         $newCategorie = $this->getDoctrine()->getRepository(Categorie::class)->findBy(array(
             'type' => $data
         ));
-
         if (!empty($newCategorie)) {
             // On va get toutes les boites qui on la categorie rechercher
             $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
@@ -103,6 +116,8 @@ class MapController extends AbstractController
             foreach ($newCategorieEntreprise as $entry){
                 //Je stocke le nom pour le reutiliser
                 $nomentreprise = $entry->getEntreprise()->getNom();
+
+                $arrayVide = array();
 
                 //Je regarde en bdd ce que contien mon enrtreprise via son nom
                 $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
@@ -117,8 +132,6 @@ class MapController extends AbstractController
                     $yolo = $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
                         'id'=> $ide
                     ));
-
-                    $arrayVide = array();
 
                     //Je boucle pour sortir les info
                     foreach ($yolo as $y){
@@ -138,13 +151,46 @@ class MapController extends AbstractController
                 }
 
             }
+            return $arrayVide;
+
         }
-
-        return $arrayVide;
-
     }
 
+
+////////////////////  ADRESSE ////////////////////
     public function rechercheAdresse($data){
+
+        $newAdresse = new Adresse();
+        $newAdresseEntreprise = new AdresseEnteprise();
+        $newEntreprise = new Entreprise();
+
+        $newdata = str_replace("%20", " ", $data);
+        $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
+            'rue' => $newdata
+        ));
+
+        if (!empty($newAdresse)){
+
+            foreach ($newAdresse as $na){
+
+               $idadresse =  $na->getId();
+
+               $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                   'id' => $idadresse
+               ));
+
+               $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
+                    'id'=>$newAdresseEntreprise
+                ));
+
+                foreach ($newEntreprise as $item) {
+                    echo $item->getNom();
+               }
+
+            }
+
+        }
+
 
     }
 
