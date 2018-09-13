@@ -19,23 +19,37 @@ class FavorisController extends AbstractController
      */
     public function ajoutEnFavoris(Utilisateur $Utilisateur, Entreprise $Entreprise){
 
+        $newFavoris = new Favoris();
+        $newFavorisTest = new Favoris();
+
         $entityManager = $this->getDoctrine()->getManager();
 
-        $newFavoris = new Favoris();
-        $newFavoris->setEntreprise($Entreprise)
-                   ->setUtilisateur($Utilisateur);
+        $newFavorisTest = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
+            'utilisateur'=>$Utilisateur
+        ));
 
-        $entityManager->persist($newFavoris);
+if (!empty($newFavorisTest)){
+        foreach ($newFavorisTest as $nf){
 
-        $entityManager->flush();
+            if($Utilisateur->getId() == $nf->getId()){
+                return new Response("yen a un");
+            }else{
 
-        return new Response('Saved new product with id '.$newFavoris->getId());
+                $newFavoris->setEntreprise($Entreprise)
+                    ->setUtilisateur($Utilisateur);
 
-        //return $newFavoris;
+                $entityManager->persist($newFavoris);
 
-        //return new Response("id user " . $Utilisateur . " et id entreprise : ". $Entreprise);
+                $entityManager->flush();
+
+                return new Response();
+
+            }
+        }
+
 
     }
+}
 
     /**
      * @Route("/favoris/del/{id}", name="favoris_del")
