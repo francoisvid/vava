@@ -18,14 +18,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-     * 
+     *
      * @Route ("/")
      */
     public function index(UtilisateurRepository $utilisateurRepository)
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController', ['utilisateurs' => $utilisateurRepository->findAll()]
-        ]);
+        return $this->render('admin/utilisateur.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
     }
     
     /*
@@ -40,7 +38,7 @@ class AdminController extends AbstractController
     public function indexbis(UtilisateurRepository $utilisateurRepository): Response
     {
         $utilisateurs = $utilisateurRepository->findAll();
-        return $this->render('utilisateur/index.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
+        return $this->render('utilisateur/utilisateur.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
     }
 
     /**

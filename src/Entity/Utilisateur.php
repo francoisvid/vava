@@ -167,7 +167,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getTel(): int
+    public function getTel(): ?int
     {
         return $this->tel;
     }
@@ -179,7 +179,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateNaissance(): DateTimeInterface
+    public function getDateNaissance(): ?DateTimeInterface
     {
         return $this->dateNaissance;
     }
@@ -302,7 +302,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getSexe(): string
+    public function getSexe(): ?string
     {
         return $this->sexe;
     }
