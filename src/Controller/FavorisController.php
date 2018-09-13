@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Entreprise;
 use App\Entity\Favoris;
+use App\Entity\Utilisateur;
 use App\Form\FavorisType;
 use App\Repository\FavorisRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,18 +12,48 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/favoris")
- */
 class FavorisController extends AbstractController
 {
     /**
-     * @Route("/{id_user}.{id_entreprise}", name="favoris_add_entreprise", methods="GET|POST")
+     * @Route("/favoris/{Utilisateur}.{Entreprise}", name="favoris_add")
      */
-    public function ajoutEnFavoris($id_user,$id_entreprise){
+    public function ajoutEnFavoris(Utilisateur $Utilisateur, Entreprise $Entreprise){
 
+        $entityManager = $this->getDoctrine()->getManager();
 
-        return new Response("id user " . $id_user . " et id entreprise : ". $id_entreprise);
+        $newFavoris = new Favoris();
+        $newFavoris->setEntreprise($Entreprise)
+                   ->setUtilisateur($Utilisateur);
+
+        $entityManager->persist($newFavoris);
+
+        $entityManager->flush();
+
+        return new Response('Saved new product with id '.$newFavoris->getId());
+
+        //return $newFavoris;
+
+        //return new Response("id user " . $Utilisateur . " et id entreprise : ". $Entreprise);
+
+    }
+
+    /**
+     * @Route("/favoris/del/{id}", name="favoris_del")
+     */
+    public function supprimerUnFavori($id){
+
+        $entityManager = $this->getDoctrine()->getManager();
+
+        $favoris = $entityManager->getRepository(Favoris::class)->find($id);
+
+        if (!$favoris) {
+            return $this->redirectToRoute('home');
+        }
+
+        $entityManager->remove($favoris);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('home');
 
     }
 
