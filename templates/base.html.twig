@@ -3,34 +3,38 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>SIGNE</title>
-    <link rel="stylesheet" type="text/css" href="../semantic/out/semantic.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">
-    <script
-            src="https://code.jquery.com/jquery-3.1.1.min.js"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous"></script>
-    <script src="../semantic/out/semantic.min.js"></script>
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+            
+{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.4/semantic.min.css">#}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    
+
+
     <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+    
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('build/sem.css') }}">
+        <script src="{{ asset('build/sem.js') }}"></script>
+{#    <link rel="stylesheet" type="text/css" href="../semantic/out/semantic.min.css">#}
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/menu.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">#}
-    {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/popup.css">#}
-    <link rel="shortcut icon" href="../assets/img/logovava.png" type="image/x-icon">
-    <link rel="icon" href="../assets/img/logovava.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/components/popup.css">
+{#    <link rel="shortcut icon" href="../assets/img/logovava.png" type="image/x-icon">#}
+{#    <link rel="icon" href="../assets/img/logovava.png" type="image/x-icon">#}
 
 
 
-    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" async defer></script>#}
-    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>#}
-
-    {#Pour utiliser vuetify : #}
-
-    {#<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">#}
-    {#<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">#}
-    {#<link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">#}
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     {% block stylesheets %}
         <style>
             .jumbotron {
@@ -200,19 +204,10 @@
             ;
         </script>
 
-        {#pour utiliser vuetify :#}
-
-        {#<script>#}
-        {#new Vue({ el: '#app' })#}
-        {#</script>#}
-        {#<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
-        {#<script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>#}
-
-        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>#}
         <script src="https://maps.google.com/maps/api/js?sensor=false"type="text/javascript"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>#}
         {% block javascripts %}
         {% endblock %}
 </body>

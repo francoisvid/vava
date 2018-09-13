@@ -42,6 +42,7 @@ Encore
     //.enableSassLoader()
 
     .addEntry('img', './assets/js/recursifEncore.js')
+    .addEntry('sem', './assets/js/app.js')
     .addEntry('admin', './assets/js/admin.js')
     .addEntry('datatablejs', './assets/DataTables/datatables.js')
     .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')

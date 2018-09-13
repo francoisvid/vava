@@ -4,7 +4,7 @@
 
 {% block body %}
     <h1>Utilisateur index</h1>
-    <style>
+   {# <style>
         .ui.table.dataTable thead th {
   cursor: pointer;
   white-space: nowrap;
@@ -154,91 +154,132 @@
     transition: background-color 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s;
 }
         
-    </style>
-<div class="ui main container" >
-<p></p>
-<div class="ui raised segment" > 
-  <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%" >
-  <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
- 
-  
- 
-        <tbody>
-                <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-                <td>$162,700</td>
-            </tr>
-            <tr>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-                <td>New York</td>
-                <td>61</td>
-                <td>2012/12/02</td>
-                <td>$372,000</td>
-            </tr>
-            <tr>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-                <td>San Francisco</td>
-                <td>59</td>
-                <td>2012/08/06</td>
-                <td>$137,500</td>
-            </tr>
-        </tbody>
-</table></div></div>
-    <table class="table">
+    </style>#}
+<div class="twelve wide stretched column">
+{#            <div class="collapse multi-collapse ui segment" id="info">
+                Coo 1 This is an stretched grid column. This segment will always match the tab height
+            </div>#}
+            <div id="fav">
+                        <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%" >
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Activité</th>
+                                <th>Ville</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>
+                                    <button class="ui secondary basic button">Appler</button>
+                                    <button class="ui primary basic button">Voir</button>
+                                    <button class="ui red basic button">Supprimer</button>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            <tr>
+                                <td>Tiger Nixon</td>
+                                <td>System Architect</td>
+                                <td>Edinburgh</td>
+                                <td>61</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+    </div>
+    
+{#    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-{#                <th>Mdp</th>#}
                 <th>Tel</th>
                 <th>DateNaissance</th>
                 <th>DateCreation</th>
@@ -255,7 +296,6 @@
                 <td>{{ utilisateur.nom }}</td>
                 <td>{{ utilisateur.prenom }}</td>
                 <td>{{ utilisateur.mail }}</td>
-{#                <td>{{ utilisateur.mdp }}</td>#}
                 <td>{{ utilisateur.tel }}</td>
                 <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>
                 <td>{{ utilisateur.DateCreation ? utilisateur.DateCreation|date('Y-m-d H:i:s') : '' }}</td>
@@ -264,9 +304,6 @@
                 <td>{{ utilisateur.sexe }}</td>
                 <td>
                     <button onclick="supprUsr({{ utilisateur.id }})">Suppr.</button>
-{#                    <a href="{{ path('delete_user', {'id': utilisateur.id}) }}">show</a>#}
-{#                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}">show</a>#}
-{#                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>#}
                 </td>
             </tr>
         {% else %}
@@ -276,9 +313,6 @@
         {% endfor %}
         </tbody>
     </table>
-        
-    <a href="{{ path('utilisateur_new') }}">Create new</a>
-{# <script src="{{ asset('build/admin.js') }}">#}
     <table class="table" id="inactif">
         <thead>
             <tr>
@@ -300,189 +334,198 @@
                 </tr>
             {% endfor %}
         </tbody>
-        </table>
-            <script src="{{ asset('build/admin.js') }}"/>
-                <script>
-/*! DataTables Semantic integration
+        </table>#}
+                 <script>
+        /*! DataTables Semantic integration
  */
 
-/**
- * DataTables integration for Semantic UI. This requiresSemantic UI and
- * DataTables 1.10 or newer.
- *
- * This file sets the defaults and adds options to DataTables to style its
- * controls using Bootstrap. See http://datatables.net/manual/styling/
- * for further information.
- */
-(function(window, document, undefined){
+        /**
+         * DataTables integration for Semantic UI. This requiresSemantic UI and
+         * DataTables 1.10 or newer.
+         *
+         * This file sets the defaults and adds options to DataTables to style its
+         * controls using Bootstrap. See http://datatables.net/manual/styling/
+         * for further information.
+         */
+        (function(window, document, undefined){
 
-var factory = function( $, DataTable ) {
-"use strict";
+            var factory = function( $, DataTable ) {
+                "use strict";
 
-/* Set the defaults for DataTables initialisation */
-$.extend( true, DataTable.defaults, {
-	dom:
-		"<'left aligned eight wide column'l><'right aligned eight wide column'f>" +
-		"<'sixteen wide column'tr>" +
-		"<'left aligned four wide column'i><'right aligned twelve wide column'p>",
-	renderer: 'semantic'
-} );
+                /* Set the defaults for DataTables initialisation */
+                $.extend( true, DataTable.defaults, {
+                    dom:
+                        "<'left aligned eight wide column'l><'right aligned eight wide column'f>" +
+                        "<'sixteen wide column'tr>" +
+                        "<'left aligned four wide column'i><'right aligned twelve wide column'p>",
+                    renderer: 'semantic'
+                } );
 
-$.extend( DataTable.ext.pager, {
-		full_numbers_icon: DataTable.ext.pager.full_numbers
-});
+                $.extend( DataTable.ext.pager, {
+                    full_numbers_icon: DataTable.ext.pager.full_numbers
+                });
 
-/* Default class modification */
-$.extend( DataTable.ext.classes, {
-	sWrapper:      "ui grid dataTables_wrapper ",
-	sFilterInput:  "",
-	sLengthSelect: ""
-} );
+                /* Default class modification */
+                $.extend( DataTable.ext.classes, {
+                    sWrapper:      "ui grid dataTables_wrapper ",
+                    sFilterInput:  "",
+                    sLengthSelect: ""
+                } );
 
-/* Bootstrap paging button renderer */
-DataTable.ext.renderer.pageButton.semantic = function ( settings, host, idx, buttons, page, pages ) {
-	var api     = new DataTable.Api( settings );
-	var classes = settings.oClasses;
-	var lang    = settings.oLanguage.oPaginate;
-	var btnDisplay, btnClass, btnIcon, counter=0;
-    var addIcons = (( !api.init().pagingType ? '' : api.init().pagingType.toLowerCase() ).indexOf('icon') !== -1 );
-	
-	var attach = function( container, buttons ) {
-		var i, ien, node, button;
-		var clickHandler = function ( e ) {
-			e.preventDefault();
-			if ( !$(e.currentTarget).hasClass('disabled') ) {
-				api.page( e.data.action ).draw( 'page' );
-			}
-		};
+                /* Bootstrap paging button renderer */
+                DataTable.ext.renderer.pageButton.semantic = function ( settings, host, idx, buttons, page, pages ) {
+                    var api     = new DataTable.Api( settings );
+                    var classes = settings.oClasses;
+                    var lang    = settings.oLanguage.oPaginate;
+                    var btnDisplay, btnClass, btnIcon, counter=0;
+                    var addIcons = (( !api.init().pagingType ? '' : api.init().pagingType.toLowerCase() ).indexOf('icon') !== -1 );
 
-		for ( i=0, ien=buttons.length ; i<ien ; i++ ) {
-			button = buttons[i];
+                    var attach = function( container, buttons ) {
+                        var i, ien, node, button;
+                        var clickHandler = function ( e ) {
+                            e.preventDefault();
+                            if ( !$(e.currentTarget).hasClass('disabled') ) {
+                                api.page( e.data.action ).draw( 'page' );
+                            }
+                        };
 
-			if ( $.isArray( button ) ) {
-				attach( container, button );
-			}
-			else {
-				btnDisplay = '';
-				btnClass = '';
-                btnIcon = '';
-				switch ( button ) {
-					case 'ellipsis':
-					    btnDisplay = ( addIcons  ? '<i class="mini ellipsis horizontal icon"></i>' : '&hellip;');
-						btnClass = 'disabled';
-						break;
+                        for ( i=0, ien=buttons.length ; i<ien ; i++ ) {
+                            button = buttons[i];
 
-					case 'first':
-					    btnIcon = ( addIcons ? '<i class="angle single left icon"></i>' : '');
-						btnDisplay = btnIcon + lang.sFirst;
-						btnClass = button + (page > 0 ?
-							'' : ' disabled');
-						break;
+                            if ( $.isArray( button ) ) {
+                                attach( container, button );
+                            }
+                            else {
+                                btnDisplay = '';
+                                btnClass = '';
+                                btnIcon = '';
+                                switch ( button ) {
+                                    case 'ellipsis':
+                                        btnDisplay = ( addIcons  ? '<i class="mini ellipsis horizontal icon"></i>' : '&hellip;');
+                                        btnClass = 'disabled';
+                                        break;
 
-					case 'previous':
-					    btnIcon = ( addIcons ? '<i class="angle double left icon"></i>' : '');
-						btnDisplay = btnIcon + lang.sPrevious;
-						btnClass = button + (page > 0 ?
-							'' : ' disabled');
-						break;
+                                    case 'first':
+                                        btnIcon = ( addIcons ? '<i class="angle single left icon"></i>' : '');
+                                        btnDisplay = btnIcon + lang.sFirst;
+                                        btnClass = button + (page > 0 ?
+                                            '' : ' disabled');
+                                        break;
 
-					case 'next':
-                        btnIcon = ( addIcons ? '<i class="angle double right icon"></i>' : '');
-						btnDisplay = lang.sNext + btnIcon;
-						btnClass = button + (page < pages-1 ?
-							'' : ' disabled');
-						break;
+                                    case 'previous':
+                                        btnIcon = ( addIcons ? '<i class="angle double left icon"></i>' : '');
+                                        btnDisplay = btnIcon + lang.sPrevious;
+                                        btnClass = button + (page > 0 ?
+                                            '' : ' disabled');
+                                        break;
 
-					case 'last':
-                        btnIcon = ( addIcons ? '<i class="angle single right icon"></i>' : '');
-						btnDisplay = lang.sLast + btnIcon;
-						btnClass = button + (page < pages-1 ?
-							'' : ' disabled');
-						break;
+                                    case 'next':
+                                        btnIcon = ( addIcons ? '<i class="angle double right icon"></i>' : '');
+                                        btnDisplay = lang.sNext + btnIcon;
+                                        btnClass = button + (page < pages-1 ?
+                                            '' : ' disabled');
+                                        break;
 
-					default:
-						btnDisplay = button + 1;
-						btnClass = page === button ?
-							'active' : '';
-						break;
-				}
-                
-			
-				
-				if ( btnDisplay ) {
-					node = $('<a>', {
-							'class': classes.sPageButton+' '+btnClass+' item ',
-							'id': idx === 0 && typeof button === 'string' ?
-								settings.sTableId +'_'+ button :
-								null
-						} ).html( btnDisplay ).appendTo( container );
+                                    case 'last':
+                                        btnIcon = ( addIcons ? '<i class="angle single right icon"></i>' : '');
+                                        btnDisplay = lang.sLast + btnIcon;
+                                        btnClass = button + (page < pages-1 ?
+                                            '' : ' disabled');
+                                        break;
 
-					settings.oApi._fnBindAction(
-						node, {action: button}, clickHandler
-					);
+                                    default:
+                                        btnDisplay = button + 1;
+                                        btnClass = page === button ?
+                                            'active' : '';
+                                        break;
+                                }
 
-					counter++;
-				}
-			}
-		}
-	};
 
-    
-				 
-	// IE9 throws an 'unknown error' if document.activeElement is used
-	// inside an iframe or frame. 
-	var activeEl;
 
-	try {
-		// Because this approach is destroying and recreating the paging
-		// elements, focus is lost on the select button which is bad for
-		// accessibility. So we want to restore focus once the draw has
-		// completed
-		activeEl = $(host).find(document.activeElement).data('dt-idx');
-	}
-	catch (e) {}
+                                if ( btnDisplay ) {
+                                    node = $('<a>', {
+                                        'class': classes.sPageButton+' '+btnClass+' item ',
+                                        'id': idx === 0 && typeof button === 'string' ?
+                                            settings.sTableId +'_'+ button :
+                                            null
+                                    } ).html( btnDisplay ).appendTo( container );
 
-	attach(
-		$(host).empty().html('<div class="ui stackable small pagination menu"/>').children('div'),
-		buttons
-	);
+                                    settings.oApi._fnBindAction(
+                                        node, {action: button}, clickHandler
+                                    );
 
-	if ( activeEl ) {
-		$(host).find( '[data-dt-idx='+activeEl+']' ).focus();
-	}
-};
+                                    counter++;
+                                }
+                            }
+                        }
+                    };
 
-}; // /factory
+
+
+                    // IE9 throws an 'unknown error' if document.activeElement is used
+                    // inside an iframe or frame.
+                    var activeEl;
+
+                    try {
+                        // Because this approach is destroying and recreating the paging
+                        // elements, focus is lost on the select button which is bad for
+                        // accessibility. So we want to restore focus once the draw has
+                        // completed
+                        activeEl = $(host).find(document.activeElement).data('dt-idx');
+                    }
+                    catch (e) {}
+
+                    attach(
+                        $(host).empty().html('<div class="ui stackable small pagination menu"/>').children('div'),
+                        buttons
+                    );
+
+                    if ( activeEl ) {
+                        $(host).find( '[data-dt-idx='+activeEl+']' ).focus();
+                    }
+                };
+
+            }; // /factory
 
 
 // Define as an AMD module if possible
-if ( typeof define === 'function' && define.amd ) {
-	define( ['jquery', 'datatables'], factory );
-}
-else if ( typeof exports === 'object' ) {
-    // Node/CommonJS
-    factory( require('jquery'), require('datatables') );
-}
-else if ( jQuery ) {
-	// Otherwise simply initialise as normal, stopping multiple evaluation
-	factory( jQuery, jQuery.fn.dataTable );
-}
+            if ( typeof define === 'function' && define.amd ) {
+                define( ['jquery', 'datatables'], factory );
+            }
+            else if ( typeof exports === 'object' ) {
+                // Node/CommonJS
+                factory( require('jquery'), require('datatables') );
+            }
+            else if ( jQuery ) {
+                // Otherwise simply initialise as normal, stopping multiple evaluation
+                factory( jQuery, jQuery.fn.dataTable );
+            }
 
 
-})(window, document);
+        })(window, document);
 
 
-$(document).ready(function() {
-    
+        $(document).ready(function() {
 
-    
-	 var dtable = $('#example').DataTable({
-     "pagingType": "full_numbers_icon",
-	order: [ 1, 'desc' ],
-	
 
-	 });
-   
-    
-});         </script>
+
+            var dtable = $('#example').DataTable({
+                "pagingType": "full_numbers_icon",
+                order: [ 1, 'desc' ],
+
+
+            });
+
+
+        });
+    </script>
+            <script>
+            $('#popup')
+                .popup({
+                    inline: true,
+                    on:'click'
+                })
+            ;
+        </script>
+            <script src="{{ asset('build/admin.js') }}"/>
 {% endblock %}
