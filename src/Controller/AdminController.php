@@ -1,21 +1,30 @@
 <?php
 
 namespace App\Controller;
+//use Symfony\Component\HttpFoundation\JsonResponse;
 
+
+use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
-use App\Entity\Utilisateur;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 //use Symfony\Flex\Response;
 
     /**
      * @Route("/admin", name="admin")
      */
-class AdminController extends AbstractController
+class AdminController extends Controller
 {
     /**
      * 
@@ -23,9 +32,8 @@ class AdminController extends AbstractController
      */
     public function index(UtilisateurRepository $utilisateurRepository)
     {
-        return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController', ['utilisateurs' => $utilisateurRepository->findAll()]
-        ]);
+        return $this->render('admin/index.html.twig', ['utilisateurs' => $utilisateurRepository->findAllIfNotDel(),
+            'utilisateursban' => $utilisateurRepository->FindAllDeleted()]);
     }
     
     /*
@@ -110,12 +118,59 @@ class AdminController extends AbstractController
     }
     
     /**
-     * @Route("/user/del/{id}", name="delete_user", methods="GET")
+     * @Route("/user/del/{id}", name="delete_user")
+     * @Method({"GET"})
+     * 
      */
     public function test(Utilisateur $user)
     {
+//        var_dump($user->getIsDeleted());
         $user->setIsDeleted(TRUE);
-        $this->getDoctrine()->getManager()->persist($user)->flush();
-        return $this->redirectToRoute('admin_user_index');
+        $user->setActif(FALSE);
+        //var_dump($user->getIsDeleted());
+        $this->getDoctrine()->getManager()->merge($user);
+        $this->getDoctrine()->getManager()->flush();
+        //$retour= array("gg" => "Et c'est le GG!");
+        //return new JsonResponse((array("gg" => "Et c'est le GG!")));
+        return $this->json(array("gg" => json_encode($user)), 200);
+        //return "Et c'est le GG!";//$this->redirectToRoute('admin_user_index');
+        //return $this->render('admin/index.html.twig');
+    }
+    
+    
+    /**
+     * @Route("/user/unb/{id}", name="unban_user", methods="GET|POST")
+     * 
+     */
+    public function unban(Utilisateur $user)
+    {
+
+        $user->setIsDeleted(FALSE);
+        $user->setActif(TRUE);
+
+        $this->getDoctrine()->getManager()->merge($user);
+        $this->getDoctrine()->getManager()->flush();
+
+        /**
+         * Utilisation d'un encoder et de l'objet GetSetMethodNormalizer afin de traiter en amont le format de la date
+         */
+        $encoder = new JsonEncoder();
+        $normalizer = new GetSetMethodNormalizer();
+
+        
+        $dateTime = $user->getDateCreation();
+        $callback = function ($dateTime) {
+            return $dateTime instanceof \DateTime
+            ? $dateTime->format("Y-m-d H:i:s")
+            : '';
+};
+        $normalizer->setCallbacks(array('dateCreation' => $callback));
+                
+        $normalizer->setIgnoredAttributes(array("utilisateurs", "mdp", "password", "username", "salt"));
+
+        
+        $serializer = new Serializer(array($normalizer), array($encoder),array(new DateTimeNormalizer()));
+
+        return $this->json(array("gg" => $serializer->serialize($user, 'json')), 200);
     }
 }

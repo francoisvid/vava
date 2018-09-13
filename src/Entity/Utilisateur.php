@@ -167,7 +167,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getTel(): int
+    public function getTel(): ?int
     {
         return $this->tel;
     }
@@ -179,7 +179,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateNaissance(): DateTimeInterface
+    public function getDateNaissance(): ?DateTimeInterface
     {
         return $this->dateNaissance;
     }
@@ -191,7 +191,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateCreation(): DateTimeInterface
+    public function getDateCreation(): ?DateTimeInterface
     {
         return $this->DateCreation;
     }
@@ -203,7 +203,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getActif(): bool
+    public function getActif(): ?bool
     {
         return $this->actif;
     }
@@ -215,7 +215,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getIsDeleted(): bool
+    public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
     }
@@ -228,7 +228,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     }
 
 
-    public function getAdresse(): Adresse
+    public function getAdresse(): ?Adresse
     {
         return $this->adresse;
     }
@@ -243,7 +243,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @return Collection|Actualite[]
      */
-    public function getActualites(): Collection
+    public function getActualites(): ?Collection
     {
         return $this->actualites;
     }
@@ -274,7 +274,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @return Collection|Favoris[]
      */
-    public function getFavoris(): Collection
+    public function getFavoris(): ?Collection
     {
         return $this->favoris;
     }
@@ -302,7 +302,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getSexe(): string
+    public function getSexe(): ?string
     {
         return $this->sexe;
     }

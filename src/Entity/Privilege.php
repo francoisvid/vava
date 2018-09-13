@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PrivilegeRepository")
  */
-class Privilege
+class Privilege implements SerializerInterface
 {
     /**
      * @ORM\Id()
@@ -24,7 +25,7 @@ class Privilege
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="privilege")
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="privilege", fetch="EXTRA_LAZY")
      */
     private $utilisateurs;
 
@@ -80,6 +81,14 @@ class Privilege
         }
 
         return $this;
+    }
+
+    public function deserialize($data, $type, $format, array $context = array()): object {
+        return "";
+    }
+
+    public function serialize($data, $format, array $context = array()): string {
+        return "";
     }
 
 

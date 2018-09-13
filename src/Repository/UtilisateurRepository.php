@@ -30,7 +30,14 @@ class UtilisateurRepository extends ServiceEntityRepository implements UserLoade
             ->getQuery()
             ->getOneOrNullResult();
     }
-
+    
+    public function findAllIfNotDel(){
+        return $this->findBy(array("isDeleted" => false));
+    }
+    
+    public function FindAllDeleted(){
+        return $this->findBy(array("isDeleted" => true));
+    }
 
 
 //    /**
