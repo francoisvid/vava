@@ -104,7 +104,7 @@
 
             ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
             '  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +
-            '  <a class="ui primary button"><i class="phone icon"></i> Appler</a>\n' +
+            '  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +
             '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
             '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
 
@@ -112,7 +112,7 @@
 
             ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
             '  <a class="ui primary button" href="{{ path('favoris_add_entreprise', { 'id_entreprise': d.id, 'id_user' : app.user.id }) }}"><i class="star icon"></i> Favoris</a>\n' +
-            '  <a class="ui primary button"><i class="phone icon"></i> Appler</a>\n' +
+            '  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +
             '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
             '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
 

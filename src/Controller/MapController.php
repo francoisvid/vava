@@ -21,7 +21,7 @@ class MapController extends AbstractController
         // Je regarde ce qui est pas ser dans l'uri avec le parametre "q" que j'envoie dans ma fonction recherche
         $recherche = $this->recherche($request->query->get('q'));
 
-        $apikey = 'AIzaSyCiGsX1wx-4Ry3eEOG6HCT7e3Xz9lwJqZY';
+        $apikey = 'key-4Ry3eEOG6HCT7e3Xz9lwJqZY';
         $ney = "sdqedqezdqzd";
 
 
@@ -44,8 +44,6 @@ class MapController extends AbstractController
         }elseif (!empty($this->rechercheAdresse($data))){
             return $this->rechercheAdresse($data);
         }else{
-            //return "La y'a rien en bdd bb :(";
-
             $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
 
@@ -87,6 +85,7 @@ class MapController extends AbstractController
                         $nou = array(
                             "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
+                            "tel"=>$item->getTel(),
                             "numero"=>  $na->getNumero(),
                             "rue"=>$na->getRue(),
                             "ville"=>$na->getVille(),
@@ -137,6 +136,7 @@ class MapController extends AbstractController
             foreach ($newCategorieEntreprise as $entry){
                 //Je stocke le nom pour le reutiliser
                 $nomentreprise = $entry->getEntreprise()->getNom();
+                $tel = $entry->getEntreprise()->getTel();
 
                 //Je regarde en bdd ce que contien mon enrtreprise via son nom
                 $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
@@ -158,6 +158,7 @@ class MapController extends AbstractController
                         $nou = array(
                             "id"=>$ide,
                             "nom"=>$nomentreprise,
+                            "tel"=>$tel,
                             "numero"=>  $y->getAdresse()->getNumero(),
                             "rue"=>$y->getAdresse()->getRue(),
                             "ville"=>$y->getAdresse()->getVille(),
@@ -217,6 +218,7 @@ class MapController extends AbstractController
                         $nou = array(
                             "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
+                            "tel"=>$item->getTel(),
                             "numero"=>  $na->getNumero(),
                             "rue"=>$na->getRue(),
                             "ville"=>$na->getVille(),
