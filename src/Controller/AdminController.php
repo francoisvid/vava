@@ -27,7 +27,7 @@ use Symfony\Component\Serializer\Serializer;
 class AdminController extends Controller
 {
     /**
-     * 
+     *
      * @Route ("/")
      */
     public function index(UtilisateurRepository $utilisateurRepository)
@@ -48,7 +48,7 @@ class AdminController extends Controller
     public function indexbis(UtilisateurRepository $utilisateurRepository): Response
     {
         $utilisateurs = $utilisateurRepository->findAll();
-        return $this->render('utilisateur/index.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
+        return $this->render('utilisateur/utilisateur.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
     }
 
     /**

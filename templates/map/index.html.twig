@@ -98,21 +98,84 @@
             </div>
         </div>
 
-        <div class="ui menu" style="margin: 0px">
-            <div class="ui category search item">
-                <div class="ui icon input">
-                    <input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">
-                    <input class="prompt"type="text" placeholder="Latitude" id="inputLat" style="margin-left: 10px">
-                    <input class="prompt"type="text" placeholder="Longitude" id="inputLng" style="margin-left: 10px">
-                    <i class="search link icon"></i>
-                </div>
-                <div class="results"></div>
-            </div>
-        </div>
 
-        <div id="map">
 
+
+    {#<div class="ui top attached tabular menu">#}
+        {#<a class="item active" id="mapp">#}
+            {#Map#}
+        {#</a>#}
+        {#<a class="item" id="liste">#}
+            {#Liste#}
+        {#</a>#}
+
+        {#<div class="right menu">#}
+            {#<div class="item">#}
+                {#<div class="ui transparent icon input">#}
+                    {#<input type="text" id="search" placeholder="Ville, Catégorie, Nom...">#}
+                    {#<i class="search link icon"></i>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+   <div class="row">
+   <div class="col-sm-12">
+       <br><br>
+       <ul class="nav nav-tabs" id="myTab">
+         <li class="nav-item">
+           <a class="nav-link active" href="#langage" data-toggle="tab">langages</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="#logiciel" data-toggle="tab">Logiciels</a>
+         </li>
+       </ul>
+
+       <div class="tab-content">
+           <div class="tab-pane active" id="langage">
+               <div class="table-responsive">
+    <div id="map" class="ui bottom attached segment">
+
+    </div>
+
+
+    <div id="liste" style="display: none;">
+        <div>
+            <h1>mes couilles</h1>
         </div>
+    </div>
+               </div>
+           </div>
+       </div>
+       </div>
+   </div>
+
+
+
+
+    <script>
+        $(document).ready(function(){
+            $('.ui .item').on('click', function() {
+                $('.ui .item').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+
+
+
+        {#<div class="ui menu" style="margin: 0px">#}
+            {#<div class="ui category search item">#}
+                {#<div class="ui icon input">#}
+                    {#<input class="prompt" type="text" id="search" placeholder="">#}
+                    {#<input class="prompt"type="text" placeholder="Latitude" id="inputLat" style="margin-left: 10px">#}
+                    {#<input class="prompt"type="text" placeholder="Longitude" id="inputLng" style="margin-left: 10px">#}
+                    {#<i class="search link icon"></i>#}
+                {#</div>#}
+                {#<div class="results"></div>#}
+            {#</div>#}
+        {#</div>#}
 
         </body>
         <!------ Include the above in your HEAD tag ---------->
