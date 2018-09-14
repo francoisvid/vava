@@ -30,52 +30,87 @@ class FavorisController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
 
-        $newFavorisTest = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
-            'utilisateur'=>$Utilisateur
-        ));
+//        $newFavorisTest = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
+//            'utilisateur'=>$Utilisateur
+//        ));
 
-        dump($newFavorisTest);
 
-        foreach ($newFavorisTest as $na){
 
-            $id_user =  $na->getUtilisateur()->getId();
+        var_dump($this->getDoctrine()->getRepository(Favoris::class)->findByUserAndEntreprise(1, 1));
 
-            $id_entreprise=  $na->getEntreprise()->getId();
-
-//            if (/**$id_user != $Utilisateur->getId() && **/ $id_entreprise != $Entreprise->getId()  ){
+//
+//        foreach ($newFavorisTest as $na){
+//
+//            $id_user =  $na->getUtilisateur()->getId();
+//
+//            $id_entreprise=  $na->getEntreprise()->getId();
+//
+////            if (/**$id_user != $Utilisateur->getId() && **/ $id_entreprise != $Entreprise->getId()  ){
+////                $newFavoris->setEntreprise($Entreprise)
+////                    ->setUtilisateur($Utilisateur);
+////
+////                $entityManager->persist($newFavoris);
+////
+////                $entityManager->flush();
+////
+////                return new Response("GG");
+////            }else{
+////                return new Response("RIP");
+////            }
+//
+//            if( $id_entreprise == $Entreprise->getId()){
+//                echo "oui";
+//                break;
+//            }else{
+//                echo "non";
+//
+//                // CETTE PARTIE MARCHE
 //                $newFavoris->setEntreprise($Entreprise)
 //                    ->setUtilisateur($Utilisateur);
-//
 //                $entityManager->persist($newFavoris);
 //
 //                $entityManager->flush();
 //
 //                return new Response("GG");
-//            }else{
-//                return new Response("RIP");
 //            }
-
-            if( $id_entreprise == $Entreprise->getId()){
-                echo "oui";
-                break;
-            }else{
-                echo "non";
-                $newFavoris->setEntreprise($Entreprise)
-                    ->setUtilisateur($Utilisateur);
-
-                $entityManager->persist($newFavoris);
-
-                $entityManager->flush();
-
-                return new Response("GG");
-            }
-        }
+//
+//
+//
+//        }
 
 
 
         return new Response();
 
 }
+
+
+    /**
+     * @Route("/favoris/get/{Utilisateur}", name="favoris_get")
+     */
+    public function getFav(Utilisateur $Utilisateur){
+
+    $newFavoris = new Favoris();
+
+        $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
+            'utilisateur'=>$Utilisateur
+        ));
+
+        $arrayvide = array();
+
+        foreach ($newFavoris as $new) {
+
+           array_push($arrayvide, $new->getId());
+        };
+
+
+        $response = new Response(json_encode($arrayvide));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+
+    }
 
     /**
      * @Route("/favoris/del/{id}", name="favoris_del")
