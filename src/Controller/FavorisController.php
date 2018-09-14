@@ -19,6 +19,12 @@ class FavorisController extends AbstractController
      */
     public function ajoutEnFavoris(Utilisateur $Utilisateur, Entreprise $Entreprise){
 
+
+        // Je doit vérifier que ce favoris n'existe pas deja
+        // Je vais boucler dans mes favoris et test
+        // Si le favori existe pas je le cree
+        //sinon je reponf false
+
         $newFavoris = new Favoris();
         $newFavorisTest = new Favoris();
 
@@ -28,13 +34,32 @@ class FavorisController extends AbstractController
             'utilisateur'=>$Utilisateur
         ));
 
-if (!empty($newFavorisTest)){
-        foreach ($newFavorisTest as $nf){
+        dump($newFavorisTest);
 
-            if($Utilisateur->getId() == $nf->getId()){
-                return new Response("yen a un");
+        foreach ($newFavorisTest as $na){
+
+            $id_user =  $na->getUtilisateur()->getId();
+
+            $id_entreprise=  $na->getEntreprise()->getId();
+
+//            if (/**$id_user != $Utilisateur->getId() && **/ $id_entreprise != $Entreprise->getId()  ){
+//                $newFavoris->setEntreprise($Entreprise)
+//                    ->setUtilisateur($Utilisateur);
+//
+//                $entityManager->persist($newFavoris);
+//
+//                $entityManager->flush();
+//
+//                return new Response("GG");
+//            }else{
+//                return new Response("RIP");
+//            }
+
+            if( $id_entreprise == $Entreprise->getId()){
+                echo "oui";
+                break;
             }else{
-
+                echo "non";
                 $newFavoris->setEntreprise($Entreprise)
                     ->setUtilisateur($Utilisateur);
 
@@ -42,13 +67,14 @@ if (!empty($newFavorisTest)){
 
                 $entityManager->flush();
 
-                return new Response();
-
+                return new Response("GG");
             }
         }
 
 
-    }
+
+        return new Response();
+
 }
 
     /**
