@@ -38,15 +38,15 @@ class FavorisRepository extends ServiceEntityRepository
 
 
     public function findByUserAndEntreprise($utilisateur, $entreprise): ?Favoris{
-//        return $this->createQueryBuilder('f')
-//            ->Where('f.utilisateur = :user')
-//            ->andWhere('f.entreprise = :entreprise')
-//            ->setParameter('user', $utilisateur)
-//            ->setParameter('entreprise', $entreprise)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-        return $this->findBy(array("utilisateur" => $utilisateur));
+        return $this->createQueryBuilder('f')
+            ->Where('f.utilisateur = :user')
+            ->andWhere('f.entreprise = :entreprise')
+            ->setParameter('user', $utilisateur)
+            ->setParameter('entreprise', $entreprise)
+            ->getQuery()
+            ->getResult();
+
+//        return $this->findBy(array("utilisateur" => $utilisateur));
     }
 
 }

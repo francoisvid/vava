@@ -99,8 +99,9 @@ class FavorisController extends AbstractController
         $arrayvide = array();
 
         foreach ($newFavoris as $new) {
-
-           array_push($arrayvide, $new->getId());
+    
+            $newarray = array($new->getId(), $new->getEntreprise()->getNom());
+            array_push($arrayvide, $newarray);
         };
 
 
