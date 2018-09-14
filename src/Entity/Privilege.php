@@ -25,7 +25,7 @@ class Privilege implements SerializerInterface
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="privilege", fetch="EXTRA_LAZY")
+     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="privilege")
      */
     private $utilisateurs;
 

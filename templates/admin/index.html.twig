@@ -155,123 +155,121 @@
 }
         
     </style>#}
-<div class="twelve wide stretched column">
-{#            <div class="collapse multi-collapse ui segment" id="info">
-                Coo 1 This is an stretched grid column. This segment will always match the tab height
-            </div>#}
-            <div id="fav">
-                        <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%" >
-                            <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Activité</th>
-                                <th>Ville</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
+<table id="" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+{#                <th>Tel</th>
+                <th>DateNaissance</th>
+                <th>DateCreation</th>
+                <th>Actif</th>
+                <th>IsDeleted</th>
+                <th>Sexe</th>
+                <th>actions</th>#}
+            </tr>
+        </thead>
+        <tbody>
+    {#{% for utilisateur in utilisateurs %}
+                <tr id="actif{{ utilisateur.id }}">
+                    <td>{{ utilisateur.id }}</td>
+                    <td>{{ utilisateur.nom }}</td>
+                    <td>{{ utilisateur.prenom }}</td>
+                    <td>{{ utilisateur.mail }}</td>#}
+{#                    <td>{{ utilisateur.tel }}</td>#}
+{#                    <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>#}
+{#                    <td>{{ utilisateur.DateCreation ? utilisateur.DateCreation|date('Y-m-d H:i:s') : '' }}</td>#}
+{#                    <td>{{ utilisateur.actif ? 'Yes' : 'No' }}</td>#}
+{#                    <td>{{ utilisateur.isDeleted ? 'Yes' : 'No' }}</td>#}
+{#                    <td>{{ utilisateur.sexe }}</td>#}
+{#                    <td>#}
+{#                        <button onclick="supprUsr({{ utilisateur.id }})">Suppr.</button>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+{#                <th>Tel</th>
+                <th>DateNaissance</th>
+                <th>DateCreation</th>
+                <th>Actif</th>
+                <th>IsDeleted</th>
+                <th>Sexe</th>
+                <th>actions</th>#}
+            </tr>
+        </tfoot>
+    </table>
+            <script>  
+var cols = null;
+var names = null;
+var datatables = null
+$(document).ready(function() {
+                $.ajax({
+                method: "get",
+                url: "https://signe/admin/user/unb/1",
+                dataType: "json",
+            }).done( function(response) {
+                var gg = response;
+                alert(JSON.stringify(response));
+                console.log((gg))
+                        cols = [
+            {"data": "id"},
+            {"data": "nom"},
+            {"data": "prenom"},
+            {"data": "mail"}
+        ];
+{#        $('table.display').dataTable( {
+        "aaData": gg,
+        "columns": [
+            { "data": "id" },
+            { "data": "nom" },
+            { "data": "prenom" },
+            { "data": "mail" }
+        ]
+    })#}
+                $('table.display').DataTable({
+                    ajax: {
+                        url: "https://signe/admin/user/unb/1",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10, 
+                    columns: cols
+{#                    aaData: gg,
+                    columns: cols#}
+{#                            [ 
+                        {data: "id"}, 
+                        {data: "nom"}, 
+                        {data: "prenom"}, 
+                        {data: "mail"}
+                    ] #}
 
-                            <tbody>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>
-                                    <button class="ui secondary basic button">Appler</button>
-                                    <button class="ui primary basic button">Voir</button>
-                                    <button class="ui red basic button">Supprimer</button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-    </div>
+                });
+            }).fail(function(xhr, status, error){
+                alert(xhr.responseText)
+                console.log(status);
+                console.log(error);
+            });
+    
+} ); 
+{#                        {"gg": "created_at"} #}
+{#                    "processing": true, #}
+{#                    "serverSide": true, #}
+{#                    "ajax": "https://signe/admin/user/unb/1", #}
+{#                    "sAjaxDataProp": "gg", #}
+{#                        {"gg": "dateNaissance"} #}
+        var n = document.createElement('script');
+        n.setAttribute('language', 'JavaScript');
+        n.setAttribute('src', 'https://debug.datatables.net/debug.js');
+        document.body.appendChild(n);
+</script>
     
 {#    <table class="table">
         <thead>
@@ -335,7 +333,7 @@
             {% endfor %}
         </tbody>
         </table>#}
-                 <script>
+{#                 <script>
         /*! DataTables Semantic integration
  */
 
@@ -518,7 +516,8 @@
 
 
         });
-    </script>
+    </script>#}
+
             <script>
             $('#popup')
                 .popup({

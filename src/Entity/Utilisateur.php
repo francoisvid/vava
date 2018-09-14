@@ -386,14 +386,14 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     public function eraseCredentials(){}
 
-    public function getPrivilege(): ?Privilege
+    public function getPrivilege(): ?string
     {
-        return $this->privilege;
+        return $this->privilege->getRole();
     }
 
     public function setPrivilege(?Privilege $privilege): self
     {
-        $this->privilege = $privilege;
+        $this->privilege = $privilege->getRole();
 
         return $this;
     }

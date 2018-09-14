@@ -9,7 +9,7 @@ use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
 use DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,13 +18,14 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use function Symfony\Component\Debug\header;
 
 //use Symfony\Flex\Response;
 
     /**
      * @Route("/admin", name="admin")
      */
-class AdminController extends Controller
+class AdminController extends AbstractController
 {
     /**
      *
@@ -164,13 +165,20 @@ class AdminController extends Controller
             ? $dateTime->format("Y-m-d H:i:s")
             : '';
 };
-        $normalizer->setCallbacks(array('dateCreation' => $callback));
+        $normalizer->setCallbacks(array('dateCreation' => $callback, 'dateNaissance' => $callback));
                 
-        $normalizer->setIgnoredAttributes(array("utilisateurs", "mdp", "password", "username", "salt"));
+        $normalizer->setIgnoredAttributes(array("utilisateurs", "mdp", "password", "username", "salt", "dateNaissance", "dateCreation", "tel", "actif", "isDeleted", "adresse", "actualites", "favoris", "sexe", "roles", "role", "privilege"));
 
         
         $serializer = new Serializer(array($normalizer), array($encoder),array(new DateTimeNormalizer()));
+        $test = ($serializer->serialize($user, 'json'));
+        $users = array($user);
+//        var_dump($test);
+//        var_dump($this->json(array("gg" => $serializer->serialize($user, 'json')), 200));
+//        header('Content-type: application/json; charset=utf-8');
+        return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
 
-        return $this->json(array("gg" => $serializer->serialize($user, 'json')), 200);
+//        return new \Symfony\Component\HttpFoundation\JsonResponse($serializer->serialize($user, 'json'));
+//        return $this->json(array("gg" => $user), 200, array("Content-Type" => "application/json", "charset" => "utf-8"), array("CircularReference" => 5));
     }
 }
