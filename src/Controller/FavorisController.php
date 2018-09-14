@@ -35,9 +35,16 @@ class FavorisController extends AbstractController
 //        ));
 
 
+//        $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
+//            'utilisateur'=>$Utilisateur,
+//            'entreprise'=>$Entreprise
+//        ));
+//
+//        dump($newFavoris);
 
-        var_dump($this->getDoctrine()->getRepository(Favoris::class)->findByUserAndEntreprise(1, 1));
 
+        dump($this->getDoctrine()->getRepository(Favoris::class)->findByUserAndEntreprise(1, 1));
+//
 //
 //        foreach ($newFavorisTest as $na){
 //
@@ -99,7 +106,6 @@ class FavorisController extends AbstractController
         $arrayvide = array();
 
         foreach ($newFavoris as $new) {
-    
             $newarray = array($new->getId(), $new->getEntreprise()->getNom());
             array_push($arrayvide, $newarray);
         };

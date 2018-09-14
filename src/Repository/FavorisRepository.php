@@ -44,7 +44,7 @@ class FavorisRepository extends ServiceEntityRepository
             ->setParameter('user', $utilisateur)
             ->setParameter('entreprise', $entreprise)
             ->getQuery()
-            ->getResult();
+            ->getOneOrNullResult();
 
 //        return $this->findBy(array("utilisateur" => $utilisateur));
     }
