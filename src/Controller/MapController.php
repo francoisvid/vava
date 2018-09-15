@@ -12,7 +12,7 @@ class MapController extends AbstractController
      */
     public function index()
     {
-        return $this->render('map/utilisateur.html.twig', [
+        return $this->render('map/index.html.twig', [
             'controller_name' => 'MapController',
         ]);
     }

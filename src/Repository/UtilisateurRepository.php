@@ -31,6 +31,12 @@ class UtilisateurRepository extends ServiceEntityRepository implements UserLoade
             ->getOneOrNullResult();
     }
 
+    public function findById($id){
+
+        return $this->findBy('id' == $id);
+
+    }
+
 
 
 //    /**

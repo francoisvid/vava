@@ -107,6 +107,11 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     private $privilege;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->actualites = new ArrayCollection();
@@ -394,6 +399,18 @@ class Utilisateur implements UserInterface, SerializerInterface
     public function setPrivilege(?Privilege $privilege): self
     {
         $this->privilege = $privilege;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
