@@ -181,4 +181,26 @@ class AdminController extends AbstractController
 //        return new \Symfony\Component\HttpFoundation\JsonResponse($serializer->serialize($user, 'json'));
 //        return $this->json(array("gg" => $user), 200, array("Content-Type" => "application/json", "charset" => "utf-8"), array("CircularReference" => 5));
     }
+    
+    /**
+     * @Route("/user/actif", name="user_actif", methods="GET")
+     * 
+     */
+    public function getAllUsersActif(UtilisateurRepository $utilisateurRepository){
+        
+        $users = $utilisateurRepository->FindAllIfNotDel();
+//        var_dump(json_encode($users));
+        return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+
+    /**
+     * @Route("/user/del", name="user_del", methods="GET")
+     * 
+     */
+    public function getAllUsersDeleted(UtilisateurRepository $utilisateurRepository){
+        
+        $users = $utilisateurRepository->FindAllDeleted();
+        var_dump($users);
+        return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
 }

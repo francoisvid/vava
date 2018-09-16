@@ -67,7 +67,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $DateCreation;
+    private $dateCreation;
 
     /**
      * @ORM\Column(type="boolean")
@@ -179,9 +179,15 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateNaissance(): ?DateTimeInterface
+    public function getDateNaissance(): ?string
     {
-        return $this->dateNaissance;
+        if($this->dateNaissance !== null){
+        return $this->dateNaissance->format("Y-m-d H:i:s");
+        }else{
+           return '';
+        }
+//        return $this->dateNaissance->format("Y-m-d H:i:s");
+        
     }
 
     public function setDateNaissance(DateTimeInterface $dateNaissance): self
@@ -191,14 +197,19 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateCreation(): ?DateTimeInterface
+    public function getDateCreation(): ?string
     {
-        return $this->DateCreation;
+        if($this->dateCreation !== null){
+        return $this->dateCreation->format("Y-m-d H:i:s"); 
+        }else{
+           return '';
+        };
+//        return $this->DateCreation->format("Y-m-d H:i:s");
     }
 
     public function setDateCreation(DateTimeInterface $DateCreation): self
     {
-        $this->DateCreation = $DateCreation;
+        $this->dateCreation = $DateCreation;
 
         return $this;
     }
@@ -393,7 +404,7 @@ class Utilisateur implements UserInterface, SerializerInterface
 
     public function setPrivilege(?Privilege $privilege): self
     {
-        $this->privilege = $privilege->getRole();
+        $this->privilege = $privilege;
 
         return $this;
     }

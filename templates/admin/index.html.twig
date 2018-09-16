@@ -3,192 +3,24 @@
 {% block title %}admin index{% endblock %}
 
 {% block body %}
-    <h1>Utilisateur index</h1>
-   {# <style>
-        .ui.table.dataTable thead th {
-  cursor: pointer;
-  white-space: nowrap;
-  border-left: 1px solid rgba(34, 36, 38, 0.15);
-  color: rgba(0, 0, 0, 0.87);
-}
-
-.ui.table.dataTable thead th:first-child {
-  border-left: none;
-}
-
-.ui.table.dataTable thead .sorting,
-.ui.table.dataTable thead .sorting_asc ,
-.ui.table.dataTable thead .sorting_desc ,
-.ui.table.dataTable thead .sorting_asc_disabled ,
-.ui.table.dataTable thead .sorting_desc_disabled,
-.ui.table.dataTable thead .sorting:hover,
-.ui.table.dataTable thead .sorting_asc:hover ,
-.ui.table.dataTable thead .sorting_desc:hover ,
-.ui.table.dataTable thead .sorting_asc_disabled:hover ,
-.ui.table.dataTable thead .sorting_desc_disabled:hover  {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.ui.table.dataTable thead th:after {
-  display: none;
-  font-style: normal;
-  font-weight: normal;
-  text-decoration: inherit;
-  content: '';
-  height: 1em;
-  width: auto;
-  opacity: 0.8;
-  margin: 0em 0em 0em 0.5em;
-  font-family: 'Icons';
-}
-
-.ui.table.dataTable thead th.sorting_asc:after {
-  /*content: '\f0d8';*/
-  content: '\f160';
-}
-
-.ui.table.dataTable thead th.sorting_desc:after {
-  /*content: '\f0d7';*/
-  content: '\f161';
-}
-
-.ui.table.dataTable thead th.sorting:after {
-    content: '\f0dc';
-    opacity: 0.2;
-}
-
-/* Hover */
-
-.ui.table.dataTable th.disabled:hover {
-  cursor: auto;
-  color: rgba(40, 40, 40, 0.3);
-}
-
-.ui.table.dataTable thead th:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* Sorted */
-
-.ui.table.dataTable thead .sorting_asc ,
-.ui.table.dataTable thead .sorting_desc ,
-.ui.table.dataTable thead .sorting_asc_disabled ,
-.ui.table.dataTable thead .sorting_desc_disabled {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
-}
-
-.ui.table.dataTable thead .sorting:after ,
-.ui.table.dataTable thead .sorting_asc:after ,
-.ui.table.dataTable thead .sorting_desc:after ,
-.ui.table.dataTable thead .sorting_asc_disabled:after ,
-.ui.table.dataTable thead .sorting_desc_disabled:after {
-  display: inline-block;
-}
-
-/* Sorted Hover */
-
-.ui.table.dataTable thead .sorting_asc:hover ,
-.ui.table.dataTable thead .sorting_desc:hover ,
-.ui.table.dataTable thead .sorting_asc_disabled:hover ,
-.ui.table.dataTable thead .sorting_desc_disabled:hover  {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.95);
-}
-
-
-.dataTables_length select {
-   background: #fff none repeat scroll 0 0;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 0.285714rem;
-    box-shadow: none;
-    color: rgba(0, 0, 0, 0.87);
-    cursor: pointer;
-    display: inline-block;
-     line-height: 1.2142em;
-    min-height:   0.714286em;
-  
-    outline: 0 none;
-    padding: 0.3em;
-    transform: rotateZ(0deg);
-    transition: box-shadow 0.1s ease 0s, width 0.1s ease 0s;
-    white-space: normal;
-    word-wrap: break-word; 
-	 }
-  
-  .dataTables_wrapper .dataTables_filter {
-	text-align: right; 
-   
-    color: rgba(0, 0, 0, 0.87);
-    display: inline-flex;
-    position: relative;
-   }
-	
-   .dataTables_wrapper .dataTables_filter input {
-	  margin-left: 0.5em; 
-   }
-  
-  .dataTables_wrapper .dataTables_info {
-	clear: both;
-	padding-top: 0.755em; 
-   }
-   
-.dataTables_filter input {
-    background: #fff none repeat scroll 0 0;
-    border: 1px solid rgba(34, 36, 38, 0.15);
-    border-radius: 0.285714rem;
-    box-shadow: none;
-    color: rgba(0, 0, 0, 0.87);
-    flex: 1 0 auto;
-    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
-	height:1em;
-    margin: 0;
-    max-width: 100%;
-    outline: 0 none;
-    padding: .4em;
-    text-align: left;
-    transition: background-color 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s;
-}
-        
-    </style>#}
-<table id="" class="display" style="width:100%">
+    <h1>Tableau des utilisateurs actifs</h1>
+<table id="table1" class="display" style="width:90%">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-{#                <th>Tel</th>
+                <th>Tel</th>
                 <th>DateNaissance</th>
                 <th>DateCreation</th>
-                <th>Actif</th>
-                <th>IsDeleted</th>
-                <th>Sexe</th>
-                <th>actions</th>#}
+{#                <th>Actif</th>
+                <th>IsDeleted</th>#}
+{#                <th>Sexe</th>#}
+                <th>actions</th>
             </tr>
         </thead>
         <tbody>
-    {#{% for utilisateur in utilisateurs %}
-                <tr id="actif{{ utilisateur.id }}">
-                    <td>{{ utilisateur.id }}</td>
-                    <td>{{ utilisateur.nom }}</td>
-                    <td>{{ utilisateur.prenom }}</td>
-                    <td>{{ utilisateur.mail }}</td>#}
-{#                    <td>{{ utilisateur.tel }}</td>#}
-{#                    <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>#}
-{#                    <td>{{ utilisateur.DateCreation ? utilisateur.DateCreation|date('Y-m-d H:i:s') : '' }}</td>#}
-{#                    <td>{{ utilisateur.actif ? 'Yes' : 'No' }}</td>#}
-{#                    <td>{{ utilisateur.isDeleted ? 'Yes' : 'No' }}</td>#}
-{#                    <td>{{ utilisateur.sexe }}</td>#}
-{#                    <td>#}
-{#                        <button onclick="supprUsr({{ utilisateur.id }})">Suppr.</button>#}
-{#                    </td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
         </tbody>
         <tfoot>
             <tr>
@@ -196,54 +28,91 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-{#                <th>Tel</th>
+                <th>Tel</th>
                 <th>DateNaissance</th>
                 <th>DateCreation</th>
-                <th>Actif</th>
-                <th>IsDeleted</th>
-                <th>Sexe</th>
-                <th>actions</th>#}
+{#                <th>Actif</th>#}
+{#                <th>IsDeleted</th>#}
+{#                <th>Sexe</th>#}
+                <th>actions</th>
             </tr>
         </tfoot>
     </table>
+    <h1>Tableau des utilisateurs inactifs(suppr)</h1>
+        <table id="table2" class="display" style="width:90%">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Mail</th>
+                        <th>Tel</th>
+                        <th>DateNaissance</th>
+                        <th>DateCreation</th>
+        {#                <th>Actif</th>
+                        <th>IsDeleted</th>#}
+        {#                <th>Sexe</th>#}
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Mail</th>
+                        <th>Tel</th>
+                        <th>DateNaissance</th>
+                        <th>DateCreation</th>
+        {#                <th>Actif</th>#}
+        {#                <th>IsDeleted</th>#}
+        {#                <th>Sexe</th>#}
+                        <th>actions</th>
+                    </tr>
+                </tfoot>
+            </table>
             <script>  
 var cols = null;
 var names = null;
 var datatables = null
+var table= null;
+var table2= null;
+var data= null;
 $(document).ready(function() {
                 $.ajax({
                 method: "get",
-                url: "https://signe/admin/user/unb/1",
+                url: window.location+"user/actif",
                 dataType: "json",
             }).done( function(response) {
-                var gg = response;
-{#                alert(JSON.stringify(response));#}
-                console.log((gg))
+                  data = response.data;
+                console.log((response))
                         cols = [
             {"data": "id"},
             {"data": "nom"},
             {"data": "prenom"},
-            {"data": "mail"}
+            {"data": "mail"},
+            {"data": "tel"},
+            {"data": "dateNaissance"},
+            {"data": "dateCreation"},
+            null
         ];
-{#        $('table.display').dataTable( {
-        "aaData": gg,
-        "columns": [
-            { "data": "id" },
-            { "data": "nom" },
-            { "data": "prenom" },
-            { "data": "mail" }
-        ]
-    })#}
-                $('table.display').DataTable({
+             table=    $('#table1').DataTable({
                     language: {
                         url: "/build/DT_French.json"
                     },
                     ajax: {
-                        url: "https://signe/admin/user/unb/1",
+                        url: window.location+"user/actif",
                         dataSrc: "data"},
                     responsive: true,
                     lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
                     pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button id='edit'>Edit.</button><button id='suppr'>Suppr.</button>"
+    } ],
                     columns: cols
                 });
             }).fail(function(xhr, status, error){
@@ -253,12 +122,58 @@ $(document).ready(function() {
             });
     
 } ); 
-{#                        {"gg": "created_at"} #}
-{#                    "processing": true, #}
-{#                    "serverSide": true, #}
-{#                    "ajax": "https://signe/admin/user/unb/1", #}
-{#                    "sAjaxDataProp": "gg", #}
-{#                        {"gg": "dateNaissance"} #}
+
+    $('#table1 tbody').on( 'click', '#edit', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        alert( data["nom"] +" peut être modifié");
+    } );
+    $('#table1 tbody').on( 'click', '#suppr', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        supprUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );
+    
+    // Partie dédiée à la table des utilisateurs supprimés
+    
+{#    table2=    $('#table2').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"user/del",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"
+    } ],
+                    columns: cols
+                });#}
+            
+  {#  
+
+    $('#table2 tbody').on( 'click', '#edit2', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        alert( data["nom"] +" peut être modifié");
+    } );
+    $('#table2 tbody').on( 'click', '#react', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        supprUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table2
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );#}
+    
+    
         var n = document.createElement('script');
         n.setAttribute('language', 'JavaScript');
         n.setAttribute('src', 'https://debug.datatables.net/debug.js');
