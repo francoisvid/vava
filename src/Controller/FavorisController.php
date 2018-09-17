@@ -25,69 +25,25 @@ class FavorisController extends AbstractController
         // Si le favori existe pas je le cree
         //sinon je reponf false
 
-        $newFavoris = new Favoris();
-        $newFavorisTest = new Favoris();
-
         $entityManager = $this->getDoctrine()->getManager();
+        $newFavoris = new Favoris();
 
-//        $newFavorisTest = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
-//            'utilisateur'=>$Utilisateur
-//        ));
+        $entity = $this->getDoctrine()->getRepository(Favoris::class)->findOneBy(array(
+            "utilisateur"=>$Utilisateur->getId(),
+            "entreprise"=>$Entreprise->getId()
+        ));
+        if ($entity == NULL){
+            $newFavoris->setEntreprise($Entreprise)
+                ->setUtilisateur($Utilisateur);
 
+            $entityManager->persist($newFavoris);
 
-//        $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
-//            'utilisateur'=>$Utilisateur,
-//            'entreprise'=>$Entreprise
-//        ));
-//
-//        dump($newFavoris);
+            $entityManager->flush();
 
-
-        dump($this->getDoctrine()->getRepository(Favoris::class)->findByUserAndEntreprise(1, 1));
-//
-//
-//        foreach ($newFavorisTest as $na){
-//
-//            $id_user =  $na->getUtilisateur()->getId();
-//
-//            $id_entreprise=  $na->getEntreprise()->getId();
-//
-////            if (/**$id_user != $Utilisateur->getId() && **/ $id_entreprise != $Entreprise->getId()  ){
-////                $newFavoris->setEntreprise($Entreprise)
-////                    ->setUtilisateur($Utilisateur);
-////
-////                $entityManager->persist($newFavoris);
-////
-////                $entityManager->flush();
-////
-////                return new Response("GG");
-////            }else{
-////                return new Response("RIP");
-////            }
-//
-//            if( $id_entreprise == $Entreprise->getId()){
-//                echo "oui";
-//                break;
-//            }else{
-//                echo "non";
-//
-//                // CETTE PARTIE MARCHE
-//                $newFavoris->setEntreprise($Entreprise)
-//                    ->setUtilisateur($Utilisateur);
-//                $entityManager->persist($newFavoris);
-//
-//                $entityManager->flush();
-//
-//                return new Response("GG");
-//            }
-//
-//
-//
-//        }
-
-
-
-        return new Response();
+            return new Response("GG");
+        }else{
+            return new Response("Fail");
+        }
 
 }
 
