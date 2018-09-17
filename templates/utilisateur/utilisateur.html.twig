@@ -231,30 +231,55 @@
 
                             </div>
                             <div class="three wide field">
-                                <button type="submit" id="updateUser" onclick="update()" class="ui button primary">Mettre a jour</button>
+                                <button type="submit" class="ui button primary">Mettre a jour</button>
                             </div>
                         </div>
                     </form>
                     {% endif %}
 
+    {#<script>#}
+        {#function update() {#}
+
+
+                {#nom = $(this).find("#nom").val();#}
+                {#prenom = $(this).find("#prenom").val();#}
+
+            {#$.ajax({#}
+                {#method: 'post',#}
+                {#url: 'http://serveurweb:8081/signe/public/utilisateur/update/1',#}
+                {#data: {nom:nom, prenom:prenom},#}
+                {#success: function (response) {#}
+                    {#console.log(response);#}
+                {#},#}
+                {#error(xhr, status, error){#}
+                    {#// alert(xhr.responseText)#}
+                    {#// console.log(status);#}
+                    {#// console.log(error);#}
+                    {#alert(data);#}
+                {#}});#}
+        {#};#}
+            {#// alert(nom + ' ' + prenom);#}
+    {#</script>#}
+
     <script>
-        function update(id) {
-            nom = $(this).find("#nom").val();
-            prenom = $(this).find("#prenom").val();
+        $('#formUser').submit(function () {
+             nom = $(this).find("input[name=nom]").val();
+             prenom = $(this).find("input[name=prenom]").val()
             $.ajax({
-                url: 'window.location+\'/utilisateur/update/\'+id',
-                method: 'POST',
-                data: {nom: nom, prenom: prenom},
+                method: 'post',
+                url : "http://serveurweb:8081/signe/public/utilisateur/update/1",
+                data : {nom:nom, prenom:prenom},
                 success: function (response) {
                     console.log(response);
                 },
                 error(xhr, status, error){
-                    alert(xhr.responseText)
+                    // alert(xhr.responseText)
                     console.log(status);
                     console.log(error);
-                }});
-        };
-            // alert(nom + ' ' + prenom);
+                }
+            });
+            return response;
+        });
     </script>
 
     {#<script>#}

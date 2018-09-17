@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\Utilisateur;
 use App\Repository\UtilisateurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class UtilisateurController extends AbstractController
@@ -22,16 +22,21 @@ class UtilisateurController extends AbstractController
     /**
      * @Route("/utilisateur/update/{id}", name="update", methods="GET|POST")
      */
-    public function update(Request $request, Utilisateur $utilisateur): Response
+    public function update(Request $request, Utilisateur $utilisateur = null)
     {
-        $form = $this->createForm(UtilisateurType::class, $utilisateur);
-        $form->handleRequest($request);
+        // équivaut à $_POST donc tu as toutes les données recueillies au travers de ta requête Ajax
+        $post = $request->request->all();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('/utilisateur');
-        }
-        return $this->render('utilisateur/utilisateur.html.twig');
+        var_dump($post);
+        //disons que tu as edit le nom
+        $utilisateur->setNom($post['nom']);
+        $utilisateur->setPrenom($post['prenom']);
+
+        //mise en BDD des modifications de l'utilisateur
+        $this->getDoctrine()->getManager()->merge($utilisateur);
+        $this->getDoctrine()->getManager()->flush();
+
+        //return ce que tu veux ensuite
     }
 }
