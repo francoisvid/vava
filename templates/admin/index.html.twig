@@ -3,8 +3,39 @@
 {% block title %}admin index{% endblock %}
 
 {% block body %}
+    
+    <div class="container-fluid h-100">
+    <div class="row h-100">
+        <aside class="col-12 col-md-2 p-0 bg-dark">
+            <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+                <div class="collapse navbar-collapse">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" id="adminaside">
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href="" onclick="return false;"><i class="fa fa-bullseye fa-fw"></i> <span class="font-weight-bold">Accueil</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#users" ><i class="fa fa-heart-o fa-fw"></i> <span class="d-none d-md-inline">Utilisateurs</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#usersuppr" ><i class="fa fa-book fa-fw"></i> <span class="d-none d-md-inline">Utilisateurs supprimés</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"><i class="fa fa-heart fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"><i class="fa fa-star fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"><i class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+    
+    <div class="col bg-faded py-3 admincontent" id="users">
     <h1>Tableau des utilisateurs actifs</h1>
-<table id="table1" class="display" style="width:90%">
+<table id="table1" class="display col bg-faded py-3" style="width:90%">
         <thead>
             <tr>
                 <th>Id</th>
@@ -37,7 +68,9 @@
                 <th>actions</th>
             </tr>
         </tfoot>
-    </table>
+</table>
+    </div>
+    <div class="col bg-faded py-3 admincontent" id="usersuppr">
     <h1>Tableau des utilisateurs inactifs(suppr)</h1>
         <table id="table2" class="display" style="width:90%">
                 <thead>
@@ -49,9 +82,6 @@
                         <th>Tel</th>
                         <th>DateNaissance</th>
                         <th>DateCreation</th>
-        {#                <th>Actif</th>
-                        <th>IsDeleted</th>#}
-        {#                <th>Sexe</th>#}
                         <th>actions</th>
                     </tr>
                 </thead>
@@ -66,15 +96,15 @@
                         <th>Tel</th>
                         <th>DateNaissance</th>
                         <th>DateCreation</th>
-        {#                <th>Actif</th>#}
-        {#                <th>IsDeleted</th>#}
-        {#                <th>Sexe</th>#}
                         <th>actions</th>
                     </tr>
                 </tfoot>
             </table>
+    </div>
+    </div>
+</div>
                         
-<div class="modal" tabindex="-1" role="dialog" id="editTable1">
+{#<div class="modal" tabindex="-1" role="dialog" id="editTable1">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -92,13 +122,13 @@
       </div>
     </div>
   </div>
-</div>
+</div>#}
                         
                         
             <script>  
-var cols = null;
+var cols = [{"data": "id"},{"data": "nom"},{"data": "prenom"},{"data": "mail"},{"data": "tel"},{"data": "dateNaissance"},{"data": "dateCreation"},null];
 var names = null;
-var datatables = null
+var datatables = null;
 var table= null;
 var table2= null;
 $(document).ready(function() {
@@ -107,7 +137,6 @@ $(document).ready(function() {
                 url: window.location+"user/actif",
                 dataType: "json",
             }).done( function(response) {
-{#                  data = response.data;#}
                 console.log((response))
                         cols = [
             {"data": "id"},
@@ -132,7 +161,7 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button id='edit'>Edit.</button><button id='suppr'>Suppr.</button>"
+        defaultContent: "<button id='edit' data-toggle='modal' data-target='#editTable1'>Edit.</button><button id='suppr'>Suppr.</button>"
     } ],
                     columns: cols
                 });
@@ -201,18 +230,45 @@ $(document).ready(function() {
         .row( $(this).parents('tr') )
         .remove()
         .draw();
-        table.reload();
     } );
     
-    
-    $('#editTable1').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
     
         var n = document.createElement('script');
         n.setAttribute('language', 'JavaScript');
         n.setAttribute('src', 'https://debug.datatables.net/debug.js');
         document.body.appendChild(n);
+        
+        
+        $(function() {
+  var $tabButtonItem = $('#adminaside li'),
+      $tabSelect = $('#tab-select'),
+      $tabContents = $('.admincontent'),
+      activeClass = 'is-active';
+
+  $tabButtonItem.first().addClass(activeClass);
+  $tabContents.not(':first').hide();
+
+  $tabButtonItem.find('a').on('click', function(e) {
+    var target = $(this).attr('href');
+
+    $tabButtonItem.removeClass(activeClass);
+    $(this).parent().addClass(activeClass);
+    $tabSelect.val(target);
+    $tabContents.hide();
+    $(target).show();
+    e.preventDefault();
+  });
+
+  $tabSelect.on('change', function() {
+    var target = $(this).val(),
+        targetSelectNum = $(this).prop('selectedIndex');
+
+    $tabButtonItem.removeClass(activeClass);
+    $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
+    $tabContents.hide();
+    $(target).show();
+  });
+});
 </script>
 
             <script>

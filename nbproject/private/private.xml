@@ -5,7 +5,6 @@
         <group>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/admin/index.html.twig</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/AdminController.php</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Utilisateur.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/admin.js</file>
         </group>
     </open-files>
