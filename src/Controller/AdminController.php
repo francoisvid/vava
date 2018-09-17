@@ -200,7 +200,7 @@ class AdminController extends AbstractController
     public function getAllUsersDeleted(UtilisateurRepository $utilisateurRepository){
         
         $users = $utilisateurRepository->FindAllDeleted();
-        var_dump($users);
+//        var_dump($users);
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 }

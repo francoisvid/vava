@@ -73,20 +73,41 @@
                     </tr>
                 </tfoot>
             </table>
+                        
+<div class="modal" tabindex="-1" role="dialog" id="editTable1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+                        
+                        
             <script>  
 var cols = null;
 var names = null;
 var datatables = null
 var table= null;
 var table2= null;
-var data= null;
 $(document).ready(function() {
                 $.ajax({
                 method: "get",
                 url: window.location+"user/actif",
                 dataType: "json",
             }).done( function(response) {
-                  data = response.data;
+{#                  data = response.data;#}
                 console.log((response))
                         cols = [
             {"data": "id"},
@@ -138,8 +159,16 @@ $(document).ready(function() {
     } );
     
     // Partie dédiée à la table des utilisateurs supprimés
-    
-{#    table2=    $('#table2').DataTable({
+    cols = [
+            {"data": "id"},
+            {"data": "nom"},
+            {"data": "prenom"},
+            {"data": "mail"},
+            {"data": "tel"},
+            {"data": "dateNaissance"},
+            {"data": "dateCreation"},
+            null];
+    table2 =    $('#table2').DataTable({
                     language: {
                         url: "/build/DT_French.json"
                     },
@@ -152,12 +181,13 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"
+{#        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"#}
+        defaultContent: "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editTable1'>Launch demo modal</button>"
     } ],
                     columns: cols
-                });#}
+                });
             
-  {#  
+    
 
     $('#table2 tbody').on( 'click', '#edit2', function () {
         var data = table2.row( $(this).parents('tr') ).data();
@@ -165,14 +195,19 @@ $(document).ready(function() {
     } );
     $('#table2 tbody').on( 'click', '#react', function () {
         var data = table2.row( $(this).parents('tr') ).data();
-        supprUsr( data['id']);
+        unbanUsr( data['id']);
         alert( data["nom"] +" peut être supprimé" );
             table2
         .row( $(this).parents('tr') )
         .remove()
         .draw();
-    } );#}
+        table.reload();
+    } );
     
+    
+    $('#editTable1').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
     
         var n = document.createElement('script');
         n.setAttribute('language', 'JavaScript');

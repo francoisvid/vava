@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/admin/index.html.twig</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Privilege.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/AdminController.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Utilisateur.php</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Repository/UtilisateurRepository.php</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/admin.js</file>
         </group>
     </open-files>
 </project-private>
