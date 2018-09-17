@@ -7,11 +7,11 @@
     <div class="ui grid">
         <div class="four wide column">
             <div class="ui vertical fluid tabular menu">
-                <a class="item active" id="fav">
-                    Mes favoris
-                </a>
-                <a class="item" id="info">
+                <a class="item active" id="info">
                     Mes informations
+                </a>
+                <a class="item" id="fav">
+                    Mes favoris
                 </a>
                 <a class="item" id="map" href="{{ path('map') }}">
                     Retour Map
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="twelve wide stretched column" style="margin-top: 30px;">
-                <div class="container item fav active"  >
+                <div class="container item fav" style="display:none">
                     <div class="twelve wide stretched column">
                         <div id="fav">
                             <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
@@ -154,17 +154,17 @@
 
                 {% if app.user %}
 
-                <div class="container item info centered" style="display:none; width:80%;margin-right: 190px; margin-top: 30px;">
-                    <form class="ui form">
+                <div class="container item info centered active" style="width:80%;margin-right: 190px; margin-top: 30px;">
+                    <form action="#" method="POST" class="ui form" id="formUser">
                         <h2 class="ui dividing header">Mes Informations</h2>
                         <div class="two fields">
                             <div class="field">
                                 <label>Nom</label>
-                                <input type="text" name="nom" value="{{ utilisateur.nom }}">
+                                <input type="text" name="nom" id="nom" value="{{ utilisateur.nom }}">
                             </div>
                             <div class="field">
                                 <label>Prenom</label>
-                                <input type="text" name="prenom" value="{{ utilisateur.prenom }}">
+                                <input type="text" name="prenom" id="prenom" value="{{ utilisateur.prenom }}">
                             </div>
                         </div>
                         <div class="two fields">
@@ -231,11 +231,33 @@
 
                             </div>
                             <div class="three wide field">
-                                <button type="submit" id="flux" class="ui button primary ">Enregistrer</button>
+                                <button type="submit" id="updateUser" onclick="update();" class="ui button primary">Mettre a jour</button>
                             </div>
                         </div>
                     </form>
                     {% endif %}
+
+    <script>
+        $('#formUser').submit(function(){
+            var nom = $(this).find("#nom").val();
+            var prenom = $(this).find("#prenom").val();
+
+
+            $.ajax({
+
+                url     :'/utilisateur/update/{id}',
+                method  : 'POST',
+                data    : {nom : nom, prenom : prenom},
+                success : function (response) {
+                    console.log(response);
+                },
+                error(response){
+                    console.log('couilles');
+                }
+            });
+        });
+            // alert(nom + ' ' + prenom);
+    </script>
 
 
 
@@ -247,21 +269,22 @@
     </script>
 
     {#flux rss#}
-    <script>
-        window.update = function (id) {
-            $.ajax({
-                type: 'GET',
-                url: '/utilisateur/update' + id,
-                dataType: 'json',
-                success: function (datas) {
-                    console.log(datas)
-                },
-                error: function (msg) {
-                    alert('Non ok')
-                }
-            });
-        }
-    </script>
+    {#<script>#}
+        {#window.update = function (id) {#}
+            {#$.ajax({#}
+                {#type: 'GET',#}
+                {#url: '/utilisateur/update' + id,#}
+                {#dataType: 'json',#}
+                {#success: function (datas) {#}
+                    {#console.log(datas)#}
+                {#},#}
+                {#error: function (msg) {#}
+                    {#alert('Non ok')#}
+                {#}#}
+            {#});#}
+        {#}#}
+    {#</script>#}
+
 
     {#menu semantic ui#}
     <script>
@@ -473,7 +496,7 @@
         }
     </style>
 
-
+    {#<script src="../public/build/user.65084535.js"type="text/javascript"></script>#}
 
 
 
