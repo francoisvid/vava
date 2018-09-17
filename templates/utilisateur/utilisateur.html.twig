@@ -155,7 +155,7 @@
                 {% if app.user %}
 
                 <div class="container item info centered active" style="width:80%;margin-right: 190px; margin-top: 30px;">
-                    <form action="#" method="POST" class="ui form" id="formUser">
+                    <form method="POST" class="ui form" id="formUser">
                         <h2 class="ui dividing header">Mes Informations</h2>
                         <div class="two fields">
                             <div class="field">
@@ -231,33 +231,52 @@
 
                             </div>
                             <div class="three wide field">
-                                <button type="submit" id="updateUser" onclick="update();" class="ui button primary">Mettre a jour</button>
+                                <button type="submit" id="updateUser" onclick="update()" class="ui button primary">Mettre a jour</button>
                             </div>
                         </div>
                     </form>
                     {% endif %}
 
     <script>
-        $('#formUser').submit(function(){
-            var nom = $(this).find("#nom").val();
-            var prenom = $(this).find("#prenom").val();
-
-
+        function update(id) {
+            nom = $(this).find("#nom").val();
+            prenom = $(this).find("#prenom").val();
             $.ajax({
-
-                url     :'/utilisateur/update/{id}',
-                method  : 'POST',
-                data    : {nom : nom, prenom : prenom},
-                success : function (response) {
+                url: 'window.location+\'/utilisateur/update/\'+id',
+                method: 'POST',
+                data: {nom: nom, prenom: prenom},
+                success: function (response) {
                     console.log(response);
                 },
-                error(response){
-                    console.log('couilles');
-                }
-            });
-        });
+                error(xhr, status, error){
+                    alert(xhr.responseText)
+                    console.log(status);
+                    console.log(error);
+                }});
+        };
             // alert(nom + ' ' + prenom);
     </script>
+
+    {#<script>#}
+        {#$(document).ready(function() {#}
+            {#$.ajax({#}
+                {#method: "get",#}
+                {#url: window.location+"user/actif",#}
+                {#dataType: "json",#}
+            {#}).done( function(response) {#}
+                {#data = response.data;#}
+                {#console.log((response))#}
+                {#cols = [#}
+                    {#{"data": "id"},#}
+                    {#{"data": "nom"},#}
+                    {#{"data": "prenom"},#}
+                    {#{"data": "mail"},#}
+                    {#{"data": "tel"},#}
+                    {#{"data": "dateNaissance"},#}
+                    {#{"data": "dateCreation"},#}
+                    {#null#}
+                {#];#}
+    {#</script>#}
 
 
 
