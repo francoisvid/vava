@@ -40,9 +40,11 @@ class FavorisController extends AbstractController
 
             $entityManager->flush();
 
-            return new Response("GG");
+            $this->addFlash('success', "Bien Ajouter au favoris !");
+            return $this->redirectToRoute('map');
         }else{
-            return new Response("Fail");
+            $this->addFlash('error', "Une erreure c'est produite !");
+            return $this->redirectToRoute('map');
         }
 
 }
@@ -62,14 +64,29 @@ class FavorisController extends AbstractController
         $arrayvide = array();
 
         foreach ($newFavoris as $new) {
-            $newarray = array($new->getId(), $new->getEntreprise()->getNom());
+
+            $yolo = $new->getEntreprise()->getAdresseEnteprises();
+
+
+            foreach ($yolo as $item) {
+
+              $newarray = array(
+                  "id" => $new->getId(),
+                  "nom" => $new->getEntreprise()->getNom(),
+                  "ville" => $item->getAdresse()->getVille(),
+                  "rue" => $item->getAdresse()->getRue(),
+                  "numero" => $item->getAdresse()->getNumero(),
+                  "codePostal" => $item->getAdresse()->getCodePostal()
+              );
+            };
+
+
             array_push($arrayvide, $newarray);
         };
 
 
         $response = new Response(json_encode($arrayvide));
         $response->headers->set('Content-Type', 'application/json');
-
         return $response;
 
 
