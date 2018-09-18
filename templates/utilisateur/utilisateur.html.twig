@@ -261,13 +261,16 @@
             {#// alert(nom + ' ' + prenom);#}
     {#</script>#}
 
+
     <script>
+
+
         $('#formUser').submit(function () {
              nom = $(this).find("input[name=nom]").val();
-             prenom = $(this).find("input[name=prenom]").val()
+             prenom = $(this).find("input[name=prenom]").val();
             $.ajax({
                 method: 'post',
-                url : "http://serveurweb:8081/signe/public/utilisateur/update/1",
+                url : window.location + "/update/" + {{ utilisateur.id }},
                 data : {nom:nom, prenom:prenom},
                 success: function (response) {
                     console.log(response);
