@@ -28,10 +28,14 @@ class UtilisateurController extends AbstractController
         $post = $request->request->all();
 
 
-        var_dump($post);
+//        var_dump($post);
         //disons que tu as edit le nom
         $utilisateur->setNom($post['nom']);
         $utilisateur->setPrenom($post['prenom']);
+        $utilisateur->setMail($post['mail']);
+        $utilisateur->setTel($post['tel']);
+        $utilisateur->setSexe($post['sexe']);
+//        $utilisateur->setDateNaissance($post['date'| date("y:m:d")]);
 
         //mise en BDD des modifications de l'utilisateur
         $this->getDoctrine()->getManager()->merge($utilisateur);
