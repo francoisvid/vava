@@ -9,7 +9,8 @@
                 /* Always set the map height explicitly to define the size of the div
                        * element that contains the map. */
                 #map {
-                    height: 100%;
+                    height: 80%;
+                    width: 80%;
                 }
                 /* Optional: Makes the sample page fill the window. */
                 html, body {
@@ -98,21 +99,57 @@
             </div>
         </div>
 
-        <div class="ui menu" style="margin: 0px">
-            <div class="ui category search item">
-                <div class="ui icon input">
-                    <input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">
-                    <input class="prompt"type="text" placeholder="Latitude" id="inputLat" style="margin-left: 10px">
-                    <input class="prompt"type="text" placeholder="Longitude" id="inputLng" style="margin-left: 10px">
+
+
+<div id="accordion">
+    <div class="ui top attached tabular menu">
+        <a class="item active" data-toggle="collapse" data-target=".collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Map
+        </a>
+        <a class="item" id="liste">
+            Liste
+        </a>
+
+        <div class="right menu">
+            <div class="item">
+                <div class="ui transparent icon input">
+                    <input type="text" id="search" placeholder="Ville, Catégorie, Nom...">
                     <i class="search link icon"></i>
                 </div>
-                <div class="results"></div>
             </div>
         </div>
+    </div>
+</div>
+    <div class="collapse show collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
 
-        <div id="map">
+    </div>
+        <div class="map" id="map"></div>
 
-        </div>
+
+
+    <script>
+        $(document).ready(function(){
+            $('.ui .item').on('click', function() {
+                $('.ui .item').removeClass('active');
+                $(this).addClass('active');
+            });
+        });
+    </script>
+
+
+
+
+        {#<div class="ui menu" style="margin: 0px">#}
+            {#<div class="ui category search item">#}
+                {#<div class="ui icon input">#}
+                    {#<input class="prompt" type="text" id="search" placeholder="">#}
+                    {#<input class="prompt"type="text" placeholder="Latitude" id="inputLat" style="margin-left: 10px">#}
+                    {#<input class="prompt"type="text" placeholder="Longitude" id="inputLng" style="margin-left: 10px">#}
+                    {#<i class="search link icon"></i>#}
+                {#</div>#}
+                {#<div class="results"></div>#}
+            {#</div>#}
+        {#</div>#}
 
         </body>
         <!------ Include the above in your HEAD tag ---------->

@@ -1,7 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-    // directory where compiled assets will be stored
+// directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
@@ -18,13 +18,12 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     //CSS
-    .addStyleEntry('appCSS', './assets/css/app.css')
-    .addStyleEntry('semantic', './assets/css/semantic.min.css')
+    //    .addStyleEntry('appCSS', './assets/css/app.css')
+    //    .addStyleEntry('semantic', './assets/css/semantic.min.css')
 
     //JavaScript
-    .addEntry('appJS', './assets/js/app.js')
-    .addEntry('semanticJS', './assets/js/semantic.min.js')
-    .addEntry('package', './assets/js/package.js')
+    //    .addEntry('appJS', './assets/js/app.js')
+    //    .addEntry('semanticJS', './assets/js/semantic.min.js')
 
     /*
      * FEATURE CONFIG
@@ -42,12 +41,21 @@ Encore
     // enables Sass/SCSS support
     //.enableSassLoader()
 
+    // .addEntry('js/sem', './assets/js/app.js')
+    .addEntry('js/admin', './assets/js/admin.js')
+    .addEntry('js/user', './assets/js/user.js')
+    //.addEntry('js/datatable', './assets/DataTables/datatables.js')
+    //.addStyleEntry('css/datatable', './assets/DataTables/datatables.css')
+    .addStyleEntry('css/user', './assets/css/user.css')
+    .addStyleEntry('css/base', './assets/css/base.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
     // uncomment if you're having problems with a jQuery plugin
-    //.autoProvidejQuery()
-;
+    .autoProvidejQuery()
 
+
+    .configureFilenames({
+        images: 'image/[name].[ext]'
+    });
 module.exports = Encore.getWebpackConfig();
-

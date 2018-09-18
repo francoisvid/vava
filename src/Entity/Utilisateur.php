@@ -107,6 +107,11 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     private $privilege;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
     public function __construct()
     {
         $this->actualites = new ArrayCollection();
@@ -167,7 +172,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getTel(): int
+    public function getTel(): ?int
     {
         return $this->tel;
     }
@@ -179,7 +184,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateNaissance(): DateTimeInterface
+    public function getDateNaissance(): ?DateTimeInterface
     {
         return $this->dateNaissance;
     }
@@ -302,7 +307,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getSexe(): string
+    public function getSexe(): ?string
     {
         return $this->sexe;
     }
@@ -394,6 +399,18 @@ class Utilisateur implements UserInterface, SerializerInterface
     public function setPrivilege(?Privilege $privilege): self
     {
         $this->privilege = $privilege;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
