@@ -40,6 +40,7 @@ class Utilisateur implements UserInterface, SerializerInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message = "L'email '{{ value }}' n'est pas une adresse email valide.", checkMX = true)
      */
     private $mail;
 
