@@ -97,7 +97,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     private $favoris;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, columnDefinition="enum('Homme', 'Femme', 'Autre')")
      */
     private $sexe;
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Adresse;
 use App\Entity\Privilege;
 use App\Entity\Utilisateur;
 use App\Form\RegisterType;
@@ -25,6 +26,18 @@ class SecurityController extends AbstractController
         $user = new Utilisateur();
         $form = $this->createForm(RegisterType::class, $user);
 
+        $adresse = new Adresse();
+        $adresse->setNumero(null)
+                ->setRue('')
+                ->setVille('')
+                ->setCodePostal(null);
+
+        $manager->persist($adresse);
+        $manager->flush();
+
+//        var_dump($adresse);
+
+
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
 
@@ -34,6 +47,7 @@ class SecurityController extends AbstractController
 
             $user->setPrivilege($manager->find(Privilege::class,1))
                  ->setDateCreation(new \DateTime())
+                 ->setAdresse($adresse)
                  ->setActif(true)
                  ->setIsDeleted(false)
                  ->setMdp($hash);

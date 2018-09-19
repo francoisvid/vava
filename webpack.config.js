@@ -57,5 +57,6 @@ Encore
 
     .configureFilenames({
         images: 'image/[name].[ext]'
+
     });
 module.exports = Encore.getWebpackConfig();

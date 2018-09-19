@@ -1,26 +1,40 @@
 // Mise ajour de l'utilisateur
 
-$('#formUser').submit(function () {
+
+$(document).ready(function() {
+    $('#formUser').submit(function () {
+        return false;
+    });
+});
+
+window.update = function(id){
     data = {
-        nom : $(this).find("input[name=nom]").val(),
-        prenom : $(this).find("input[name=prenom]").val(),
-        mail : $(this).find("input[name=mail]").val(),
-        tel : $(this).find("input[name=tel]").val(),
-        sexe : $(this).find("input[name=sexe]").val(),
+
+        numero : $('#numero').val(),
+        rue : $('#rue').val(),
+        ville : $('#ville').val(),
+        codepostal : $('#codepostal').val(),
+        nom : $('#nom').val(),
+        prenom : $('#prenom').val(),
+        mail : $('#mail').val(),
+        tel : $('#tel').val(),
+        sexe : $('#sexe').val(),
+        date : $('#').val()
         // date : $(this).find("input[name=date]").val(),
     }
+    console.log(data);
     $.ajax({
-        method: 'post',
-        url : window.location + "/update/" + utilisateur.id,
-    data : data,
+        type: 'post',
+        url : window.location + "/update/" + id,
+        data : data,
         success: function (response) {
-        console.log(response);
-    },
-    error(xhr, status, error){
-        // alert(xhr.responseText)
-        console.log(status);
-        console.log(error);
-    }
-});
-    return response;
-});
+            $('#nomBarNav').text(data.nom);
+            console.log(response);
+        },
+        error(xhr, status, error){
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        }
+    });
+}
