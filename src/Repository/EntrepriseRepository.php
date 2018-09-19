@@ -19,6 +19,18 @@ class EntrepriseRepository extends ServiceEntityRepository
         parent::__construct($registry, Entreprise::class);
     }
 
+    public function findAllIfNotDel(){
+        return $this->findBy(array("isDeleted" => false));
+    }
+    
+    public function FindAllDeleted(){
+        return $this->findBy(array("isDeleted" => true));
+    }
+    
+    public function FindAllInactive(){
+        return $this->findBy(array("isDeleted" => false, "visible" => false));
+    }
+    
 //    /**
 //     * @return Entreprise[] Returns an array of Entreprise objects
 //     */

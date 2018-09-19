@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use App\Repository\UtilisateurRepository;
+use App\Repository\EntrepriseRepository;
 use DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -202,5 +203,26 @@ class AdminController extends AbstractController
         $users = $utilisateurRepository->FindAllDeleted();
 //        var_dump($users);
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+    
+    /**
+     * @Route("/company/active", name="company_active", methods="GET")
+     * 
+     */
+    public function getAllCompanyActive(EntrepriseRepository $entRepo){
+        
+        $ent = $entRepo->FindAllIfNotDel();
+        return $this->json(array("data" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+    
+    /**
+     * @Route("/company/active", name="company_active", methods="GET")
+     * 
+     */
+    public function getAllCompanyDelInactive(EntrepriseRepository $entRepo){
+        
+        $ent = $entRepo->FindAllIfNotDel();
+        $ents = $entRepo->FindAllIfNotDel();
+        return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 }

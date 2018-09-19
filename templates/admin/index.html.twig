@@ -11,19 +11,19 @@
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" id="adminaside">
                         <li class="nav-item">
-                            <a class="nav-link pl-0 text-nowrap" href="" onclick="return false;"><i class="fa fa-bullseye fa-fw"></i> <span class="font-weight-bold">Accueil</span></a>
+                            <a class="nav-link pl-0" href="/" ><i class="fas fa-home"></i> <span class="font-weight-bold">Accueil</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#users" ><i class="fa fa-heart-o fa-fw"></i> <span class="d-none d-md-inline">Utilisateurs</span></a>
+                            <a class="nav-link pl-0" href="#users" ><i class="fas fa-user"></i> <span class="d-none d-md-inline">Utilisateurs</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#usersuppr" ><i class="fa fa-book fa-fw"></i> <span class="d-none d-md-inline">Utilisateurs supprimés</span></a>
+                            <a class="nav-link pl-0" href="#usersuppr" ><i class="fas fa-user-times"></i>{#<i class="fa fa-book fa-fw"></i>#} <span class="d-none d-md-inline">Utilisateurs supprimés</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#"><i class="fa fa-heart fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                            <a class="nav-link pl-0" href="#company"><i class="fas fa-briefcase"></i> <span class="d-none d-md-inline">Entreprises</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#"><i class="fa fa-star fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                            <a class="nav-link pl-0" href="#"><i class="fas fa-business-time"></i> <span class="d-none d-md-inline">Link</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pl-0" href="#"><i class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
@@ -33,18 +33,18 @@
             </nav>
         </aside>
     
-    <div class="col bg-faded py-3 admincontent" id="users">
+    <div class="col bg-faded py-3 col-md-9 admincontent" id="users">
     <h1>Tableau des utilisateurs actifs</h1>
-<table id="table1" class="display col bg-faded py-3" style="width:90%">
+<table id="table1" class="display table table-striped table-bordered nowrap" style="width:100%!important">
         <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-                <th>Tel</th>
-                <th>DateNaissance</th>
-                <th>DateCreation</th>
+{#                <th>Tel</th>#}
+{#                <th>DateNaissance</th>#}
+{#                <th>DateCreation</th>#}
 {#                <th>Actif</th>
                 <th>IsDeleted</th>#}
 {#                <th>Sexe</th>#}
@@ -55,13 +55,13 @@
         </tbody>
         <tfoot>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-                <th>Tel</th>
-                <th>DateNaissance</th>
-                <th>DateCreation</th>
+{#                <th>Tel</th>#}
+{#                <th>DateNaissance</th>#}
+{#                <th>DateCreation</th>#}
 {#                <th>Actif</th>#}
 {#                <th>IsDeleted</th>#}
 {#                <th>Sexe</th>#}
@@ -70,18 +70,18 @@
         </tfoot>
 </table>
     </div>
-    <div class="col bg-faded py-3 admincontent" id="usersuppr">
-    <h1>Tableau des utilisateurs inactifs(suppr)</h1>
-        <table id="table2" class="display" style="width:90%">
+    <div class="col bg-faded py-3  col-md-9 admincontent" id="usersuppr">
+    <h4>Tableau des utilisateurs inactifs</h4>
+        <table id="table2" class="display table table-striped table-bordered nowrap" style="width:100%!important">
                 <thead>
                     <tr>
-                        <th>Id</th>
+{#                        <th>Id</th>#}
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Mail</th>
-                        <th>Tel</th>
-                        <th>DateNaissance</th>
-                        <th>DateCreation</th>
+{#                        <th>Tel</th>#}
+{#                        <th>DateNaissance</th>
+                        <th>DateCreation</th>#}
                         <th>actions</th>
                     </tr>
                 </thead>
@@ -89,41 +89,135 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Id</th>
+{#                        <th>Id</th>#}
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Mail</th>
-                        <th>Tel</th>
-                        <th>DateNaissance</th>
-                        <th>DateCreation</th>
+{#                        <th>Tel</th>#}
+{#                        <th>DateNaissance</th>
+                        <th>DateCreation</th>#}
                         <th>actions</th>
                     </tr>
                 </tfoot>
             </table>
     </div>
-    </div>
+                        
+<div class="col bg-faded py-3  col-md-9 admincontent" id="company">
+    <h1>Tableau des entreprises actives</h1>
+    <table id="table3" class="display table table-striped table-bordered nowrap" style="width:100%!important">
+            <thead>
+                <tr>
+{#                    <th>Id</th>#}
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+{#                    <th>Logo</th>#}
+                    <th>remarque</th>
+{#                    <th>SalariesFormes</th>#}
+{#                    <th>Site Web</th>#}
+                    <th>Pub</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+{#                    <th>Id</th>#}
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+{#                    <th>Logo</th>#}
+                    <th>remarque</th>
+{#                    <th>SalariesFormes</th>#}
+{#                    <th>Site Web</th>#}
+                    <th>Pub</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+    </table>
 </div>
                         
-{#<div class="modal" tabindex="-1" role="dialog" id="editTable1">
+    </div>
+</div>
+            
+<div class="modal" tabindex="-1" role="dialog" id="editTable1">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Edition de l'utilisateur</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" id="nom" name="nom" >
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom :</label>
+        <input class="form-control" type="text" id="prenom" name="prenom" >
+    </div>
+    <div class="form-group">
+        <label for="prenom">Email :</label>
+        <input class="form-control" type="text" id="email" name="mail" >
       </div>
+
+    
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>#}
-                        
+</div>
+</div>
+    
+
+<div class="modal " id="modalEnt" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="titreEnt">Entreprise</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+              <div class="modal-body">
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" id="nomEnt" name="nom" >
+    </div>
+    <div class="form-group">
+        <label for="telEnt">Tel :</label>
+        <input class="form-control" type="tel" id="telEnt" name="tel" >
+    </div>
+    <div class="form-group">
+        <label for="emailEnt">Email :</label>
+        <input class="form-control" type="email" id="emailEnt" name="mail" >
+      </div>
+    <div class="form-group">
+        <label for="logoEnt">logo :</label>
+        <input class="form-control" type="text" id="logoEnt" name="logo" >
+      </div>
+    <div class="form-group">
+        <label for="salariesFormes">Nombre de salariés formés :</label>
+        <input class="form-control" type="number" id="salariesFormes" name="salariesFormes" >
+      </div>
+  <div class="form-group">
+    <label for="remarqueEnt">Remarque :</label>
+    <textarea class="form-control" id="remarqueEnt" rows="3"></textarea>
+  </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div> 
                         
             <script>  
 var cols = [{"data": "id"},{"data": "nom"},{"data": "prenom"},{"data": "mail"},{"data": "tel"},{"data": "dateNaissance"},{"data": "dateCreation"},null];
@@ -131,6 +225,7 @@ var names = null;
 var datatables = null;
 var table= null;
 var table2= null;
+var table3= null;
 $(document).ready(function() {
                 $.ajax({
                 method: "get",
@@ -139,13 +234,13 @@ $(document).ready(function() {
             }).done( function(response) {
                 console.log((response))
                         cols = [
-            {"data": "id"},
+{#            {"data": "id"},#}
             {"data": "nom"},
             {"data": "prenom"},
             {"data": "mail"},
-            {"data": "tel"},
-            {"data": "dateNaissance"},
-            {"data": "dateCreation"},
+{#            {"data": "tel"},#}
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
             null
         ];
              table=    $('#table1').DataTable({
@@ -155,13 +250,14 @@ $(document).ready(function() {
                     ajax: {
                         url: window.location+"user/actif",
                         dataSrc: "data"},
-                    responsive: true,
+                    responsive: false,
                     lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
                     pageLength: 10,
+                    bAutoWidth: false,
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button id='edit' data-toggle='modal' data-target='#editTable1'>Edit.</button><button id='suppr'>Suppr.</button>"
+        defaultContent: "<button id='edit' class='btn btn-primary' data-toggle='modal' data-target='#editTable1'><i class='fas fa-edit'></i></button><button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
     } ],
                     columns: cols
                 });
@@ -170,11 +266,14 @@ $(document).ready(function() {
                 console.log(status);
                 console.log(error);
             });
-    
+{#    new $.fn.dataTable.FixedHeader( table );#}
 } ); 
 
     $('#table1 tbody').on( 'click', '#edit', function () {
         var data = table.row( $(this).parents('tr') ).data();
+        $('#prenom').val(data["prenom"]);
+        $('#nom').val(data["nom"]);
+        $('#email').val(data["mail"]);
         alert( data["nom"] +" peut être modifié");
     } );
     $('#table1 tbody').on( 'click', '#suppr', function () {
@@ -189,13 +288,13 @@ $(document).ready(function() {
     
     // Partie dédiée à la table des utilisateurs supprimés
     cols = [
-            {"data": "id"},
+{#            {"data": "id"},#}
             {"data": "nom"},
             {"data": "prenom"},
             {"data": "mail"},
-            {"data": "tel"},
-            {"data": "dateNaissance"},
-            {"data": "dateCreation"},
+{#            {"data": "tel"},#}
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
             null];
     table2 =    $('#table2').DataTable({
                     language: {
@@ -211,7 +310,7 @@ $(document).ready(function() {
         targets: -1,
         data: null,
 {#        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"#}
-        defaultContent: "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editTable1'>Launch demo modal</button>"
+        defaultContent: "<button type='button' class='btn btn-success'><i class='far fa-check-circle'></i> Réactiver</button>"
     } ],
                     columns: cols
                 });
@@ -232,6 +331,62 @@ $(document).ready(function() {
         .draw();
     } );
     
+    
+    /* Partie dédié à la datatable des entreprises actives */
+
+    cols = [
+{#            {"data": "id"},#}
+            {"data": "nom"},
+            {"data": "tel"},
+            {"data": "mail"},
+{#            {"data": "logo"},#}
+            {"data": "remarque"},
+{#            {"data": "salariesFormes"},#}
+{#            {"data": "siteWeb"},#}
+            {"data": "pub"},
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
+            null];
+    table3 =    $('#table3').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"company/active",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'>Plus de détails</button>"
+    } ],
+                    columns: cols
+                });
+            
+    
+
+    $('#table3 tbody').on( 'click', '#btnEnt', function () {
+        var data = table3.row( $(this).parents('tr') ).data();
+        $("#titreEnt").text("Entreprise "+data.nom);
+        $("#nomEnt").val(data.nom);
+        $("#telEnt").val(data.tel);
+        $("#emailEnt").val(data.mail);
+        $("#logoEnt").val(data.logo);
+        $("#salariesFormes").val(data.salariesFormes);
+        $("#remarqueEnt").val(data.remarque);
+{#        alert( data["nom"] +" peut être modifié");#}
+    } );
+    {#$('#table3 tbody').on( 'click', '#react', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        unbanUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table2
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );#}
     
         var n = document.createElement('script');
         n.setAttribute('language', 'JavaScript');
@@ -269,6 +424,7 @@ $(document).ready(function() {
     $(target).show();
   });
 });
+
 </script>
 
             <script>
