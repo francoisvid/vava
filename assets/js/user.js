@@ -19,7 +19,7 @@ window.update = function(id){
         mail : $('#mail').val(),
         tel : $('#tel').val(),
         sexe : $('#sexe').val(),
-        date : $('#').val()
+        date : $('#datenaissance').val()
         // date : $(this).find("input[name=date]").val(),
     }
     console.log(data);
