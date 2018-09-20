@@ -46,10 +46,10 @@ Encore
     .addEntry('img', './assets/js/recursifEncore.js')
     .addEntry('sem', './assets/js/app.js')
     .addEntry('admin', './assets/js/admin.js')
-    .addEntry('datatablejs', './assets/DataTables/datatables.js')
+    // .addEntry('datatablejs', './assets/DataTables/datatables.js')
     .addStyleEntry('css/user', './assets/css/user.css')
     .addStyleEntry('css/base', './assets/css/base.css')
-    .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')
+    // .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
