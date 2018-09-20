@@ -40,7 +40,6 @@ class Utilisateur implements UserInterface, SerializerInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(message = "L'email '{{ value }}' n'est pas une adresse email valide.", checkMX = true)
      */
     private $mail;
 
@@ -98,7 +97,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     private $favoris;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition="enum('Homme', 'Femme', 'Autre')")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $sexe;
 
@@ -107,11 +106,6 @@ class Utilisateur implements UserInterface, SerializerInterface
      * @ORM\JoinColumn(nullable=false)
      */
     private $privilege;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $photo;
 
     public function __construct()
     {
@@ -188,12 +182,12 @@ class Utilisateur implements UserInterface, SerializerInterface
     public function getDateNaissance(): ?string
     {
         if($this->dateNaissance !== null){
-        return $this->dateNaissance->format("Y-m-d H:i:s");
+            return $this->dateNaissance->format("Y-m-d H:i:s");
         }else{
-           return '';
+            return '';
         }
 //        return $this->dateNaissance->format("Y-m-d H:i:s");
-        
+
     }
 
     public function setDateNaissance(DateTimeInterface $dateNaissance): self
@@ -206,9 +200,9 @@ class Utilisateur implements UserInterface, SerializerInterface
     public function getDateCreation(): ?string
     {
         if($this->dateCreation !== null){
-        return $this->dateCreation->format("Y-m-d H:i:s"); 
+            return $this->dateCreation->format("Y-m-d H:i:s");
         }else{
-           return '';
+            return '';
         };
 //        return $this->DateCreation->format("Y-m-d H:i:s");
     }
@@ -411,18 +405,6 @@ class Utilisateur implements UserInterface, SerializerInterface
     public function setPrivilege(?Privilege $privilege): self
     {
         $this->privilege = $privilege;
-
-        return $this;
-    }
-
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(?string $photo): self
-    {
-        $this->photo = $photo;
 
         return $this;
     }

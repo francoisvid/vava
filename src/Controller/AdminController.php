@@ -23,9 +23,9 @@ use function Symfony\Component\Debug\header;
 
 //use Symfony\Flex\Response;
 
-    /**
-     * @Route("/admin", name="admin")
-     */
+/**
+ * @Route("/admin", name="admin")
+ */
 class AdminController extends AbstractController
 {
     /**
@@ -37,14 +37,14 @@ class AdminController extends AbstractController
         return $this->render('admin/index.html.twig', ['utilisateurs' => $utilisateurRepository->findAllIfNotDel(),
             'utilisateursban' => $utilisateurRepository->FindAllDeleted()]);
     }
-    
+
     /*
      * 
      * Partie dédiée à l'interraction avec la table utilisateur de la base de données
      * 
      */
-    
-      /**
+
+    /**
      * @Route("/a", name="admin_user_index", methods="GET")
      */
     public function indexbis(UtilisateurRepository $utilisateurRepository): Response
@@ -118,11 +118,11 @@ class AdminController extends AbstractController
 
         return $this->redirectToRoute('utilisateur_index');
     }
-    
+
     /**
      * @Route("/user/del/{id}", name="delete_user")
      * @Method({"GET"})
-     * 
+     *
      */
     public function test(Utilisateur $user)
     {
@@ -138,11 +138,11 @@ class AdminController extends AbstractController
         //return "Et c'est le GG!";//$this->redirectToRoute('admin_user_index');
         //return $this->render('admin/index.html.twig');
     }
-    
-    
+
+
     /**
      * @Route("/user/unb/{id}", name="unban_user", methods="GET|POST")
-     * 
+     *
      */
     public function unban(Utilisateur $user)
     {
@@ -159,18 +159,18 @@ class AdminController extends AbstractController
         $encoder = new JsonEncoder();
         $normalizer = new GetSetMethodNormalizer();
 
-        
+
         $dateTime = $user->getDateCreation();
         $callback = function ($dateTime) {
             return $dateTime instanceof \DateTime
-            ? $dateTime->format("Y-m-d H:i:s")
-            : '';
-};
+                ? $dateTime->format("Y-m-d H:i:s")
+                : '';
+        };
         $normalizer->setCallbacks(array('dateCreation' => $callback, 'dateNaissance' => $callback));
-                
+
         $normalizer->setIgnoredAttributes(array("utilisateurs", "mdp", "password", "username", "salt", "dateNaissance", "dateCreation", "tel", "actif", "isDeleted", "adresse", "actualites", "favoris", "sexe", "roles", "role", "privilege"));
 
-        
+
         $serializer = new Serializer(array($normalizer), array($encoder),array(new DateTimeNormalizer()));
         $test = ($serializer->serialize($user, 'json'));
         $users = array($user);
@@ -182,13 +182,13 @@ class AdminController extends AbstractController
 //        return new \Symfony\Component\HttpFoundation\JsonResponse($serializer->serialize($user, 'json'));
 //        return $this->json(array("gg" => $user), 200, array("Content-Type" => "application/json", "charset" => "utf-8"), array("CircularReference" => 5));
     }
-    
+
     /**
      * @Route("/user/actif", name="user_actif", methods="GET")
-     * 
+     *
      */
     public function getAllUsersActif(UtilisateurRepository $utilisateurRepository){
-        
+
         $users = $utilisateurRepository->FindAllIfNotDel();
 //        var_dump(json_encode($users));
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
@@ -196,31 +196,31 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/user/del", name="user_del", methods="GET")
-     * 
+     *
      */
     public function getAllUsersDeleted(UtilisateurRepository $utilisateurRepository){
-        
+
         $users = $utilisateurRepository->FindAllDeleted();
 //        var_dump($users);
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
-    
+
     /**
      * @Route("/company/active", name="company_active", methods="GET")
-     * 
+     *
      */
     public function getAllCompanyActive(EntrepriseRepository $entRepo){
-        
+
         $ent = $entRepo->FindAllIfNotDel();
         return $this->json(array("data" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
-    
+
     /**
      * @Route("/company/active", name="company_active", methods="GET")
-     * 
+     *
      */
     public function getAllCompanyDelInactive(EntrepriseRepository $entRepo){
-        
+
         $ent = $entRepo->FindAllIfNotDel();
         $ents = $entRepo->FindAllIfNotDel();
         return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
