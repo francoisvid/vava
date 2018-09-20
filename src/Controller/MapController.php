@@ -19,7 +19,12 @@ class MapController extends AbstractController
     public function index(Request $request)
     {
         // Je regarde ce qui est pas ser dans l'uri avec le parametre "q" que j'envoie dans ma fonction recherche
-        $recherche = $this->recherche($request->query->get('q'));
+        $q = $request->query->get('q');
+        if(isset($q)){
+            $recherche = $this->recherche($request->query->get('q'));
+        }else{
+            $recherche = null;
+        }
 
         $apikey = 'key-4Ry3eEOG6HCT7e3Xz9lwJqZY';
         $ney = "sdqedqezdqzd";
