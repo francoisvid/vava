@@ -34,7 +34,6 @@
         <div id="map">
 
         </div>
-
     </div>
     </body>
     <!------ Include the above in your HEAD tag ---------->
@@ -156,8 +155,6 @@
                 map: map
             });
 
-
-
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     infowindow.setContent(locations[i][0]);
@@ -218,7 +215,7 @@
                     if(status == google.maps.GeocoderStatus.OK){
                         var pos = results[0].geometry.location;
                         map.setCenter(pos);
-                        marker.setPosition(pos);
+                        // marker.setPosition(pos);
                         setPostion(marker);
                     }
                 });
@@ -234,10 +231,5 @@
             $('#inputLng').val(pos.lng());
         }
     </script>
-
-
-
-
-
 
 {% endblock %}
