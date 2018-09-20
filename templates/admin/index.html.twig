@@ -177,47 +177,70 @@
 
 <div class="modal " id="modalEnt" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="titreEnt">Entreprise</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-              <div class="modal-body">
-    <div class="form-group">
-        <label for="nom">Nom :</label>
-        <input class="form-control" type="text" id="nomEnt" name="nom" >
+    <div class="modal-content" >
+        <div class="container item info centered active">
+            <form method="POST" class="ui form" id="formUser" style="margin: 30px 30px 30px 30px">
+                <h2 class="ui dividing header">Informations de l'entreprise</h2>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Nom</label>
+                        <input type="text" name="nom" id="nom">
+                    </div>
+                    <div class="field">
+                        <label>Mail</label>
+                        <input type="text" name="prenom" id="prenom">
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Logo</label>
+                        <input type="text" name="mail" id="mail">
+                    </div>
+                    <div class="field">
+                        <label>Numéro de téléphone</label>
+                        <input type="text" name="tel" id="tel">
+                    </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Site web</label>
+                        <div class="field">
+                            <input type="text" name="tel" id="tel">
+                        </div>
+                    </div>
+                    {#<p>Date: <input type="text" id="datepicker"></p>#}
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Salarie</label>
+                            <input type="number" name="numero" id="numero" >
+                        </div>
+                        <div class="field" style="margin-top: 30px;">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" name="public">
+                                <label>Visible</label>
+                            </div>
+                        </div>
+                        <div class="field" style="margin-top: 30px;">
+                            <div class="ui toggle checkbox">
+                                <input type="checkbox" name="public">
+                                <label>Pub</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="ui form">
+                        <div class="field">
+                            <label>Remarques</label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+            </form>
     </div>
-    <div class="form-group">
-        <label for="telEnt">Tel :</label>
-        <input class="form-control" type="tel" id="telEnt" name="tel" >
-    </div>
-    <div class="form-group">
-        <label for="emailEnt">Email :</label>
-        <input class="form-control" type="email" id="emailEnt" name="mail" >
-      </div>
-    <div class="form-group">
-        <label for="logoEnt">logo :</label>
-        <input class="form-control" type="text" id="logoEnt" name="logo" >
-      </div>
-    <div class="form-group">
-        <label for="salariesFormes">Nombre de salariés formés :</label>
-        <input class="form-control" type="number" id="salariesFormes" name="salariesFormes" >
-      </div>
-  <div class="form-group">
-    <label for="remarqueEnt">Remarque :</label>
-    <textarea class="form-control" id="remarqueEnt" rows="3"></textarea>
   </div>
-    
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-    </div>
-  </div>
-</div> 
+</div>
+
+
+
                         
             <script>  
 var cols = [{"data": "id"},{"data": "nom"},{"data": "prenom"},{"data": "mail"},{"data": "tel"},{"data": "dateNaissance"},{"data": "dateCreation"},null];
@@ -435,5 +458,5 @@ $(document).ready(function() {
                 })
             ;
         </script>
-            <script src="{{ asset('build/admin.js') }}"/>
+    <script src="{{ asset('./build/js/admin.js') }}"></script>
 {% endblock %}
