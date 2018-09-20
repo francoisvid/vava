@@ -228,6 +228,7 @@ class AdminController extends AbstractController
         return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 
+
     /**
      * @Route("/news/create", name="addNews", methods="POST")
      */
