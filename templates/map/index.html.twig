@@ -101,8 +101,8 @@
     <!-- ./Footer -->
 
     </html>
- 
- 
+
+
 {% endblock %}
 
 {% block javascripts %}
@@ -213,7 +213,7 @@
                 var request = {
                     address : $(this).val()
                 }
-        //
+                //
                 geocoder.geocode(request, function(results, status){
                     if(status == google.maps.GeocoderStatus.OK){
                         var pos = results[0].geometry.location;
