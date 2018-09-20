@@ -41,13 +41,15 @@ Encore
     // enables Sass/SCSS support
     //.enableSassLoader()
 
-    // .addEntry('js/sem', './assets/js/app.js')
     .addEntry('js/admin', './assets/js/admin.js')
     .addEntry('js/user', './assets/js/user.js')
-    //.addEntry('js/datatable', './assets/DataTables/datatables.js')
-    //.addStyleEntry('css/datatable', './assets/DataTables/datatables.css')
+    .addEntry('img', './assets/js/recursifEncore.js')
+    .addEntry('sem', './assets/js/app.js')
+    .addEntry('admin', './assets/js/admin.js')
+    // .addEntry('datatablejs', './assets/DataTables/datatables.js')
     .addStyleEntry('css/user', './assets/css/user.css')
     .addStyleEntry('css/base', './assets/css/base.css')
+    // .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
