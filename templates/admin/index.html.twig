@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link pl-0" href="#addCat"><i class="fas fa-plus"></i><span class="d-none d-md-inline">Ajouter une catégorie</span></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#addNews"><i class="fas fa-plus"></i><span class="d-none d-md-inline"> Ajouter une News</span></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -141,8 +144,31 @@
     </table>
 </div>
                         
+        {#-------------------------------Formulaire qui permet de rajouter des NEWS--------------------------------------#}
+        <div class="col bg-faded py-3  col-md-9 admincontent" id="addNews">
+            <form class="ui form" id="news">
+                <div class="field">
+                    <label>Titre</label>
+                    <input type="text" name="titre" id="titre" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <label>Contenu</label>
+                    <textarea type="text" name="contenu" id="contenu" placeholder="Last Name"></textarea>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="visibilite" id="visibilite" class="hidden">
+                        <label>Visible</label>
+                    </div>
+                </div>
+                <button type="submit" onclick="addNews()" class="btn btn-outline-success">Success</button>
+            </form>
+        </div>
     </div>
 </div>
+
+
+
             
 <div class="modal" tabindex="-1" role="dialog" id="editTable1">
   <div class="modal-dialog" role="document">
@@ -231,21 +257,18 @@
                         </div>
                     </div>
                 </div>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>Remarques</label>
-                            <textarea></textarea>
-                        </div>
+                <div class="ui form">
+                    <div class="field">
+                        <label>Remarques</label>
+                        <textarea></textarea>
                     </div>
+                </div>
             </form>
+        </div>
     </div>
   </div>
-</div>
 
-
-
-                        
-            <script>  
+  <script>
 var cols = [{"data": "id"},{"data": "nom"},{"data": "prenom"},{"data": "mail"},{"data": "tel"},{"data": "dateNaissance"},{"data": "dateCreation"},null];
 var names = null;
 var datatables = null;
@@ -456,13 +479,13 @@ $(document).ready(function() {
 
 </script>
 
-            <script>
-            $('#popup')
-                .popup({
-                    inline: true,
-                    on:'click'
-                })
-            ;
-        </script>
-    <script src="{{ asset('./build/js/admin.js') }}"></script>
+<script>
+$('#popup').popup({
+    inline: true,
+    on:'click'
+});
+</script>
+
+<script src="{{ asset('./build/js/admin.js') }}"></script>
+<script src="{{ asset('./build/admin.js') }}"></script>
 {% endblock %}
