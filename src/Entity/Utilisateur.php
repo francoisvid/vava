@@ -68,7 +68,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $DateCreation;
+    private $dateCreation;
 
     /**
      * @ORM\Column(type="boolean")
@@ -185,9 +185,15 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateNaissance(): ?DateTimeInterface
+    public function getDateNaissance(): ?string
     {
-        return $this->dateNaissance;
+        if($this->dateNaissance !== null){
+        return $this->dateNaissance->format("Y-m-d H:i:s");
+        }else{
+           return '';
+        }
+//        return $this->dateNaissance->format("Y-m-d H:i:s");
+        
     }
 
     public function setDateNaissance(DateTimeInterface $dateNaissance): self
@@ -197,19 +203,24 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getDateCreation(): DateTimeInterface
+    public function getDateCreation(): ?string
     {
-        return $this->DateCreation;
+        if($this->dateCreation !== null){
+        return $this->dateCreation->format("Y-m-d H:i:s"); 
+        }else{
+           return '';
+        };
+//        return $this->DateCreation->format("Y-m-d H:i:s");
     }
 
     public function setDateCreation(DateTimeInterface $DateCreation): self
     {
-        $this->DateCreation = $DateCreation;
+        $this->dateCreation = $DateCreation;
 
         return $this;
     }
 
-    public function getActif(): bool
+    public function getActif(): ?bool
     {
         return $this->actif;
     }
@@ -221,7 +232,7 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function getIsDeleted(): bool
+    public function getIsDeleted(): ?bool
     {
         return $this->isDeleted;
     }
@@ -234,7 +245,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     }
 
 
-    public function getAdresse(): Adresse
+    public function getAdresse(): ?Adresse
     {
         return $this->adresse;
     }
@@ -249,7 +260,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @return Collection|Actualite[]
      */
-    public function getActualites(): Collection
+    public function getActualites(): ?Collection
     {
         return $this->actualites;
     }
@@ -280,7 +291,7 @@ class Utilisateur implements UserInterface, SerializerInterface
     /**
      * @return Collection|Favoris[]
      */
-    public function getFavoris(): Collection
+    public function getFavoris(): ?Collection
     {
         return $this->favoris;
     }
@@ -392,9 +403,9 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     public function eraseCredentials(){}
 
-    public function getPrivilege(): ?Privilege
+    public function getPrivilege(): ?string
     {
-        return $this->privilege;
+        return $this->privilege->getRole();
     }
 
     public function setPrivilege(?Privilege $privilege): self

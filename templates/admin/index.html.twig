@@ -3,53 +3,437 @@
 {% block title %}admin index{% endblock %}
 
 {% block body %}
-    <h1>Utilisateur index</h1>
-
-    <table class="table">
+    
+    <div class="container-fluid h-100">
+    <div class="row h-100">
+        <aside class="col-12 col-md-2 p-0 bg-dark">
+            <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+                <div class="collapse navbar-collapse">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" id="adminaside">
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="/" ><i class="fas fa-home"></i> <span class="font-weight-bold">Accueil</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#users" ><i class="fas fa-user"></i> <span class="d-none d-md-inline">Utilisateurs</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#usersuppr" ><i class="fas fa-user-times"></i>{#<i class="fa fa-book fa-fw"></i>#} <span class="d-none d-md-inline">Utilisateurs supprimés</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#company"><i class="fas fa-briefcase"></i> <span class="d-none d-md-inline">Entreprises</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"><i class="fas fa-business-time"></i> <span class="d-none d-md-inline">Link</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#"><i class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+    
+    <div class="col bg-faded py-3 col-md-9 admincontent" id="users">
+    <h1>Tableau des utilisateurs actifs</h1>
+<table id="table1" class="display table table-striped table-bordered nowrap" style="width:100%!important">
         <thead>
             <tr>
-                <th>Id</th>
+{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-                <th>Mdp</th>
-                <th>Tel</th>
-                <th>DateNaissance</th>
-                <th>DateCreation</th>
-                <th>Actif</th>
-                <th>IsDeleted</th>
-                <th>Sexe</th>
+{#                <th>Tel</th>#}
+{#                <th>DateNaissance</th>#}
+{#                <th>DateCreation</th>#}
+{#                <th>Actif</th>
+                <th>IsDeleted</th>#}
+{#                <th>Sexe</th>#}
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for utilisateur in utilisateurs %}
-            <tr>
-                <td>{{ utilisateur.id }}</td>
-                <td>{{ utilisateur.nom }}</td>
-                <td>{{ utilisateur.prenom }}</td>
-                <td>{{ utilisateur.mail }}</td>
-                <td>{{ utilisateur.mdp }}</td>
-                <td>{{ utilisateur.tel }}</td>
-                <td>{{ utilisateur.dateNaissance ? utilisateur.dateNaissance|date('Y-m-d') : '' }}</td>
-                <td>{{ utilisateur.DateCreation ? utilisateur.DateCreation|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ utilisateur.actif ? 'Yes' : 'No' }}</td>
-                <td>{{ utilisateur.isDeleted ? 'Yes' : 'No' }}</td>
-                <td>{{ utilisateur.sexe }}</td>
-                <td>
-                    
-{#                    <a href="{{ path('delete_user', {'id': utilisateur.id}) }}">show</a>#}
-                    <a href="{{ path('utilisateur_show', {'id': utilisateur.id}) }}">show</a>
-                    <a href="{{ path('utilisateur_edit', {'id': utilisateur.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="12">no records found</td>
-            </tr>
-        {% endfor %}
         </tbody>
+        <tfoot>
+            <tr>
+{#                <th>Id</th>#}
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+{#                <th>Tel</th>#}
+{#                <th>DateNaissance</th>#}
+{#                <th>DateCreation</th>#}
+{#                <th>Actif</th>#}
+{#                <th>IsDeleted</th>#}
+{#                <th>Sexe</th>#}
+                <th>actions</th>
+            </tr>
+        </tfoot>
+</table>
+    </div>
+    <div class="col bg-faded py-3  col-md-9 admincontent" id="usersuppr">
+    <h4>Tableau des utilisateurs inactifs</h4>
+        <table id="table2" class="display table table-striped table-bordered nowrap" style="width:100%!important">
+                <thead>
+                    <tr>
+{#                        <th>Id</th>#}
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Mail</th>
+{#                        <th>Tel</th>#}
+{#                        <th>DateNaissance</th>
+                        <th>DateCreation</th>#}
+                        <th>actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                    <tr>
+{#                        <th>Id</th>#}
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>Mail</th>
+{#                        <th>Tel</th>#}
+{#                        <th>DateNaissance</th>
+                        <th>DateCreation</th>#}
+                        <th>actions</th>
+                    </tr>
+                </tfoot>
+            </table>
+    </div>
+                        
+<div class="col bg-faded py-3  col-md-9 admincontent" id="company">
+    <h1>Tableau des entreprises actives</h1>
+    <table id="table3" class="display table table-striped table-bordered nowrap" style="width:100%!important">
+            <thead>
+                <tr>
+{#                    <th>Id</th>#}
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+{#                    <th>Logo</th>#}
+                    <th>remarque</th>
+{#                    <th>SalariesFormes</th>#}
+{#                    <th>Site Web</th>#}
+                    <th>Pub</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+{#                    <th>Id</th>#}
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+{#                    <th>Logo</th>#}
+                    <th>remarque</th>
+{#                    <th>SalariesFormes</th>#}
+{#                    <th>Site Web</th>#}
+                    <th>Pub</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
     </table>
+</div>
+                        
+    </div>
+</div>
+            
+<div class="modal" tabindex="-1" role="dialog" id="editTable1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edition de l'utilisateur</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" id="nom" name="nom" >
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prenom :</label>
+        <input class="form-control" type="text" id="prenom" name="prenom" >
+    </div>
+    <div class="form-group">
+        <label for="prenom">Email :</label>
+        <input class="form-control" type="text" id="email" name="mail" >
+      </div>
 
-    <a href="{{ path('utilisateur_new') }}">Create new</a>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    
+
+<div class="modal " id="modalEnt" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="titreEnt">Entreprise</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+              <div class="modal-body">
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input class="form-control" type="text" id="nomEnt" name="nom" >
+    </div>
+    <div class="form-group">
+        <label for="telEnt">Tel :</label>
+        <input class="form-control" type="tel" id="telEnt" name="tel" >
+    </div>
+    <div class="form-group">
+        <label for="emailEnt">Email :</label>
+        <input class="form-control" type="email" id="emailEnt" name="mail" >
+      </div>
+    <div class="form-group">
+        <label for="logoEnt">logo :</label>
+        <input class="form-control" type="text" id="logoEnt" name="logo" >
+      </div>
+    <div class="form-group">
+        <label for="salariesFormes">Nombre de salariés formés :</label>
+        <input class="form-control" type="number" id="salariesFormes" name="salariesFormes" >
+      </div>
+  <div class="form-group">
+    <label for="remarqueEnt">Remarque :</label>
+    <textarea class="form-control" id="remarqueEnt" rows="3"></textarea>
+  </div>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div> 
+                        
+            <script>  
+var cols = [{"data": "id"},{"data": "nom"},{"data": "prenom"},{"data": "mail"},{"data": "tel"},{"data": "dateNaissance"},{"data": "dateCreation"},null];
+var names = null;
+var datatables = null;
+var table= null;
+var table2= null;
+var table3= null;
+$(document).ready(function() {
+                $.ajax({
+                method: "get",
+                url: window.location+"user/actif",
+                dataType: "json",
+            }).done( function(response) {
+                console.log((response))
+                        cols = [
+{#            {"data": "id"},#}
+            {"data": "nom"},
+            {"data": "prenom"},
+            {"data": "mail"},
+{#            {"data": "tel"},#}
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
+            null
+        ];
+             table=    $('#table1').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"user/actif",
+                        dataSrc: "data"},
+                    responsive: false,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+                    bAutoWidth: false,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button id='edit' class='btn btn-primary' data-toggle='modal' data-target='#editTable1'><i class='fas fa-edit'></i></button><button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
+    } ],
+                    columns: cols
+                });
+            }).fail(function(xhr, status, error){
+                alert(xhr.responseText)
+                console.log(status);
+                console.log(error);
+            });
+{#    new $.fn.dataTable.FixedHeader( table );#}
+} ); 
+
+    $('#table1 tbody').on( 'click', '#edit', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        $('#prenom').val(data["prenom"]);
+        $('#nom').val(data["nom"]);
+        $('#email').val(data["mail"]);
+        alert( data["nom"] +" peut être modifié");
+    } );
+    $('#table1 tbody').on( 'click', '#suppr', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        supprUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );
+    
+    // Partie dédiée à la table des utilisateurs supprimés
+    cols = [
+{#            {"data": "id"},#}
+            {"data": "nom"},
+            {"data": "prenom"},
+            {"data": "mail"},
+{#            {"data": "tel"},#}
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
+            null];
+    table2 =    $('#table2').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"user/del",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+{#        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"#}
+        defaultContent: "<button type='button' class='btn btn-success'><i class='far fa-check-circle'></i> Réactiver</button>"
+    } ],
+                    columns: cols
+                });
+            
+    
+
+    $('#table2 tbody').on( 'click', '#edit2', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        alert( data["nom"] +" peut être modifié");
+    } );
+    $('#table2 tbody').on( 'click', '#react', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        unbanUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table2
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );
+    
+    
+    /* Partie dédié à la datatable des entreprises actives */
+
+    cols = [
+{#            {"data": "id"},#}
+            {"data": "nom"},
+            {"data": "tel"},
+            {"data": "mail"},
+{#            {"data": "logo"},#}
+            {"data": "remarque"},
+{#            {"data": "salariesFormes"},#}
+{#            {"data": "siteWeb"},#}
+            {"data": "pub"},
+{#            {"data": "dateNaissance"},#}
+{#            {"data": "dateCreation"},#}
+            null];
+    table3 =    $('#table3').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"company/active",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'>Plus de détails</button>"
+    } ],
+                    columns: cols
+                });
+            
+    
+
+    $('#table3 tbody').on( 'click', '#btnEnt', function () {
+        var data = table3.row( $(this).parents('tr') ).data();
+        $("#titreEnt").text("Entreprise "+data.nom);
+        $("#nomEnt").val(data.nom);
+        $("#telEnt").val(data.tel);
+        $("#emailEnt").val(data.mail);
+        $("#logoEnt").val(data.logo);
+        $("#salariesFormes").val(data.salariesFormes);
+        $("#remarqueEnt").val(data.remarque);
+{#        alert( data["nom"] +" peut être modifié");#}
+    } );
+    {#$('#table3 tbody').on( 'click', '#react', function () {
+        var data = table2.row( $(this).parents('tr') ).data();
+        unbanUsr( data['id']);
+        alert( data["nom"] +" peut être supprimé" );
+            table2
+        .row( $(this).parents('tr') )
+        .remove()
+        .draw();
+    } );#}
+    
+        var n = document.createElement('script');
+        n.setAttribute('language', 'JavaScript');
+        n.setAttribute('src', 'https://debug.datatables.net/debug.js');
+        document.body.appendChild(n);
+        
+        
+        $(function() {
+  var $tabButtonItem = $('#adminaside li'),
+      $tabSelect = $('#tab-select'),
+      $tabContents = $('.admincontent'),
+      activeClass = 'is-active';
+
+  $tabButtonItem.first().addClass(activeClass);
+  $tabContents.not(':first').hide();
+
+  $tabButtonItem.find('a').on('click', function(e) {
+    var target = $(this).attr('href');
+
+    $tabButtonItem.removeClass(activeClass);
+    $(this).parent().addClass(activeClass);
+    $tabSelect.val(target);
+    $tabContents.hide();
+    $(target).show();
+    e.preventDefault();
+  });
+
+  $tabSelect.on('change', function() {
+    var target = $(this).val(),
+        targetSelectNum = $(this).prop('selectedIndex');
+
+    $tabButtonItem.removeClass(activeClass);
+    $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
+    $tabContents.hide();
+    $(target).show();
+  });
+});
+
+</script>
+
+            <script>
+            $('#popup')
+                .popup({
+                    inline: true,
+                    on:'click'
+                })
+            ;
+        </script>
+            <script src="{{ asset('build/admin.js') }}"/>
 {% endblock %}

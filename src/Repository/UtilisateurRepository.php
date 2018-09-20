@@ -30,14 +30,16 @@ class UtilisateurRepository extends ServiceEntityRepository implements UserLoade
             ->getQuery()
             ->getOneOrNullResult();
     }
-
-    public function findById($id){
-
-        return $this->findBy('id' == $id);
-
+    
+    public function findAllIfNotDel(){
+        return $this->findBy(array("isDeleted" => false));
+    }
+    
+    public function FindAllDeleted(){
+        return $this->findBy(array("isDeleted" => true));
     }
 
-
+    public function findById($id){
 
 //    /**
 //     * @return Utilisateur[] Returns an array of Utilisateur objects
