@@ -190,7 +190,6 @@ class AdminController extends AbstractController
     public function getAllUsersActif(UtilisateurRepository $utilisateurRepository){
 
         $users = $utilisateurRepository->FindAllIfNotDel();
-//        var_dump(json_encode($users));
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 

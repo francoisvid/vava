@@ -23,10 +23,13 @@
                             <a class="nav-link pl-0" href="#company"><i class="fas fa-briefcase"></i> <span class="d-none d-md-inline">Entreprises</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#"><i class="fas fa-business-time"></i> <span class="d-none d-md-inline">Link</span></a>
+                            <a class="nav-link pl-0" href="#companyInv"><i class="fas fa-business-time"></i> <span class="d-none d-md-inline">Entreprises non certifiées</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link pl-0" href="#"><i class="fa fa-list fa-fw"></i> <span class="d-none d-md-inline">Link</span></a>
+                            <a class="nav-link pl-0" href="#addCompany"><i class="fas fa-plus"></i><span class="d-none d-md-inline">Ajouter une entreprise</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0" href="#addCat"><i class="fas fa-plus"></i><span class="d-none d-md-inline">Ajouter une catégorie</span></a>
                         </li>
                     </ul>
                 </div>
@@ -309,15 +312,18 @@ $(document).ready(function() {
         .draw();
     } );
     
-    // Partie dédiée à la table des utilisateurs supprimés
+    /* 
+     * 
+     * Partie dédiée à la table des utilisateurs supprimés
+     * 
+     */
+    
+    
     cols = [
-{#            {"data": "id"},#}
+
             {"data": "nom"},
             {"data": "prenom"},
             {"data": "mail"},
-{#            {"data": "tel"},#}
-{#            {"data": "dateNaissance"},#}
-{#            {"data": "dateCreation"},#}
             null];
     table2 =    $('#table2').DataTable({
                     language: {
@@ -332,14 +338,11 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-{#        defaultContent: "<button id='edit2'>Edit.</button><button id='react'>react.</button>"#}
         defaultContent: "<button type='button' class='btn btn-success'><i class='far fa-check-circle'></i> Réactiver</button>"
     } ],
                     columns: cols
                 });
             
-    
-
     $('#table2 tbody').on( 'click', '#edit2', function () {
         var data = table2.row( $(this).parents('tr') ).data();
         alert( data["nom"] +" peut être modifié");
@@ -355,20 +358,19 @@ $(document).ready(function() {
     } );
     
     
-    /* Partie dédié à la datatable des entreprises actives */
+    
+    /*
+     * 
+     * Partie dédié à la datatable des entreprises actives
+     * 
+     */ 
 
     cols = [
-{#            {"data": "id"},#}
             {"data": "nom"},
             {"data": "tel"},
             {"data": "mail"},
-{#            {"data": "logo"},#}
             {"data": "remarque"},
-{#            {"data": "salariesFormes"},#}
-{#            {"data": "siteWeb"},#}
             {"data": "pub"},
-{#            {"data": "dateNaissance"},#}
-{#            {"data": "dateCreation"},#}
             null];
     table3 =    $('#table3').DataTable({
                     language: {
@@ -388,8 +390,6 @@ $(document).ready(function() {
                     columns: cols
                 });
             
-    
-
     $('#table3 tbody').on( 'click', '#btnEnt', function () {
         var data = table3.row( $(this).parents('tr') ).data();
         $("#titreEnt").text("Entreprise "+data.nom);
@@ -399,8 +399,9 @@ $(document).ready(function() {
         $("#logoEnt").val(data.logo);
         $("#salariesFormes").val(data.salariesFormes);
         $("#remarqueEnt").val(data.remarque);
-{#        alert( data["nom"] +" peut être modifié");#}
     } );
+    
+
     {#$('#table3 tbody').on( 'click', '#react', function () {
         var data = table2.row( $(this).parents('tr') ).data();
         unbanUsr( data['id']);
@@ -411,17 +412,22 @@ $(document).ready(function() {
         .draw();
     } );#}
     
-        var n = document.createElement('script');
+{#        var n = document.createElement('script');
         n.setAttribute('language', 'JavaScript');
         n.setAttribute('src', 'https://debug.datatables.net/debug.js');
-        document.body.appendChild(n);
+        document.body.appendChild(n);#}
         
-        
-        $(function() {
-  var $tabButtonItem = $('#adminaside li'),
-      $tabSelect = $('#tab-select'),
-      $tabContents = $('.admincontent'),
-      activeClass = 'is-active';
+      /*
+       * 
+       * Dédié au hide & show du menu admin
+       * 
+       */  
+      
+    $(function() {
+      var $tabButtonItem = $('#adminaside li'),
+          $tabSelect = $('#tab-select'),
+          $tabContents = $('.admincontent'),
+          activeClass = 'is-active';
 
   $tabButtonItem.first().addClass(activeClass);
   $tabContents.not(':first').hide();
@@ -437,7 +443,7 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $tabSelect.on('change', function() {
+  {#$tabSelect.on('change', function() {
     var target = $(this).val(),
         targetSelectNum = $(this).prop('selectedIndex');
 
@@ -445,7 +451,7 @@ $(document).ready(function() {
     $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
     $tabContents.hide();
     $(target).show();
-  });
+  });#}
 });
 
 </script>

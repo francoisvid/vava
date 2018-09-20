@@ -20,16 +20,16 @@ class VavaFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $this->generateRole($manager);
-        $this->generateUser($manager);
-//        $this->generateCategorie($manager);
+//        $this->generateRole($manager);
+//        $this->generateUser($manager);
+        $this->generateCategorie($manager);
 //        $this->generateEntreprise($manager);
-//        $this->generateFavoris($manager);
-//        $this->generateCatEntreprise($manager);
-//        $this->generateContact($manager);
-//        $this->generateAdresse($manager);
-//        $this->generateAdresseEnt($manager);
-//        $this->generateActu($manager);
+        $this->generateFavoris($manager);
+        $this->generateCatEntreprise($manager);
+        $this->generateContact($manager);
+        $this->generateAdresse($manager);
+        $this->generateAdresseEnt($manager);
+        $this->generateActu($manager);
         
         $manager->flush();
     }
