@@ -246,5 +246,22 @@ class MapController extends AbstractController
 
     }
 
+    public function recherchedeuxpointzero(){
+        //Le but est de metre a jour la fonction
+        // De recherche sur le site qui n'etait pas optimiser
+        // Je vais fetche en bdd et afficher toute les entreprise
+        // selon la ou est la personne dans un rayon de X km
+
+
+        $newEntreprise = new Entreprise();
+        $newAdresse = new Adresse();
+        $newAdresseEntreprise = new AdresseEnteprise();
+        $arrayvide = array();
+
+
+
+
+    }
+
 
 }
