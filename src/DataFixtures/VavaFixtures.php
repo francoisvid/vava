@@ -20,10 +20,10 @@ class VavaFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-//        $this->generateRole($manager);
-//        $this->generateUser($manager);
+        $this->generateRole($manager);
+        $this->generateUser($manager);
         $this->generateCategorie($manager);
-//        $this->generateEntreprise($manager);
+        $this->generateEntreprise($manager);
         $this->generateFavoris($manager);
         $this->generateCatEntreprise($manager);
         $this->generateContact($manager);
@@ -49,7 +49,7 @@ class VavaFixtures extends Fixture
         $usr = new Utilisateur();
         $usr->setNom("nom" . $i);
         $usr->setPrenom("prenom" . $i);
-        $usr->setMail("testicule".$i."@testibulle.com");
+        $usr->setMail("test".$i."@test.com");
         $usr->setMdp("mdp".$i);
         $usr->setIsDeleted(false);
         $usr->setActif(true);

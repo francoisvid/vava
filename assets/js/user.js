@@ -35,8 +35,8 @@ window.update = function(id){
         },
         error(xhr, status, error){
             alert(xhr.responseText)
-            // console.log(status);
-            // console.log(error);
+            console.log(status);
+            console.log(error);
         }
     });
 }
