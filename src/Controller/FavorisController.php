@@ -58,7 +58,7 @@ class FavorisController extends AbstractController
     $newFavoris = new Favoris();
 
         $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
-            'utilisateur'=>$Utilisateur
+            'utilisateur'=>$Utilisateur,
         ));
 
         $arrayvide = array();
