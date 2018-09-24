@@ -14,22 +14,22 @@
 
     {#<div class="container">#}
 
-        <div class="jumbotron">
+    <div class="jumbotron" style="background-image:url('{{ asset('./build/image/background.png') }}');">
             <div class="container" style="text-align: center">
                 <h1 class="display-3">Bienvenue sur Signe</h1>
             </div>
         </div>
     {#</div>#}
-    <div class="container">
-        <div class="right menu">
-            <div class="ui search">
-                <div class="ui icon input">
-                    <input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">
-                    <i class="search icon"></i>
-                </div>
-                <div class="results"></div>
-            </div>
-        </div>
+    {#<div class="container">#}
+        {#<div class="right menu">#}
+            {#<div class="ui search">#}
+                {#<div class="ui icon input">#}
+                    {#<input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">#}
+                    {#<i class="search icon"></i>#}
+                {#</div>#}
+                {#<div class="results"></div>#}
+            {#</div>#}
+        {#</div>#}
         <div id="map" style="display: inline-block; height: 380px;">
 
         </div>
@@ -43,11 +43,11 @@
                             $("<div>").addClass("right floated content").append(
                                 $("<button>").attr("id", "addFav").addClass("ui button").text("Plus...")
                             ).append(
-                            $("<div>").addClass("ui flowing popup top left transition hidden").append(
-                                $("<div>").addClass("ui three column divided center aligned grid")
-                                    .append($("<a>").addClass("ui primary button").append($("<i>").addClass("star icon").text("Favoris")))
-                                    .append($("<a>").addClass("ui primary button").append("<i>").addClass("phone icon").text("Appeler"))
-                                    .append($("<a>").addClass("ui primary button").append("<i>").addClass("location arrow icon").text("Itineraire"))
+                                $("<div>").addClass("ui flowing popup top left transition hidden").append(
+                                    $("<div>").addClass("ui three column divided center aligned grid")
+                                        .append($("<a>").addClass("ui primary button").append($("<i>").addClass("star icon").text("Favoris")))
+                                        .append($("<a>").addClass("ui primary button").append("<i>").addClass("phone icon").text("Appeler"))
+                                        .append($("<a>").addClass("ui primary button").append("<i>").addClass("location arrow icon").text("Itineraire"))
                                 )
                             ))
                             .append($("<img>").addClass("ui avatar image").attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTUBcxNrQj6HRPONKxeoEpw_PfQQYWT5g7iUFwvL0nOgjucd3EYw"))
@@ -55,72 +55,8 @@
                 });
             </script>
         </div>
-    </div>
-    </body>
-    <!------ Include the above in your HEAD tag ---------->
+    {#</div>#}
 
-    <!-- Footer -->
-    <div class="container">
-
-    </div>
-    <section id="footer">
-        <div class="container">
-            <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                    <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
-                </div>
-                </hr>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
-                </div>
-                </hr>
-            </div>
-        </div>
-    </section>
-    <!-- ./Footer -->
-
-    </html>
 
 
 {% endblock %}

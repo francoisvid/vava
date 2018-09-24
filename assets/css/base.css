@@ -1,10 +1,13 @@
-.jumbotron {
+
+.jumbotron{
+    background-color:white;
+    background-repeat:no-repeat;
     margin-bottom: 0px;
-    background-position: 0% 25%;
+    /*background-position: 0% 25%;*/
     background-size: cover;
     color: white;
     text-shadow: black 0.3em 0.3em 0.3em;
-    height: 350px;
+    height: 80%;
 }
 /* Footer */
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -84,4 +87,53 @@ section .section-title {
 
 .popupConnexion{
     width: 260px !important;
+}
+
+.barNav{
+    /*background-color: #73D0CA !important;*/
+    background-color: rgba(0,0,0,0) !important;
+    /*position: fixed;*/
+    /*padding-right: 80%;*/
+    height: 10%;
+
+}
+
+.inputHome{
+    /*margin-top: 380px;*/
+    width: 500px !important;
+    margin-right: 270px;
+}
+
+.searchCity{
+    /*margin-left: 100%;*/
+    /*display: inline-block;*/
+}
+
+.btn-outline-light{
+    border-color: none !important;
+}
+
+.fixed-top.scrolled {
+    background-color: rgba(120,224,143,1) !important;
+    transition: background-color 200ms linear;
+}
+
+.btn-outline-light{
+    border: 0px none !important;
+}
+
+
+/*------------------------------caroussel------------------------------------*/
+
+.titreActu{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.imageActu{
+    margin-bottom: 20px;
+}
+
+.contenuActu{
+    margin-top: 20px;
 }
