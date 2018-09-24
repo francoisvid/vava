@@ -43,8 +43,6 @@ class MapController extends AbstractController
 
     public function recherche($data){
 
-
-
         if (!empty( $this->rechercheVille($data))){
             return  $this->rechercheVille($data);
         }elseif (!empty($this->rechercheCategorie($data))){
@@ -55,9 +53,6 @@ class MapController extends AbstractController
             $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
 
-
-
-
     }
 
 ////////////////////  VILLE ////////////////////
@@ -67,6 +62,7 @@ class MapController extends AbstractController
         $newAdresse = new Adresse();
         $newAdresseEntreprise = new AdresseEnteprise();
         $newEntreprise = new Entreprise();
+        $newCategorieEntreprise = new CategorieEntreprise();
 
         $arrayVide = array();
 
@@ -89,17 +85,27 @@ class MapController extends AbstractController
                 ));
 
                 foreach ($newEntreprise as $item) {
+
                     if($item->getIsDeleted() != 1){
+
+                        $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
+                            "entreprise" => $item
+                        ));
+
+
+                        var_dump($newCategorieEntreprise);
+
+
                         $nou = array(
                             "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
                             "tel"=>$item->getTel(),
-                            "numero"=>  $na->getNumero(),
+                            "numero"=>$na->getNumero(),
                             "rue"=>$na->getRue(),
                             "ville"=>$na->getVille(),
                             "codePostal"=>$na->getCodePostal(),
                             "la"=>$na->getLatitude(),
-                            "lo"=>$na->getLongitude()
+                            "lo"=>$na->getLongitude(),
                         );
                     }
 
@@ -290,7 +296,11 @@ class MapController extends AbstractController
         // De recherche sur le site qui n'etait pas optimiser
         // Q = VILLE C = NOM OU CAT
 
-        return $this->rechercheNom($q);
+        //return $this->rechercheNom($q);
+
+        $this->rechercheVille($q);
+        $result = $this->recherche($q);
+
 
 
     }
