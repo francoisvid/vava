@@ -4,229 +4,165 @@
  
  
 {% block body %}
- 
-            <style>
-                /* Always set the map height explicitly to define the size of the div
-                       * element that contains the map. */
-                #map {
-                    height: 80%;
-                    width: 80%;
-                }
-                /* Optional: Makes the sample page fill the window. */
-                html, body {
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                }
-                #description {
-                    font-family: Roboto;
-                    font-size: 15px;
-                    font-weight: 300;
-                }
 
-                #infowindow-content .title {
-                    font-weight: bold;
-                }
+    <style>
+        #map {
+            height: 400px;
+            width: 70%;
+        }
+    </style>
 
-                #infowindow-content {
-                    display: none;
-                }
+    {#<div class="container">#}
 
-                #map #infowindow-content {
-                    display: inline;
-                }
-
-                .pac-card {
-                    margin: 10px 10px 0 0;
-                    border-radius: 2px 0 0 2px;
-                    box-sizing: border-box;
-                    -moz-box-sizing: border-box;
-                    outline: none;
-                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-                    background-color: #fff;
-                    font-family: Roboto;
-                }
-
-                #pac-container {
-                    padding-bottom: 12px;
-                    margin-right: 12px;
-                }
-
-                .pac-controls {
-                    display: inline-block;
-                    padding: 5px 11px;
-                }
-
-                .pac-controls label {
-                    font-family: Roboto;
-                    font-size: 13px;
-                    font-weight: 300;
-                }
-
-                #pac-input {
-                    background-color: #fff;
-                    font-family: Roboto;
-                    font-size: 15px;
-                    font-weight: 300;
-                    margin-left: 12px;
-                    padding: 0 11px 0 13px;
-                    text-overflow: ellipsis;
-                    width: 400px;
-                }
-
-                #pac-input:focus {
-                    border-color: #4d90fe;
-                }
-
-                #title {
-                    color: #fff;
-                    background-color: #4d90fe;
-                    font-size: 25px;
-                    font-weight: 500;
-                    padding: 6px 12px;
-                }
-                #target {
-                    width: 345px;
-                }
-            </style>
- 
-        <div class="container">
- 
-            <div class="jumbotron">
-                <div class="container" style="text-align: center">
-                    <h1 class="display-3">Bienvenue sur Signe</h1>
-                </div>
+        <div class="jumbotron">
+            <div class="container" style="text-align: center">
+                <h1 class="display-3">Bienvenue sur Signe</h1>
             </div>
         </div>
-
-
-
-<div id="accordion">
-    <div class="ui top attached tabular menu">
-        <a class="item active" data-toggle="collapse" data-target=".collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Map
-        </a>
-        <a class="item" id="liste">
-            Liste
-        </a>
-
+    {#</div>#}
+    <div class="container">
         <div class="right menu">
-            <div class="item">
-                <div class="ui transparent icon input">
-                    <input type="text" id="search" placeholder="Ville, Catégorie, Nom...">
-                    <i class="search link icon"></i>
+            <div class="ui search">
+                <div class="ui icon input">
+                    <input class="prompt" type="text" id="search" placeholder="Ville, Catégorie, Nom...">
+                    <i class="search icon"></i>
                 </div>
+                <div class="results"></div>
             </div>
         </div>
+        <div id="map" style="display: inline-block; height: 380px;">
+
+        </div>
+
+
+        <div id="liste" class="ui middle aligned divided list" style=" max-height: 380px;overflow: scroll;display: inline-block; margin-left: 10px; width: 320px; position: absolute;">
+            <script>
+                $(document).ready(function(){
+                    $("#liste").append(
+                        $("<div>").addClass("item").append(
+                            $("<div>").addClass("right floated content").append(
+                                $("<button>").attr("id", "addFav").addClass("ui button").text("Plus...")
+                            ).append(
+                            $("<div>").addClass("ui flowing popup top left transition hidden").append(
+                                $("<div>").addClass("ui three column divided center aligned grid")
+                                    .append($("<a>").addClass("ui primary button").append($("<i>").addClass("star icon").text("Favoris")))
+                                    .append($("<a>").addClass("ui primary button").append("<i>").addClass("phone icon").text("Appeler"))
+                                    .append($("<a>").addClass("ui primary button").append("<i>").addClass("location arrow icon").text("Itineraire"))
+                                )
+                            ))
+                            .append($("<img>").addClass("ui avatar image").attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTUBcxNrQj6HRPONKxeoEpw_PfQQYWT5g7iUFwvL0nOgjucd3EYw"))
+                            .append($("<div>").addClass("content").text("lena")))
+                });
+            </script>
+        </div>
     </div>
-</div>
-    <div class="collapse show collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
+    </body>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Footer -->
+    <div class="container">
 
     </div>
-        <div class="map" id="map"></div>
-
-
-
-    <script>
-        $(document).ready(function(){
-            $('.ui .item').on('click', function() {
-                $('.ui .item').removeClass('active');
-                $(this).addClass('active');
-            });
-        });
-    </script>
-
-
-
-
-        {#<div class="ui menu" style="margin: 0px">#}
-            {#<div class="ui category search item">#}
-                {#<div class="ui icon input">#}
-                    {#<input class="prompt" type="text" id="search" placeholder="">#}
-                    {#<input class="prompt"type="text" placeholder="Latitude" id="inputLat" style="margin-left: 10px">#}
-                    {#<input class="prompt"type="text" placeholder="Longitude" id="inputLng" style="margin-left: 10px">#}
-                    {#<i class="search link icon"></i>#}
-                {#</div>#}
-                {#<div class="results"></div>#}
-            {#</div>#}
-        {#</div>#}
-
-        </body>
-        <!------ Include the above in your HEAD tag ---------->
- 
-        <!-- Footer -->
-        <section id="footer">
-            <div class="container">
-                <div class="row text-center text-xs-center text-sm-left text-md-left">
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                            <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                            <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-                        </ul>
-                    </div>
+    <section id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                        <ul class="list-unstyled list-inline social text-center">
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                            <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                        </ul>
-                    </div>
-                    </hr>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+                    </ul>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                        <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                        <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
-                    </div>
-                    </hr>
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
+                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
+                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
-        <!-- ./Footer -->
- 
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
+                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </section>
+    <!-- ./Footer -->
+
     </html>
- 
- 
+
+
 {% endblock %}
- 
-{#            {% for d in data %}
-            ['{{ d.nom }} - {{ d.adresse }}',  {{ d.la }},  {{ d.lo }}, 1],
-            {% endfor %}#}
+
 {% block javascripts %}
+
+
     <script>
+
+        {#script YANNIS#}
+
+        {#var locations = [#}
+            {#{% for d in data %}#}
+            {#{% set counter = ( counter | default(0) ) + 1 %}#}
+
+            {#{% if not app.user %}#}
+
+            {#['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +#}
+            {#'  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +#}
+            {#'  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +#}
+            {#'  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +#}
+            {#'</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],#}
+
+            {#{% else %}#}
+
+            {#['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +#}
+            {#'  <a class="ui primary button" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}"><i class="star icon"></i> Favoris</a>\n' +#}
+            {#'  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +#}
+            {#'  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +#}
+            {#'</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],#}
+
+            {#{% endif %}#}
+
+
+            {#{% endfor %}#}
+
+
+        {#];#}
         var locations = [ "" ];
-        // var map = new google.maps.LatLgn(43.610769,3.8767159999999876);
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
-            center: locations,
+            center: new google.maps.LatLng(43.6759607, 4.1334817),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
@@ -234,15 +170,26 @@
 
         var marker, i;
 
-
         for (i = 0; i < locations.length; i++) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map
             });
-            infoWindow = new google.maps.InfoWindow;
 
-            //si le navigateur à eu la permission d'accéder à la position on récupere les coordonées
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+
+
+
+
+
+        //
+        //     //si le navigateur à eu la permission d'accéder à la position on récupere les coordonées
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var pos = {
@@ -267,27 +214,27 @@
             } else {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
-            }
+
         }
-
-
-
+        //
+        //
+        //
         var geocoder = new google.maps.Geocoder();
-
+        //
         google.maps.event.addListener(marker, 'drag',function(){
             setPostion(marker);
         });
         $('#search').keypress(function(e){
             if(e.keyCode == 13){
-            var request = {
+                var request = {
                     address : $(this).val()
                 }
-
+                //
                 geocoder.geocode(request, function(results, status){
                     if(status == google.maps.GeocoderStatus.OK){
                         var pos = results[0].geometry.location;
                         map.setCenter(pos);
-                        marker.setPosition(pos);
+                        // marker.setPosition(pos);
                         setPostion(marker);
                     }
                 });
@@ -295,14 +242,22 @@
             }
 
         });
-
-
+        //
         //Cette fonction permet de recuperer les coordonnée lat et lng grace au drag du marker
         function setPostion(marker) {
             var pos = marker.getPosition();
             $('#inputLat').val(pos.lat());
             $('#inputLng').val(pos.lng());
         }
+    </script>
+
+    <script>
+        $('#addFav')
+            .popup({
+                inline: true,
+                on:'click'
+            })
+        ;
     </script>
 
 {% endblock %}

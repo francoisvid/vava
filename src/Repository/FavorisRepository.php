@@ -36,15 +36,17 @@ class FavorisRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Favoris
-    {
+
+    public function findByUserAndEntreprise($utilisateur, $entreprise): ?Favoris{
         return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
+            ->Where('f.utilisateur = :user')
+            ->andWhere('f.entreprise = :entreprise')
+            ->setParameter('user', $utilisateur)
+            ->setParameter('entreprise', $entreprise)
             ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->getOneOrNullResult();
+
+//        return $this->findBy(array("utilisateur" => $utilisateur));
     }
-    */
+
 }

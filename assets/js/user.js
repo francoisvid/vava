@@ -23,6 +23,8 @@ window.update = function(id){
         // date : $(this).find("input[name=date]").val(),
     }
     console.log(data);
+    console.log(window.location + "/update/" + id);
+
     $.ajax({
         type: 'post',
         url : window.location + "/update/" + id,

@@ -48,10 +48,6 @@ class Adresse
      */
     private $longitude;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Utilisateur", mappedBy="adresse")
-     */
-    private $utilisateurs;
 
     public function __construct()
     {
@@ -135,34 +131,4 @@ class Adresse
         return $this;
     }
 
-    /**
-     * @return Collection|Utilisateur[]
-     */
-    public function getUtilisateurs(): Collection
-    {
-        return $this->utilisateurs;
-    }
-
-    public function addUtilisateur(Utilisateur $utilisateur): self
-    {
-        if (!$this->utilisateurs->contains($utilisateur)) {
-            $this->utilisateurs[] = $utilisateur;
-            $utilisateur->setAdresse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUtilisateur(Utilisateur $utilisateur): self
-    {
-        if ($this->utilisateurs->contains($utilisateur)) {
-            $this->utilisateurs->removeElement($utilisateur);
-            // set the owning side to null (unless already changed)
-            if ($utilisateur->getAdresse() === $this) {
-                $utilisateur->setAdresse(null);
-            }
-        }
-
-        return $this;
-    }
 }

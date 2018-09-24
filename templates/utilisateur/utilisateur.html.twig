@@ -10,163 +10,163 @@
     </head>
 
     <div class="ui grid">
-        <div class="four wide column">
-            <div class="ui vertical fluid tabular menu">
-                <a class="item active" id="info">
-                    Mes informations
-                </a>
-                <a class="item" id="fav">
-                    Mes favoris
-                </a>
-                <a class="item" id="map" href="{{ path('map') }}">
-                    Retour Map
-                </a>
-            </div>
+    <div class="four wide column">
+        <div class="ui vertical fluid tabular menu">
+            <a class="item active" id="info">
+                Mes informations
+            </a>
+            <a class="item" id="fav">
+                Mes favoris
+            </a>
+            <a class="item" id="map" href="{{ path('map') }}">
+                Retour Map
+            </a>
         </div>
-        <div class="twelve wide stretched column" style="margin-top: 30px;">
-                <div class="container item fav" style="display:none">
-                    <div class="twelve wide stretched column">
-                        <div id="fav">
-                            <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
-                                <thead>
-                                <tr>
-                                    <th>Nom</th>
-                                    <th>Activité</th>
-                                    <th>Ville</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
+    </div>
+    <div class="twelve wide stretched column" style="margin-top: 30px;">
+    <div class="container item fav" style="display:none">
+        <div class="twelve wide stretched column">
+            <div id="fav">
+                <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Activité</th>
+                        <th>Ville</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
 
-                                <tbody>
-                                <tr>
-                                    <td>Beweb</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>
-                                        <button class="ui secondary basic button">Appeler</button>
-                                        <button class="ui primary basic button">Voir</button>
-                                        <button class="ui red basic button" id="delete">Supprimer</button>
-                                        <div class="ui modal delete">
-                                            <div class="ui icon header">
-                                                <i class="archive icon"></i>
-                                                Voulez vous supprimer l'entreprise de vos favoris ?
-                                            </div>
-                                            <div class="actions">
-                                                <div class="ui red basic button">
-                                                    <i class="remove icon"></i>
-                                                    Non
-                                                </div>
-                                                <div class="ui green basic button">
-                                                    <i class="checkmark icon"></i>
-                                                    Oui
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-    
-                {% if app.user %}
-
-                <div class="container item info centered active" style="width:80%;margin-right: 190px; margin-top: 30px;">
-                    <form method="POST" class="ui form" id="formUser">
-                        <h2 class="ui dividing header">Mes Informations</h2>
-                        <div class="two fields">
-                            <div class="field">
-                                <label>Nom</label>
-                                <input type="text" name="nom" id="nom" value="{{ utilisateur.nom }}">
-                            </div>
-                            <div class="field">
-                                <label>Prenom</label>
-                                <input type="text" name="prenom" id="prenom" value="{{ utilisateur.prenom }}">
-                            </div>
-                        </div>
-                        <div class="two fields">
-                            <div class="field">
-                                <label>Adresse mail</label>
-                                <input type="text" name="mail" id="mail" value="{{ utilisateur.mail }}">
-                            </div>
-                            <div class="field">
-                                <label>Numéro de téléphone</label>
-                                <input type="text" name="tel" id="tel" value="{{ utilisateur.tel }}">
-                            </div>
-                        </div>
-                        <div class="four fields">
-                            <div class="field">
-                                <label>Date de Naissance</label>
-                                <div class="field">
-                                    <div class="ui calendar" id="calendrier">
-                                        <div class="ui input left icon">
-                                            <i class="calendar icon"></i>
-                                            <input type="text" name="datenaissance" id="datenaissance" placeholder="Date de naissance">
-                                        </div>
+                    <tbody>
+                    <tr>
+                        <td>Beweb</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>
+                            <button class="ui secondary basic button">Appeler</button>
+                            <button class="ui primary basic button">Voir</button>
+                            <button class="ui red basic button" id="delete">Supprimer</button>
+                            <div class="ui modal delete">
+                                <div class="ui icon header">
+                                    <i class="archive icon"></i>
+                                    Voulez vous supprimer l'entreprise de vos favoris ?
+                                </div>
+                                <div class="actions">
+                                    <div class="ui red basic button">
+                                        <i class="remove icon"></i>
+                                        Non
+                                    </div>
+                                    <div class="ui green basic button">
+                                        <i class="checkmark icon"></i>
+                                        Oui
                                     </div>
                                 </div>
                             </div>
-                            {#<p>Date: <input type="text" id="datepicker"></p>#}
-                            <div class="field">
-                                <label>Sexe</label>
-                                <select class="ui fluid dropdown" type="text" name="sexe" id="sexe" value="{{ utilisateur.sexe }}">
-                                    <option value="homme">Homme</option>
-                                    <option value="femme">Femme</option>
-                                    <option value="autre">Autre</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="four fields">
-                            <div class="field">
-                                <label>Numéro</label>
-                                <input type="number" name="numero" id="numero" placeholder="11" value="{{ utilisateur.adresse.numero }}">
-                            </div>
-                            <div class="field">
-                                <label>Rue</label>
-                                <input type="text" name="rue" id="rue" placeholder="Rue, impasse..." value="{{ utilisateur.adresse.rue }}">
-                            </div>
-                            <div class="field">
-                                <label>Ville</label>
-                                <input type="text" name="ville" id="ville" placeholder="Montpellier" value="{{ utilisateur.adresse.ville }}">
-                            </div>
-                            <div class="field">
-                                <label>Code postal</label>
-                                <input type="text" name="codepostal" id="codepostal" placeholder="34000" value="{{ utilisateur.adresse.codepostal }}">
-                            </div>
-                        </div>
-                        <h2 class="ui dividing header">Sécurité</h2>
-                        <div class="field">
-                            <div class="two fields">
-                                <div class="field">
-                                    <label>Mot de passe</label>
-                                    <input type="password" name="mdp" placeholder="Mot de passe">
-                                </div>
-                                <div class="field">
-                                    <label>Répéter</label>
-                                    <input type="password" name=mdp" placeholder="Répéter votre mot de passe">
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="fields">
-                            <div class="fourteen wide field">
+                        </td>
 
-                            </div>
-                            <div class="three wide field">
-                                <button type="submit" onclick="update({{ utilisateur.id }})" class="ui button primary">Mettre a jour</button>
-                            </div>
+                    </tr>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% if app.user %}
+
+    <div class="container item info centered active" style="width:80%;margin-right: 190px; margin-top: 30px;">
+    <form method="POST" class="ui form" id="formUser">
+        <h2 class="ui dividing header">Mes Informations</h2>
+        <div class="two fields">
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" name="nom" id="nom" value="{{ utilisateur.nom }}">
+            </div>
+            <div class="field">
+                <label>Prenom</label>
+                <input type="text" name="prenom" id="prenom" value="{{ utilisateur.prenom }}">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>Adresse mail</label>
+                <input type="text" name="mail" id="mail" value="{{ utilisateur.mail }}">
+            </div>
+            <div class="field">
+                <label>Numéro de téléphone</label>
+                <input type="text" name="tel" id="tel" value="{{ utilisateur.tel }}">
+            </div>
+        </div>
+        <div class="four fields">
+            <div class="field">
+                <label>Date de Naissance</label>
+                <div class="field">
+                    <div class="ui calendar" id="calendrier">
+                        <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" name="datenaissance" id="datenaissance" placeholder="Date de naissance" >
                         </div>
-                    </form>
-                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            {#<p>Date: <input type="text" id="datepicker"></p>#}
+            <div class="field">
+                <label>Sexe</label>
+                <select class="ui fluid dropdown" type="text" name="sexe" id="sexe" value="{{ utilisateur.sexe }}">
+                    <option value="homme">Homme</option>
+                    <option value="femme">Femme</option>
+                    <option value="autre">Autre</option>
+                </select>
+            </div>
+        </div>
+        <div class="four fields">
+            <div class="field">
+                <label>Numéro</label>
+                <input type="number" name="numero" id="numero" placeholder="11" value="{{ utilisateur.adresse.numero }}">
+            </div>
+            <div class="field">
+                <label>Rue</label>
+                <input type="text" name="rue" id="rue" placeholder="Rue, impasse..." value="{{ utilisateur.adresse.rue }}">
+            </div>
+            <div class="field">
+                <label>Ville</label>
+                <input type="text" name="ville" id="ville" placeholder="Montpellier" value="{{ utilisateur.adresse.ville }}">
+            </div>
+            <div class="field">
+                <label>Code postal</label>
+                <input type="text" name="codepostal" id="codepostal" placeholder="34000" value="{{ utilisateur.adresse.codepostal }}">
+            </div>
+        </div>
+        <h2 class="ui dividing header">Sécurité</h2>
+        <div class="field">
+            <div class="two fields">
+                <div class="field">
+                       <label>Mot de passe</label>
+                    <input type="password" name="mdp" placeholder="Mot de passe">
+                </div>
+                <div class="field">
+                    <label>Répéter</label>
+                    <input type="password" name=mdp" placeholder="Répéter votre mot de passe">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="fields">
+            <div class="fourteen wide field">
+
+            </div>
+            <div class="three wide field">
+                <button type="submit" onclick="update({{ utilisateur.id }})" class="ui button primary">Mettre a jour</button>
+            </div>
+        </div>
+    </form>
+    {% endif %}
 
     <script>
         $(document).ready(function() {
@@ -176,30 +176,30 @@
 
 
     {#<script>#}
-        {#$('#formUser').submit(function () {#}
-             {#data = {#}
-                {#nom : $(this).find("input[name=nom]").val(),#}
-                {#prenom : $(this).find("input[name=prenom]").val(),#}
-                {#mail : $(this).find("input[name=mail]").val(),#}
-                {#tel : $(this).find("input[name=tel]").val(),#}
-                {#sexe : $(this).find("input[name=sexe]").val(),#}
-                {#// date : $(this).find("input[name=date]").val(),#}
-            {#}#}
-            {#$.ajax({#}
-                {#method: 'post',#}
-                {#url : window.location + "/update/" + {{ utilisateur.id }},#}
-                {#data : data,#}
-                {#success: function (response) {#}
-                    {#console.log(response);#}
-                {#},#}
-                {#error(xhr, status, error){#}
-                    {#// alert(xhr.responseText)#}
-                    {#console.log(status);#}
-                    {#console.log(error);#}
-                {#}#}
-            {#});#}
-            {#return response;#}
-        {#});#}
+    {#$('#formUser').submit(function () {#}
+    {#data = {#}
+    {#nom : $(this).find("input[name=nom]").val(),#}
+    {#prenom : $(this).find("input[name=prenom]").val(),#}
+    {#mail : $(this).find("input[name=mail]").val(),#}
+    {#tel : $(this).find("input[name=tel]").val(),#}
+    {#sexe : $(this).find("input[name=sexe]").val(),#}
+    {#// date : $(this).find("input[name=date]").val(),#}
+    {#}#}
+    {#$.ajax({#}
+    {#method: 'post',#}
+    {#url : window.location + "/update/" + {{ utilisateur.id }},#}
+    {#data : data,#}
+    {#success: function (response) {#}
+    {#console.log(response);#}
+    {#},#}
+    {#error(xhr, status, error){#}
+    {#// alert(xhr.responseText)#}
+    {#console.log(status);#}
+    {#console.log(error);#}
+    {#}#}
+    {#});#}
+    {#return response;#}
+    {#});#}
     {#</script>#}
 
     <script>
