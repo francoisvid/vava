@@ -6,26 +6,45 @@
 <style>
 
     .titreActu{
-        margin-top: 30px !important;
+        margin-bottom: 368px !important;
         text-align: center;
     }
 
-    .imageActu{
-        margin-bottom: 20px;
+    /*.imageActu{*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+
+    /*.contenuActu{*/
+        /*margin-top: 20px;*/
+        /*!*margin-bottom: 30px !important;*!*/
+    /*}*/
+
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: rgb(0, 0, 0);
+        background: rgba(99, 110, 114,0.5); /* Black see-through */
+        color: #f1f1f1;
+        width: 100%;
+        transition: .5s ease;
+        opacity:0;
+        color: white;
+        font-size: 16px;
+        padding: 20px;
+        text-align: justify;
     }
 
-    .contenuActu{
-        margin-top: 20px;
-        margin-bottom: 30px !important;
+    .container:hover .overlay {
+        opacity: 1;
     }
 </style>
 
 <body>
         <div class="jumbotron" style="background-image:url('{{ asset('./build/image/background.png') }}');">
             <div class="container" style="text-align: center">
-
-                {#content jumbotron#}
-
+                <h1 style="font-size: 60px; color: #f5f6fa; font-family: 'Montserrat Alternates', sans-serif;">Bienvenue sur <img src="{{ asset('./build/image/logovava.png') }}" style="width: 300px" alt=""></h1>
 
             </div>
         </div>
@@ -37,17 +56,16 @@
             {% for keys, actualite in actualites %}
                 {% if keys == 0 %}
                 <div class="carousel-item active">
-                    {% else %}
+                {% else %}
                         <div class="carousel-item">
-                    {% endif %}
-                            <div class="container">
-                                <h2 class="titreActu">{{ actualite.titre }}</h2>
-                                {#<img src="{{ actualite.image }}" alt="">#}
-                                <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
-                                <p class="contenuActu">{{ actualite.article }}</p>
-                                {#<p>{{ actualite.date }}</p>#}
-                            </div>
+                {% endif %}
+                            <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
+                                <div class="container">
+                                    <h2 class="titreActu overlay" style="text-align: center">{{ actualite.titre }}</h2>
+                                    <p class="contenuActu overlay">{{ actualite.article }}</p>
+                                </div>
                         </div>
+                        {#</div>#}
             {% endfor %}
             </div>
 
@@ -60,6 +78,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+    </div>
 {% endblock %}
 
 
@@ -90,8 +109,19 @@
             }
 
         });
-
     </script>
+
+    <script>
+        function visibilite(thingId) {
+            var targetElement;
+            targetElement = document.getElementById(thingId);
+            if (targetElement.style.display == "none")
+            {
+                targetElement.style.display = "" ;
+            } else { targetElement.style.display = "none" ; }
+        }
+    </script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
