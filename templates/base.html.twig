@@ -61,7 +61,7 @@
         <div class="right menu">
             <div class="item">
                 {% if not app.user %}
-                <button type="button" class="btn btn-outline-light" id="popup">Connexion</button>
+                <button type="button" class="btn btn-outline-light" id="popup" style="margin-right: 70px; padding: 5px 40px 5px 40px">Connexion</button>
 
                 <div class="ui flowing popup top left transition hidden">
                     <div class="ui three column divided center aligned grid">
@@ -85,8 +85,8 @@
                             </div>
                         </form>
                         {% else %}
-                        <button class="ui btn btn-outline-secondary" id="monCompte">Mon compte</button>
-                        <span style="margin-right: 5px" id="monCompte">{{ app.user.nom }}</span>
+                        <button class="ui btn btn btn-outline-light" id="monCompte" style="margin-right: 89px; padding: 5px 50px 5px 50px">{{ app.user.nom }}</button>
+                        {#<span style="margin-right: 5px" id="monCompte"></span>#}
                         <div class="ui flowing popup top left transition hidden">
                             <div class="ui three column divided center aligned grid">
                                 <div class="container" style="margin-top: 10px">

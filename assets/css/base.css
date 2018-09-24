@@ -103,8 +103,8 @@
 
 .inputHome{
     /*margin-top: 380px;*/
-    width: 500px !important;
-    margin-right: 270px;
+    width: 450px !important;
+    margin-right: 180px;
 }
 
 .searchCity{
@@ -112,18 +112,14 @@
     /*display: inline-block;*/
 }
 
-.btn-outline-light{
-    border-color: none !important;
-}
-
 .fixed-top.scrolled {
     background-color: rgba(120,224,143,1) !important;
     transition: background-color 200ms linear;
 }
 
-.btn-outline-light{
-    border: 0px none !important;
-}
+/*.btn-outline-light{*/
+    /*border: 0px none !important;*/
+/*}*/
 
 
 /*------------------------------caroussel------------------------------------*/
