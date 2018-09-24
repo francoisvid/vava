@@ -9,14 +9,22 @@
         <div class="jumbotron">
             <div class="container" style="text-align: center">
                 <h1 class="display-3">Bienvenue sur Signe</h1>
+
+                {# Je défini ma recherche sur deux champ avec "c" pour les categories ou le nom et "q" pour la ville #}
+
                 <form method="GET" action={{ path('map') }}>
                     <div class="ui search">
                         <div class="ui icon input" style="margin-top: 100px; width: 350px">
-                            <input class="prompt" type="text" id="q" name="q" placeholder="Ville, Catégorie, Nom...">
+                            <input class="prompt" type="text" id="c" name="c" placeholder="Catégorie, Nom...">
+                        </div>
+                        <div class="ui icon input" style="margin-top: 100px; width: 350px">
+                            <input class="prompt" type="text" id="q" name="q" placeholder="Ville">
                             <i class="search icon"></i>
                         </div>
+                        <input style='width:0; visibility:hidden' type='submit'>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -138,34 +146,34 @@
 
     </script>
 
-    <script>
+    {#<script>#}
 
-        function initializeAutocomplete(id) {
-            var element = document.getElementById(id);
-            if (element) {
-                var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
-                google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-            }
-        }
+        {#function initializeAutocomplete(id) {#}
+            {#var element = document.getElementById(id);#}
+            {#if (element) {#}
+                {#var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });#}
+                {#google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);#}
+            {#}#}
+        {#}#}
 
-        function onPlaceChanged() {
-            var place = this.getPlace();
-             console.log(place);
-            for (var i in place.address_components) {
-                var component = place.address_components[i];
-                for (var j in component.types) {
-                    var type_element = document.getElementById(component.types[j]);
-                    if (type_element) {
-                        type_element.value = component.long_name;
-                    }
-                }
-            }
-        }
+        {#function onPlaceChanged() {#}
+            {#var place = this.getPlace();#}
+             {#console.log(place);#}
+            {#for (var i in place.address_components) {#}
+                {#var component = place.address_components[i];#}
+                {#for (var j in component.types) {#}
+                    {#var type_element = document.getElementById(component.types[j]);#}
+                    {#if (type_element) {#}
+                        {#type_element.value = component.long_name;#}
+                    {#}#}
+                {#}#}
+            {#}#}
+        {#}#}
 
-        google.maps.event.addDomListener(window, 'load', function() {
-            initializeAutocomplete('q');
-        });
+        {#google.maps.event.addDomListener(window, 'load', function() {#}
+            {#initializeAutocomplete('q');#}
+        {#});#}
 
-    </script>
+    {#</script>#}
 
 {% endblock %}

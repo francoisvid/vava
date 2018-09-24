@@ -20,8 +20,11 @@ class MapController extends AbstractController
     {
         // Je regarde ce qui est pas ser dans l'uri avec le parametre "q" que j'envoie dans ma fonction recherche
         $q = $request->query->get('q');
-        if(isset($q)){
-            $recherche = $this->recherche($request->query->get('q'));
+        $c = $request->query->get('c');
+
+        if(isset($c)){
+            //$recherche = $this->recherche($request->query->get('q'));
+            $recherche = $this->recherchedeuxpointzero($q, $c);
         }else{
             $recherche = null;
         }
@@ -57,7 +60,7 @@ class MapController extends AbstractController
 
     }
 
-////////////////////  VILLR ////////////////////
+////////////////////  VILLE ////////////////////
 
     public function rechercheVille($data){
 
@@ -246,22 +249,52 @@ class MapController extends AbstractController
 
     }
 
-    public function recherchedeuxpointzero(){
-        //Le but est de metre a jour la fonction
-        // De recherche sur le site qui n'etait pas optimiser
-        // Je vais fetche en bdd et afficher toute les entreprise
-        // selon la ou est la personne dans un rayon de X km
-
+////////////////////  NOM ////////////////////
+    public function rechercheNom($data){
 
         $newEntreprise = new Entreprise();
+        $newAdresseEnteprise = new AdresseEnteprise();
         $newAdresse = new Adresse();
-        $newAdresseEntreprise = new AdresseEnteprise();
-        $arrayvide = array();
+        $arrayVide = array();
+
+        $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
+            "nom"=> $data
+        ));
+
+        foreach ($newEntreprise as $item) {
+            if($item->getIsDeleted() != 1){
+                $var = $newAdresseEnteprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                    "entreprise" => $item->getId()
+                ));
+                foreach ($var as $i) {
+                    $nou = array(
+                        "id"=>$item->getId(),
+                        "nom"=>$item->getNom(),
+                        "tel"=>$item->getTel(),
+                        "rue"=>$i->getAdresse()->getRue(),
+                        "ville"=>$i->getAdresse()->getVille(),
+                        "codePostal"=>$i->getAdresse()->getCodePostal(),
+                        "la"=>$i->getAdresse()->getLatitude(),
+                        "lo"=>$i->getAdresse()->getLongitude()
+                    );
+               }
+            }
+            array_push($arrayVide, $nou);
+        }
+        return $arrayVide;
+    }
 
 
+    public function recherchedeuxpointzero($q, $c){
+        //Le but est de metre a jour la fonction
+        // De recherche sur le site qui n'etait pas optimiser
+        // Q = VILLE C = NOM OU CAT
+
+        return $this->rechercheNom($q);
 
 
     }
+
 
 
 }
