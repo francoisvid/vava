@@ -47,7 +47,7 @@ class FavorisController extends AbstractController
             return $this->redirectToRoute('map');
         }
 
-}
+    }
 
 
     /**
@@ -55,10 +55,10 @@ class FavorisController extends AbstractController
      */
     public function getFav(Utilisateur $Utilisateur){
 
-    $newFavoris = new Favoris();
+        $newFavoris = new Favoris();
 
         $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
-            'utilisateur'=>$Utilisateur,
+            'utilisateur'=>$Utilisateur
         ));
 
         $arrayvide = array();
@@ -70,14 +70,14 @@ class FavorisController extends AbstractController
 
             foreach ($yolo as $item) {
 
-              $newarray = array(
-                  "id" => $new->getId(),
-                  "nom" => $new->getEntreprise()->getNom(),
-                  "ville" => $item->getAdresse()->getVille(),
-                  "rue" => $item->getAdresse()->getRue(),
-                  "numero" => $item->getAdresse()->getNumero(),
-                  "codePostal" => $item->getAdresse()->getCodePostal()
-              );
+                $newarray = array(
+                    "id" => $new->getId(),
+                    "nom" => $new->getEntreprise()->getNom(),
+                    "ville" => $item->getAdresse()->getVille(),
+                    "rue" => $item->getAdresse()->getRue(),
+                    "numero" => $item->getAdresse()->getNumero(),
+                    "codePostal" => $item->getAdresse()->getCodePostal()
+                );
             };
 
 

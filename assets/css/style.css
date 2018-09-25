@@ -9,26 +9,22 @@ html {
     min-height: 100%;
 }
 body {
-    /* Margin bottom by footer height */
-    margin-bottom: 300px;
+
+
 }
 .footer {
-    /*position: absolute;*/
-    bottom: 0;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    /*height: 200px;*/
+
 }
 
 /* Taller footer on small screens */
-@media (max-width: 34em) {
-    body {
-        margin-bottom: 500px;
-    }
-    .footer {
-        height: 500px;
-    }
-}
+/*@media (max-width: 34em) {*/
+    /*body {*/
+        /*margin-bottom: 500px;*/
+    /*}*/
+    /*.footer {*/
+        /*height: 500px;*/
+    /*}*/
+/*}*/
 
 /* Sticky footer style and color
 -------------------------------------------------- */
