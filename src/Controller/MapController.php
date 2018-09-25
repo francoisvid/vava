@@ -89,7 +89,7 @@ class MapController extends AbstractController
                     if($item->getIsDeleted() != 1){
 
                         $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
-                            "entreprise" => $item
+                            "entreprise" => $item->getId()
                         ));
 
 
