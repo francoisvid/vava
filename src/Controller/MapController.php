@@ -88,12 +88,12 @@ class MapController extends AbstractController
 
                     if($item->getIsDeleted() != 1){
 
-                        $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
+/*                        $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
                             "entreprise" => $item->getId()
                         ));
 
 
-                        var_dump($newCategorieEntreprise);
+                        var_dump($newCategorieEntreprise);*/
 
 
                         $nou = array(
@@ -298,9 +298,46 @@ class MapController extends AbstractController
 
         //return $this->rechercheNom($q);
 
-        $this->rechercheVille($q);
-        $result = $this->recherche($q);
+//        $this->rechercheVille($q);
+//        $result = $this->recherche($q);
 
+        $nc = str_replace("%20", " ", $c);
+
+        $vide = array();
+
+        if ($this->rechercheCategorie($nc)){
+
+            $result = $this->rechercheCategorie($nc);
+
+            foreach ($result as $r){
+
+                $ville = $r["ville"];
+                if ($ville == $q){
+                    array_push($vide, $r);
+                }
+
+            }
+            return $vide;
+
+        }elseif ($this->rechercheNom($nc)){
+
+            $result = $this->rechercheNom($nc);
+
+
+            foreach ($result as $r){
+
+                $ville = $r["nom"];
+                if ($ville == $nc){
+                    array_push($vide, $r);
+                }
+
+            }
+            return $vide;
+        }elseif($this->rechercheVille($q)){
+            return $this->rechercheVille($q);
+        }else{
+            return null;
+        }
 
 
     }
