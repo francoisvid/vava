@@ -5,10 +5,18 @@ namespace App\Controller;
 
 
 use App\Entity\Utilisateur;
+use App\Entity\Categorie;
+use App\Entity\Adresse;
+use App\Entity\Entreprise;
+use App\Entity\Contact;
+use App\Entity\AdresseEntreprise;
+use App\Entity\CategorieEntreprise;
 use App\Form\UtilisateurType;
+use App\Repository\EntepriseRepository;
 use App\Repository\UtilisateurRepository;
-use App\Repository\EntrepriseRepository;
+use App\Repository\CategorieRepository;
 use DateTime;
+use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -32,26 +40,24 @@ class AdminController extends AbstractController
      *
      * @Route ("/")
      */
-    public function index(UtilisateurRepository $utilisateurRepository)
+    public function index(CategorieRepository $repo)
     {
-        return $this->render('admin/index.html.twig', ['utilisateurs' => $utilisateurRepository->findAllIfNotDel(),
-            'utilisateursban' => $utilisateurRepository->FindAllDeleted()]);
+        return $this->render('admin/index.html.twig', ['categorie' => $repo->findAll()]);
     }
 
+    /**
+     *
+     * @Route ("/dazdoazpkd")
+     */
+    public function indexDeux(CategorieRepository $repo)
+    {
+        return $this->render('admin/newTwigTemplate.html.twig', ['categorie' => $repo->findAll()]);
+    }
     /*
      * 
      * Partie dédiée à l'interraction avec la table utilisateur de la base de données
      * 
      */
-
-    /**
-     * @Route("/a", name="admin_user_index", methods="GET")
-     */
-    public function indexbis(UtilisateurRepository $utilisateurRepository): Response
-    {
-        $utilisateurs = $utilisateurRepository->findAll();
-        return $this->render('utilisateur/utilisateur.html.twig', ['utilisateurs' => $utilisateurRepository->findAll()]);
-    }
 
     /**
      * @Route("/new", name="utilisateur_new", methods="GET|POST")
@@ -223,5 +229,90 @@ class AdminController extends AbstractController
         $ent = $entRepo->FindAllIfNotDel();
         $ents = $entRepo->FindAllIfNotDel();
         return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+    
+    /**
+     * @Route("/cat/create", name="cat_create", methods="POST")
+     *
+     */
+    public function createCat(Request $request, ObjectManager $em){
+        $post = $request->request->all();
+        
+        $cat = new Categorie();
+        (isset($post['type']))? $cat->setType($post['type']): "";
+        
+        if($cat->getType() !== null){
+             $em->persist($cat);
+             $em->flush();
+            return $this->json(array("status" => "success"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        }else{
+            return $this->json(array("status" => "fail"), 400, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        }
+    }
+    
+    /**
+     * @Route("/company/create", name="ent_create", methods="POST")
+     *
+     */
+    public function createcompany(Request $request, ObjectManager $em){
+        $post = $request->request->all();
+        
+        $adr = new Adresse();
+        (isset($post['adresse']['numero']))? $adr->setNumero($post['adresse']['numero']): "";
+        (isset($post['adresse']['rue']))? $adr->setRue($post['adresse']['rue']): "";
+        (isset($post['adresse']['ville']))? $adr->setVille($post['adresse']['ville']): "";
+        (isset($post['adresse']['cp']))? $adr->setCodePostal($post['adresse']['cp']): "";
+        $em->persist($adr);
+        $em->flush();
+ 
+        $ent = new Entreprise();
+        //$ent->setCategorie($em->find(Categorie::class, $post['categorie']));
+        (isset($post['nom']))? $ent->setNom($post['nom']): "";
+        (isset($post['tel']))? $ent->setTel($post['tel']): "";
+        (isset($post['mail']))? $ent->setMail($post['mail']): "";
+        (isset($post['logo']))? $ent->setLogo($post['logo']): "";
+        (isset($post['site']))? $ent->setSiteWeb($post['site']): "";
+        (isset($post['salarie']))? $ent->setSalariesFormes($post['salarie']): "";
+        (isset($post['remarque']))? $ent->setRemarque($post['remarque']): "";
+        $ent->setPub(0);
+        $ent->setVisible(0);
+        $ent->setIsDeleted(0);
+        $em->persist($ent);
+        $em->flush();
+        
+        
+        $cont = new Contact();
+        (isset($post['contact']['nom']))? $cont->setNom($post['contact']['nom']): "";
+        (isset($post['contact']['prenom']))? $cont->setPrenom($post['contact']['prenom']): "";
+        (isset($post['contact']['genre']))? $cont->setSexe($post['contact']['genre']): "";
+        (isset($post['contact']['fonction']))? $cont->setFonction($post['contact']['fonction']): "";
+        (isset($post['contact']['mail']))? $cont->setMail($post['contact']['mail']): "";
+        (isset($post['contact']['tel']))? $cont->setTel($post['contact']['tel']): "";
+        (isset($post['contact']['remarque']))? $cont->setRemarque($post['contact']['remarque']): "";
+        $cont->setEntreprise($ent);
+        $em->persist($cont);
+        $em->flush();
+
+        
+        $cat = new CategorieEntreprise();
+        $cat->setEntreprise($ent);
+        $cat->setCategorie($em->find(Categorie::class, $post['categorie']));
+        $em->persist($cat);
+        $em->flush();
+        
+        $adEnt = new AdresseEnteprise();
+        $adEnt->setAdresse($adr);
+        $adEnt->setEntreprise($ent);
+        $em->persist($adEnt);
+        $em->flush();
+        
+        
+        
+            return $this->json(array("status" => "GG"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        
+    }
+    
+    private function EntrepriseErreur($error){
+        return $this->json(array("erreur" => $error), 400, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 }

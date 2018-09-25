@@ -3,6 +3,7 @@
 {% block title %}admin index{% endblock %}
 
 {% block body %}
+    <link href="{{ asset('build/css/entrepriseform.css') }}" rel="stylesheet" type="text/css"/>
     
     <div class="container-fluid h-100">
     <div class="row h-100">
@@ -41,16 +42,9 @@
 <table id="table1" class="display table table-striped table-bordered nowrap" style="width:100%!important">
         <thead>
             <tr>
-{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-{#                <th>Tel</th>#}
-{#                <th>DateNaissance</th>#}
-{#                <th>DateCreation</th>#}
-{#                <th>Actif</th>
-                <th>IsDeleted</th>#}
-{#                <th>Sexe</th>#}
                 <th>actions</th>
             </tr>
         </thead>
@@ -58,16 +52,9 @@
         </tbody>
         <tfoot>
             <tr>
-{#                <th>Id</th>#}
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Mail</th>
-{#                <th>Tel</th>#}
-{#                <th>DateNaissance</th>#}
-{#                <th>DateCreation</th>#}
-{#                <th>Actif</th>#}
-{#                <th>IsDeleted</th>#}
-{#                <th>Sexe</th>#}
                 <th>actions</th>
             </tr>
         </tfoot>
@@ -78,13 +65,9 @@
         <table id="table2" class="display table table-striped table-bordered nowrap" style="width:100%!important">
                 <thead>
                     <tr>
-{#                        <th>Id</th>#}
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Mail</th>
-{#                        <th>Tel</th>#}
-{#                        <th>DateNaissance</th>
-                        <th>DateCreation</th>#}
                         <th>actions</th>
                     </tr>
                 </thead>
@@ -92,13 +75,9 @@
                 </tbody>
                 <tfoot>
                     <tr>
-{#                        <th>Id</th>#}
                         <th>Nom</th>
                         <th>Prenom</th>
                         <th>Mail</th>
-{#                        <th>Tel</th>#}
-{#                        <th>DateNaissance</th>
-                        <th>DateCreation</th>#}
                         <th>actions</th>
                     </tr>
                 </tfoot>
@@ -110,14 +89,10 @@
     <table id="table3" class="display table table-striped table-bordered nowrap" style="width:100%!important">
             <thead>
                 <tr>
-{#                    <th>Id</th>#}
                     <th>Nom</th>
                     <th>Tel</th>
                     <th>Mail</th>
-{#                    <th>Logo</th>#}
                     <th>remarque</th>
-{#                    <th>SalariesFormes</th>#}
-{#                    <th>Site Web</th>#}
                     <th>Pub</th>
                     <th>Actions</th>
                 </tr>
@@ -126,23 +101,193 @@
             </tbody>
             <tfoot>
                 <tr>
-{#                    <th>Id</th>#}
                     <th>Nom</th>
                     <th>Tel</th>
                     <th>Mail</th>
-{#                    <th>Logo</th>#}
                     <th>remarque</th>
-{#                    <th>SalariesFormes</th>#}
-{#                    <th>Site Web</th>#}
                     <th>Pub</th>
                     <th>Actions</th>
                 </tr>
             </tfoot>
     </table>
 </div>
+       
+        <div class="col bg-faded py-3  col-md-9 admincontent" id="addCat">
+            <h3>Ajout d'une nouvelle catégorie</h3>
+            <form id ="createCat" class="center">
+              <div class="form-group">
+                <label for="formcat">Veuillez renseigner la catégorie que vous souhaitez ajouter</label>
+                <input type="text" class="form-control col-5 mb-2" id="formcat" placeholder="Banque, hospital..">
+                <button type="submit" class="btn btn-outline-success">Valider</button>
+              </div>
+            </form>
+        </div>
+
                         
-    </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+{#\________________________________________________________________________________________________/#}
+                        
+        
+                        
+                        
+                        
+                        
+                        
+                        
+{#\________________________________________________________________________________________________/#}
+                        
+        <div class="col bg-faded py-3  col-md-9 admincontent" id="addCompany">
+            <h1>Ajout d'une nouvelle entreprise</h1>
+            <div class="col-md-12 col-md-offset-3">
+<form id="regForm" method='post'>
+<!-- One "tab" for each step in the form: -->
+<div class="tab">
+<h3>Détails de l'entreprise:</h3>
+          <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="nomEnt">Nom de l'entreprise</label>
+                <input type="text" id="nomEnt" name="nomEnt" maxlength="45" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+            <label for="entselect">Catégorie de l'entreprise</label>
+            <select class="form-control" id="entselect">
+                {% for cat in categorie %}
+                <option value='{{ cat.id }}'>{{ cat.type }}</option>
+                {% endfor %}
+              </select>
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="numEnt">Numéro de l'entreprise</label>
+                <input type="tel" id="numEnt" name="numEnt" maxlength="12" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="mailEnt">Email de l'entreprise</label>
+                <input type="email" id="mailEnt" name="mailEnt" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+          <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="logoEnt">Logo de l'entreprise</label>
+                <input type="text" id="logoEnt" name="logoEnt" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="siteEnt">Site de l'entreprise</label>
+                <input type="text" id="siteEnt" name="siteEnt" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="salarieEnt">Salariés certifiés de l'entreprise</label>
+                <input type="number" id="salarieEnt" name="salarieEnt" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="remEnt">Remarque sur l'entreprise</label>
+                <textarea class="form-control" rows="3" id="remEnt">
+                </textarea>
+            </div>
+      </div>
+          
 </div>
+
+<div class="tab">
+    <h3>Adresse de l'entreprise:</h3>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="numAdEnt">Numéro</label>
+                <input type="number" id="numAdEnt" name="numAdEnt" maxlength="12" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="rueEnt">Rue</label>
+                <input type="text" id="rueEnt" name="rueEnt" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="villeEnt">Ville</label>
+                <input type="text" id="villeEnt" name="villeEnt" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="cpEnt">Code postal</label>
+                <input type="text" id="cpEnt" name="cpEnt" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+</div>
+
+<div class="tab">
+    <h3>Contact au sein de l'entreprise:</h3>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="nomCon">Nom</label>
+                <input type="text" id="nomCon" name="nomCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="prenomCon">Prenom</label>
+                <input type="text" id="prenomCon" name="prenomCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="fonctionCon">Fonction</label>
+                <input type="text" id="fonctionCon" name="fonctionCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="mailCon">Email</label>
+                <input type="text" id="mailCon" name="mailCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="telCon">Téléphone</label>
+                <input type="tel" id="telCon" name="telCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
+            </div>
+            <div class="form-group col-md-5 active-cyan-4">
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="homme" value="Homme">
+  <label class="form-check-label" for="inlineRadio1"><i class="fas fa-mars"></i></label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femme" value="Femme">
+  <label class="form-check-label" for="inlineRadio2"><i class="fas fa-venus"></i></label>
+</div>
+            </div>
+      </div>
+      <div class='row'>
+            <div class="form-group col-md-5 active-cyan-4">
+                <label for="remCon">Remarque</label>
+                <textarea class="form-control" rows="3" id="remCon">
+                </textarea>
+            </div>
+      </div>
+</div>
+<div style="overflow:auto;">
+  <div style="float:right;">
+    <button type="button" class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+    <button type="button"  class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Next</button>
+  </div>
+</div>
+
+<!-- Circles which indicates the steps of the form: -->
+<div style="text-align:center;margin-top:40px;">
+  <span class="step"></span>
+  <span class="step"></span>
+  <span class="step"></span>
+{#  <span class="step"></span>#}
+</div>
+
+</form>
+      </div>
+            </div>
+        </div>
+    </div>
+
             
 <div class="modal" tabindex="-1" role="dialog" id="editTable1">
   <div class="modal-dialog" role="document">
@@ -165,7 +310,7 @@
     <div class="form-group">
         <label for="prenom">Email :</label>
         <input class="form-control" type="text" id="email" name="mail" >
-      </div>
+    </div>
 
     
       <div class="modal-footer">
@@ -187,28 +332,28 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Nom</label>
-                        <input type="text" name="nom" id="nom">
+                        <input type="text" name="nomEn" id="nomEn">
                     </div>
                     <div class="field">
                         <label>Mail</label>
-                        <input type="text" name="prenom" id="prenom">
+                        <input type="text" name="mailEn" id="mailEn">
                     </div>
                 </div>
                 <div class="two fields">
                     <div class="field">
                         <label>Logo</label>
-                        <input type="text" name="mail" id="mail">
+                        <input type="text" name="logo" id="logo">
                     </div>
                     <div class="field">
                         <label>Numéro de téléphone</label>
-                        <input type="text" name="tel" id="tel">
+                        <input type="text" name="tel" id="telEn">
                     </div>
                 </div>
                 <div class="two fields">
                     <div class="field">
                         <label>Site web</label>
                         <div class="field">
-                            <input type="text" name="tel" id="tel">
+                            <input type="text" name="tel" id="siteEn">
                         </div>
                     </div>
                     {#<p>Date: <input type="text" id="datepicker"></p>#}
@@ -260,13 +405,9 @@ $(document).ready(function() {
             }).done( function(response) {
                 console.log((response))
                         cols = [
-{#            {"data": "id"},#}
             {"data": "nom"},
             {"data": "prenom"},
             {"data": "mail"},
-{#            {"data": "tel"},#}
-{#            {"data": "dateNaissance"},#}
-{#            {"data": "dateCreation"},#}
             null
         ];
              table=    $('#table1').DataTable({
@@ -292,7 +433,6 @@ $(document).ready(function() {
                 console.log(status);
                 console.log(error);
             });
-{#    new $.fn.dataTable.FixedHeader( table );#}
 } ); 
 
     $('#table1 tbody').on( 'click', '#edit', function () {
@@ -400,8 +540,6 @@ $(document).ready(function() {
         $("#salariesFormes").val(data.salariesFormes);
         $("#remarqueEnt").val(data.remarque);
     } );
-    
-
     {#$('#table3 tbody').on( 'click', '#react', function () {
         var data = table2.row( $(this).parents('tr') ).data();
         unbanUsr( data['id']);
@@ -416,7 +554,25 @@ $(document).ready(function() {
         n.setAttribute('language', 'JavaScript');
         n.setAttribute('src', 'https://debug.datatables.net/debug.js');
         document.body.appendChild(n);#}
-        
+            
+            /*  Creation categorie   */ 
+{#        $("#createCat").submit(function(e){
+                    alert('submit intercepted');
+                    e.preventDefault(e);
+                    alert( $('#formcat').val());
+            $.ajax({
+                method: "post",
+                url: window.location+"cat/create",
+                data: { type: $('#formcat').val() },
+            }).done( function(response) {
+                console.log((response))
+            }).fail(function(xhr, status, error){
+                alert(xhr.responseText)
+                console.log(status);
+                console.log(error);
+            });
+                
+            });#}
       /*
        * 
        * Dédié au hide & show du menu admin
@@ -464,5 +620,6 @@ $(document).ready(function() {
                 })
             ;
         </script>
-    <script src="{{ asset('./build/js/admin.js') }}"></script>
+    <script src="{{ asset('build/js/form.js') }}"></script>
+    <script src="{{ asset('build/js/admin.js') }}"></script>
 {% endblock %}

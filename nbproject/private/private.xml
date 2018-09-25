@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/admin/index.html.twig</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Adresse.php</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/DataFixtures/VavaFixtures.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/AdminController.php</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Favoris.php</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/base.html.twig</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Utilisateur.php</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/admin/newTwigTemplate.html.twig</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/form.js</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/admin.js</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/css/entrepriseform.css</file>
         </group>
     </open-files>
 </project-private>
