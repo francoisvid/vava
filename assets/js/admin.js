@@ -96,25 +96,18 @@ window.unbanUsr = function (id){
             console.log(error);
         });
     }
-/*  Creation entreprise   */
-//    $("#regForm").submit(function (e) {
-//        alert('submit intercepted');
-//        e.preventDefault(e);
-//        alert($('#nomEnt').val());
-//
-//        $.ajax({
-//            method: "post",
-//            url: window.location + "company/create",
-//            data: {type: $('#nomEnt').val()},
-//        }).done(function (response) {
-//            alert("ok");
-//            console.log((response));
-//        }).fail(function (xhr, status, error) {
-//            alert(xhr.responseText)
-//            console.log(status);
-//            console.log(error);
-//        });
-//
-//
-//    });
-//        var data = {type: $('#formcat').val()}
+
+window.showContact = function(id){
+    
+    $.ajax({
+                method: "get",
+                url: window.location+"user/unb/"+id,
+                dataType: "json",
+            }).done( function(response) {
+                alert("success");
+            }).fail(function(xhr, status, error){
+                alert(xhr.responseText)
+                console.log(status);
+                console.log(error);
+            });
+}

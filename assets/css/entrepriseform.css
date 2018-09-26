@@ -48,3 +48,16 @@ input.invalid {
 .step.finish {
   background-color: #4CAF50;
 }
+
+ul#page li {
+   display: inline;
+   text-align: center;
+   justify-content: center;
+/*   padding: 2px ;
+   margin: 0;
+   width: 19%;*/
+   }
+   
+   .hide{
+       display: none;
+   }

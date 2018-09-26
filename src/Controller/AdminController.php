@@ -9,10 +9,10 @@ use App\Entity\Categorie;
 use App\Entity\Adresse;
 use App\Entity\Entreprise;
 use App\Entity\Contact;
-use App\Entity\AdresseEntreprise;
+use App\Entity\AdresseEnteprise;
 use App\Entity\CategorieEntreprise;
 use App\Form\UtilisateurType;
-use App\Repository\EntepriseRepository;
+use App\Repository\EntrepriseRepository;
 use App\Repository\UtilisateurRepository;
 use App\Repository\CategorieRepository;
 use DateTime;
@@ -268,7 +268,7 @@ class AdminController extends AbstractController
         $ent = new Entreprise();
         //$ent->setCategorie($em->find(Categorie::class, $post['categorie']));
         (isset($post['nom']))? $ent->setNom($post['nom']): "";
-        (isset($post['tel']))? $ent->setTel($post['tel']): "";
+        (isset($post['tel']))? $ent->setTel($post['Request $request, ObjectManager $emtel']): "";
         (isset($post['mail']))? $ent->setMail($post['mail']): "";
         (isset($post['logo']))? $ent->setLogo($post['logo']): "";
         (isset($post['site']))? $ent->setSiteWeb($post['site']): "";
@@ -314,5 +314,46 @@ class AdminController extends AbstractController
     
     private function EntrepriseErreur($error){
         return $this->json(array("erreur" => $error), 400, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+    
+    /**
+     * @Route("/contact/create", name="contact_create", methods="POST")
+     *
+     */
+    public function createContact(Request $request, ObjectManager $em){
+        $post = $request->request->all();
+        
+        $cont = new Contact();
+        $cont->setNom($post['nom']);
+        $cont->setPrenom($post['prenom']);
+        $cont->setSexe($post['genre']);
+        $cont->setFonction($post['fonction']);
+        $cont->setRemarque($post['remarque']);
+        $cont->setMail($post['mail']);
+        $cont->setTel($post['tel']);
+        $cont->setEntreprise($em->find(Entreprise::class, $post['entreprise']));
+        
+        $em->persist($cont);
+        $em->flush();
+        
+        return $this->json(array("success" => "Insert réussi"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+    
+    /**
+     * @Route("/contact/update/{id}", name="contact_create", methods="POST")
+     *
+     */
+    public function updateContact(Contact $contact, Request $request, ObjectManager $em){
+        $post = $request->request->all();
+        
+        $contact->setNom($post['nom']);
+        $contact->setPrenom($post['prenom']);
+        $contact->setTel((int)$post['tel']);
+        $contact->setMail($post['mail']);
+        
+        $em->merge($contact);
+        $em->flush();
+        
+        return $this->json(array("success" => "Edition réussi"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 }

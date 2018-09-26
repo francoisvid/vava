@@ -146,9 +146,9 @@ class Contact
         return $this;
     }
 
-    public function getEntreprise(): ?Entreprise
+    public function getEntreprise(): ?int
     {
-        return $this->entreprise;
+        return $this->entreprise->getId();
     }
 
     public function setEntreprise(?Entreprise $entreprise): self

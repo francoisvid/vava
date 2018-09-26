@@ -339,6 +339,7 @@
                         <input type="text" name="mailEn" id="mailEn">
                     </div>
                 </div>
+
                 <div class="two fields">
                     <div class="field">
                         <label>Logo</label>
@@ -379,15 +380,78 @@
                     <div class="ui form">
                         <div class="field">
                             <label>Remarques</label>
-                            <textarea></textarea>
+                            <textarea id="remEn"></textarea>
                         </div>
                     </div>
+                    <button type="submit" class="btn btn-success">Valider les modifications</button>
+                    <button class="btn btn-danger float-right" data-dismiss="modal">Fermer</button>
             </form>
     </div>
   </div>
 </div>
+</div>
 
 
+                    
+<div class="modal" tabindex="-1" role="dialog" id="contactModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titleModalContact">Contact de l'entreprise</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+    <div class="form-group">
+        <label for="nomContact">Nom :</label>
+        <input class="form-control" type="text" id="nomContact" name="nomContact" >
+    </div>
+    <div class="form-group">
+        <label for="prenomContact">Prenom :</label>
+        <input class="form-control" type="text" id="prenomContact" name="prenomContact" >
+    </div>
+    <div class="form-group">
+        <label for="emailContact">Email :</label>
+        <input class="form-control" type="text" id="emailContact" name="mailContact" >
+    </div>
+    <div class="form-group">
+        <label for="telContact">Téléphone :</label>
+        <input class="form-control" type="tel" id="telContact" name="telContact" >
+    </div>
+    <div class="form-group hide" id="fonctionHiden">
+        <label for="foncContact">Fonction :</label>
+        <input class="form-control" type="text" id="foncContact" name="foncContact" >
+    </div>
+    <div class="form-group hide" id="genreHiden">
+        <label class="mr-4">Genre :</label>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="contHomme" value="Homme">
+          <label class="form-check-label" for="inlineRadio1"><i class="fas fa-mars"></i></label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="contFemme" value="Femme">
+          <label class="form-check-label" for="inlineRadio2"><i class="fas fa-venus"></i></label>
+        </div>
+    </div>
+    <div class="form-group hide" id="remarqueHiden">
+        <label for="contRem">Remarque</label>
+        <textarea class="form-control" rows="2" id="contRem">
+        </textarea>
+    </div>
+        <button type="button" class="btn btn-success hide" id="validAdd">Confirmer</button>
+        <button type="button" class="btn btn-danger float-right hide" id="cancelAdd">Annuler</button>
+          <ul id='page' class='center'></ul>
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success justify-content-start" id="contactAdd">Ajouter un contact</button>
+        <button type="button" class="btn btn-primary" id="editContact">Valider les modifications</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
                         
             <script>  
@@ -397,6 +461,9 @@ var datatables = null;
 var table= null;
 var table2= null;
 var table3= null;
+var contact= null;
+var entreprise = null;
+var currentContact = 0;
 $(document).ready(function() {
                 $.ajax({
                 method: "get",
@@ -440,25 +507,23 @@ $(document).ready(function() {
         $('#prenom').val(data["prenom"]);
         $('#nom').val(data["nom"]);
         $('#email').val(data["mail"]);
-        alert( data["nom"] +" peut être modifié");
     } );
     $('#table1 tbody').on( 'click', '#suppr', function () {
         var data = table.row( $(this).parents('tr') ).data();
         supprUsr( data['id']);
-        alert( data["nom"] +" peut être supprimé" );
             table
         .row( $(this).parents('tr') )
         .remove()
         .draw();
     } );
     
+    
+    
     /* 
      * 
      * Partie dédiée à la table des utilisateurs supprimés
      * 
      */
-    
-    
     cols = [
 
             {"data": "nom"},
@@ -478,27 +543,23 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button type='button' class='btn btn-success'><i class='far fa-check-circle'></i> Réactiver</button>"
+        defaultContent: "<button type='button' id='react' class='btn btn-success'><i class='far fa-check-circle'></i> Réactiver</button>"
     } ],
                     columns: cols
                 });
             
-    $('#table2 tbody').on( 'click', '#edit2', function () {
-        var data = table2.row( $(this).parents('tr') ).data();
-        alert( data["nom"] +" peut être modifié");
-    } );
+
     $('#table2 tbody').on( 'click', '#react', function () {
         var data = table2.row( $(this).parents('tr') ).data();
         unbanUsr( data['id']);
-        alert( data["nom"] +" peut être supprimé" );
-            table2
+        table2
         .row( $(this).parents('tr') )
         .remove()
         .draw();
+        $('#table1').DataTable().ajax.reload();
     } );
     
-    
-    
+
     /*
      * 
      * Partie dédié à la datatable des entreprises actives
@@ -525,54 +586,153 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'>Plus de détails</button>"
+        defaultContent: "<button class='btn btn-success' id='ContactEntreprise' data-toggle='modal' data-target='#contactModal')><i class='fas fa-address-book'></i></button><button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'><i class='fas fa-edit'></i></button><button class='btn btn-warning'><i class='far fa-eye-slash'></i></button><button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
     } ],
                     columns: cols
                 });
             
+            
+            
+            /*
+             * 
+             * Partie dédiée aux interaction avec la partie des entreprises
+             * 
+             */
+            
     $('#table3 tbody').on( 'click', '#btnEnt', function () {
         var data = table3.row( $(this).parents('tr') ).data();
+        entreprise = table3.row( $(this).parents('tr') ).data();
         $("#titreEnt").text("Entreprise "+data.nom);
-        $("#nomEnt").val(data.nom);
-        $("#telEnt").val(data.tel);
-        $("#emailEnt").val(data.mail);
-        $("#logoEnt").val(data.logo);
-        $("#salariesFormes").val(data.salariesFormes);
-        $("#remarqueEnt").val(data.remarque);
+        $("#nomEn").val(data.nom);
+        $("#telEn").val(data.tel);
+        $("#mailEn").val(data.mail);
+        $("#logo").val(data.logo);
+        $("#siteEn").val(data.siteWeb);
+        $("#numero").val(data.salariesFormes);
+        $("#remEn").val(data.remarque);
     } );
-    {#$('#table3 tbody').on( 'click', '#react', function () {
-        var data = table2.row( $(this).parents('tr') ).data();
-        unbanUsr( data['id']);
-        alert( data["nom"] +" peut être supprimé" );
-            table2
-        .row( $(this).parents('tr') )
-        .remove()
-        .draw();
-    } );#}
+    $('#table3 tbody').on( 'click', '#ContactEntreprise', function () {
+        entreprise = table3.row( $(this).parents('tr') ).data();
+        contact = entreprise.contacts;
+        $('#nomContact').val(contact[0].nom);
+        $('#prenomContact').val(contact[0].prenom);
+        $('#emailContact').val(contact[0].mail);
+        $('#telContact').val(contact[0].tel);
+        
+        //système de pagination
+        if(contact.length > 1){
+            $("#page").empty();
+            for (var i = 0; i < contact.length;i++){
+            $("#page").append($('<li >').append($('<button>').addClass('btn btn-primary').text(i+1)).attr('onclick', 'nextPrevCont('+i+')'));
+            }
+        }
+    } );
     
-{#        var n = document.createElement('script');
-        n.setAttribute('language', 'JavaScript');
-        n.setAttribute('src', 'https://debug.datatables.net/debug.js');
-        document.body.appendChild(n);#}
-            
-            /*  Creation categorie   */ 
-{#        $("#createCat").submit(function(e){
-                    alert('submit intercepted');
-                    e.preventDefault(e);
-                    alert( $('#formcat').val());
-            $.ajax({
-                method: "post",
-                url: window.location+"cat/create",
-                data: { type: $('#formcat').val() },
-            }).done( function(response) {
-                console.log((response))
-            }).fail(function(xhr, status, error){
-                alert(xhr.responseText)
-                console.log(status);
-                console.log(error);
-            });
-                
-            });#}
+    $('#modalEnt').submit(function (e) {
+        e.preventDefault(e);
+        
+    });
+    
+    
+    $('#table3 tbody').on( 'click', '#ContactEntreprise', function () {
+        $('#titleModalContact').text('Contact de l\'entreprise '+ entreprise.nom)
+    } );
+        
+        //système de pagination
+    function nextPrevCont(n){
+        $('#nomContact').val(contact[n].nom);
+        $('#prenomContact').val(contact[n].prenom);
+        $('#emailContact').val(contact[n].mail);
+        $('#telContact').val(contact[n].tel);
+        currentContact = n;
+    }
+    
+    $('#contactModal').on( 'click', '#contactAdd', function () {
+            $('#nomContact').val("");
+            $('#prenomContact').val("");
+            $('#emailContact').val("");
+            $('#telContact').val("");
+            $("#fonctionHiden").removeClass("hide");
+            $("#remarqueHiden").removeClass("hide");
+            $("#genreHiden").removeClass("hide");
+            $("#page").addClass("hide");
+            $("#contactAdd").addClass("hide");
+            $('#table1').DataTable().ajax.reload();    
+            $("#validAdd").removeClass("hide");
+            $("#cancelAdd").removeClass("hide");
+    } );
+    $('#contactModal').on( 'click', '#cancelAdd', function () {
+            $('#table3').DataTable().ajax.reload();
+            $("#validAdd").addClass("hide");
+            $("#cancelAdd").addClass("hide");
+            $("#fonctionHiden").addClass("hide");
+            $("#remarqueHiden").addClass("hide");
+            $("#genreHiden").addClass("hide");
+            $("#page").removeClass("hide");
+            $("#contactAdd").removeClass("hide");
+            nextPrevCont(currentContact);
+    });
+    $('#contactModal').on( 'click', '#validAdd', function () {
+        var sexe;
+        if ($('#contHomme').is(":checked")){
+              sexe = "Homme";
+            }else if($('#contFemme').is(":checked")){
+                sexe = "Femme";
+            }
+                    console.log(sexe)
+        var stuff = { 
+                        "nom": $('#nomContact').val(),
+                        "prenom": $('#prenomContact').val(),
+                        "tel": $('#telContact').val(),
+                        "mail": $('#emailContact').val(),
+                        "fonction": $('#foncContact').val(),
+                        "remarque": $('#contRem').val(),
+                        "genre": sexe,
+                        "entreprise": entreprise.id
+                    }
+                    
+        $.ajax({
+            method: "post",
+            url: window.location + "contact/create",
+            data: stuff,
+        }).done(function (response) {
+            $('#table3').DataTable().ajax.reload();
+            $("#validAdd").addClass("hide");
+            $("#cancelAdd").addClass("hide");
+            $("#fonctionHiden").addClass("hide");
+            $("#remarqueHiden").addClass("hide");
+            $("#genreHiden").addClass("hide");
+            $("#page").removeClass("hide");
+            $("#contactAdd").removeClass("hide");
+            console.log((response));
+        }).fail(function (xhr, status, error) {
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        });
+    } );
+    
+    $('#contactModal').on( 'click', '#editContact', function () {
+        var stuff = { 
+                "nom": $('#nomContact').val(),
+                "prenom": $('#prenomContact').val(),
+                "tel": $('#telContact').val(),
+                "mail": $('#emailContact').val(),
+            }
+
+        $.ajax({
+            method: "post",
+            url: window.location + "contact/update/"+contact[currentContact].id,
+            data: stuff,
+        }).done(function (response) {
+            alert('ok');
+        }).fail(function (xhr, status, error) {
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        });
+    });
+    
       /*
        * 
        * Dédié au hide & show du menu admin
@@ -591,6 +751,20 @@ $(document).ready(function() {
   $tabButtonItem.find('a').on('click', function(e) {
     var target = $(this).attr('href');
 
+    switch(target) {
+    case "#users":
+        $('#table1').DataTable().ajax.reload();
+        break;
+    case "#usersuppr":
+        $('#table2').DataTable().ajax.reload();
+        break;
+    case "#company":
+        $('#table3').DataTable().ajax.reload();
+        break;
+    case "#companyInv":
+        $('#table4').DataTable().ajax.reload();
+        break;
+}
     $tabButtonItem.removeClass(activeClass);
     $(this).parent().addClass(activeClass);
     $tabSelect.val(target);
@@ -622,4 +796,5 @@ $(document).ready(function() {
         </script>
     <script src="{{ asset('build/js/form.js') }}"></script>
     <script src="{{ asset('build/js/admin.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js"></script>
 {% endblock %}

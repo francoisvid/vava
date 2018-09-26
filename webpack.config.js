@@ -42,6 +42,7 @@ Encore
     //.enableSassLoader()
 
     .addEntry('js/admin', './assets/js/admin.js')
+    .addEntry('json/DT_French', './assets/DataTables/DT_French.json')
     .addEntry('js/user', './assets/js/user.js')
     .addEntry('js/form', './assets/js/form.js')
     .addEntry('img', './assets/js/recursifEncore.js')

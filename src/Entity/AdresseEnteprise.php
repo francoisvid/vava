@@ -33,9 +33,9 @@ class AdresseEnteprise
         return $this->id;
     }
 
-    public function getAdresse(): ?Adresse
+    public function getAdresse(): ?int
     {
-        return $this->adresse;
+        return $this->adresse->getId();
     }
 
     public function setAdresse(?Adresse $adresse): self
@@ -45,9 +45,9 @@ class AdresseEnteprise
         return $this;
     }
 
-    public function getEntreprise(): ?Entreprise
+    public function getEntreprise(): ?int
     {
-        return $this->entreprise;
+        return $this->entreprise->getId();
     }
 
     public function setEntreprise(?Entreprise $entreprise): self

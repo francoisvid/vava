@@ -32,9 +32,9 @@ class CategorieEntreprise
         return $this->id;
     }
 
-    public function getCategorie(): ?Categorie
+    public function getCategorie(): ?int
     {
-        return $this->categorie;
+        return $this->categorie->getId();
     }
 
     public function setCategorie(?Categorie $categorie): self
@@ -44,9 +44,9 @@ class CategorieEntreprise
         return $this;
     }
 
-    public function getEntreprise(): ?Entreprise
+    public function getEntreprise(): ?int
     {
-        return $this->entreprise;
+        return $this->entreprise->getId();
     }
 
     public function setEntreprise(?Entreprise $entreprise): self
