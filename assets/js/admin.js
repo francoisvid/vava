@@ -104,7 +104,7 @@ window.showContact = function(id){
                 url: window.location+"user/unb/"+id,
                 dataType: "json",
             }).done( function(response) {
-                alert("success");
+//                alert("success");
             }).fail(function(xhr, status, error){
                 alert(xhr.responseText)
                 console.log(status);

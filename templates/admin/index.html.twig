@@ -2,12 +2,14 @@
 
 {% block title %}admin index{% endblock %}
 
+        {% block navbar %}{% endblock %}
 {% block body %}
     <link href="{{ asset('build/css/entrepriseform.css') }}" rel="stylesheet" type="text/css"/>
     
+    
     <div class="container-fluid h-100">
     <div class="row h-100">
-        <aside class="col-12 col-md-2 p-0 bg-dark">
+            <aside class="col-12 col-md-2 p-0 bg-dark">
             <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" id="adminaside">
@@ -39,7 +41,6 @@
                 </div>
             </nav>
         </aside>
-    
     <div class="col bg-faded py-3 col-md-9 admincontent" id="users">
     <h1>Tableau des utilisateurs actifs</h1>
 <table id="table1" class="display table table-striped table-bordered nowrap" style="width:100%!important">
@@ -63,7 +64,7 @@
         </tfoot>
 </table>
     </div>
-    <div class="col bg-faded py-3  col-md-9 admincontent" id="usersuppr">
+    <div class="col bg-faded py-3  col-md-9 col-5 admincontent" id="usersuppr">
     <h4>Tableau des utilisateurs inactifs</h4>
         <table id="table2" class="display table table-striped table-bordered nowrap" style="width:100%!important">
                 <thead>
@@ -708,12 +709,12 @@ $(document).ready(function() {
             $("#genreHiden").addClass("hide");
             $("#page").removeClass("hide");
             $("#contactAdd").removeClass("hide");
-            console.log((response));
+{#            console.log((response));#}
         }).fail(function (xhr, status, error) {
             alert(xhr.responseText)
             console.log(status);
             console.log(error);
-        });
+        });navbar 
     } );
     
     $('#contactModal').on( 'click', '#editContact', function () {
@@ -743,7 +744,7 @@ $(document).ready(function() {
        * 
        */  
       
-    $(function() {
+$(function() {
       var $tabButtonItem = $('#adminaside li'),
           $tabSelect = $('#tab-select'),
           $tabContents = $('.admincontent'),
@@ -801,4 +802,6 @@ $(document).ready(function() {
     <script src="{{ asset('build/js/form.js') }}"></script>
     <script src="{{ asset('build/js/admin.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js"></script>
+    {% block footer %}
+{% endblock %}
 {% endblock %}
