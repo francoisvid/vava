@@ -30,10 +30,10 @@ class VavaFixtures extends Fixture
         $this->generateAdresse($manager);
         $this->generateAdresseEnt($manager);
         $this->generateActu($manager);
-        
+
         $manager->flush();
     }
-    
+
     public function generateRole($em){
         $role = new Privilege();
         $role->setRole("admin");
@@ -43,32 +43,32 @@ class VavaFixtures extends Fixture
         $em->persist($role2);
         $em->flush();
     }
-    
+
     public function generateUser($em){
         for($i=0;$i<=50;$i++){
-        $usr = new Utilisateur();
-        $usr->setNom("nom" . $i);
-        $usr->setPrenom("prenom" . $i);
-        $usr->setMail("test".$i."@test.com");
-        $usr->setMdp("mdp".$i);
-        $usr->setIsDeleted(false);
-        $usr->setActif(true);
-        $usr->setDateCreation(new DateTime());
-        $usr->setPrivilege($em->find(Privilege::class, 2));
-        $em->persist($usr);
+            $usr = new Utilisateur();
+            $usr->setNom("nom" . $i);
+            $usr->setPrenom("prenom" . $i);
+            $usr->setMail("testicule".$i."@testibulle.com");
+            $usr->setMdp("mdp".$i);
+            $usr->setIsDeleted(false);
+            $usr->setActif(true);
+            $usr->setDateCreation(new DateTime());
+            $usr->setPrivilege($em->find(Privilege::class, 2));
+            $em->persist($usr);
         }
         $em->flush();
     }
-    
+
     public function generateCategorie($em){
         for($i=0;$i<=10;$i++){
-        $cat = new Categorie();
-        $cat->setType("test".$i);
-        $em->persist($cat);
+            $cat = new Categorie();
+            $cat->setType("test".$i);
+            $em->persist($cat);
         }
         $em->flush();
     }
-    
+
     public function generateEntreprise($em){
         for($i=0;$i<100;$i++){
             $ent = new Entreprise();
@@ -86,7 +86,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateFavoris($em){
         for($i=0;$i<50;$i++){
             $fav = new Favoris();
@@ -96,7 +96,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateCatEntreprise($em){
         for($i=1;$i<100;$i++){
             $ce = new CategorieEntreprise();
@@ -106,7 +106,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateContact($em){
         for($i = 0; $i<=99;$i++){
             $cent = new Contact();
@@ -122,7 +122,8 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
+
     public function generateAdresse($em){
         for($i=0;$i<200;$i++){
             $ad = new Adresse();
@@ -130,11 +131,13 @@ class VavaFixtures extends Fixture
             $ad->setNumero(random_int(11111,99595));
             $ad->setRue("la rue qui pue".$i);
             $ad->setVille("randomVille".$i);
+//            $ad->setLatitude(getRandomInRange(-180, 180, 3));
+//            $ad->setLongitude(getRandomInRange(-180, 180, 3));
             $em->persist($ad);
         }
         $em->flush();
     }
-    
+
     public function generateAdresseEnt($em){
         for($i=0;$i<100;$i++){
             $rel = new AdresseEnteprise();
@@ -144,17 +147,16 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateActu($em){
         for($i=0;$i<75;$i++){
             $new = new Actualite();
-            $new->setArticle("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,");
+            $new->setArticle("la digue de cul lalalalalalalalalalalal".$i);
             $new->setDateCreation(new DateTime());
             $new->setIsDeleted(false);
             $new->setTitre("Titre".$i.$i.$i.$i.$i);
             $new->setVisible(true);
             $new->setAuteur($em->find(Utilisateur::class, random_int(1,49)));
-            $new->setImage("http://placehold.it/1200x400");
             $em->persist($new);
         }
         $em->flush();
