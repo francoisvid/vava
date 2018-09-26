@@ -4,6 +4,7 @@ namespace App\Controller;
 //use Symfony\Component\HttpFoundation\JsonResponse;
 
 
+use App\Entity\Actualite;
 use App\Entity\Utilisateur;
 use App\Entity\Categorie;
 use App\Entity\Adresse;
@@ -12,6 +13,7 @@ use App\Entity\Contact;
 use App\Entity\AdresseEnteprise;
 use App\Entity\CategorieEntreprise;
 use App\Form\UtilisateurType;
+use App\Repository\ActualiteRepository;
 use App\Repository\EntrepriseRepository;
 use App\Repository\UtilisateurRepository;
 use App\Repository\CategorieRepository;
@@ -355,5 +357,29 @@ class AdminController extends AbstractController
         $em->flush();
         
         return $this->json(array("success" => "Edition réussi"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+
+
+    /**
+     * @Route("/news/create", name="addNews", methods="POST")
+     */
+    public function addNews(ActualiteRepository $actualite, Request $request, ObjectManager $em){
+
+        $news = new Actualite();
+
+        $post = $request->request->all();
+
+        $news->setAuteur($em->find(Utilisateur::class, 1));
+        $news->setTitre($post['titre']);
+        $news->setArticle($post['article']);
+        $news->setDateCreation(new \DateTime());
+        $news->setVisible(1);
+        $news->setIsDeleted(0);
+
+        $em->persist($news);
+        $em->flush();
+
+        return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+
     }
 }

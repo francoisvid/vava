@@ -20,20 +20,20 @@ class VavaFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-//        $this->generateRole($manager);
-//        $this->generateUser($manager);
+        $this->generateRole($manager);
+        $this->generateUser($manager);
         $this->generateCategorie($manager);
-//        $this->generateEntreprise($manager);
+        $this->generateEntreprise($manager);
         $this->generateFavoris($manager);
         $this->generateCatEntreprise($manager);
         $this->generateContact($manager);
         $this->generateAdresse($manager);
         $this->generateAdresseEnt($manager);
         $this->generateActu($manager);
-        
+
         $manager->flush();
     }
-    
+
     public function generateRole($em){
         $role = new Privilege();
         $role->setRole("admin");
@@ -43,32 +43,32 @@ class VavaFixtures extends Fixture
         $em->persist($role2);
         $em->flush();
     }
-    
+
     public function generateUser($em){
         for($i=0;$i<=50;$i++){
-        $usr = new Utilisateur();
-        $usr->setNom("nom" . $i);
-        $usr->setPrenom("prenom" . $i);
-        $usr->setMail("testicule".$i."@testibulle.com");
-        $usr->setMdp("mdp".$i);
-        $usr->setIsDeleted(false);
-        $usr->setActif(true);
-        $usr->setDateCreation(new DateTime());
-        $usr->setPrivilege($em->find(Privilege::class, 2));
-        $em->persist($usr);
+            $usr = new Utilisateur();
+            $usr->setNom("nom" . $i);
+            $usr->setPrenom("prenom" . $i);
+            $usr->setMail("testicule".$i."@testibulle.com");
+            $usr->setMdp("mdp".$i);
+            $usr->setIsDeleted(false);
+            $usr->setActif(true);
+            $usr->setDateCreation(new DateTime());
+            $usr->setPrivilege($em->find(Privilege::class, 2));
+            $em->persist($usr);
         }
         $em->flush();
     }
-    
+
     public function generateCategorie($em){
         for($i=0;$i<=10;$i++){
-        $cat = new Categorie();
-        $cat->setType("test".$i);
-        $em->persist($cat);
+            $cat = new Categorie();
+            $cat->setType("test".$i);
+            $em->persist($cat);
         }
         $em->flush();
     }
-    
+
     public function generateEntreprise($em){
         for($i=0;$i<100;$i++){
             $ent = new Entreprise();
@@ -86,7 +86,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateFavoris($em){
         for($i=0;$i<50;$i++){
             $fav = new Favoris();
@@ -96,7 +96,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateCatEntreprise($em){
         for($i=1;$i<100;$i++){
             $ce = new CategorieEntreprise();
@@ -106,7 +106,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateContact($em){
         for($i = 0; $i<=99;$i++){
             $cent = new Contact();
@@ -122,7 +122,8 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
+
     public function generateAdresse($em){
         for($i=0;$i<200;$i++){
             $ad = new Adresse();
@@ -130,11 +131,13 @@ class VavaFixtures extends Fixture
             $ad->setNumero(random_int(11111,99595));
             $ad->setRue("la rue qui pue".$i);
             $ad->setVille("randomVille".$i);
+//            $ad->setLatitude(getRandomInRange(-180, 180, 3));
+//            $ad->setLongitude(getRandomInRange(-180, 180, 3));
             $em->persist($ad);
         }
         $em->flush();
     }
-    
+
     public function generateAdresseEnt($em){
         for($i=0;$i<100;$i++){
             $rel = new AdresseEnteprise();
@@ -144,7 +147,7 @@ class VavaFixtures extends Fixture
         }
         $em->flush();
     }
-    
+
     public function generateActu($em){
         for($i=0;$i<75;$i++){
             $new = new Actualite();

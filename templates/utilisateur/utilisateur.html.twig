@@ -2,14 +2,25 @@
 
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
+
 {% block body %}
+
     <head>
         <link rel="stylesheet" href="{{ asset("./build/css/user.css")}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>#}
+
     </head>
 
-    <div class="ui grid">
+<body>
+    {#<style>#}
+        {#.dataTableCustom{#}
+            {#margin-top: 5% !important;#}
+        {#}#}
+    {#</style>#}
+
+    <div class="ui grid dataTableCustom">
     <div class="four wide column">
         <div class="ui vertical fluid tabular menu">
             <a class="item active" id="info">
@@ -23,8 +34,8 @@
             </a>
         </div>
     </div>
-    <div class="twelve wide stretched column" style="margin-top: 30px;">
-    <div class="container item fav" style="display:none">
+    <div class="twelve wide stretched column">
+    <div class="container item fav" style="display:none; width:80%; margin-right: 190px; margin-top: 30px;min-height: 500px">
         <div class="twelve wide stretched column">
             <div id="fav">
                 <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
@@ -147,7 +158,7 @@
         <div class="field">
             <div class="two fields">
                 <div class="field">
-                    <label>Mot de passe</label>
+                       <label>Mot de passe</label>
                     <input type="password" name="mdp" placeholder="Mot de passe">
                 </div>
                 <div class="field">
@@ -167,6 +178,8 @@
         </div>
     </form>
     {% endif %}
+
+
 
     <script>
         $(document).ready(function() {
@@ -251,18 +264,21 @@
     </script>
 
     {#modal#}
-    <script>
-        $(document).ready(function() {
-            $('#delete').on('click', function() {
-                $('.ui.modal').modal('show')
+        <script>
+            $(document).ready(function() {
+                $('#delete').on('click', function() {
+                    $('.ui.modal').modal('show')
+                });
             });
-        });
-    </script>
-
+        </script>
 
 
 
     <script src="{{ asset("./build/js/user.js")}}" type="text/javascript"></script>
-
-
+    </div>
+    </div>
+    </div>
+</body>
 {% endblock %}
+
+

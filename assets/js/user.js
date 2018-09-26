@@ -30,13 +30,13 @@ window.update = function(id){
         url : window.location + "/update/" + id,
         data : data,
         success: function (response) {
-            $('#nomBarNav').text(data.nom);
+            $('#monCompte').text(data.nom);
             console.log(response);
         },
         error(xhr, status, error){
             alert(xhr.responseText)
-            // console.log(status);
-            // console.log(error);
+            console.log(status);
+            console.log(error);
         }
     });
 }

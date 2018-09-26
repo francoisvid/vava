@@ -143,11 +143,15 @@
     color: rgba(0, 0, 0, 0.87);
     flex: 1 0 auto;
     font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
-    height:1em;
+    height:2em;
     margin: 0;
     max-width: 100%;
     outline: 0 none;
     padding: .4em;
     text-align: left;
     transition: background-color 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s;
+}
+
+.dataTableCustom{
+    margin-top: 50px !important;
 }
