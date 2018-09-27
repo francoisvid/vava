@@ -336,7 +336,7 @@ class MapController extends AbstractController
         }elseif($this->rechercheVille($q)){
             return $this->rechercheVille($q);
         }else{
-            return null;
+            $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
 
 
