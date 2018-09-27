@@ -46,11 +46,11 @@ class UtilisateurController extends AbstractController
 
 
 //        $utilisateur->setAdresse($adresse)
-        $retour = new Array_();
-        foreach($post as $key => $value){
-            var_dump($key);
-            var_dump($value);
-        }
+//        $retour = new Array_();
+//        foreach($post as $key => $value){
+//            var_dump($key);
+//            var_dump($value);
+//        }
 
         (isset($post['nom']))?$utilisateur->setNom($post['nom']) : "";
         (isset($post['prenom']))?$utilisateur->setPrenom($post['prenom']) : "";
@@ -72,7 +72,9 @@ class UtilisateurController extends AbstractController
 
 
         //return ce que tu veux ensuite
-        return $this->json(array('gg'=>'HH'));
+        return $this->json(array('Donées envoyé avec'=>'succées'));
 
     }
+
+
 }

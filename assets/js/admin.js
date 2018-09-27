@@ -50,3 +50,24 @@ window.unbanUsr = function (id){
 //    $('#actif').append($('tr').append($('td').text("row.date")));
 //}
 
+$('#news').submit(function (e) {
+    e.preventDefault(e);
+    data = {
+        titre : $('#titre').val(),
+        article : $('#contenu').val(),
+    }
+    $.ajax({
+        method: 'post',
+        url: window.location + 'news/create',
+        data: data,
+        success : function(response){
+            console.log(response);
+        },
+        error(xhr, status, error){
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        }
+    })
+
+});

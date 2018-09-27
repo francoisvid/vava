@@ -4,11 +4,14 @@ namespace App\Controller;
 //use Symfony\Component\HttpFoundation\JsonResponse;
 
 
+use App\Entity\Actualite;
 use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
+use App\Repository\ActualiteRepository;
 use App\Repository\UtilisateurRepository;
 use App\Repository\EntrepriseRepository;
 use DateTime;
+use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -190,7 +193,6 @@ class AdminController extends AbstractController
     public function getAllUsersActif(UtilisateurRepository $utilisateurRepository){
 
         $users = $utilisateurRepository->FindAllIfNotDel();
-//        var_dump(json_encode($users));
         return $this->json(array("data" => $users), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
 
@@ -224,5 +226,29 @@ class AdminController extends AbstractController
         $ent = $entRepo->FindAllIfNotDel();
         $ents = $entRepo->FindAllIfNotDel();
         return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+    }
+
+
+    /**
+     * @Route("/news/create", name="addNews", methods="POST")
+     */
+    public function addNews(ActualiteRepository $actualite, Request $request, ObjectManager $em){
+
+        $news = new Actualite();
+
+        $post = $request->request->all();
+
+        $news->setAuteur($em->find(Utilisateur::class, 1));
+        $news->setTitre($post['titre']);
+        $news->setArticle($post['article']);
+        $news->setDateCreation(new \DateTime());
+        $news->setVisible(1);
+        $news->setIsDeleted(0);
+
+        $em->persist($news);
+        $em->flush();
+
+        return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+
     }
 }

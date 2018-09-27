@@ -10,6 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -60,6 +61,8 @@ class SecurityController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            $this->registerAction($user);
+
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
@@ -96,5 +99,17 @@ class SecurityController extends AbstractController
      */
     public function logout(){
         return $this->redirectToRoute('home');
+    }
+
+    public function registerAction(Utilisateur $user)
+    {
+//        $user = //Handle getting or creating the user entity likely with a posted form
+        $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
+        $this->container->get('security.token_storage')->setToken($token);
+        $this->container->get('session')->set('_security_main', serialize($token));
+
+        return $this->redirectToRoute('home');
+
+        // The user is now logged in, you can redirect or do whatever.
     }
 }

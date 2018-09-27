@@ -33,9 +33,9 @@ class Favoris
         return $this->id;
     }
 
-    public function getUtilisateur(): ?Utilisateur
+    public function getUtilisateur(): ?int
     {
-        return $this->utilisateur;
+        return $this->utilisateur->getId();
     }
 
     public function setUtilisateur(?Utilisateur $utilisateur): self
@@ -45,9 +45,9 @@ class Favoris
         return $this;
     }
 
-    public function getEntreprise(): ?Entreprise
+    public function getEntreprise(): ?int
     {
-        return $this->entreprise;
+        return $this->entreprise->getId();
     }
 
     public function setEntreprise(?Entreprise $entreprise): self

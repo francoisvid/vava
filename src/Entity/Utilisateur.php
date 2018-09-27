@@ -86,10 +86,10 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     private $adresse;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Actualite", mappedBy="auteur", orphanRemoval=true)
-     */
-    private $actualites;
+//    /**
+//     * @ ORM\OneToMany(targetEntity="App\Entity\Actualite", mappedBy="auteur", orphanRemoval=true)
+//     */
+//    private $actualites;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Favoris", mappedBy="utilisateur", orphanRemoval=true)
@@ -256,36 +256,36 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    /**
-     * @return Collection|Actualite[]
-     */
-    public function getActualites(): ?Collection
-    {
-        return $this->actualites;
-    }
-
-    public function addActualite(Actualite $actualite): self
-    {
-        if (!$this->actualites->contains($actualite)) {
-            $this->actualites[] = $actualite;
-            $actualite->setAuteur($this);
-        }
-
-        return $this;
-    }
-
-    public function removeActualite(Actualite $actualite): self
-    {
-        if ($this->actualites->contains($actualite)) {
-            $this->actualites->removeElement($actualite);
-            // set the owning side to null (unless already changed)
-            if ($actualite->getAuteur() === $this) {
-                $actualite->setAuteur(null);
-            }
-        }
-
-        return $this;
-    }
+//    /**
+//     * @ return Collection|Actualite[]
+//     */
+//    public function getActualites(): ?Collection
+//    {
+//        return $this->actualites;
+//    }
+//
+//    public function addActualite(Actualite $actualite): self
+//    {
+//        if (!$this->actualites->contains($actualite)) {
+//            $this->actualites[] = $actualite;
+//            $actualite->setAuteur($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeActualite(Actualite $actualite): self
+//    {
+//        if ($this->actualites->contains($actualite)) {
+//            $this->actualites->removeElement($actualite);
+//            // set the owning side to null (unless already changed)
+//            if ($actualite->getAuteur() === $this) {
+//                $actualite->setAuteur(null);
+//            }
+//        }
+//
+//        return $this;
+//    }
 
     /**
      * @return Collection|Favoris[]

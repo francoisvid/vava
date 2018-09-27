@@ -49,6 +49,7 @@ Encore
     // .addEntry('datatablejs', './assets/DataTables/datatables.js')
     .addStyleEntry('css/user', './assets/css/user.css')
     .addStyleEntry('css/base', './assets/css/base.css')
+    .addStyleEntry('css/style', './assets/css/style.css')
     // .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()

@@ -3,46 +3,70 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
+<style>
+
+    .titreActu{
+        margin-bottom: 368px !important;
+        text-align: center;
+    }
+
+    /*.imageActu{*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+
+    /*.contenuActu{*/
+        /*margin-top: 20px;*/
+        /*!*margin-bottom: 30px !important;*!*/
+    /*}*/
+
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: rgb(0, 0, 0);
+        background: rgba(99, 110, 114,0.5); /* Black see-through */
+        color: #f1f1f1;
+        width: 100%;
+        transition: .5s ease;
+        opacity:0;
+        color: white;
+        font-size: 16px;
+        padding: 20px;
+        text-align: justify;
+    }
+
+    .container:hover .overlay {
+        opacity: 1;
+    }
+</style>
 
 <body>
-    <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron" style="background-image:url('{{ asset('./build/image/background.png') }}');">
             <div class="container" style="text-align: center">
-                <h1 class="display-3">Bienvenue sur Signe</h1>
-
-                {# Je défini ma recherche sur deux champ avec "c" pour les categories ou le nom et "q" pour la ville #}
-
-                <form method="GET" action={{ path('map') }}>
-                    <div class="ui search">
-                        <div class="ui icon input" style="margin-top: 100px; width: 350px">
-                            <input class="prompt" type="text" id="c" name="c" placeholder="Catégorie, Nom...">
-                        </div>
-                        <div class="ui icon input" style="margin-top: 100px; width: 350px">
-                            <input class="prompt" type="text" id="q" name="q" placeholder="Ville">
-                            <i class="search icon"></i>
-                        </div>
-                        <input style='width:0; visibility:hidden' type='submit'>
-                    </div>
-                </form>
+                <h1 style="font-size: 60px; margin-top: 30px; color: #f5f6fa; font-family: 'Montserrat Alternates', sans-serif;">Bienvenue sur <img src="{{ asset('./build/image/logovava.png') }}" style="width: 300px" alt=""></h1>
 
             </div>
         </div>
-    </div>
 
 
 
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-
+            {% for keys, actualite in actualites %}
+                {% if keys == 0 %}
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="http://placehold.it/1080x200" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="http://placehold.it/1080x200" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="http://placehold.it/1080x200" alt="Third slide">
-                </div>
+                {% else %}
+                        <div class="carousel-item">
+                {% endif %}
+                            <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
+                                <div class="container">
+                                    <h2 class="titreActu overlay" style="text-align: center">{{ actualite.titre }}</h2>
+                                    <p class="contenuActu overlay">{{ actualite.article }}</p>
+                                </div>
+                        </div>
+                        {#</div>#}
+            {% endfor %}
             </div>
 
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -54,69 +78,11 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
-
-    <!-- Footer -->
-    <div class="container">
-
     </div>
-    <section id="footer">
-        <div class="container">
-            <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Videos</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Home</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>About</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-                        <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-                        <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i class="fa fa-angle-double-right"></i>Imprint</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                    <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-twitter"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-instagram"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();"><i class="fa fa-google-plus"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void();" target="_blank"><i class="fa fa-envelope"></i></a></li>
-                    </ul>
-                </div>
-                </hr>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p><u><a href="https://www.nationaltransaction.com/">National Transaction Corporation</a></u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis, MN]</p>
-                    <p class="h6">&copy All right Reversed.<a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a></p>
-                </div>
-                </hr>
-            </div>
-        </div>
-    </section>
-    <!-- ./Footer -->
 {% endblock %}
+
+
+
 
 {% block javascripts %}
     <script>
@@ -143,37 +109,23 @@
             }
 
         });
-
     </script>
 
-    {#<script>#}
+    <script>
+        function visibilite(thingId) {
+            var targetElement;
+            targetElement = document.getElementById(thingId);
+            if (targetElement.style.display == "none")
+            {
+                targetElement.style.display = "" ;
+            } else { targetElement.style.display = "none" ; }
+        }
+    </script>
 
-        {#function initializeAutocomplete(id) {#}
-            {#var element = document.getElementById(id);#}
-            {#if (element) {#}
-                {#var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });#}
-                {#google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);#}
-            {#}#}
-        {#}#}
-
-        {#function onPlaceChanged() {#}
-            {#var place = this.getPlace();#}
-             {#console.log(place);#}
-            {#for (var i in place.address_components) {#}
-                {#var component = place.address_components[i];#}
-                {#for (var j in component.types) {#}
-                    {#var type_element = document.getElementById(component.types[j]);#}
-                    {#if (type_element) {#}
-                        {#type_element.value = component.long_name;#}
-                    {#}#}
-                {#}#}
-            {#}#}
-        {#}#}
-
-        {#google.maps.event.addDomListener(window, 'load', function() {#}
-            {#initializeAutocomplete('q');#}
-        {#});#}
-
-    {#</script>#}
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 {% endblock %}
