@@ -23,16 +23,10 @@ class MapController extends AbstractController
         $c = $request->query->get('c');
 
         if(isset($c)){
-            //$recherche = $this->recherche($request->query->get('q'));
             $recherche = $this->recherchedeuxpointzero($q, $c);
         }else{
             $recherche = null;
         }
-
-        $apikey = 'key-4Ry3eEOG6HCT7e3Xz9lwJqZY';
-        $ney = "sdqedqezdqzd";
-
-
 
         return $this->render('map/index.html.twig', [
             'controller_name' => 'MapController',
@@ -40,6 +34,9 @@ class MapController extends AbstractController
             'apikey' => 'test',
         ]);
     }
+
+
+////////////////////  OLD REHCERHCE ////////////////////
 
     public function recherche($data){
 
@@ -87,13 +84,6 @@ class MapController extends AbstractController
                 foreach ($newEntreprise as $item) {
 
                     if($item->getIsDeleted() != 1){
-
-/*                        $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
-                            "entreprise" => $item->getId()
-                        ));
-
-
-                        var_dump($newCategorieEntreprise);*/
 
 
                         $nou = array(
@@ -199,20 +189,12 @@ class MapController extends AbstractController
         $newAdresse = new Adresse();
         $newAdresseEntreprise = new AdresseEnteprise();
         $newEntreprise = new Entreprise();
-
         $arrayVide = array();
-
-
         $newdata = str_replace("%20", " ", $data);
-
         $newAdresse = $this->getDoctrine()->getRepository(Adresse::class)->findBy(array(
             'rue' => $newdata
         ));
-
-
-
         if (!empty($newAdresse)){
-
             foreach ($newAdresse as $na){
 
                $idadresse =  $na->getId();
@@ -220,8 +202,6 @@ class MapController extends AbstractController
                $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
                    'id' => $idadresse
                ));
-
-
                $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
                     'id'=>$newAdresseEntreprise
                 ));
@@ -241,18 +221,12 @@ class MapController extends AbstractController
                             "lo"=>$na->getLongitude()
                         );
                     }
-
-
                     array_push($arrayVide, $nou);
                }
 
             }
-
             return $arrayVide;
-
         }
-
-
     }
 
 ////////////////////  NOM ////////////////////
@@ -291,15 +265,12 @@ class MapController extends AbstractController
     }
 
 
+////////////////////  NEW REHCERHCE ////////////////////
+
     public function recherchedeuxpointzero($q, $c){
         //Le but est de metre a jour la fonction
         // De recherche sur le site qui n'etait pas optimiser
         // Q = VILLE C = NOM OU CAT
-
-        //return $this->rechercheNom($q);
-
-//        $this->rechercheVille($q);
-//        $result = $this->recherche($q);
 
         $nc = str_replace("%20", " ", $c);
 
