@@ -223,8 +223,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/company/active", name="company_active", methods="GET")
-     * @Route("/company/inactive", name="company_active", methods="GET")
+     * @Route("/company/inactive", name="company_inactive", methods="GET")
      *
      */
     public function getAllCompanyDelInactive(EntrepriseRepository $entRepo){
@@ -257,9 +256,10 @@ class AdminController extends AbstractController
      * @Route("/company/create", name="ent_create", methods="POST")
      *
      */
-    public function createcompany(Request $request, ObjectManager $em){
+    public function createCompany(Request $request, ObjectManager $em){
         $post = $request->request->all();
-        
+//        var_dump($post);
+//        var_dump($_POST);
         $adr = new Adresse();
         (isset($post['adresse']['numero']))? $adr->setNumero($post['adresse']['numero']): "";
         (isset($post['adresse']['rue']))? $adr->setRue($post['adresse']['rue']): "";
@@ -271,7 +271,7 @@ class AdminController extends AbstractController
         $ent = new Entreprise();
         //$ent->setCategorie($em->find(Categorie::class, $post['categorie']));
         (isset($post['nom']))? $ent->setNom($post['nom']): "";
-        (isset($post['tel']))? $ent->setTel($post['Request $request, ObjectManager $emtel']): "";
+        (isset($post['tel']))? $ent->setTel($post['tel']): "";
         (isset($post['mail']))? $ent->setMail($post['mail']): "";
         (isset($post['logo']))? $ent->setLogo($post['logo']): "";
         (isset($post['site']))? $ent->setSiteWeb($post['site']): "";
@@ -290,7 +290,7 @@ class AdminController extends AbstractController
         (isset($post['contact']['genre']))? $cont->setSexe($post['contact']['genre']): "";
         (isset($post['contact']['fonction']))? $cont->setFonction($post['contact']['fonction']): "";
         (isset($post['contact']['mail']))? $cont->setMail($post['contact']['mail']): "";
-        (isset($post['contact']['tel']))? $cont->setTel($post['contact']['tel']): "";
+        (isset($post['contact']['tel']))? $cont->setTel((int)$post['contact']['tel']): "";
         (isset($post['contact']['remarque']))? $cont->setRemarque($post['contact']['remarque']): "";
         $cont->setEntreprise($ent);
         $em->persist($cont);
@@ -315,10 +315,6 @@ class AdminController extends AbstractController
         
     }
     
-    private function EntrepriseErreur($error){
-        return $this->json(array("erreur" => $error), 400, array("Content-Type" => "application/json", "charset" => "utf-8"));
-    }
-    
     /**
      * @Route("/contact/create", name="contact_create", methods="POST")
      *
@@ -333,7 +329,7 @@ class AdminController extends AbstractController
         $cont->setFonction($post['fonction']);
         $cont->setRemarque($post['remarque']);
         $cont->setMail($post['mail']);
-        $cont->setTel($post['tel']);
+        $cont->setTel((int)$post['tel']);
         $cont->setEntreprise($em->find(Entreprise::class, $post['entreprise']));
         
         $em->persist($cont);
@@ -343,7 +339,7 @@ class AdminController extends AbstractController
     }
     
     /**
-     * @Route("/contact/update/{id}", name="contact_create", methods="POST")
+     * @Route("/contact/update/{id}", name="contact_update", methods="POST")
      *
      */
     public function updateContact(Contact $contact, Request $request, ObjectManager $em){

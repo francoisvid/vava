@@ -81,6 +81,23 @@ window.unbanUsr = function (id){
                                 }
                         
                     };
+                    console.log(data);
+            if (true){
+                        alert();
+                var request = {
+                    address: $(this).val()
+                }
+                        alert();
+
+                geocoder.geocode(request, function(results, status){
+                    if(status == google.maps.GeocoderStatus.OK){
+
+                        var pos = results[0].geometry.location;
+                    }
+                });
+                return false;
+            }
+            
 //        console.log(data);
 
         $.ajax({
