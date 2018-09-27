@@ -15,9 +15,9 @@
     {#<div class="container">#}
 
     <div class="jumbotron" style="background-image:url('{{ asset('./build/image/background.png') }}');">
-            <div class="container" style="text-align: center">
-                <h1 class="display-3">Bienvenue sur Signe</h1>
-            </div>
+        <div class="container" style="text-align: center">
+            <h1 class="display-3">Bienvenue sur Signe</h1>
+        </div>
     </div>
     <div class="container">
         <div class="right menu">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </div>
-        <div id="map" style="display: inline-block; height: 380px;">
+    <div id="map" style="display: inline-block; height: 380px;">
 
-        </div>
+    </div>
 
 
         <div id="liste" class="ui middle aligned divided list" style=" max-height: 380px;overflow: scroll;display: inline-block; margin-left: 10px; width: 320px; position: absolute;">
@@ -67,44 +67,18 @@
 
     <script>
 
-        {#script YANNIS#}
 
-        {#var locations = [#}
-            {#{% for d in data %}#}
-            {#{% set counter = ( counter | default(0) ) + 1 %}#}
-
-            {#{% if not app.user %}#}
-
-            {#['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +#}
-            {#'  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +#}
-            {#'  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +#}
-            {#'  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +#}
-            {#'</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],#}
-
-            {#{% else %}#}
-
-            {#['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +#}
-            {#'  <a class="ui primary button" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}"><i class="star icon"></i> Favoris</a>\n' +#}
-            {#'  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +#}
-            {#'  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +#}
-            {#'</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],#}
-
-            {#{% endif %}#}
-
-
-            {#{% endfor %}#}
-
-
-        {#];#}
-        // var locations = [ "" ];
     $(function(){
+        // declaration de la position de depart
         var latlng = new google.maps.LatLng(43.6759607, 4.1334817);
+        // declaration de la goglemap avec ses props
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 10,
             center: latlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
+        // declaration du marker rouge sur la map avec ses props
         var marker = new google.maps.Marker({
             position : latlng,
             map: map,
@@ -112,9 +86,8 @@
             draggable: true
         });
 
+        // declaration d'un listener pour pouvoir récuperer la position du marker
         var geocoder = new google.maps.Geocoder();
-        //
-        //
         google.maps.event.addListener(marker, 'draggable', function () {
 
             setPosition(marker);
@@ -122,12 +95,14 @@
         })
 
 
+        // Mise en place de la recherche grace a la touche entrée
         $('#search').keypress(function(e) {
             if (e.keyCode == 13){
                 var request = {
                     address: $(this).val()
                 }
 
+                // Si le geocoder retourne ok, map centrer sur la recherche
                 geocoder.geocode(request, function(results, status){
                     if(status == google.maps.GeocoderStatus.OK){
 
@@ -140,40 +115,14 @@
                 return false;
             }
         })
-
-
     });
 
+    // function qui permet de récupérer la latitude et la la longitude de la recherche
     function setPosition(marker){
         var pos = marker.getPosition();
         $('#lat').val(pos.lat());
         $('#lng').val(pos.lng());
     }
-
-
-
-
-        // var infowindow = new google.maps.InfoWindow();
-        //
-        // var marker, i;
-        //
-        // for (i = 0; i < locations.length; i++) {
-        //     marker = new google.maps.Marker({
-        //         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        //         map: map
-        //     });
-        //
-        //     google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        //         return function() {
-        //             infowindow.setContent(locations[i][0]);
-        //             infowindow.open(map, marker);
-        //         }
-        //     })(marker, i));
-        // }
-
-
-
-
 
         //
         //     //si le navigateur à eu la permission d'accéder à la position on récupere les coordonées
@@ -206,37 +155,6 @@
         //
         //
         //
-        {#var geocoder = new google.maps.Geocoder();#}
-        {#//#}
-        {#google.maps.event.addListener(marker, 'drag',function(){#}
-            {#setPostion(marker);#}
-        {#});#}
-        {#$('#search').keypress(function(e){#}
-            {#if(e.keyCode == 13){#}
-                {#var request = {#}
-                    {#address : $(this).val()#}
-                {#}#}
-                {#//#}
-                // geocoder.geocode(request, function(results, status){
-                //     if(status == google.maps.GeocoderStatus.OK){
-                //         var pos = results[0].geometry.location;
-                //         map.setCenter(pos);
-                //         // marker.setPosition(pos);
-                //         setPostion(marker);
-                //     }
-                // });
-                // return false;
-            // }
-
-        // });
-        {#//#}
-        {#//Cette fonction permet de recuperer les coordonnée lat et lng grace au drag du marker#}
-        {#function setPostion(marker) {#}
-            {#var pos = marker.getPosition();#}
-            {#$('#inputLat').val(pos.lat());#}
-            {#$('#inputLng').val(pos.lng());#}
-        {#}#}
-
 
     </script>
 

@@ -7,18 +7,12 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset("./build/css/user.css")}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">#}
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>#}
-
     </head>
 
 <body>
-    {#<style>#}
-        {#.dataTableCustom{#}
-            {#margin-top: 5% !important;#}
-        {#}#}
-    {#</style>#}
 
     <div class="ui grid dataTableCustom">
     <div class="four wide column">
@@ -81,7 +75,6 @@
                         <td>System Architect</td>
                         <td>Edinburgh</td>
                         <td>61</td>
-
                     </tr>
                     </tbody>
                 </table>
@@ -180,40 +173,12 @@
     {% endif %}
 
 
-
     <script>
         $(document).ready(function() {
             $('#example').DataTable();
         } );
     </script>
 
-
-    {#<script>#}
-    {#$('#formUser').submit(function () {#}
-    {#data = {#}
-    {#nom : $(this).find("input[name=nom]").val(),#}
-    {#prenom : $(this).find("input[name=prenom]").val(),#}
-    {#mail : $(this).find("input[name=mail]").val(),#}
-    {#tel : $(this).find("input[name=tel]").val(),#}
-    {#sexe : $(this).find("input[name=sexe]").val(),#}
-    {#// date : $(this).find("input[name=date]").val(),#}
-    {#}#}
-    {#$.ajax({#}
-    {#method: 'post',#}
-    {#url : window.location + "/update/" + {{ utilisateur.id }},#}
-    {#data : data,#}
-    {#success: function (response) {#}
-    {#console.log(response);#}
-    {#},#}
-    {#error(xhr, status, error){#}
-    {#// alert(xhr.responseText)#}
-    {#console.log(status);#}
-    {#console.log(error);#}
-    {#}#}
-    {#});#}
-    {#return response;#}
-    {#});#}
-    {#</script>#}
 
     <script>
         $(document).ready(function () {
@@ -223,55 +188,13 @@
         });
     </script>
 
-    {#menu semantic ui#}
     <script>
-        $("#info").click(function () {
-            $(".item").removeClass("active");
-            $(".map").hide();
-            $(".fav").hide();
-            $("#info").addClass("active");
-            $(".info").show();
-        });
-
-        $("#fav").click(function () {
-            $(".item").removeClass("active");
-            $(".map").hide();
-            $(".info").hide();
-            $("#fav").addClass("active");
-            $(".fav").show();
-        });
-
-        $("#map").click(function () {
-            $(".item").removeClass("active");
-            $(".info").hide();
-            $(".fav").hide();
-            $("#map").addClass("active");
-            $(".map").show();
-        });
-    </script>
-
-
-
-    {#menu semantic ui#}
-    <script>
-        $(document).ready(function(){
-            $('.ui .item').on('click', function() {
-                $('.ui .item').removeClass('active');
-                $(this).addClass('active');
-
+        $(document).ready(function() {
+            $('#delete').on('click', function() {
+                $('.ui.modal').modal('show')
             });
         });
     </script>
-
-    {#modal#}
-        <script>
-            $(document).ready(function() {
-                $('#delete').on('click', function() {
-                    $('.ui.modal').modal('show')
-                });
-            });
-        </script>
-
 
 
     <script src="{{ asset("./build/js/user.js")}}" type="text/javascript"></script>
