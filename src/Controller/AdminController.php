@@ -224,6 +224,7 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/company/active", name="company_active", methods="GET")
+     * @Route("/company/inactive", name="company_active", methods="GET")
      *
      */
     public function getAllCompanyDelInactive(EntrepriseRepository $entRepo){
