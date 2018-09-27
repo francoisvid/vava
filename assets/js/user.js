@@ -1,11 +1,10 @@
-// Mise ajour de l'utilisateur
-
-
 $(document).ready(function() {
     $('#formUser').submit(function () {
         return false;
     });
 });
+
+// ----------------------------------------------Mise a jour infos Utilisateur
 
 window.update = function(id){
     data = {
@@ -40,3 +39,36 @@ window.update = function(id){
         }
     });
 }
+
+// ----------------------------------------------menu espace user class active
+$("#info").click(function () {
+    $(".item").removeClass("active");
+    $(".map").hide();
+    $(".fav").hide();
+    $("#info").addClass("active");
+    $(".info").show();
+});
+
+$("#fav").click(function () {
+    $(".item").removeClass("active");
+    $(".map").hide();
+    $(".info").hide();
+    $("#fav").addClass("active");
+    $(".fav").show();
+});
+
+$("#map").click(function () {
+    $(".item").removeClass("active");
+    $(".info").hide();
+    $(".fav").hide();
+    $("#map").addClass("active");
+    $(".map").show();
+});
+
+
+// ----------------------------------------------Modal delete
+
+
+
+
+
