@@ -179,6 +179,21 @@
             {#{% endfor %}#}
         {#{% endfor %}#}
 
+
+{% for label, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        {% if ( label == 'success' ) %}
+            <div class="alert alert-success alert-dismissible fade show">
+                {{ flash }}
+            </div>
+        {% elseif ( label == 'error' ) %}
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ flash }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
         {% block body %}
         {% endblock %}
 
@@ -245,7 +260,8 @@
         <script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
         {#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>#}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZJOKIr4Z_Mu0cDkF4mUYRi5I6BtPmQs8&callback=initMap"
+        {#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZJOKIr4Z_Mu0cDkF4mUYRi5I6BtPmQs8&callback=initMap"></script>#}
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.js"></script>
 
 
