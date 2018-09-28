@@ -279,9 +279,7 @@ class MapController extends AbstractController
         if ($this->rechercheCategorie($nc)){
 
             $result = $this->rechercheCategorie($nc);
-
             foreach ($result as $r){
-
                 $ville = $r["ville"];
                 if ($ville == $q){
                     array_push($vide, $r);
@@ -289,23 +287,20 @@ class MapController extends AbstractController
 
             }
             return $vide;
-
         }elseif ($this->rechercheNom($nc)){
-
             $result = $this->rechercheNom($nc);
-
-
             foreach ($result as $r){
 
                 $ville = $r["nom"];
                 if ($ville == $nc){
                     array_push($vide, $r);
                 }
-
             }
             return $vide;
         }elseif($this->rechercheVille($q)){
             return $this->rechercheVille($q);
+        }elseif($this->rechercheCategorie($c)){
+            return $this->rechercheCategorie($c);
         }else{
             $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
