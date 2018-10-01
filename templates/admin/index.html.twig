@@ -542,6 +542,7 @@ $(document).ready(function() {
         $('#email').val(data["mail"]);
     } );
     $('#table1 tbody').on( 'click', '#suppr', function () {
+        $("#table1").notify("L'utilisateur à été désactivé avec");
         var data = table.row( $(this).parents('tr') ).data();
         supprUsr( data['id']);
             table
@@ -903,6 +904,8 @@ $(function() {
     <script src="{{ asset('build/js/form.js') }}"></script>
     <script src="{{ asset('build/js/admin.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    
     {% block footer %}
 {% endblock %}
 {% endblock %}

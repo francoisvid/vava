@@ -29,12 +29,15 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use function Symfony\Component\Debug\header;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 //use Symfony\Flex\Response;
 
 /**
  * @Route("/admin", name="admin")
+ * 
  */
 class AdminController extends AbstractController
 {
@@ -42,19 +45,15 @@ class AdminController extends AbstractController
      *
      * @Route ("/")
      */
-    public function index(CategorieRepository $repo)
+    public function index(CategorieRepository $repo, AuthorizationCheckerInterface $authChecker, ActualiteRepository $actualite)
     {
+    if (!$authChecker->isGranted('ROLE_ADMIN')) {
+                return $this->redirectToRoute("home");
+    }
+    
         return $this->render('admin/index.html.twig', ['categorie' => $repo->findAll()]);
     }
 
-    /**
-     *
-     * @Route ("/dazdoazpkd")
-     */
-    public function indexDeux(CategorieRepository $repo)
-    {
-        return $this->render('admin/newTwigTemplate.html.twig', ['categorie' => $repo->findAll()]);
-    }
     /*
      * 
      * Partie dédiée à l'interraction avec la table utilisateur de la base de données
