@@ -24,7 +24,7 @@ class MapController extends AbstractController
         $c = $request->query->get('c');
 
         if(isset($c)){
-            $recherche = $this->recherchedeuxpointzero($q, $c);
+            $recherche = $this->Coucou($q, $c);
         }else{
             $recherche = null;
         }
@@ -304,6 +304,8 @@ class MapController extends AbstractController
 
         $vide = array();
 
+
+        // Si ca trouve un truc qui corespond a une categorie ca passe
         if ($this->rechercheCategorie($nc)){
 
             $result = $this->rechercheCategorie($nc);
@@ -314,21 +316,26 @@ class MapController extends AbstractController
                 }
 
             }
+            //je lui retourne un array avec les infos
             return $vide;
+        //Meme chose pour lr nom
         }elseif ($this->rechercheNom($nc)){
             $result = $this->rechercheNom($nc);
             foreach ($result as $r){
-
                 $ville = $r["nom"];
                 if ($ville == $nc){
                     array_push($vide, $r);
                 }
             }
             return $vide;
+        //Si je trouve un truc qui corespond a mon champ ville je lui retourne
         }elseif($this->rechercheVille($q)){
             return $this->rechercheVille($q);
+
+        // Je recherche dans les categories
         }elseif($this->rechercheCategorie($c)){
             return $this->rechercheCategorie($c);
+        //Sinon je le retourne une erreure
         }else{
             $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
@@ -336,6 +343,37 @@ class MapController extends AbstractController
 
     }
 
+    //Je vais regarder si ma ville est en bdd
+    // Si oui alors je recherhce ce qu'il y a dans la categorie
+    //Si je trouve pas je vais taper juste dans la table cat
 
+    public function Coucou($q, $c){
+
+        $nc = str_replace("%20", " ", $c);
+        $vide = array();
+
+        if ($this->rechercheVille($q)){
+
+            if ($this->rechercheCategorie($nc)){
+                $result = $this->rechercheCategorie($nc);
+
+                foreach ($result as $r){
+
+                    $ville = $r["ville"];
+                    if ($ville == $q){
+                        array_push($vide, $r);
+                    }
+                }
+                return $vide;
+            }elseif($this->rechercheVille($q)){
+                return $this->rechercheVille($q);
+            }
+
+        }elseif($this->rechercheCategorie($c)){
+            return $this->rechercheCategorie($c);
+        }else{
+            $this->addFlash('error', "Désolé il n'y a rien en base de donnée 😢 ");
+        }
+    }
 
 }
