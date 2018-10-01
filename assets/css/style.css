@@ -29,6 +29,7 @@ body {
 /* Sticky footer style and color
 -------------------------------------------------- */
 footer {
+    margin-top: -5px;
     padding-top: 30px;
     background-color: #78e08f;
     color: #bbb;
