@@ -407,4 +407,37 @@ class AdminController extends AbstractController
         return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
 
     }
+
+    /**
+     * @Route("/contact", name="contact", methods="POST")
+     */
+    public function contact($name, \Swift_Mailer $mailer)
+    {
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom($_POST["email"])
+            ->setTo('vavabeweb@gmail.com')
+            ->setBody(
+                $this->renderView(
+                    'base/base.html.twig',
+                    array('name' => $name)
+                ),
+                'text/html'
+            );
+
+        $mailer->send($message);
+
+        return $this->render("
+        {# templates/emails/registration.html.twig #}
+        <h3>You did it! You registered!</h3>
+        
+        Hi {{ name }}! You're successfully registered.
+        
+        {# example, assuming you have a route named \"login\" #}
+        To login, go to: <a href=\"{{ url('login') }}\">...</a>.
+        
+        Thanks!
+        
+        {# Makes an absolute URL to the /images/logo.png file #}
+        <img src=\"{{ absolute_url(asset('images/logo.png')) }}\">");
+    }
 }

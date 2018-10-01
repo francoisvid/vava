@@ -139,3 +139,26 @@ data = {
         });        
 };
 
+});
+
+$('#contact').submit(function (e) {
+    e.preventDefault(e);
+    data = {
+        email : $('#email').val(),
+        contenu : $('#message').val(),
+    }
+
+    $.ajax({
+        method : 'post',
+        url : window.location + 'contact',
+        data : data,
+        success: function (response) {
+            console.log(response);
+        },
+        error(xhr, status, error){
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        }
+    });
+})
