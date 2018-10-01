@@ -7,6 +7,7 @@ use App\Entity\AdresseEnteprise;
 use App\Entity\Categorie;
 use App\Entity\CategorieEntreprise;
 use App\Entity\Entreprise;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -127,20 +128,30 @@ class MapController extends AbstractController
         $arrayVide = array();
 
 
+        $em = $this->getDoctrine()->getManager();
+
         //Je regarde si en bdd la data existe
         $newCategorie = $this->getDoctrine()->getRepository(Categorie::class)->findBy(array(
             'type' => $data
         ));
+
+
         if (!empty($newCategorie)) {
+
             // On va get toutes les boites qui on la categorie rechercher
             $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
                 'categorie' => $newCategorie[0]->getId()
             ));
+
             // On boucle pour recup le nom de l'entreprise via son id
             foreach ($newCategorieEntreprise as $entry){
+                // entreprise
+
+                $ent = $em->find(Entreprise::class, $entry->getEntreprise());
+
                 //Je stocke le nom pour le reutiliser
-                $nomentreprise = $entry->getEntreprise()->getNom();
-                $tel = $entry->getEntreprise()->getTel();
+                $nomentreprise = $ent->getNom();
+                $tel = $ent->getTel();
 
                 //Je regarde en bdd ce que contien mon enrtreprise via son nom
                 $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
@@ -151,24 +162,35 @@ class MapController extends AbstractController
                 foreach ($entreprise as $t){
 
                     $ide = $t->getId();
+
+
                     // Je me sert de son id pour aller chercher son adresse.
                     $yolo = $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
                         'id'=> $ide
                     ));
 
+
+
+
                     //Je boucle pour sortir les info
                     foreach ($yolo as $y){
-                     if( $entry->getEntreprise()->getIsDeleted() != 1){
+
+                     if( $ent->getIsDeleted() != 1){
+
+                        // Call object manager sur l'apdresse
+                         $adr = $em->find(Adresse::class, $y->getAdresse());
+
+
                         $nou = array(
                             "id"=>$ide,
                             "nom"=>$nomentreprise,
                             "tel"=>$tel,
-                            "numero"=>  $y->getAdresse()->getNumero(),
-                            "rue"=>$y->getAdresse()->getRue(),
-                            "ville"=>$y->getAdresse()->getVille(),
-                            "codePostal"=>$y->getAdresse()->getCodePostal(),
-                            "la"=>$y->getAdresse()->getLatitude(),
-                            "lo"=>$y->getAdresse()->getLongitude()
+                            "numero"=>  $adr->getNumero(),
+                            "rue"=>$adr->getRue(),
+                            "ville"=>$adr->getVille(),
+                            "codePostal"=>$adr->getCodePostal(),
+                            "la"=>$adr->getLatitude(),
+                            "lo"=>$adr->getLongitude()
                         );
 
                         array_push($arrayVide, $nou);
@@ -237,6 +259,8 @@ class MapController extends AbstractController
         $newAdresse = new Adresse();
         $arrayVide = array();
 
+        $em = $this->getDoctrine()->getManager();
+
         $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
             "nom"=> $data
         ));
@@ -246,16 +270,20 @@ class MapController extends AbstractController
                 $var = $newAdresseEnteprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
                     "entreprise" => $item->getId()
                 ));
+
+
                 foreach ($var as $i) {
+
+                    $adr = $em->find(Adresse::class, $i->getAdresse());
                     $nou = array(
                         "id"=>$item->getId(),
                         "nom"=>$item->getNom(),
                         "tel"=>$item->getTel(),
-                        "rue"=>$i->getAdresse()->getRue(),
-                        "ville"=>$i->getAdresse()->getVille(),
-                        "codePostal"=>$i->getAdresse()->getCodePostal(),
-                        "la"=>$i->getAdresse()->getLatitude(),
-                        "lo"=>$i->getAdresse()->getLongitude()
+                        "rue"=>$adr->getRue(),
+                        "ville"=>$adr->getVille(),
+                        "codePostal"=>$adr->getCodePostal(),
+                        "la"=>$adr->getLatitude(),
+                        "lo"=>$adr->getLongitude()
                     );
                }
             }
