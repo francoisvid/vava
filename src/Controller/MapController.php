@@ -91,6 +91,7 @@ class MapController extends AbstractController
                             "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
                             "tel"=>$item->getTel(),
+                            "logo"=>$item->getLogo(),
                             "numero"=>$na->getNumero(),
                             "rue"=>$na->getRue(),
                             "ville"=>$na->getVille(),
@@ -190,7 +191,10 @@ class MapController extends AbstractController
                             "ville"=>$adr->getVille(),
                             "codePostal"=>$adr->getCodePostal(),
                             "la"=>$adr->getLatitude(),
-                            "lo"=>$adr->getLongitude()
+                            "lo"=>$adr->getLongitude(),
+                            "logo"=>$t->getLogo(),
+
+
                         );
 
                         array_push($arrayVide, $nou);
@@ -235,12 +239,14 @@ class MapController extends AbstractController
                             "id"=>$item->getId(),
                             "nom"=>$item->getNom(),
                             "tel"=>$item->getTel(),
+                            "logo"=>$item->getLogo(),
                             "numero"=>  $na->getNumero(),
                             "rue"=>$na->getRue(),
                             "ville"=>$na->getVille(),
                             "codePostal"=>$na->getCodePostal(),
                             "la"=>$na->getLatitude(),
-                            "lo"=>$na->getLongitude()
+                            "lo"=>$na->getLongitude(),
+
                         );
                     }
                     array_push($arrayVide, $nou);
@@ -279,11 +285,13 @@ class MapController extends AbstractController
                         "id"=>$item->getId(),
                         "nom"=>$item->getNom(),
                         "tel"=>$item->getTel(),
+                        "logo"=>$item->getLogo(),
                         "rue"=>$adr->getRue(),
                         "ville"=>$adr->getVille(),
                         "codePostal"=>$adr->getCodePostal(),
                         "la"=>$adr->getLatitude(),
-                        "lo"=>$adr->getLongitude()
+                        "lo"=>$adr->getLongitude(),
+
                     );
                }
             }

@@ -8,28 +8,127 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    {#<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">#}
     <link rel="stylesheet" href="{{ asset("./build/css/base.css") }}">
     <link rel="stylesheet" href="{{ asset("./build/css/style.css") }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    {#<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">#}
-    <!-- Material Design Bootstrap -->
-    {#<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.10/css/mdb.min.css" rel="stylesheet">#}
 
+    {#<link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>#}
 
-    {#<link rel="shortcut icon" href="../assets/img/logovava.png" type="image/x-icon">#}
-    {#<link rel="icon" href="../assets/img/logovava.png" type="image/x-icon">#}
-    {#<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">#}
-    {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">#}
-    {#<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">#}
-    {#<link rel="stylesheet" href="../public/build/css/base.css">#}
-    {#<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />#}
-
-
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
+<style>
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .me {
+        width: 400px;
+        margin: 90px auto;
+    }
+    .me p,
+    .me h1 {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+    }
+    .me p {
+        font-weight: 200;
+    }
+    .me span {
+        font-weight: bold;
+    }
+    .social {
+        position: fixed;
+        top: 20%;
+        z-index: 1;
+    }
+    .social ul {
+        padding: 0px;
+        -webkit-transform: translate(-270px, 0);
+        -moz-transform: translate(-270px, 0);
+        -ms-transform: translate(-270px, 0);
+        -o-transform: translate(-270px, 0);
+        transform: translate(-270px, 0);
+    }
+    .social ul li {
+        display: block;
+        margin: 5px;
+        background: rgba(0, 0, 0, 0.36);
+        width: 305px;
+        text-align: right;
+        padding: 10px;
+        -webkit-border-radius: 0 30px 30px 0;
+        -moz-border-radius: 0 30px 30px 0;
+        border-radius: 0 30px 30px 0;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .social ul li:hover {
+        -webkit-transform: translate(110px, 0);
+        -moz-transform: translate(110px, 0);
+        -ms-transform: translate(110px, 0);
+        -o-transform: translate(110px, 0);
+        transform: translate(110px, 0);
+        background: rgba(255, 255, 255, 0.4);
+    }
+    .social ul li:hover a {
+        color: #000;
+    }
+    .social ul li:hover i {
+        color: #fff;
+        background: #7cdf92;
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -ms-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
+    }
+    .social ul li i {
+        margin-left: 19px;
+        margin-right: 1px;
+        color: #000;
+        background: #fff;
+        padding: 6px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        background: #ffffff;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    /*body {*/
+        /*background: #25343F;*/
+        /*color: #fff;*/
+        /*font-family: 'Raleway', sans-serif;*/
+    /*}*/
+</style>
 <body>
+    <nav class="social">
+        <ul>
+            <li><a href="https://twitter.com/gian_michelle">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://facebook.com/">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li><a href="http://dribbble.com/gian_michelle">Dribbble <i class="fa fa-dribbble"></i></a></li>
+            <li><a href="http://behance.net/gianm">Behance <i class="fa fa-behance"></i></a></li>
+        </ul>
+    </nav>
+
 
 
 {% block navbar %}
