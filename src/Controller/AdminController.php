@@ -228,9 +228,9 @@ class AdminController extends AbstractController
      */
     public function getAllCompanyDelInactive(EntrepriseRepository $entRepo){
 
-        $ent = $entRepo->FindAllIfNotDel();
-        $ents = $entRepo->FindAllIfNotDel();
-        return $this->json(array("data" => $ents, "datab" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        $ent = $entRepo->FindAllDeleted();
+//        $ents = $entRepo->FindAllIfNotDel();
+        return $this->json(array("data" => $ent), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
     }
     
     /**
@@ -253,6 +253,32 @@ class AdminController extends AbstractController
     }
     
     /**
+     * @Route("/company/delete/{id}", name="ent_delete", methods="POST")
+     */
+    public function deleteCompany(Entreprise $ent, ObjectManager $em){
+//        var_dump($ent->getId());
+        $ent->setIsDeleted(true);
+        $ent->setVisible(false);
+        $em->merge($ent);
+        $em->flush();
+        return $this->json(array("status" => "réussite"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        
+    }
+    
+    /**
+     * @Route("/company/active/{id}", name="ent_active", methods="POST")
+     */
+    public function activeCompany(Entreprise $ent, ObjectManager $em){
+//        var_dump($ent->getId());
+        $ent->setIsDeleted(false);
+        $ent->setVisible(true);
+        $em->merge($ent);
+        $em->flush();
+        return $this->json(array("status" => "réussite"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        
+    }
+    
+    /**
      * @Route("/company/create", name="ent_create", methods="POST")
      *
      */
@@ -265,6 +291,8 @@ class AdminController extends AbstractController
         (isset($post['adresse']['rue']))? $adr->setRue($post['adresse']['rue']): "";
         (isset($post['adresse']['ville']))? $adr->setVille($post['adresse']['ville']): "";
         (isset($post['adresse']['cp']))? $adr->setCodePostal($post['adresse']['cp']): "";
+        (isset($post['adresse']['latitude']))? $adr->setLatitude($post['adresse']['latitude']): "";
+        (isset($post['adresse']['longitude']))? $adr->setLongitude($post['adresse']['longitude']): "";
         $em->persist($adr);
         $em->flush();
  

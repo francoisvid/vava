@@ -1,3 +1,4 @@
+var pos = null;
 window.supprUsr =   function (id){
 
             $.ajax({
@@ -48,70 +49,24 @@ window.unbanUsr = function (id){
 
     });
     window.go = function (){
-        alert('submit intercepted');
-        alert($('#nomEnt').val());
-        var genre;
-        if ($('#homme').is(":checked")){
-              genre = "Homme";
-            }else if($('#femme').is(":checked")){
-                genre = "Femme";
-            }
-        var data = { 
-                        "nom": $('#nomEnt').val(),
-                        "categorie": $('#entselect').val(),
-                        "tel": $('#numEnt').val(),
-                        "mail": $('#mailEnt').val(),
-                        "logo": $('#logoEnt').val(),
-                        "site": $('#siteEnt').val(),
-                        "salarie": $('#salarieEnt').val(),
-                        "remarque": $('#remEnt').val(),
-                        "adresse": {
-                                    "numero": $('#numAdEnt').val(),
-                                    "rue": $('#rueEnt').val(),
-                                    "ville": $('#villeEnt').val(),
-                                    "cp": $('#cpEnt').val()},
-                        "contact":{
-                                    "nom": $('#nomCon').val(),
-                                    "prenom": $('#prenomCon').val(),
-                                    "fonction": $('#fonctionCon').val(),
-                                    "mail": $('#mailCon').val(),
-                                    "tel": $('#telCon').val(),
-                                    "remarque": $('#remCon').val(),
-                                    "genre": genre
-                                }
-                        
-                    };
-                    console.log(data);
-            if (true){
-                        alert();
-                var request = {
-                    address: $(this).val()
-                }
-                        alert();
-
-                geocoder.geocode(request, function(results, status){
-                    if(status == google.maps.GeocoderStatus.OK){
-
-                        var pos = results[0].geometry.location;
-                    }
-                });
-                return false;
-            }
-            
-//        console.log(data);
-
+        var newAdresse= $('#numAdEnt').val()+"+"+$('#rueEnt').val()+"+"+$('#villeEnt').val();
         $.ajax({
-            method: "post",
-            url: window.location + "company/create",
-            data: data,
-        }).done(function (response) {
-            alert("ok");
-            console.log((response));
-        }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
+            url: "https://maps.googleapis.com/maps/api/geocode/json?address="+newAdresse+"&key=AIzaSyBZJOKIr4Z_Mu0cDkF4mUYRi5I6BtPmQs8",
+            type: "GET",
+            dataType: "json",
+            async: false,
+
+            success: function (data) {
+                console.log(data.results["0"].geometry.location);
+                sendData(data.results["0"].geometry.location)
+//                return data.results["0"].geometry.location;
+            },
+            error: function (param1, param2) {
+                console.log("error");
+            }
         });
+        
+
     }
 
 window.showContact = function(id){
@@ -128,3 +83,59 @@ window.showContact = function(id){
                 console.log(error);
             });
 }
+
+window.sendData = function(pos){
+    
+                       var data = null;
+        alert('submit intercepted');
+        alert($('#nomEnt').val());
+        var genre;
+        if ($('#homme').is(":checked")){
+              genre = "Homme";
+            }else if($('#femme').is(":checked")){
+                genre = "Femme";
+            }
+data = { 
+                        "nom": $('#nomEnt').val(),
+                        "categorie": $('#entselect').val(),
+                        "tel": $('#numEnt').val(),
+                        "mail": $('#mailEnt').val(),
+                        "logo": $('#logoEnt').val(),
+                        "site": $('#siteEnt').val(),
+                        "salarie": $('#salarieEnt').val(),
+                        "remarque": $('#remEnt').val(),
+                        "adresse": {
+                                    "numero": $('#numAdEnt').val(),
+                                    "rue": $('#rueEnt').val(),
+                                    "ville": $('#villeEnt').val(),
+                                    "cp": $('#cpEnt').val(),
+                                    "latitude": pos.lat,
+                                    "longitute": pos.lng},
+                        "contact":{
+                                    "nom": $('#nomCon').val(),
+                                    "prenom": $('#prenomCon').val(),
+                                    "fonction": $('#fonctionCon').val(),
+                                    "mail": $('#mailCon').val(),
+                                    "tel": $('#telCon').val(),
+                                    "remarque": $('#remCon').val(),
+                                    "genre": genre
+                                }
+                        
+                    };
+        console.log(data);
+
+
+        $.ajax({
+            method: "post",
+            url: window.location + "company/create",
+            data: data,
+        }).done(function (response) {
+            alert("ok");
+            console.log((response));
+        }).fail(function (xhr, status, error) {
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        });        
+};
+

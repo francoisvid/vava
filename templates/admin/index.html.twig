@@ -115,6 +115,32 @@
             </tfoot>
     </table>
 </div>
+                        
+<div class="col bg-faded py-3  col-md-9 admincontent" id="companyInv">
+    <h1>Tableau des entreprises inactives</h1>
+    <table id="table4" class="display table table-striped table-bordered nowrap" style="width:100%!important">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+                    <th>remarque</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Nom</th>
+                    <th>Tel</th>
+                    <th>Mail</th>
+                    <th>remarque</th>
+                    <th>Actions</th>
+                </tr>
+            </tfoot>
+    </table>
+</div>
        
         <div class="col bg-faded py-3  col-md-9 admincontent" id="addCat">
             <h3>Ajout d'une nouvelle catégorie</h3>
@@ -325,6 +351,7 @@
   </div>
 </div>
 </div>
+
     
 
 <div class="modal " id="modalEnt" tabindex="-1" role="dialog">
@@ -466,6 +493,7 @@ var datatables = null;
 var table= null;
 var table2= null;
 var table3= null;
+var table4= null;
 var contact= null;
 var entreprise = null;
 var currentContact = 0;
@@ -589,7 +617,11 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button class='btn btn-success' id='ContactEntreprise' data-toggle='modal' data-target='#contactModal')><i class='fas fa-address-book'></i></button><button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'><i class='fas fa-edit'></i></button><button class='btn btn-warning'><i class='far fa-eye-slash'></i></button><button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
+        defaultContent: "<button class='btn btn-success' id='ContactEntreprise' data-toggle='modal' data-target='#contactModal'><i class='fas fa-address-book'></i></button>\n\
+<button type='button' class='btn btn-light' id='adresseEntreprise' data-toggle='modal' data-target='#adresseEntreprise'><i class='fas fa-map-marked-alt'></i></button>\n\
+<button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'><i class='fas fa-edit'></i></button>\n\
+<button class='btn btn-warning'><i class='far fa-eye-slash'></i></button>\n\
+<button class='btn btn-danger' id='supprEntreprise'><i class='fas fa-trash-alt'></i></button>"
     } ],
                     columns: cols
                 });
@@ -598,7 +630,7 @@ $(document).ready(function() {
             
             /*
              * 
-             * Partie dédiée aux interaction avec la partie des entreprises
+             * Partie dédiée aux interaction avec la partie des entreprises actives
              * 
              */
             
@@ -649,6 +681,26 @@ $(document).ready(function() {
         $('#telContact').val(contact[n].tel);
         currentContact = n;
     }
+    
+    $('#table3 tbody').on( 'click', '#supprEntreprise', function () {
+        var data = table3.row( $(this).parents('tr') ).data();
+        entreprise = table3.row( $(this).parents('tr') ).data();
+        
+        $.ajax({
+            method: "post",
+            url: window.location + "company/delete/"+entreprise.id,
+            data: "dumbData",
+        }).done(function (response) {
+            $('#table3').DataTable().ajax.reload();
+
+{#            console.log((response));#}
+        }).fail(function (xhr, status, error) {
+            alert(xhr.responseText)
+            console.log(status);
+            console.log(error);
+        });
+    } );
+    
     
     $('#contactModal').on( 'click', '#contactAdd', function () {
             $('#nomContact').val("");
@@ -712,7 +764,7 @@ $(document).ready(function() {
             alert(xhr.responseText)
             console.log(status);
             console.log(error);
-        });navbar 
+        });
     } );
     
     $('#contactModal').on( 'click', '#editContact', function () {
@@ -736,6 +788,57 @@ $(document).ready(function() {
         });
     });
     
+    
+    /*
+     * Partie des entreprises inactives ou supprimées
+     */
+    
+    
+        cols = [
+            {"data": "nom"},
+            {"data": "tel"},
+            {"data": "mail"},
+            {"data": "remarque"},
+            null];
+    table4 =    $('#table4').DataTable({
+                    language: {
+                        url: "/build/DT_French.json"
+                    },
+                    ajax: {
+                        url: window.location+"company/inactive",
+                        dataSrc: "data"},
+                    responsive: true,
+                    lengthMenu: [5, 10, 15, 20, 25, 50, 100, 150, 200],
+                    pageLength: 10,
+        columnDefs: [ {
+        targets: -1,
+        data: null,
+        defaultContent: "<button class='btn btn-success' id='reactEntreprise'><i class='far fa-check-circle'></i> Réactiver</button>"
+    } ],
+                    columns: cols
+                });
+                
+                
+                  
+    $('#table4 tbody').on( 'click', '#reactEntreprise', function () {
+        //var data = table3.row( $(this).parents('tr') ).data();
+        entreprise = table4.row( $(this).parents('tr') ).data();
+        
+            $.ajax({
+                method: "post",
+                url: window.location + "company/active/"+entreprise.id,
+                data: "dumbData",
+            }).done(function (response) {
+                $('#table4').DataTable().ajax.reload();
+                table4.row( $(this).parents('tr') ).remove().draw();
+                $('#table3').DataTable().ajax.reload();
+            }).fail(function (xhr, status, error) {
+                alert(xhr.responseText)
+                console.log(status);
+                console.log(error);
+            });
+    } );  
+                
       /*
        * 
        * Dédié au hide & show du menu admin
