@@ -52,21 +52,16 @@
             </li>
         </ul>
         <form method="GET" action={{ path('map') }}>
-
-                <div class="two fields">
-                    <div class="field">
-                        <div class="ui icon input inputHome" >
-                            <input class="prompt" type="text" name="q" id="search" placeholder="Ville">
-
+                    <div class="ui stackable four column grid" style="margin-right: 20px">
+                        <div class="ui search">
+                            <input class="prompt" type="text" id="search" name="q" placeholder="Ville" style="margin-top: 20px; margin-right: -10px; width: 300px">
+                            <div class="results"></div>
+                        </div>
+                        <div class="ui search">
+                            <input class="prompt" type="text" name="c" id="c" placeholder="Catégorie, Nom..." style="margin-top: 20px; width: 300px">
+                            <div class="results"></div>
                         </div>
                     </div>
-                    <div class="field">
-                        <div class="ui icon input inputHome" >
-                            <input class="prompt" type="text" name="c" id="c" placeholder="Catégorie, Nom...">
-                            <i class="search icon"></i>
-                        </div>
-                    </div>
-
                 <input style='width:0; visibility:hidden' type='submit' id="search">
             </div>
         </form>
@@ -271,6 +266,7 @@
                     </div>
                 </div>
             </footer>
+        </body>
         {% endblock %}
 
 

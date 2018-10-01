@@ -7,9 +7,78 @@
 
     <style>
         #map {
+            margin-top: 2px;
             height: 400px;
             width: 70%;
         }
+
+        header
+        {
+            font-family: 'Lobster', cursive;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #info
+        {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        a{
+            color: #074E8C;
+        }
+
+        .scrollbar
+        {
+            /*margin-left: 30px;*/
+            float: left;
+            height: 382px;
+            width: 384px;
+            background: #F5F5F5;
+            overflow-y: scroll;
+            /*margin-bottom: 25px;*/
+        }
+
+        .force-overflow
+        {
+            min-height: 450px;
+        }
+
+        #wrapper
+        {
+            /*text-align: center;*/
+            width: 500px;
+            margin: auto;
+        }
+
+        /*
+         *  STYLE 1
+         */
+
+        #style-1::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        #style-1::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        #style-1::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+
+
     </style>
 
     {#<div class="container">#}
@@ -19,70 +88,63 @@
             <h1 class="display-3">Bienvenue sur Signe</h1>
         </div>
     </div>
-
-    {{ dump(data) }}
-
-    <div class="container">
-        <div class="right menu">
-            <div class="ui search">
-                <div class="ui icon input">
-                    <input class="prompt" type="text" id="lat" placeholder="lattitude">
-                    <input class="prompt" type="text" id="lng" placeholder="longitude">
-                    <i class="search icon"></i>
-                </div>
-                <div class="results"></div>
-            </div>
-        </div>
-    </div>
-    <div id="map" style="display: inline-block; height: 380px;">
+    <div id="map" style="display: inline-block; height: 382px;">
 
     </div>
 
-        <div id="liste" class="ui middle aligned divided list" style=" max-height: 380px;display: inline-block; margin-left: 10px; width: 320px; position: absolute;">
 
+    <div id="liste" class="ui middle aligned divided list" style="display: inline-block; margin-top: 2px; width: 320px; position: absolute;">
+        <div id="wrapper">
+            <div class="scrollbar" id="style-1">
+                <div class="force-overflow">
 
-            {% for d in data %}
-                {% set counter = ( counter | default(0) ) + 1 %}
+                {% for d in data %}
+                    {% set counter = ( counter | default(0) ) + 1 %}
 
-                {% if not app.user %}
+                    {% if not app.user %}
 
-                    <div class="item">
-                        <div class="right floated content">
-                            <button id="monfav{{ counter }}" class="ui button">Plus...</button>
-                            <div class="ui flowing popup top left transition hidden" style="width: 330px; height: 50px; padding-top:15px;">
-                                <div class="ui three column divided center aligned grid">
-                                    <a class="ui primary button"><i class="star icon"></i> Favoris</a>
-                                    <a class="ui primary button" href="tel:{{ d.tel }}" ><i class="phone icon"></i> Appeler</a>
-                                    <a class="ui primary button"  {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i> Itinéraire</a>
+                    <div class="ui celled list">
+                        <div class="item">
+                            <img class="ui avatar image" src="{{ d.logo }}">
+                            <div class="content">
+                                <div class="header">{{ d.nom }}</div>
+                                {{ d.rue }}
+                            </div>
+
+                            <div class="right floated content">
+                                <button id="monfav{{ counter }}" class="ui button" style="margin-bottom: 10px">Plus...</button>
+                                <div class="ui flowing popup top left transition hidden" style="width: 330px; height: 50px; padding-top:15px;">
+                                    <div class="ui three column divided center aligned grid">
+                                        <a class="ui primary button"><i class="star icon"></i> Favoris</a>
+                                        <a class="ui primary button" href="tel:{{ d.tel }}" ><i class="phone icon"></i> Appeler</a>
+                                        <a class="ui primary button"  {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i> Itinéraire</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        {#<img class="ui avatar image" src="/images/avatar2/small/lena.png">#}
-                        <div class="content">
-                            {{ d.nom }} / {{ d.rue }}
-                        </div>
                     </div>
 
-                {% else %}
+                    {% else %}
 
-                    <div class="item">
-                        <div class="right floated content">
-                            <button id="monfav{{ counter }}" class="ui button">Plus...</button>
-                            <div class="ui flowing popup top left transition hidden" style="width: 330px; height: 50px; padding-top:15px;">
-                                <div class="ui three column divided center aligned grid">
-                                    <a class="ui primary button" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}" ><i class="star icon"></i> Favoris</a>
-                                    <a class="ui primary button" href="tel:{{ d.tel }}" ><i class="phone icon"></i> Appeler</a>
-                                    <a class="ui primary button"  {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i> Itinéraire</a>
+                        <div class="item">
+                            <div class="right floated content">
+                                <button id="monfav{{ counter }}" class="ui button">Plus...</button>
+                                <div class="ui flowing popup top left transition hidden" style="width: 330px; height: 50px; padding-top:15px;">
+                                    <div class="ui three column divided center aligned grid">
+                                        <a class="ui primary button" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}" ><i class="star icon"></i> Favoris</a>
+                                        <a class="ui primary button" href="tel:{{ d.tel }}" ><i class="phone icon"></i> Appeler</a>
+                                        <a class="ui primary button"  {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i> Itinéraire</a>
+                                    </div>
                                 </div>
                             </div>
+                            {#<img class="ui avatar image" src="/images/avatar2/small/lena.png">#}
+                            <div class="content">
+                                {{ d.nom }} / {{ d.rue }}
+                            </div>
                         </div>
-                        {#<img class="ui avatar image" src="/images/avatar2/small/lena.png">#}
-                        <div class="content">
-                            {{ d.nom }} / {{ d.rue }}
-                        </div>
-                    </div>
 
-                {% endif %}
+
+                    {% endif %}
 
                 <script>
                     $('#monfav{{ counter }}').popup({inline: true, on:'click'});
@@ -90,28 +152,11 @@
 
 
             {% endfor %}
-
-
-            {#<script>#}
-                {#$(document).ready(function(){#}
-                    {#$("#liste").append(#}
-                        {#$("<div>").addClass("item").append(#}
-                            {#$("<div>").addClass("right floated content").append(#}
-                                {#$("<button>").attr("id", "addFav").addClass("ui button").text("Plus...")#}
-                            {#).append(#}
-                                {#$("<div>").addClass("ui flowing popup top left transition hidden").append(#}
-                                    {#$("<div>").addClass("ui three column divided center aligned grid")#}
-                                        {#.append($("<a>").addClass("ui primary button").append($("<i>").addClass("star icon").text("Favoris")))#}
-                                        {#.append($("<a>").addClass("ui primary button").append("<i>").addClass("phone icon").text("Appeler"))#}
-                                        {#.append($("<a>").addClass("ui primary button").append("<i>").addClass("location arrow icon").text("Itineraire"))#}
-                                {#)#}
-                            {#))#}
-                            {#.append($("<img>").addClass("ui avatar image").attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTUBcxNrQj6HRPONKxeoEpw_PfQQYWT5g7iUFwvL0nOgjucd3EYw"))#}
-                            {#.append($("<div>").addClass("content").text("lena")))#}
-                {#});#}
-            {#</script>#}
+                    </div>
+                </div>
+            </div>
         </div>
-    {#</div>#}
+
 
 
 

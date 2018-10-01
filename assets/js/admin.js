@@ -84,62 +84,63 @@ window.showContact = function(id){
             });
 }
 
-window.sendData = function(pos){
-    
-                       var data = null;
-        alert('submit intercepted');
-        alert($('#nomEnt').val());
-        var genre;
-        if ($('#homme').is(":checked")){
-              genre = "Homme";
-            }else if($('#femme').is(":checked")){
-                genre = "Femme";
-            }
-data = { 
-                        "nom": $('#nomEnt').val(),
-                        "categorie": $('#entselect').val(),
-                        "tel": $('#numEnt').val(),
-                        "mail": $('#mailEnt').val(),
-                        "logo": $('#logoEnt').val(),
-                        "site": $('#siteEnt').val(),
-                        "salarie": $('#salarieEnt').val(),
-                        "remarque": $('#remEnt').val(),
-                        "adresse": {
-                                    "numero": $('#numAdEnt').val(),
-                                    "rue": $('#rueEnt').val(),
-                                    "ville": $('#villeEnt').val(),
-                                    "cp": $('#cpEnt').val(),
-                                    "latitude": pos.lat,
-                                    "longitute": pos.lng},
-                        "contact":{
-                                    "nom": $('#nomCon').val(),
-                                    "prenom": $('#prenomCon').val(),
-                                    "fonction": $('#fonctionCon').val(),
-                                    "mail": $('#mailCon').val(),
-                                    "tel": $('#telCon').val(),
-                                    "remarque": $('#remCon').val(),
-                                    "genre": genre
-                                }
-                        
-                    };
-        console.log(data);
+window.sendData = function(pos) {
+
+    var data = null;
+    alert('submit intercepted');
+    alert($('#nomEnt').val());
+    var genre;
+    if ($('#homme').is(":checked")) {
+        genre = "Homme";
+    } else if ($('#femme').is(":checked")) {
+        genre = "Femme";
+    }
+    data = {
+        "nom": $('#nomEnt').val(),
+        "categorie": $('#entselect').val(),
+        "tel": $('#numEnt').val(),
+        "mail": $('#mailEnt').val(),
+        "logo": $('#logoEnt').val(),
+        "site": $('#siteEnt').val(),
+        "salarie": $('#salarieEnt').val(),
+        "remarque": $('#remEnt').val(),
+        "adresse": {
+            "numero": $('#numAdEnt').val(),
+            "rue": $('#rueEnt').val(),
+            "ville": $('#villeEnt').val(),
+            "cp": $('#cpEnt').val(),
+            "latitude": pos.lat,
+            "longitute": pos.lng
+        },
+        "contact": {
+            "nom": $('#nomCon').val(),
+            "prenom": $('#prenomCon').val(),
+            "fonction": $('#fonctionCon').val(),
+            "mail": $('#mailCon').val(),
+            "tel": $('#telCon').val(),
+            "remarque": $('#remCon').val(),
+            "genre": genre
+        }
+
+    };
+    console.log(data);
 
 
-        $.ajax({
-            method: "post",
-            url: window.location + "company/create",
-            data: data,
-        }).done(function (response) {
-            alert("ok");
-            console.log((response));
-        }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
-        });        
-};
+    $.ajax({
+        method: "post",
+        url: window.location + "company/create",
+        data: data,
+    }).done(function (response) {
+        alert("ok");
+        console.log((response));
+    }).fail(function (xhr, status, error) {
+        alert(xhr.responseText)
+        console.log(status);
+        console.log(error);
+    });
 
-});
+}
+
 
 $('#contact').submit(function (e) {
     e.preventDefault(e);
