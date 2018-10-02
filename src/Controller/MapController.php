@@ -375,13 +375,16 @@ class MapController extends AbstractController
                 return $vide;
             }elseif($this->rechercheVille($q)){
                 return $this->rechercheVille($q);
+            }elseif($this->rechercheNom($nc)){
+                return $this->rechercheNom($nc);
             }
 
         }elseif($this->rechercheCategorie($c)){
             return $this->rechercheCategorie($c);
+        }elseif($this->rechercheNom($nc)){
+            return $this->rechercheNom($nc);
         }else{
             $this->addFlash('error', "Désolé il n'y a rien en base de donnée 😢 ");
         }
     }
-
 }

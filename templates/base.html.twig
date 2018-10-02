@@ -1088,7 +1088,7 @@
 
                         <!--=== Contact Form ===-->
 
-                        <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left d3" action="contact.php" method="post" novalidate>
+                        <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left d3" method="post" novalidate>
 
                             <div class="form-group">
                                 <label class="control-label" for="contact-name">Name</label>
@@ -1114,7 +1114,7 @@
                                 </div>
                             </div><!-- End textarea -->
 
-                            <p><button name="submit" type="submit" class="btn btn-color2 btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-paper-plane"></i>Envoyer le message</button></p>
+                            <p><button name="submit" type="button" class="btn btn-color2 btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent" onclick="sendMail()"><i class="fa fa-paper-plane"></i>Envoyer le message</button></p>
                             <input type="hidden" name="submitted" id="submitted" value="true" />
 
                         </form><!-- End contact-form -->

@@ -143,9 +143,11 @@ window.sendData = function(pos) {
 
 window.sendMail = function(pos) {
     var data = {
-        email : $('#email').val(),
-        contenu : $('#message').val(),
+        from: $('#contact-name').val(),
+        email : $('#contact-mail').val(),
+        contenu : $('#contact-message').val(),
     }
+
     $.ajax({
             method: "post",
             url: window.location + "contact",

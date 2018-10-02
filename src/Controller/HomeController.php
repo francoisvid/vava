@@ -71,29 +71,21 @@ class HomeController extends AbstractController
     {
         $post = $request->request->all();
         
-        $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('yanis@piotpilot.eu')
+        $message = (new \Swift_Message('Message provenant de '.$post['from']))
+            ->setFrom($post['email'])
             ->setTo('alexandreplanque@hotmail.fr')
-            ->setBody("Lalalalallalalalalal",
+            ->setBody($post['contenu'],
                 'text/html'
             );
-//          $message = Swift_Message::newInstance()
-//                ->setSubject($subject)
-//                ->setFrom('shahroznawaz156@gmail.com')
-//                ->setTo('alexandreplanque@hotmail.fr')
-//                ->setBody("La digue du cul");
-//          $this->get('mailer')->send($message);
-//        var_dump($mailer->send($message));
 
-        if ($mailer->send($message))
+
+        if ($mailer->send($message) > 0)
             {
-              echo "Sent\n";
-            return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+            return $this->json("news", 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
             }
             else
             {
-              echo "Failed\n";
-            return $this->json(array("data" => "Failed"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+            return $this->json(array("data" => "Failed"), 404, array("Content-Type" => "application/json", "charset" => "utf-8"));
             }
     }
 }
