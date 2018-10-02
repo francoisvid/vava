@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Repository\ActualiteRepository;
+use Swift_Mailer;
+use Swift_Message;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -60,4 +63,37 @@ class HomeController extends AbstractController
 //            'controller_name' => 'HomeController',
 //        ]);
 //    }
+    
+     /**
+     * @Route("/contact", name="contact", methods="POST")
+     */
+    public function contact(Request $request, Swift_Mailer $mailer)
+    {
+        $post = $request->request->all();
+        
+        $message = (new \Swift_Message('Hello Email'))
+            ->setFrom('yanis@piotpilot.eu')
+            ->setTo('alexandreplanque@hotmail.fr')
+            ->setBody("Lalalalallalalalalal",
+                'text/html'
+            );
+//          $message = Swift_Message::newInstance()
+//                ->setSubject($subject)
+//                ->setFrom('shahroznawaz156@gmail.com')
+//                ->setTo('alexandreplanque@hotmail.fr')
+//                ->setBody("La digue du cul");
+//          $this->get('mailer')->send($message);
+//        var_dump($mailer->send($message));
+
+        if ($mailer->send($message))
+            {
+              echo "Sent\n";
+            return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+            }
+            else
+            {
+              echo "Failed\n";
+            return $this->json(array("data" => "Failed"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+            }
+    }
 }

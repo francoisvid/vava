@@ -141,25 +141,22 @@ window.sendData = function(pos) {
 
 }
 
-
-$('#contact').submit(function (e) {
-    e.preventDefault(e);
-    data = {
+window.sendMail = function(pos) {
+    var data = {
         email : $('#email').val(),
         contenu : $('#message').val(),
     }
-
     $.ajax({
-        method : 'post',
-        url : window.location + 'contact',
-        data : data,
-        success: function (response) {
-            console.log(response);
-        },
-        error(xhr, status, error){
+            method: "post",
+            url: window.location + "contact",
+            data: data,
+        }).done(function (response) {
+            alert("ok");
+            console.log((response));
+        }).fail(function (xhr, status, error) {
             alert(xhr.responseText)
             console.log(status);
             console.log(error);
-        }
-    });
-})
+        });
+
+}

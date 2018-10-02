@@ -7,9 +7,12 @@
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/map/index.html.twig</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Adresse.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/AdminController.php</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/MapController.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/base.html.twig</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/webpack.config.js</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Entreprise.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/admin.js</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/HomeController.php</file>
         </group>
     </open-files>
 </project-private>
