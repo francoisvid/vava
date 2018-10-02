@@ -10,9 +10,9 @@
         text-align: center;
     }
 
-    /*.imageActu{*/
-        /*margin-bottom: 20px;*/
-    /*}*/
+    .imageActu{
+        height: 428px;
+    }
 
     /*.contenuActu{*/
         /*margin-top: 20px;*/
@@ -51,34 +51,34 @@
 
 
 
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-            {% for keys, actualite in actualites %}
+                {% for keys, actualite in actualites %}
                 {% if keys == 0 %}
                 <div class="carousel-item active">
-                {% else %}
-                        <div class="carousel-item">
-                {% endif %}
-                            <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
-                                <div class="container">
-                                    <h2 class="titreActu overlay" style="text-align: center">{{ actualite.titre }}</h2>
-                                    <p class="contenuActu overlay">{{ actualite.article }}</p>
-                                </div>
+                    {% else %}
+                    <div class="carousel-item">
+                        {% endif %}
+                        <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
+                        <div class="container">
+                            <h2 class="titreActu overlay" style="text-align: center">{{ actualite.titre }}</h2>
+                            <p class="contenuActu overlay">{{ actualite.article }}</p>
                         </div>
-                        {#</div>#}
-            {% endfor %}
-            </div>
+                    </div>
+                    {#</div>#}
+                    {% endfor %}
+                </div>
 
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
-    </div>
 {% endblock %}
 
 
