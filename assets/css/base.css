@@ -68,13 +68,13 @@
 
     .lead{
         text-align: center;
-        margin-left: 15px;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     .formulaire{
-        margin-right: 10px;
-        margin-left: 10px;
-
+        margin-right: 15px;
+        margin-left: 15px;
     }
 
     #searchResponsive{
@@ -194,13 +194,14 @@
     }
 
     .lead{
-        text-align: justify;
-        margin-left: 15px;
+        text-align: center;
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
     .formulaire{
-        margin-right: 10px;
-        margin-left: 10px;
+        /*margin-right: 10px !important;*/
+        margin-left: 30px;
     }
 
     #searchResponsive{
@@ -253,6 +254,10 @@
         margin-top: 50px;
     }
 
+    .imageActu{
+        margin-bottom: 20px;
+        height: 250px !important;
+    }
 
 }
 
@@ -299,7 +304,7 @@
     #map{
         display: inline-block;
         height: 382px !important;
-        width: 70% !important;
+        /*width: 70% !important;*/
         margin-bottom: -5px !important;
     }
 
@@ -328,21 +333,21 @@
 
     .big-text{
         margin-top: 10px !important;
-        margin-left: 50px !important;
-        font-size: 30px !important;
+        margin-left: 200px !important;
+        font-size: 4vw !important;
         text-align: center !important;
     }
 
     .lead{
         text-align: justify;
-        margin-left: 20px;
+        margin-left: 30px !important;
     }
 
 
     .formulaire{
         /*margin-right: -30px !important;*/
         margin-left: 25px !important;
-        margin-top: 10px !important;
+        margin-top: 80px !important;
     }
 
     #searchResponsive{
@@ -394,6 +399,12 @@
         margin-top: 50px;
     }
 
+
+    .imageActu{
+        margin-bottom: 20px;
+        height: 300px !important;
+    }
+
 }
 
 @media (min-width: 992px) and (max-width: 1280px) {
@@ -437,7 +448,7 @@
     #map{
         display: inline-block;
         height: 382px !important;
-        width: 70% !important;
+        /*width: 80% !important;*/
         margin-bottom: -5px !important;
     }
 
@@ -468,25 +479,33 @@
 
     .big-text{
         margin-top: 10px !important;
-        margin-left: 50px !important;
-        font-size: 30px !important;
+        margin-left: 290px !important;
+        font-size: 4vw !important;
         text-align: center !important;
     }
 
     .lead{
-        text-align: center;
-        /*margin-left: 90px;*/
+        text-align: justify;
+        margin-left: 30px !important;
     }
 
 
     .formulaire{
         /*margin-right: -30px !important;*/
         margin-left: 25px !important;
+        margin-top: 80px !important;
     }
 
+
     .a{
-        margin-left: 60px !important;
+        margin-left: 15px !important;
         margin-right: 15px !important;
+        width: 225px !important;
+    }
+
+    .b{
+        margin-right: 15px !important;
+        width: 225px !important;
     }
 
     #searchResponsive{
@@ -536,6 +555,12 @@
         width: auto !important;
         margin-top: 50px;
     }
+
+    .imageActu{
+        margin-bottom: 20px;
+        height: 350px !important;
+    }
+
 
 }
 
@@ -578,20 +603,15 @@
     }
 
     #map{
-        display: inline-block;
-        height: 380px !important;
-        width: 70% !important;
-        margin-bottom: -5px !important;
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
     }
 
-    #liste {
-        display: inline-block;
-        /*margin-top: 2px;*/
-        height: 380px !important;
-        width: auto !important;
+    #liste{
+        /*display: contents;*/
+        /*width: auto;*/
         position: absolute;
-        /*margin-bottom: -5px !important;*/
-
     }
 
 
@@ -610,21 +630,23 @@
     }
 
     .big-text{
-        margin-top: 10px !important;
-        margin-left: 50px !important;
-        font-size: 30px !important;
+        margin-top: 30px !important;
+        margin-left: 320px !important;
+        font-size: 4vw !important;
         text-align: center !important;
     }
 
     .lead{
-        text-align: center;
-        /*margin-left: 90px;*/
+        text-align: justify;
+        margin-top: 20px;
+        margin-left: 30px !important;
     }
 
 
     .formulaire{
         /*margin-right: -30px !important;*/
         margin-left: 25px !important;
+        margin-top: 110px !important;
     }
 
     .a{
@@ -678,6 +700,11 @@
     .formRegister{
         width: auto !important;
         margin-top: 50px;
+    }
+
+    .imageActu{
+        margin-bottom: 20px;
+        height: 450px !important;
     }
 }
 
@@ -1138,10 +1165,10 @@
     text-align: center;
 }
 
-.imageActu{
-    margin-bottom: 20px;
-    height: auto !important;
-}
+/*.imageActu{*/
+    /*margin-bottom: 20px;*/
+    /*height: 328px !important;*/
+/*}*/
 
 .contenuActu{
     margin-top: 20px;
