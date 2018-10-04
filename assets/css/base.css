@@ -1,4 +1,4 @@
-@media (min-width: 404px) and (max-width: 576px) {
+@media (min-width: 403px) and (max-width: 576px) {
 
     .jumbotron{
         display: none;
@@ -119,9 +119,20 @@
         margin-top: 50px;
     }
 
-    /*#contact{*/
-        /*margin-top: 382px !important;*/
-    /*}*/
+    .imageActu{
+        margin-bottom: 20px;
+        height: 200px !important;
+    }
+
+    .flowing{
+        max-width: min-content !important;
+    }
+
+    .iconEntreprise{
+        float: right;
+        margin-bottom: 5px;
+        margin-top: -40px ;
+    }
 
 
 }
@@ -257,6 +268,16 @@
     .imageActu{
         margin-bottom: 20px;
         height: 250px !important;
+    }
+
+    .flowing{
+        max-width: min-content !important;
+    }
+
+    .iconEntreprise{
+        float: right;
+        margin-bottom: 5px;
+        margin-top: -40px ;
     }
 
 }
@@ -403,6 +424,21 @@
     .imageActu{
         margin-bottom: 20px;
         height: 300px !important;
+    }
+
+    .flowing{
+        max-width: min-content !important;
+    }
+
+    .iconEntreprise{
+        float: right;
+        margin-bottom: 5px;
+        margin-top: -40px ;
+    }
+
+    .infoEnt{
+        width: 140px;
+        overflow: hidden;
     }
 
 }
@@ -561,6 +597,21 @@
         height: 350px !important;
     }
 
+    .flowing{
+        max-width: min-content !important;
+    }
+
+    .iconEntreprise{
+        float: right;
+        margin-bottom: 5px;
+        margin-top: -40px ;
+    }
+
+    .infoEnt{
+        width: 125px;
+        word-wrap: break-word !important;
+    }
+
 
 }
 
@@ -705,6 +756,21 @@
     .imageActu{
         margin-bottom: 20px;
         height: 450px !important;
+    }
+
+    .flowing{
+        max-width: min-content !important;
+    }
+
+    .iconEntreprise{
+        float: right;
+        margin-bottom: 5px;
+        margin-top: -40px ;
+    }
+
+    .infoEnt{
+        width: 230px;
+        overflow: hidden;
     }
 }
 
