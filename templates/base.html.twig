@@ -49,13 +49,13 @@
             </li>
         </ul>
         <form method="GET" action={{ absolute_url(path('map')) }}>
-                    <div id="inputGG">
-                        <div class="ui search inputHome">
-                            <input class="prompt " type="text" name="q" placeholder="Ville" style="margin-right: -80px">
+                    <div id="inputGG" class="inputHome row">
+                        <div class="ui search ">
+                            <input class="prompt a" type="text" name="q" placeholder="Ville">
                             <div class="results"></div>
                         </div>
-                        <div class="ui search inputHome">
-                            <input class="prompt " type="text" name="c" id="c" placeholder="Catégorie, Nom...">
+                        <div class="ui search ">
+                            <input class="prompt b" type="text" name="c" id="c" placeholder="Catégorie, Nom...">
                             <button type="submit" class="btn btn-search">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -124,13 +124,13 @@
 
 
     <div id="searchResponsive" class="row">
-        <div class="input-group col-xs-6 col-sm-6">
+        <div class="input-group col-xs-6 col-sm-6 test">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control ville" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
-        </div><br>
-        <div class="input-group col-xs-6 col-sm-6">
+            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
+        </div><br><br>
+        <div class="input-group col-xs-6 col-sm-6 test">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
+            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
         </div>
     </div>
 

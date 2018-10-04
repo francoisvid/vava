@@ -1,121 +1,4 @@
-@media (min-width: 400px) and (max-width: 518px) {
-
-    .jumbotron{
-        display: none;
-    }
-
-    body{
-        background-color: #D3FBF3 !important;
-    }
-
-    .jumbotronS{
-        /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color: #D3FBF3 !important;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 400px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
-        margin-top: 70px !important;
-    }
-
-    #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
-    }
-
-    #liste{
-        display: contents;
-        /*width: auto;*/
-        position: absolute;
-    }
-
-    .inputHome{
-        display: none ;
-    }
-
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
-
-    .social{
-        display: none;
-    }
-
-    .big-text{
-        margin-top: 10px !important;
-        /*margin-right: 30px !important;*/
-        font-size: 30px !important;
-        text-align: center !important;
-    }
-
-    .lead{
-        text-align: justify;
-        margin-left: 15px;
-    }
-
-    .formulaire{
-        margin-right: 10px;
-        margin-left: 10px;
-
-    }
-
-    #searchResponsive{
-        padding-top: 190px !important;
-        margin-bottom: -275px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
-    #searchInline{
-        display: none;
-    }
-
-    .bienvenue{
-        padding-top: 80px;
-        font-size: 6vw;
-
-    }
-
-    .barNav{
-        background-color: #D2FCF3 !important;
-    }
-
-    .btn-outline-light{
-        /*margin-right: -20px;*/
-        /*padding: 5px 40px 5px 90px;*/
-        /*display:inline !important;*/
-        /*margin-left: 5px;*/
-        color: black !important;
-    }
-
-
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
-
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
-
-
-}
-
-@media (min-width: 518px) and (max-width: 575px) {
+@media (min-width: 404px) and (max-width: 576px) {
 
     .jumbotron{
         display: none;
@@ -140,7 +23,14 @@
         font-family: 'Josefin Sans', sans-serif;
         max-width: 100%;
         background-position: 0% 25%;
-        margin-top: 70px !important;
+        margin-top: 90px !important;
+        margin-bottom: -10px !important;
+
+    }
+
+    .logovava{
+        max-width: 30%;
+        height: auto;
     }
 
     #map{
@@ -184,11 +74,12 @@
     .formulaire{
         margin-right: 10px;
         margin-left: 10px;
+
     }
 
     #searchResponsive{
         padding-top: 190px !important;
-        margin-bottom: -275px !important;
+        margin-bottom: -300px !important;
         margin-left: 30px;
         margin-right: 30px;
     }
@@ -198,9 +89,9 @@
     }
 
     .bienvenue{
-        padding-top: 80px;
-        margin-top: 45px !important;
+        padding-top: 75px;
         font-size: 6vw;
+
     }
 
     .barNav{
@@ -231,37 +122,173 @@
 
 }
 
-@media (min-width: 575px) and (max-width: 680px) {
+@media (min-width: 576px) and (max-width: 768px) {
 
     .jumbotron{
         display: none;
-        /*max-width: 100%;*/
-        /*height: auto;*/
-        /*margin-bottom: -2px;*/
-        /*background-size: cover;*/
-        /*display: block;*/
-        /*color: white;*/
-        /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*border-radius: 0px;*/
-        /*font-family: 'Josefin Sans', sans-serif;*/
-        /*padding-bottom: 40px;*/
+    }
 
+    body{
+        background-color: #D3FBF3 !important;
     }
 
     .jumbotronS{
-        background-color:white;
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color: #D3FBF3 !important;
         background-repeat:no-repeat;
         margin-bottom: -2px;
         background-size: cover;
         color: white;
         text-shadow: black 0.2em 0.2em 0.2em;
-        height: 490px;
+        height: 570px;
         width: auto;
         border-radius: 0px;
         font-family: 'Josefin Sans', sans-serif;
         max-width: 100%;
         background-position: 0% 25%;
-        margin-top: 90px !important;
+        /*margin-top: 0px !important;*/
+    }
+
+    .logovava{
+        max-width: 30%;
+        height: auto;
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+
+    /*.inputHomeResponsive{*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        /*margin-right: 30px !important;*/
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: justify;
+        margin-left: 15px;
+    }
+
+    .formulaire{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #searchResponsive{
+        margin-bottom: -300px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .test{
+        margin-top: 300px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 100px;
+        margin-top: 45px !important;
+        font-size: 6vw;
+    }
+
+    .logovava{
+        max-width: 30%;
+        height: auto;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+    .jumbotron{
+        max-width: 100%;
+        height: 350px;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 5px !important;
+        margin-top: 40px;
+
+    }
+
+
+    body{
+        background-color: #D3FBF3 !important;
+    }
+
+    .jumbotronS{
+        display: none;
+        /*background-color:white;*/
+        /*background-repeat:no-repeat;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*height: 560px;*/
+        /*width: auto;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+        /*margin-top: 90px !important;*/
 
     }
 
@@ -323,130 +350,14 @@
     }
 
     .bienvenue{
-        padding-top: 90px;
         margin-top: 45px !important;
-        font-size: 8vw;
+        font-size: 7vw;
         margin-bottom: 30px !important;
     }
 
-    .barNav{
-        background-color: #D2FCF3 !important;
-    }
-
-    .btn-outline-light{
-        /*margin-right: -20px;*/
-        /*padding: 5px 40px 5px 90px;*/
-        /*display:inline !important;*/
-        /*margin-left: 5px;*/
-        color: black !important;
-    }
-
-
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
-
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
-
-}
-
-@media (min-width: 680px) and (max-width: 696px) {
-
-    .jumbotron{
-        max-width: 100%;
+    .logovava{
+        max-width: 20%;
         height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 45px;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-
-    .jumbotronS{
-        /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color:white;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 400px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
-    }
-
-    #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
-    }
-
-    #liste{
-        display: contents;
-        /*width: auto;*/
-        position: absolute;
-    }
-
-    .inputHome{
-        display: none ;
-    }
-
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
-
-    .social{
-        display: none;
-    }
-
-    .big-text{
-        margin-top: 10px !important;
-        /*margin-right: 30px !important;*/
-        font-size: 30px !important;
-        text-align: center !important;
-    }
-
-    .lead{
-        text-align: center;
-        margin-left: 15px;
-    }
-
-    .formulaire{
-        margin-right: -30px !important;
-        margin-left: 25px !important;
-    }
-
-    #searchResponsive{
-        padding-top: 190px !important;
-        margin-bottom: -275px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
-    #searchInline{
-        display: none;
-    }
-
-    .bienvenue{
-        padding-top: 65px;
     }
 
     .barNav{
@@ -476,11 +387,15 @@
 
 }
 
-@media (min-width: 696px) and (max-width: 768px) {
+@media (min-width: 992px) and (max-width: 1280px) {
+
+    body {
+        background-color: #D3FBF3 !important;
+    }
 
     .jumbotron{
         max-width: 100%;
-        height: auto;
+        height: 410px;
         margin-bottom: -2px;
         background-size: cover;
         display: block;
@@ -489,26 +404,25 @@
         border-radius: 0px;
         font-family: 'Josefin Sans', sans-serif;
         padding-bottom: 5px !important;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
+        margin-top: 40px;
     }
 
     .jumbotronS{
-        /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color:white;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 400px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
+        display: none;
+        /*background-color:white;*/
+        /*background-repeat:no-repeat;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*height: 560px;*/
+        /*width: auto;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+        /*margin-top: 90px !important;*/
+
     }
 
     #map{
@@ -524,7 +438,7 @@
     }
 
     .inputHome{
-        display: none ;
+        /*display: none ;*/
     }
 
     .inputHomeResponsive{
@@ -539,15 +453,153 @@
 
     .big-text{
         margin-top: 10px !important;
-        /*margin-right: 30px !important;*/
+        margin-left: 50px !important;
         font-size: 30px !important;
         text-align: center !important;
     }
 
     .lead{
         text-align: center;
-        margin-left: 15px;
+        /*margin-left: 90px;*/
     }
+
+
+    .formulaire{
+        /*margin-right: -30px !important;*/
+        margin-left: 25px !important;
+    }
+
+    .a{
+        margin-left: 60px !important;
+        margin-right: 15px !important;
+    }
+
+    #searchResponsive{
+        display: none;
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        margin-top: 45px !important;
+        font-size: 7vw;
+        margin-bottom: 30px !important;
+    }
+
+    .logovava{
+        max-width: 20%;
+        height: auto;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+}
+
+@media (min-width: 1280px) {
+
+    body {
+        background-color: #D3FBF3 !important;
+    }
+
+    .jumbotron{
+        max-width: 100%;
+        height: 440px;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 5px !important;
+        margin-top: 40px;
+    }
+
+    .jumbotronS{
+        display: none;
+        /*background-color:white;*/
+        /*background-repeat:no-repeat;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*height: 560px;*/
+        /*width: auto;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+        /*margin-top: 90px !important;*/
+
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        /*display: none ;*/
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        margin-left: 50px !important;
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: center;
+        /*margin-left: 90px;*/
+    }
+
 
     .formulaire{
         /*margin-right: -30px !important;*/
@@ -555,118 +607,8 @@
     }
 
     #searchResponsive{
-        padding-top: 190px !important;
-        margin-bottom: -275px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
-    #searchInline{
-        display: none;
-    }
-
-    .bienvenue{
-        padding-top: 65px;
-    }
-
-    .barNav{
-        background-color: #D2FCF3 !important;
-    }
-
-    .btn-outline-light{
-        /*margin-right: -20px;*/
-        /*padding: 5px 40px 5px 90px;*/
-        /*display:inline !important;*/
-        /*margin-left: 5px;*/
-        color: black !important;
-    }
-
-
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
-
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 825px) {
-
-    .jumbotron{
-        display: none;
-
-    }
-
-    .jumbotronS{
         /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color:white;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 400px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
-    }
 
-    #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
-    }
-
-    #liste{
-        display: contents;
-        /*width: auto;*/
-        position: absolute;
-    }
-
-    .inputHome{
-        display: none ;
-    }
-
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
-
-    .social{
-        display: none;
-    }
-
-    .footer{
-        margin-top: -90px !important;
-    }
-    .big-text{
-        margin-top: 80px !important;
-        /*margin-right: 30px !important;*/
-        font-size:4vw !important;
-        text-align: center !important;
-        z-index: 10 !important;
-    }
-
-    .lead{
-        text-align: justify;
-        margin-left: 35px;
-        margin-bottom: 0px;
-    }
-
-    .formulaire{
-        margin-top: 90px;
-    }
-
-    #searchResponsive{
         padding-top: 190px !important;
         margin-bottom: -275px !important;
         margin-left: 30px;
@@ -678,7 +620,14 @@
     }
 
     .bienvenue{
-        padding-top: 85px;
+        margin-top: 45px !important;
+        font-size: 7vw;
+        margin-bottom: 30px !important;
+    }
+
+    .logovava{
+        max-width: 20%;
+        height: auto;
     }
 
     .barNav{
@@ -707,277 +656,403 @@
     }
 }
 
+/*@media (min-width: 768px) and (max-width: 825px) {*/
 
-/*// Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 825px) and (max-width: 992px) {
 
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 55px !important;
-        /*height: 50%;*/
+    /*body{*/
+        /*background-color: #D3FBF3 !important;*/
+    /*}*/
+
+
+    /*.jumbotron{*/
+        /*display: none;*/
+        /*!*max-width: 100%;*!*/
+        /*!*height: auto;*!*/
+        /*!*margin-bottom: -2px;*!*/
+        /*!*background-size: cover;*!*/
+        /*!*display: block;*!*/
+        /*!*color: white;*!*/
+        /*!*text-shadow: black 0.2em 0.2em 0.2em;*!*/
+        /*!*border-radius: 0px;*!*/
+        /*!*font-family: 'Josefin Sans', sans-serif;*!*/
+        /*!*padding-bottom: 5px !important;*!*/
+    /*}*/
+
+    /*.jumbotronS{*/
+        /*background-color:white;*/
+        /*background-repeat:no-repeat;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*height: 615px;*/
+        /*width: auto;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
         /*max-width: 100%;*/
         /*background-position: 0% 25%;*/
-    }
+        /*margin-top: 110px !important;*/
+    /*}*/
 
-    .jumbotronS{
+    /*#map{*/
+        /*!*margin-top: 25% !important;*!*/
+        /*width: 100% !important;*/
+        /*height: 382px;*/
+    /*}*/
+
+    /*#liste{*/
+        /*display: contents;*/
+        /*!*width: auto;*!*/
+        /*position: absolute;*/
+    /*}*/
+
+    /*.inputHome{*/
+        /*display: none ;*/
+    /*}*/
+
+    /*.inputHomeResponsive{*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
+
+    /*.social{*/
         /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color:white;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 400px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
-    }
+    /*}*/
 
-    #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
-    }
+    /*.footer{*/
+        /*margin-top: -90px !important;*/
+    /*}*/
+    /*.big-text{*/
+        /*margin-top: 80px !important;*/
+        /*!*margin-right: 30px !important;*!*/
+        /*font-size:4vw !important;*/
+        /*text-align: center !important;*/
+        /*z-index: 10 !important;*/
+    /*}*/
 
-    #liste{
-        display: contents;
-        /*width: auto;*/
-        position: absolute;
-    }
+    /*.lead{*/
+        /*text-align: justify;*/
+        /*margin-left: 35px;*/
+        /*margin-bottom: 0px;*/
+    /*}*/
 
-    .inputHome{
-        display: none ;
-    }
+    /*.formulaire{*/
+        /*margin-top: 90px;*/
+    /*}*/
 
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
+    /*#searchResponsive{*/
+        /*padding-top: 190px !important;*/
+        /*margin-bottom: -275px !important;*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+    /*}*/
 
-    .social{
-        display: none;
-    }
+    /*#searchInline{*/
+        /*display: none;*/
+    /*}*/
 
-    .footer{
-        margin-top: -90px !important;
-    }
-    .big-text{
-        margin-top: 80px !important;
-        /*margin-right: 30px !important;*/
-        font-size:4vw !important;
-        text-align: center !important;
-        z-index: 10 !important;
-    }
+    /*.bienvenue{*/
+        /*padding-top: 85px;*/
+    /*}*/
 
-    .lead{
-        text-align: justify;
-        margin-left: 45px !important;
-        margin-bottom: 0px;
-    }
+    /*.barNav{*/
+        /*background-color: #D2FCF3 !important;*/
+    /*}*/
 
-    .formulaire{
-        margin-top: 90px;
-        margin-right: -20px !important;
-    }
-
-    #searchResponsive{
-        padding-top: 190px !important;
-        margin-bottom: -275px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-
-    #searchInline{
-        display: none;
-    }
-
-    .bienvenue{
-        padding-top: 85px;
-    }
-
-    .barNav{
-        background-color: #D2FCF3 !important;
-    }
-
-    .btn-outline-light{
-        /*margin-right: -20px;*/
-        /*padding: 5px 40px 5px 90px;*/
-        /*display:inline !important;*/
-        /*margin-left: 5px;*/
-        color: black !important;
-    }
+    /*.btn-outline-light{*/
+        /*!*margin-right: -20px;*!*/
+        /*!*padding: 5px 40px 5px 90px;*!*/
+        /*!*display:inline !important;*!*/
+        /*!*margin-left: 5px;*!*/
+        /*color: black !important;*/
+    /*}*/
 
 
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
+    /*.titreRegister{*/
+        /*text-align: left !important;*/
+        /*font-size:10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
 
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
+    /*.formRegister{*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+/*}*/
 
 
-}
+/*// Extra large devices (large desktops, 1200px and up)*!*!*/
+/*@media (min-width: 825px) and (max-width: 992px) {*/
 
-@media (min-width: 992px) and (max-width: 1024px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 55px !important;
-        /*height: 50%;*/
+    /*.jumbotron{*/
         /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
+        /*height: 300px;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*display: block;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*padding-bottom: 55px !important;*/
+        /*!*height: 50%;*!*/
+        /*!*max-width: 100%;*!*/
+        /*!*background-position: 0% 25%;*!*/
+    /*}*/
 
-    .jumbotronS{
-        display: none;
+    /*.jumbotronS{*/
+        /*display: none;*/
+        /*!*background-image:url('{{ asset('./build/image/background.png') }}');*!*/
+        /*!*background-color:white;*!*/
+        /*!*background-repeat:no-repeat;*!*/
+        /*!*margin-bottom: -2px;*!*/
+        /*!*background-size: cover;*!*/
+        /*!*color: white;*!*/
+        /*!*text-shadow: black 0.2em 0.2em 0.2em;*!*/
+        /*!*height: 400px;*!*/
+        /*!*width: auto;*!*/
+        /*!*border-radius: 0px;*!*/
+        /*!*font-family: 'Josefin Sans', sans-serif;*!*/
+        /*!*max-width: 100%;*!*/
+        /*!*background-position: 0% 25%;*!*/
+    /*}*/
 
-    }
+    /*#map{*/
+        /*!*margin-top: 25% !important;*!*/
+        /*width: 100% !important;*/
+        /*height: 382px;*/
+    /*}*/
 
-    #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
-    }
+    /*#liste{*/
+        /*display: contents;*/
+        /*!*width: auto;*!*/
+        /*position: absolute;*/
+    /*}*/
 
-    #liste{
-        display: contents;
-        /*width: auto;*/
-        position: absolute;
-    }
+    /*.inputHome{*/
+        /*display: none ;*/
+    /*}*/
 
-    .inputHome{
-        display: none ;
-    }
+    /*.inputHomeResponsive{*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
 
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
+    /*.social{*/
+        /*display: none;*/
+    /*}*/
 
-    .social{
-        display: none;
-    }
+    /*.footer{*/
+        /*margin-top: -90px !important;*/
+    /*}*/
+    /*.big-text{*/
+        /*margin-top: 80px !important;*/
+        /*!*margin-right: 30px !important;*!*/
+        /*font-size:4vw !important;*/
+        /*text-align: center !important;*/
+        /*z-index: 10 !important;*/
+    /*}*/
 
-    .footer{
-        margin-top: -90px !important;
-    }
-    .big-text{
-        margin-top: 80px !important;
-        /*margin-right: 30px !important;*/
-        font-size:4vw !important;
-        text-align: center !important;
-        z-index: 10 !important;
-    }
+    /*.lead{*/
+        /*text-align: justify;*/
+        /*margin-left: 45px !important;*/
+        /*margin-bottom: 0px;*/
+    /*}*/
 
-    .lead{
-        text-align: justify;
-        margin-left: 55px !important;
-        margin-bottom: 20px;
-    }
+    /*.formulaire{*/
+        /*margin-top: 90px;*/
+        /*margin-right: -20px !important;*/
+    /*}*/
 
-    .formulaire{
-        margin-top: 90px;
-        margin-right: -10px !important;
-    }
+    /*#searchResponsive{*/
+        /*padding-top: 190px !important;*/
+        /*margin-bottom: -275px !important;*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+    /*}*/
 
-    #searchResponsive{
-        padding-top: 190px !important;
-        margin-bottom: -275px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
+    /*#searchInline{*/
+        /*display: none;*/
+    /*}*/
 
-    #searchInline{
-        display: none;
-    }
+    /*.bienvenue{*/
+        /*padding-top: 85px;*/
+    /*}*/
 
-    .bienvenue{
-        padding-top: 85px;
-    }
+    /*.barNav{*/
+        /*background-color: #D2FCF3 !important;*/
+    /*}*/
 
-    .barNav{
-        background-color: #D2FCF3 !important;
-    }
-
-    .btn-outline-light{
-        /*margin-right: -20px;*/
-        /*padding: 5px 40px 5px 90px;*/
-        /*display:inline !important;*/
-        /*margin-left: 5px;*/
-        color: black !important;
-    }
-
-
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
-
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
-
-}
-
-@media (min-width: 1024px) and (max-width: 1400px) {
-
-
-}
-
-@media (min-width: 1400px) and (max-width: 1920px) {
-
-
-}
-
-@media (min-width: 1920px) and (max-width: 2080px) {
+    /*.btn-outline-light{*/
+        /*!*margin-right: -20px;*!*/
+        /*!*padding: 5px 40px 5px 90px;*!*/
+        /*!*display:inline !important;*!*/
+        /*!*margin-left: 5px;*!*/
+        /*color: black !important;*/
+    /*}*/
 
 
-}
+    /*.titreRegister{*/
+        /*text-align: left !important;*/
+        /*font-size:10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+
+    /*.formRegister{*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
 
 
-.logovava{
-    max-width: 30%;
-    height: auto;
-    /*width: 100%;*/
+/*}*/
+
+/*@media (min-width: 992px) and (max-width: 1024px) {*/
+
+    /*.jumbotron{*/
+        /*max-width: 100%;*/
+        /*height: auto;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*display: block;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*padding-bottom: 55px !important;*/
+        /*!*height: 50%;*!*/
+        /*!*max-width: 100%;*!*/
+        /*!*background-position: 0% 25%;*!*/
+    /*}*/
+
+    /*.jumbotronS{*/
+        /*display: none;*/
+
+    /*}*/
+
+    /*#map{*/
+        /*!*margin-top: 25% !important;*!*/
+        /*width: 100% !important;*/
+        /*height: 382px;*/
+    /*}*/
+
+    /*#liste{*/
+        /*display: contents;*/
+        /*!*width: auto;*!*/
+        /*position: absolute;*/
+    /*}*/
+
+    /*.inputHome{*/
+        /*display: none ;*/
+    /*}*/
+
+    /*.inputHomeResponsive{*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
+
+    /*.social{*/
+        /*display: none;*/
+    /*}*/
+
+    /*.footer{*/
+        /*margin-top: -90px !important;*/
+    /*}*/
+    /*.big-text{*/
+        /*margin-top: 80px !important;*/
+        /*!*margin-right: 30px !important;*!*/
+        /*font-size:4vw !important;*/
+        /*text-align: center !important;*/
+        /*z-index: 10 !important;*/
+    /*}*/
+
+    /*.lead{*/
+        /*text-align: justify;*/
+        /*margin-left: 55px !important;*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+
+    /*.formulaire{*/
+        /*margin-top: 90px;*/
+        /*margin-right: -10px !important;*/
+    /*}*/
+
+    /*#searchResponsive{*/
+        /*padding-top: 190px !important;*/
+        /*margin-bottom: -275px !important;*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+    /*}*/
+
+    /*#searchInline{*/
+        /*display: none;*/
+    /*}*/
+
+    /*.bienvenue{*/
+        /*padding-top: 85px;*/
+    /*}*/
+
+    /*.barNav{*/
+        /*background-color: #D2FCF3 !important;*/
+    /*}*/
+
+    /*.btn-outline-light{*/
+        /*!*margin-right: -20px;*!*/
+        /*!*padding: 5px 40px 5px 90px;*!*/
+        /*!*display:inline !important;*!*/
+        /*!*margin-left: 5px;*!*/
+        /*color: black !important;*/
+    /*}*/
+
+
+    /*.titreRegister{*/
+        /*text-align: left !important;*/
+        /*font-size:10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+
+    /*.formRegister{*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+
+/*}*/
+
+/*@media (min-width: 1024px) and (max-width: 1400px) {*/
+
+
+/*}*/
+
+/*@media (min-width: 1400px) and (max-width: 1920px) {*/
+
+
+/*}*/
+
+/*@media (min-width: 1920px) and (max-width: 2080px) {*/
+
+
+/*}*/
+
+
+/*.logovava{*/
+    /*max-width: 30%;*/
     /*height: auto;*/
-}
+    /*!*width: 100%;*!*/
+    /*!*height: auto;*!*/
+/*}*/
 
 
 
 .btn-nav{
-    margin-right: -20px;
-    padding: 5px 40px 5px 90px;
+    /*margin-right: -20px;*/
+    /*padding: 5px 40px 5px 90px;*/
     display:inline;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 .btn-search{
