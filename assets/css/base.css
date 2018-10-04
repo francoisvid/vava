@@ -1,177 +1,31 @@
-@media (max-width: 520px) {
-
-
+@media (min-width: 400px) and (max-width: 518px) {
 
     .jumbotron{
         display: none;
-        /*background-color:white;*/
-        /*background-repeat:no-repeat;*/
-        /*margin-bottom: -2px;*/
-        /*background-size: cover;*/
-        /*color: white;*/
-        /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*height: 623px;*/
-        /*width: auto;*/
-        /*border-radius: 0px;*/
-        /*font-family: 'Josefin Sans', sans-serif;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
     }
-}
 
-@media (min-width: 520px) and (max-width: 575px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 40px;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
+    body{
+        background-color: #D3FBF3 !important;
     }
-}
 
-@media (min-width: 575px) and (max-width: 680px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 45px;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-@media (min-width: 680px) and (max-width: 696px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 45px;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-@media (min-width: 696px) and (max-width: 768px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 5px !important;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-@media (min-width: 768px) and (max-width: 825px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 55px !important;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-@media (min-width: 825px) and (max-width: 924px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 75px !important;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-@media (min-width: 924px) and (max-width: 992px) {
-
-    .jumbotron{
-        max-width: 100%;
-        height: auto;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 95px !important;
-        /*height: 50%;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-    }
-}
-
-
-@media (min-width: 992px) and (max-width: 2048px) {
-
-    .jumbotron{
-        background-color:white;
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color: #D3FBF3 !important;
         background-repeat:no-repeat;
         margin-bottom: -2px;
         background-size: cover;
         color: white;
         text-shadow: black 0.2em 0.2em 0.2em;
-        height: 100%;
+        height: 400px;
+        width: auto;
         border-radius: 0px;
         font-family: 'Josefin Sans', sans-serif;
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
+        max-width: 100%;
+        background-position: 0% 25%;
+        margin-top: 70px !important;
     }
-}
 
-
-@media (min-width: 400px) and (max-width: 520px) {
     #map{
         /*margin-top: 25% !important;*/
         width: 100% !important;
@@ -200,8 +54,9 @@
 
     .big-text{
         margin-top: 10px !important;
-        margin-left: 7px;
+        /*margin-right: 30px !important;*/
         font-size: 30px !important;
+        text-align: center !important;
     }
 
     .lead{
@@ -210,12 +65,14 @@
     }
 
     .formulaire{
-        margin-left: 40px;
+        margin-right: 10px;
+        margin-left: 10px;
+
     }
 
     #searchResponsive{
-        padding-top: 70px !important;
-        margin-bottom: 20px !important;
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
         margin-left: 30px;
         margin-right: 30px;
     }
@@ -223,6 +80,507 @@
     #searchInline{
         display: none;
     }
+
+    .bienvenue{
+        padding-top: 80px;
+        font-size: 6vw;
+
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+
+}
+
+@media (min-width: 518px) and (max-width: 575px) {
+
+    .jumbotron{
+        display: none;
+    }
+
+    body{
+        background-color: #D3FBF3 !important;
+    }
+
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color: #D3FBF3 !important;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 430px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+        margin-top: 70px !important;
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        /*margin-right: 30px !important;*/
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: justify;
+        margin-left: 15px;
+    }
+
+    .formulaire{
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 80px;
+        margin-top: 45px !important;
+        font-size: 6vw;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+
+}
+
+@media (min-width: 575px) and (max-width: 680px) {
+
+    .jumbotron{
+        display: none;
+        /*max-width: 100%;*/
+        /*height: auto;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*display: block;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*padding-bottom: 40px;*/
+
+    }
+
+    .jumbotronS{
+        background-color:white;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 490px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+        margin-top: 90px !important;
+
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        margin-left: 50px !important;
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: center;
+        /*margin-left: 90px;*/
+    }
+
+
+    .formulaire{
+        /*margin-right: -30px !important;*/
+        margin-left: 25px !important;
+    }
+
+    #searchResponsive{
+        /*display: none;*/
+
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 90px;
+        margin-top: 45px !important;
+        font-size: 8vw;
+        margin-bottom: 30px !important;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+}
+
+@media (min-width: 680px) and (max-width: 696px) {
+
+    .jumbotron{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 45px;
+        /*height: 50%;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+    }
+
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color:white;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 400px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        /*margin-right: 30px !important;*/
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: center;
+        margin-left: 15px;
+    }
+
+    .formulaire{
+        margin-right: -30px !important;
+        margin-left: 25px !important;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 65px;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+}
+
+@media (min-width: 696px) and (max-width: 768px) {
+
+    .jumbotron{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 5px !important;
+        /*height: 50%;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+    }
+
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color:white;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 400px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
+        margin-top: 10px !important;
+        /*margin-right: 30px !important;*/
+        font-size: 30px !important;
+        text-align: center !important;
+    }
+
+    .lead{
+        text-align: center;
+        margin-left: 15px;
+    }
+
+    .formulaire{
+        /*margin-right: -30px !important;*/
+        margin-left: 25px !important;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 65px;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
 
     .titreRegister{
         text-align: left !important;
@@ -237,8 +595,30 @@
     }
 }
 
-/*// Medium devices (tablets, 768px and up)*/
-@media (min-width: 521px) and (max-width: 992px) {
+@media (min-width: 768px) and (max-width: 825px) {
+
+    .jumbotron{
+        display: none;
+
+    }
+
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color:white;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 400px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+    }
+
     #map{
         /*margin-top: 25% !important;*/
         width: 100% !important;
@@ -247,56 +627,70 @@
 
     #liste{
         display: contents;
-        position: absolute;
         /*width: auto;*/
+        position: absolute;
     }
 
-    #searchResponsive{
-        display: none;
-        /*padding-top: 70px !important;*/
-        /*margin-bottom: 20px !important;*/
-        /*margin-left: 30px;*/
-        /*margin-right: 30px;*/
-        /*border-radius: 20px !important;*/
+    .inputHome{
+        display: none ;
     }
 
-    #searchInline{
-        display: flex !important;
-        padding-top: 70px !important;
-        margin-bottom: 20px !important;
-        margin-left: 30px;
-        margin-right: 30px;
-        /*border-radius: 20px !important;*/
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
     }
-
-    /*#inputGG{*/
-        /*display: none;*/
-        /*margin-top: 20px !important;*/
-        /*width: 200px!important;*/
-        /*margin-right: 80px;*/
-        /*display: inline;*/
-        /*border-radius: 20px !important;*/
-    /*}*/
-
-
 
     .social{
         display: none;
     }
 
+    .footer{
+        margin-top: -90px !important;
+    }
     .big-text{
-        margin-top: 10px !important;
-        margin-left: 7px;
-        font-size: 30px !important;
+        margin-top: 80px !important;
+        /*margin-right: 30px !important;*/
+        font-size:4vw !important;
+        text-align: center !important;
+        z-index: 10 !important;
     }
 
     .lead{
         text-align: justify;
-        margin-left: 15px;
+        margin-left: 35px;
+        margin-bottom: 0px;
     }
 
     .formulaire{
-        margin-left: 40px;
+        margin-top: 90px;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 85px;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
     }
 
 
@@ -315,49 +709,256 @@
 
 
 /*// Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 992px) and (max-width: 2048px) {
+@media (min-width: 825px) and (max-width: 992px) {
+
+    .jumbotron{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 55px !important;
+        /*height: 50%;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+    }
+
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color:white;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 400px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+    }
 
     #map{
-        display: inline-block;
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
         height: 382px;
     }
 
     #liste{
-        display: inline-block;
-        margin-top: 2px;
-        width: 320px;
+        display: contents;
+        /*width: auto;*/
         position: absolute;
+    }
+
+    .inputHome{
+        display: none ;
+    }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .footer{
+        margin-top: -90px !important;
+    }
+    .big-text{
+        margin-top: 80px !important;
+        /*margin-right: 30px !important;*/
+        font-size:4vw !important;
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+    .lead{
+        text-align: justify;
+        margin-left: 45px !important;
+        margin-bottom: 0px;
+    }
+
+    .formulaire{
+        margin-top: 90px;
+        margin-right: -20px !important;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
     }
 
     #searchInline{
         display: none;
     }
 
-    #inputGG{
-        /*display: none;*/
-        /*margin-top: 20px !important;*/
-        /*width: 200px!important;*/
-        padding-left: 80px;
-        /*display: inline;*/
-        /*border-radius: 20px !important;*/
+    .bienvenue{
+        padding-top: 85px;
     }
 
-    #searchResponsive{
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+
+}
+
+@media (min-width: 992px) and (max-width: 1024px) {
+
+    .jumbotron{
+        max-width: 100%;
+        height: auto;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 55px !important;
+        /*height: 50%;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+    }
+
+    .jumbotronS{
         display: none;
-        /*padding-top: 70px !important;*/
-        /*margin-bottom: 20px !important;*/
-        /*margin-left: 30px;*/
-        /*margin-right: 30px;*/
+
+    }
+
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        /*width: auto;*/
+        position: absolute;
     }
 
     .inputHome{
-        /*display: none;*/
-        margin-top: 20px !important;
-        width: 200px!important;
-        margin-right: 80px;
-        display: inline;
-        border-radius: 20px !important;
+        display: none ;
     }
+
+    .inputHomeResponsive{
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
+    }
+
+    .social{
+        display: none;
+    }
+
+    .footer{
+        margin-top: -90px !important;
+    }
+    .big-text{
+        margin-top: 80px !important;
+        /*margin-right: 30px !important;*/
+        font-size:4vw !important;
+        text-align: center !important;
+        z-index: 10 !important;
+    }
+
+    .lead{
+        text-align: justify;
+        margin-left: 55px !important;
+        margin-bottom: 20px;
+    }
+
+    .formulaire{
+        margin-top: 90px;
+        margin-right: -10px !important;
+    }
+
+    #searchResponsive{
+        padding-top: 190px !important;
+        margin-bottom: -275px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .bienvenue{
+        padding-top: 85px;
+    }
+
+    .barNav{
+        background-color: #D2FCF3 !important;
+    }
+
+    .btn-outline-light{
+        /*margin-right: -20px;*/
+        /*padding: 5px 40px 5px 90px;*/
+        /*display:inline !important;*/
+        /*margin-left: 5px;*/
+        color: black !important;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
+    }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+
+
+}
+
+@media (min-width: 1400px) and (max-width: 1920px) {
+
+
+}
+
+@media (min-width: 1920px) and (max-width: 2080px) {
 
 
 }
@@ -370,12 +971,7 @@
     /*height: auto;*/
 }
 
-.bienvenue{
-    font-size:8vw;
-    margin-top: 10% !important;
-    color: #ffffff;
-    /*font-family: 'Montserrat Alternates', sans-serif;*/
-}
+
 
 .btn-nav{
     margin-right: -20px;
@@ -430,7 +1026,7 @@
 }
 
 .btn-outline-light{
-    /*border: 0px none !important;*/
+    border-color: black !important;
     text-decoration: none;
 }
 

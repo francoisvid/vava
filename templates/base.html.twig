@@ -123,25 +123,25 @@
 </nav>
 
 
-    <div id="searchResponsive">
-        <div class="input-group">
+    <div id="searchResponsive" class="row">
+        <div class="input-group col-xs-6 col-sm-6">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
+            <input type="text" class="form-control ville" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
         </div><br>
-        <div class="input-group">
+        <div class="input-group col-xs-6 col-sm-6">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
+            <input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
         </div>
     </div>
 
     <div id="searchInline">
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 10px">
+            <input type="text" class="form-control ville" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 10px">
         </div>
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
+            <input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
         </div>
     </div>
 
@@ -170,11 +170,11 @@
             <!-- ==============================================
                 CONTACT
                 =============================================== -->
-            <section id="contact" class="footer">
+            <section id="contact" class="footer row">
 
-                <div class="container row">
+                {#<div>#}
 
-                        <div class="col-sm-6 col-md-5 text-right scrollimation fade-up d1">
+                        <div class="col-sm-12 col-md-6 col-lg-6 text-right scrollimation fade-up d1">
 
                             <h1 class="big-text">Contactez-nous</h1>
 
@@ -190,7 +190,7 @@
 
                         <!--=== Contact Form ===-->
 
-                        <form id="contact-form" class="col-sm-6 col-md-offset-1 scrollimation fade-left d3 formulaire" method="post" novalidate>
+                        <form id="contact-form" class="col-sm-11 col-md-5 col-lg-5 col-md-offset-1 scrollimation fade-left d3 formulaire" method="post" novalidate>
 
                             <div class="form-group">
                                 <label class="control-label" for="contact-name">Name</label>
@@ -221,7 +221,7 @@
 
                         </form><!-- End contact-form -->
 
-                </div>
+                {#</div>#}
 
             </section>
 
