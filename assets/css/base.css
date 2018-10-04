@@ -41,7 +41,7 @@
 
     #liste{
         display: contents;
-        /*width: auto;*/
+        width: auto;
         position: absolute;
     }
 
@@ -67,7 +67,7 @@
     }
 
     .lead{
-        text-align: justify;
+        text-align: center;
         margin-left: 15px;
     }
 
@@ -118,6 +118,10 @@
         width: auto !important;
         margin-top: 50px;
     }
+
+    /*#contact{*/
+        /*margin-top: 382px !important;*/
+    /*}*/
 
 
 }
@@ -293,15 +297,19 @@
     }
 
     #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
+        display: inline-block;
+        height: 382px !important;
+        width: 70% !important;
+        margin-bottom: -5px !important;
     }
 
-    #liste{
-        display: contents;
-        /*width: auto;*/
+    #liste {
+        display: inline-block;
+        margin-top: 2px;
+        height: 380px !important;
+        /*width: auto !important;*/
         position: absolute;
+        /*margin-bottom: -5px !important;*/
     }
 
     .inputHome{
@@ -326,14 +334,15 @@
     }
 
     .lead{
-        text-align: center;
-        /*margin-left: 90px;*/
+        text-align: justify;
+        margin-left: 20px;
     }
 
 
     .formulaire{
         /*margin-right: -30px !important;*/
         margin-left: 25px !important;
+        margin-top: 10px !important;
     }
 
     #searchResponsive{
@@ -395,7 +404,7 @@
 
     .jumbotron{
         max-width: 100%;
-        height: 410px;
+        height: 440px;
         margin-bottom: -2px;
         background-size: cover;
         display: block;
@@ -426,16 +435,22 @@
     }
 
     #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
+        display: inline-block;
+        height: 382px !important;
+        width: 70% !important;
+        margin-bottom: -5px !important;
     }
 
-    #liste{
-        display: contents;
-        /*width: auto;*/
+    #liste {
+        display: inline-block;
+        margin-top: 2px;
+        height: 380px !important;
+        /*width: auto !important;*/
         position: absolute;
+        /*margin-bottom: -5px !important;*/
+
     }
+
 
     .inputHome{
         /*display: none ;*/
@@ -524,7 +539,7 @@
 
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1280px) and (max-width: 1920px) {
 
     body {
         background-color: #D3FBF3 !important;
@@ -563,16 +578,22 @@
     }
 
     #map{
-        /*margin-top: 25% !important;*/
-        width: 100% !important;
-        height: 382px;
+        display: inline-block;
+        height: 380px !important;
+        width: 70% !important;
+        margin-bottom: -5px !important;
     }
 
-    #liste{
-        display: contents;
-        /*width: auto;*/
+    #liste {
+        display: inline-block;
+        /*margin-top: 2px;*/
+        height: 380px !important;
+        width: auto !important;
         position: absolute;
+        /*margin-bottom: -5px !important;*/
+
     }
+
 
     .inputHome{
         /*display: none ;*/
@@ -606,9 +627,13 @@
         margin-left: 25px !important;
     }
 
-    #searchResponsive{
-        /*display: none;*/
+    .a{
+        margin-left: 60px !important;
+        margin-right: 15px !important;
+    }
 
+    #searchResponsive{
+        display: none;
         padding-top: 190px !important;
         margin-bottom: -275px !important;
         margin-left: 30px;
