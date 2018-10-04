@@ -5,9 +5,9 @@
 {% block title %}Hello!{% endblock %}
 
 {% block body %}
-    <div class="container" style="width: 700px; margin-top: 50px">
+    <div class="container formRegister">
 
-        <h1 style="text-align: center; font-size: 50px; margin-top: 20px">Inscription</h1><hr>
+        <h1 class="titreRegister">Inscription</h1><hr>
 
         {{ form_start(formRegister) }}
 
@@ -18,8 +18,8 @@
         {{ form_row(formRegister.confirm_mdp, {'label': "Mot de passe", 'attr' : {'placeholder' : "Confirmez votre mot de passe"}}) }}
 
         <button type="submit" class="btn btn-success pull-right" style="margin-bottom: 30px; ">Inscription</button>
-
         {{ form_end(formRegister) }}
+
 
     </div>
 

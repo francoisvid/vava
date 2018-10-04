@@ -49,29 +49,40 @@
             </li>
         </ul>
         <form method="GET" action={{ absolute_url(path('map')) }}>
-                    <div class="ui stackable four column grid" id="gg">
-                        <div class="ui search ">
-                            <input class="prompt inputHome" type="text" name="q" placeholder="Ville" style="margin-right: -20px">
-                            {#<div class="results"></div>#}
+                    <div id="inputGG">
+                        <div class="ui search inputHome">
+                            <input class="prompt " type="text" name="q" placeholder="Ville" style="margin-right: -80px">
+                            <div class="results"></div>
                         </div>
-                        <div class="ui search ">
-                            <input class="prompt inputHome" type="text" name="c" id="c" placeholder="Catégorie, Nom...">
+                        <div class="ui search inputHome">
+                            <input class="prompt " type="text" name="c" id="c" placeholder="Catégorie, Nom...">
                             <button type="submit" class="btn btn-search">
                                 <i class="fas fa-search"></i>
                             </button>
-                            {#<div class="results"></div>#}
+                            <div class="results"></div>
                         </div>
-                    </div>
+
+                        {#<div class=" inputHome">#}
+                            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+                            {#<input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 20px">#}
+                        {#</div>#}
+                        {#<div class="inputHome">#}
+                            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+                            {#<input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">#}
+                        {#</div>#}
+
+
                 <input style='width:0; visibility:hidden' type='submit' id="search">
+                    </div>
             {#</div>#}
-        </form>
+        </form><hr>
 
 
         <div class="right menu">
             <div class="item btn-nav">
                 {% if not app.user %}
                 <button type="button" class="btn btn-outline-light" style="margin-right: 20px" id="popup">Connexion</button>
-                <button type="button" class="btn btn-outline-primary"><a href="{{ path('inscription') }}">Inscription</a></button>
+                <button type="button" class="btn btn-outline-light">Inscription<a href="{{ path('inscription') }}"></a></button>
 
 
                 <div class="ui flowing popup top left transition hidden">
@@ -85,12 +96,7 @@
                             <div class="field">
                                 <label for="mdp">Mot de passe :</label>
                                 <input type="password" id="mdp" name="_password" placeholder="Mot de passe">
-                            </div>
-
-
-
-                            <hr>
-
+                            </div><hr>
                             <div class="container" style="margin-bottom: 10px">
                                 <a href="{{ path('connexion') }}"><button class="btn btn-outline-success" type="submit">Connexion</button></a>
                             </div>
@@ -115,28 +121,36 @@
         </div>
     </div>
 </nav>
+
+
     <div id="searchResponsive">
-
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"></span>
+            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
+        </div><br>
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"></span>
+            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
+        </div>
     </div>
-    <script>
-        $( window ).resize(function() {
-            $( "#gg" ).append( "<div>Handler for .resize() called.</div>" );
-        });
 
-    </script>
-    {#<div class="ui stackable four column grid input-responsive">#}
-        {#<div class="ui search ">#}
-            {#<input class="prompt inputHomeResponsive" type="text" name="q" placeholder="Ville" style="margin-right: -20px;">#}
-            {#<div class="results"></div>#}
-        {#</div>#}
-        {#<div class="ui search ">#}
-            {#<input class="prompt inputHomeResponsive" type="text" name="c" id="c" placeholder="Catégorie, Nom...">#}
-            {#<button type="submit" class="btn btn-search">#}
-                {#<i class="fas fa-search"></i>#}
-            {#</button>#}
-            {#<div class="results"></div>#}
-        {#</div>#}
-    {#</div>#}
+    <div id="searchInline">
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"></span>
+            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 10px">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2"></span>
+            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
+        </div>
+    </div>
+
+    {#<script>#}
+        {#$(document).ready(function () {#}
+            {#$('#inputGG').append('test')#}
+        {#})#}
+    {#</script>#}
+
 {% endblock %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         {#<script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
@@ -164,13 +178,13 @@
 
                             <h1 class="big-text">Contactez-nous</h1>
 
-                            <p class="lead">Software Engineer. Lawyer.<br>Experienced Manager. Entrepreneur.</p>
+                            <p class="lead">VAVA est le moteur de recherche qui vous permet de trouver les entreprises et services qui accueille les sourds au quotidien.</p>
 
-                            <p class="lead">Sinatra, Ruby on Rails, JavaScript, Node.js, Express.js, Backbone.js, Handlebars.js, jQuery, AJAX, HTML5, CSS3, SASS, SQL, APIs, Git, GitHub/Bitbucket, WordPress, Heroku, Responsive/Mobile Development.</p>
+                            <p class="lead">Les adresses référencées sont labellisées Certificat de l’Epée, d’autres nous sont indiquées par les usagers sourds ou malentendants qui veulent partager leur « bons plans ».</p>
 
-                            <p class="lead">Please feel free to contact me with questions, comments or collaborations.</p>
+                            <p class="lead">VAVA est votre outil mobile pour « aller de là à là »</p>
 
-                            <p class="lead">For more information, <a href="http://korenlc.com" target="_blank">visit my blog.</a></p>
+                            <p class="lead">Pour plus d'information n'hesitez pas a nous contacter</a></p>
 
                         </div>
 

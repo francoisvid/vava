@@ -171,7 +171,7 @@
 }
 
 
-@media (min-width: 400px) and (max-width: 500px) {
+@media (min-width: 400px) and (max-width: 520px) {
     #map{
         /*margin-top: 25% !important;*/
         width: 100% !important;
@@ -180,17 +180,18 @@
 
     #liste{
         display: contents;
-        width: auto;
+        /*width: auto;*/
         position: absolute;
     }
 
     .inputHome{
-        /*display: none;*/
+        display: none ;
     }
 
     .inputHomeResponsive{
-        width: 130px;
-        margin-left: 10px !important;
+        width: 300px !important;
+        margin-left: 30px !important;
+        /*display: inline-block; !important;*/
     }
 
     .social{
@@ -213,32 +214,105 @@
     }
 
     #searchResponsive{
-        padding-top: 20% !important;
+        padding-top: 70px !important;
         margin-bottom: 20px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    #searchInline{
+        display: none;
+    }
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
     }
 }
 
 /*// Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-    .inputHome{
+@media (min-width: 521px) and (max-width: 992px) {
+    #map{
+        /*margin-top: 25% !important;*/
+        width: 100% !important;
+        height: 382px;
+    }
+
+    #liste{
+        display: contents;
+        position: absolute;
+        /*width: auto;*/
+    }
+
+    #searchResponsive{
         display: none;
+        /*padding-top: 70px !important;*/
+        /*margin-bottom: 20px !important;*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+        /*border-radius: 20px !important;*/
+    }
+
+    #searchInline{
+        display: flex !important;
+        padding-top: 70px !important;
+        margin-bottom: 20px !important;
+        margin-left: 30px;
+        margin-right: 30px;
+        /*border-radius: 20px !important;*/
+    }
+
+    /*#inputGG{*/
+        /*display: none;*/
+        /*margin-top: 20px !important;*/
+        /*width: 200px!important;*/
+        /*margin-right: 80px;*/
+        /*display: inline;*/
+        /*border-radius: 20px !important;*/
+    /*}*/
+
+
+
+    .social{
+        display: none;
+    }
+
+    .big-text{
         margin-top: 10px !important;
-        width: 300px!important;
-        margin-right: 80px;
-        display: inline;
+        margin-left: 7px;
+        font-size: 30px !important;
+    }
+
+    .lead{
+        text-align: justify;
+        margin-left: 15px;
+    }
+
+    .formulaire{
+        margin-left: 40px;
+    }
+
+
+    .titreRegister{
+        text-align: left !important;
+        font-size:10vw !important;
+        margin-left: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    .formRegister{
+        width: auto !important;
+        margin-top: 50px;
     }
 }
 
-/*// Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-    .inputHome{
-        /*display: none;*/
-        margin-top: 15px !important;
-        width: 180px!important;
-        margin-right: 60px;
-        display: inline;
-    }
-}
 
 /*// Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 992px) and (max-width: 2048px) {
@@ -255,6 +329,27 @@
         position: absolute;
     }
 
+    #searchInline{
+        display: none;
+    }
+
+    #inputGG{
+        /*display: none;*/
+        /*margin-top: 20px !important;*/
+        /*width: 200px!important;*/
+        padding-left: 80px;
+        /*display: inline;*/
+        /*border-radius: 20px !important;*/
+    }
+
+    #searchResponsive{
+        display: none;
+        /*padding-top: 70px !important;*/
+        /*margin-bottom: 20px !important;*/
+        /*margin-left: 30px;*/
+        /*margin-right: 30px;*/
+    }
+
     .inputHome{
         /*display: none;*/
         margin-top: 20px !important;
@@ -263,6 +358,8 @@
         display: inline;
         border-radius: 20px !important;
     }
+
+
 }
 
 
@@ -289,6 +386,19 @@
 
 .btn-search{
     border-radius: 20px !important;
+}
+
+/*------------------------------inscription-----------------------------------*/
+
+.titreRegister{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px
+}
+
+.formRegister{
+    width: 700px;
+    margin-top: 50px;
 }
 
 
@@ -319,9 +429,10 @@
     transition: background-color 200ms linear;
 }
 
-/*.btn-outline-light{*/
-/*border: 0px none !important;*/
-/*}*/
+.btn-outline-light{
+    /*border: 0px none !important;*/
+    text-decoration: none;
+}
 
 
 /*------------------------------caroussel------------------------------------*/
@@ -333,6 +444,7 @@
 
 .imageActu{
     margin-bottom: 20px;
+    height: auto !important;
 }
 
 .contenuActu{
@@ -747,3 +859,5 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     color:#fff;
     background:#7cdf92;
 }
+
+
