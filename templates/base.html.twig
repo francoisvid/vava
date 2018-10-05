@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     {#<link href='https://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>#}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset("./build/css/animate.css") }}">
 
 
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -48,8 +49,8 @@
                 <a class="nav-link">Obtenir vava</a>
             </li>
         </ul>
-        <form method="GET" action={{ absolute_url(path('map')) }}>
-                    <div id="inputGG" class="inputHome row">
+        <form method="GET" id="inputGG" action={{ absolute_url(path('map')) }}>
+                    <div class="inputHome row">
                         <div class="ui search ">
                             <input class="prompt a" type="text" name="q" placeholder="Ville">
                             <div class="results"></div>
@@ -81,8 +82,8 @@
         <div class="right menu">
             <div class="item btn-nav">
                 {% if not app.user %}
-                <button type="button" class="btn btn-outline-light" style="margin-right: 20px" id="popup">Connexion</button>
-                <button type="button" class="btn btn-outline-light">Inscription<a href="{{ path('inscription') }}"></a></button>
+                <button type="button" class="btn btn-outline-secondary">Inscription<a href="{{ path('inscription') }}"></a></button>
+                <button type="button" class="btn btn-outline-secondary" style="margin-right: 20px" id="popup">Connexion</button>
 
 
                 <div class="ui flowing popup top left transition hidden">
@@ -145,14 +146,10 @@
         </div>
     </div>
 
-    {#<script>#}
-        {#$(document).ready(function () {#}
-            {#$('#inputGG').append('test')#}
-        {#})#}
-    {#</script>#}
+
 
 {% endblock %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         {#<script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -165,12 +162,18 @@
         {% block body %}
         {% endblock %}
 
+        <script>
+            var input = $(window).width();
+            if(input < 992 ){
+                $('#searchResponsive').prepend($('#inputGG'))
+            }
+        </script>
 
         {% block footer %}
             <!-- ==============================================
                 CONTACT
                 =============================================== -->
-            <section id="contact" class="footer">
+            <section id="contact" class="footer border-top-color2">
 
                 <div class="row">
 
@@ -193,7 +196,7 @@
                         <form id="contact-form" class="col-sm-11 col-md-5 col-lg-5 col-md-offset-1 scrollimation fade-left d3 formulaire" method="post" novalidate>
 
                             <div class="form-group">
-                                <label class="control-label" for="contact-name">Name</label>
+                                <label class="control-label" for="contact-name">Nom</label>
                                 <div class="controls">
                                     <input id="contact-name" name="contactName" placeholder="Votre nom" class="form-control requiredField" data-new-placeholder="Your name" type="text" data-error-empty="Please enter your name">
                                     <i class="fa fa-user"></i>
@@ -241,15 +244,15 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
+        {#<script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>#}
+        {#<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>#}
+        {#<script src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>#}
         {#<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>#}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZJOKIr4Z_Mu0cDkF4mUYRi5I6BtPmQs8&callback=initMap"
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.js"></script>
-        <script src="{{ asset('build/js/admin.js') }}"></script>
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>#}
+        {#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZJOKIr4Z_Mu0cDkF4mUYRi5I6BtPmQs8&callback=initMap"#}
+        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui-calendar/0.0.8/calendar.js"></script>#}
+        {#<script src="{{ asset('build/js/admin.js') }}"></script>#}
         {#<script src="{{ asset('build/js/base.js') }}"></script>#}
 
 

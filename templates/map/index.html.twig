@@ -46,7 +46,7 @@
                 {% for label, flashes in app.session.flashbag.all %}
                     {% for flash in flashes %}
                         {% if ( label == 'error' ) %}
-                            <div class="alert alert-danger" role="alert">
+                            <div class="alert alert-danger notif" role="alert">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span></button>
                                 <strong>Désolé</strong> aucun critère ne corespond a votre recherche!
                             </div>
@@ -54,7 +54,7 @@
                     {% endfor %}
                 {% endfor %}
         <div class="container" style="text-align: center">
-            <h1 class="bienvenue">Bienvenue sur <img class="logovava" src="{{ asset('./build/image/logovava.png') }}" alt=""></h1>
+            <h1 class="bienvenue bounceIn">Bienvenue sur <img class="logovava bounceIn" src="{{ asset('./build/image/logovava.png') }}" alt=""></h1>
         </div>
     </div>
 
@@ -107,23 +107,22 @@
 
                     {% else %}
 
+                    <div class="ui celled list" >
                         <div class="item">
-                            <div class="right floated content">
-                                <button id="monfav{{ counter }}" class="ui button">Plus...</button>
-                                <div class="ui popup top left transition hidden">
-                                    <div class="ui three column divided center aligned grid">
-                                        <a class="ui primary button btnFav" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}" ><i class="star icon"></i> Favoris</a>
-                                        <a class="ui primary button btnFav" href="tel:{{ d.tel }}" ><i class="phone icon"></i> Appeler</a>
-                                        <a class="ui primary button btnFav"  {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i> Itinéraire</a>
-                                    </div>
+                            <div class=" row">
+                                <img class="ui avatar image" src="{{ d.logo }}">
+                                <div class="content">
+                                    <div class="header infoEnt">{{ d.nom }}</div>
+                                    <div class="header infoEnt">{{ d.rue }}</div>
                                 </div>
                             </div>
-                            {#<img class="ui avatar image" src="/images/avatar2/small/lena.png">#}
-                            <div class="content">
-                                {{ d.nom }} / {{ d.rue }}
+                            <div class="iconEntreprise">
+                                <a class="ui icon button fav" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}" "><i class="star icon"></i></a>
+                                <a class="ui icon button fav" href="tel:{{ d.tel }}" ><i class="phone icon"></i></a>
+                                <a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>
                             </div>
                         </div>
-
+                    </div>
 
                     {% endif %}
 

@@ -55,6 +55,7 @@ Encore
     .addStyleEntry('css/entrepriseform', './assets/css/entrepriseform.css')
     .addStyleEntry('css/map', './assets/css/map.css')
     .addStyleEntry('css/bootstrap', './assets/css/bootstrap.css')
+    .addStyleEntry('css/animate', './assets/css/animate.css')
     // .addStyleEntry('datatablecss', './assets/DataTables/datatables.css')
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
