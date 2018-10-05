@@ -73,13 +73,13 @@ class HomeController extends AbstractController
         
         $message = (new \Swift_Message('Message provenant de '.$post['from']))
             ->setFrom($post['email'])
-            ->setTo('alexandreplanque@hotmail.fr')
+            ->setTo('vavabeweb@gmail.com');
             ->setBody($post['contenu'],
                 'text/html'
             );
+        
 
-
-        if ($mailer->send($message) > 0)
+        if ($mailer->send($message) != 0)
             {
             return $this->json("news", 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
             }

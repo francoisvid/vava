@@ -356,7 +356,7 @@ class Utilisateur implements UserInterface, SerializerInterface
      */
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        return array($this->getPrivilege());
     }
 
     /**
