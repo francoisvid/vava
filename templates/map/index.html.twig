@@ -100,7 +100,7 @@
                             <div class="iconEntreprise">
                                 <a class="ui icon button fav" ><i class="star icon"></i></a>
                                 <a class="ui icon button fav" href="tel:{{ d.tel }}" ><i class="phone icon"></i></a>
-                                <a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>
+                                {#<a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>#}
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                             <div class="iconEntreprise">
                                 <a class="ui icon button fav" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}" "><i class="star icon"></i></a>
                                 <a class="ui icon button fav" href="tel:{{ d.tel }}" ><i class="phone icon"></i></a>
-                                <a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>
+                                {#<a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>#}
                             </div>
                         </div>
                     </div>
