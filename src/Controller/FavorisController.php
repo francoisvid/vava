@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Adresse;
+use App\Entity\AdresseEnteprise;
 use App\Entity\Entreprise;
 use App\Entity\Favoris;
 use App\Entity\Utilisateur;
@@ -56,6 +58,7 @@ class FavorisController extends AbstractController
     public function getFav(Utilisateur $Utilisateur){
 
         $newFavoris = new Favoris();
+        $em = $this->getDoctrine()->getManager();
 
         $newFavoris = $this->getDoctrine()->getRepository(Favoris::class)->findBy(array(
             'utilisateur'=>$Utilisateur
@@ -65,18 +68,30 @@ class FavorisController extends AbstractController
 
         foreach ($newFavoris as $new) {
 
-            $yolo = $new->getEntreprise()->getAdresseEnteprises();
+            $ent = $em->find(Entreprise::class, $new->getEntreprise());
+
+//            $yolo = $new->getEntreprise()->getAdresseEnteprises();
+//            $yolo = $ent->getAdresseEnteprises();
+
+
+
+            $yolo = $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                'id'=> $ent->getId(),
+            ));
+
 
 
             foreach ($yolo as $item) {
-
+                $adr = $em->find(Adresse::class, $item->getAdresse());
                 $newarray = array(
                     "id" => $new->getId(),
-                    "nom" => $new->getEntreprise()->getNom(),
-                    "ville" => $item->getAdresse()->getVille(),
-                    "rue" => $item->getAdresse()->getRue(),
-                    "numero" => $item->getAdresse()->getNumero(),
-                    "codePostal" => $item->getAdresse()->getCodePostal()
+                    "nom" => $ent->getNom(),
+                    "tel" => $ent->getTel(),
+                    "ville" => $adr->getVille(),
+                    "rue" => $adr->getRue(),
+                    "numero" => $adr->getNumero(),
+                    "codePostal" => $adr->getCodePostal(),
+                    "adresse" => $adr->getNumero() . " " . $adr->getRue() . " " . $adr->getVille(),
                 );
             };
 
