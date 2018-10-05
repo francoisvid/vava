@@ -34,15 +34,21 @@
                 <table id="tablefav" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nom</th>
                         <th>Adresse</th>
+                        <th>Téléphone</th>
                         <th>Action</th>
 
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Action</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -154,25 +160,56 @@
             });
 
                     $('#tablefav').DataTable( {
-                        
+
                         ajax: {
                             url: '/favoris/get/1',
                             dataSrc: ''
                         },
 
                         columns: [
+                            { "data": "id" },
                             { "data": "nom" },
-                            { "data": "adresse" }
-                        ],
-                        columnDefs: [ {
-                            targets: -1,
-                            data: null,
-                            defaultContent: "<button class='btn btn-success' id='reactEntreprise'><i class='far fa-check-circle'></i> Réactiver</button>"
-                        } ],
+                            { "data": "adresse" },
+                            { "data": "tel" },
+                            {
+                                "data": null,
+                                "defaultContent":
+                                    "<button class=\"ui secondary basic button\" id=\"call\">Appeler</button>\n" +
+                                    // "<button class=\"ui primary basic button\" id=\"view\">Voir</button>\n" +
+                                    "<button class=\"ui red basic button\" id=\"dell\">Supprimer</button>\n"
+                            }
+                        ]
                     } );
+
+
+
+            $('#tablefav tbody').on( 'click', '#call', function () {
+                alert("Appeler ?");
+
+
+
+                
+            } );
+
+
+            $('#tablefav tbody').on( 'click', '#dell', function () {
+                alert("Supprimer ?")
+
+
+
+            } );
+
+
+
+
+
+
             });
 
-        </script>
+
+
+
+    </script>
 
 
     <script src="{{ asset("./build/js/user.js")}}" type="text/javascript"></script>

@@ -86,6 +86,7 @@ class FavorisController extends AbstractController
                 $newarray = array(
                     "id" => $new->getId(),
                     "nom" => $ent->getNom(),
+                    "tel" => $ent->getTel(),
                     "ville" => $adr->getVille(),
                     "rue" => $adr->getRue(),
                     "numero" => $adr->getNumero(),
