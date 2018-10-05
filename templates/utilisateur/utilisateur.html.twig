@@ -7,9 +7,6 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset("./build/css/user.css")}}">
-        {#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">#}
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        {#<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>#}
     </head>
 
 <body>
@@ -32,52 +29,31 @@
     <div class="container item fav" style="display:none; width:80%; margin-right: 190px; margin-top: 30px;min-height: 500px">
         <div class="twelve wide stretched column">
             <div id="fav">
-                <table id="example" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
+
+
+                <table id="tablefav" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        <th>#</th>
                         <th>Nom</th>
-                        <th>Activité</th>
-                        <th>Ville</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
                         <th>Action</th>
+
                     </tr>
                     </thead>
-
-                    <tbody>
+                    <tfoot>
                     <tr>
-                        <td>Beweb</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>
-                            <button class="ui secondary basic button">Appeler</button>
-                            <button class="ui primary basic button">Voir</button>
-                            <button class="ui red basic button" id="delete">Supprimer</button>
-                            <div class="ui modal delete">
-                                <div class="ui icon header">
-                                    <i class="archive icon"></i>
-                                    Voulez vous supprimer l'entreprise de vos favoris ?
-                                </div>
-                                <div class="actions">
-                                    <div class="ui red basic button">
-                                        <i class="remove icon"></i>
-                                        Non
-                                    </div>
-                                    <div class="ui green basic button">
-                                        <i class="checkmark icon"></i>
-                                        Oui
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Téléphone</th>
+                        <th>Action</th>
                     </tr>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>System Architect</td>
-                        <td>Edinburgh</td>
-                        <td>61</td>
-                    </tr>
-                    </tbody>
+                    </tfoot>
                 </table>
+
+
             </div>
         </div>
     </div>
@@ -174,26 +150,74 @@
 
 
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        } );
-    </script>
-
-
-    <script>
         $(document).ready(function () {
             $( function() {
                 $( "#datenaissance" ).datepicker();
             } );
-        });
-    </script>
 
-    <script>
-        $(document).ready(function() {
-            $('#delete').on('click', function() {
-                $('.ui.modal').modal('show')
+
+
+                    table = $('#tablefav').DataTable( {
+
+                        ajax: {
+                            url: '/favoris/get/1',
+                            dataSrc: ''
+                        },
+
+                        columns: [
+                            { "data": "id" },
+                            { "data": "nom" },
+                            { "data": "adresse" },
+                            { "data": "tel" },
+                            {
+                                "data": null,
+                                "defaultContent":
+                                    "<button class=\"ui secondary basic button\" id=\"call\">Appeler</button>\n" +
+                                    // "<button class=\"ui primary basic button\" id=\"view\">Voir</button>\n" +
+                                    "<button class=\"ui red basic button\" id=\"dell\">Supprimer</button>\n"
+                            }
+
+                        ]
+                    } );
+
+            var entreprise = null;
+
+            $('#tablefav tbody').on( 'click', '#call', function () {
+
+                entreprise = table.row( $(this).parents('tr') ).data();
+
+                alert(entreprise.tel)
+
+
+            } );
+
+
+            $('#tablefav tbody').on( 'click', '#dell', function () {
+
+                entreprise = table.row( $(this).parents('tr') ).data();
+
+                alert("Entreprise en cour de suppresion...")
+
+                $.ajax({
+                    url: '/favoris/del/'+entreprise.id,
+                    type: 'GET',
+                    success: function(result) {
+                        $('#tablefav').DataTable().ajax.reload();
+                    }
+                });
+
+            } );
+
+
+
+
+
+
             });
-        });
+
+
+
+
     </script>
 
 
