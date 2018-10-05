@@ -136,6 +136,22 @@ class VavaFixtures extends Fixture
             $ent->setVisible(true);
             $em->persist($ent);
             $em->flush();
+
+
+
+            $ent = new Entreprise();
+            $ent->setIsDeleted(false);
+            $ent->setLogo("https://static4.seety.pagesjaunes.fr/dam_6760784/1ad33326-04f1-437c-900b-9f7c2ce4c7e1-800");
+            $ent->setMail("Non renseigné");
+            $ent->setNom("Pharmacie Populaire");
+            $ent->setPub(false);
+            $ent->setRemarque("Rien à ajouter pour le moment.");
+            $ent->setSalariesFormes(1);
+            $ent->setSiteWeb("https://www.pharmacie-populaire-montpellier.fr/");
+            $ent->setTel("0467060680");
+            $ent->setVisible(true);
+            $em->persist($ent);
+            $em->flush();
         
     }
 
