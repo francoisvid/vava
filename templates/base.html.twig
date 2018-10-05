@@ -50,32 +50,16 @@
             </li>
         </ul>
         <form method="GET" id="inputGG" action={{ absolute_url(path('map')) }}>
-                    <div class="inputHome row">
-                        <div class="ui search ">
-                            <input class="prompt a" type="text" name="q" placeholder="Ville">
-                            <div class="results"></div>
-                        </div>
-                        <div class="ui search ">
-                            <input class="prompt b" type="text" name="c" id="c" placeholder="Catégorie, Nom...">
-                            <button type="submit" class="btn btn-search">
-                                <i class="fas fa-search"></i>
-                            </button>
-                            <div class="results"></div>
-                        </div>
-
-                        {#<div class=" inputHome">#}
-                            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
-                            {#<input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 20px">#}
-                        {#</div>#}
-                        {#<div class="inputHome">#}
-                            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
-                            {#<input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">#}
-                        {#</div>#}
-
-
+            <div class="">
+                <div class="ui fluid icon input">
+                    <input class="prompt" type="text" name="q" placeholder="Ville">
+                </div><br>
+                <div class="ui fluid icon input">
+                    <input class="prompt" type="text" name="c" id="c" placeholder="Catégorie, Nom...">
+                    <i class="search icon"></i>
+                </div>
                 <input style='width:0; visibility:hidden' type='submit' id="search">
-                    </div>
-            {#</div>#}
+            </div>
         </form><hr>
 
 
@@ -124,26 +108,26 @@
 </nav>
 
 
-    <div id="searchResponsive" class="row">
-        <div class="input-group col-xs-6 col-sm-6 test">
-            <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2">
-        </div><br><br>
-        <div class="input-group col-xs-6 col-sm-6 test">
-            <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
-        </div>
+    <div id="searchResponsive" class="">
+        {#<div class="input-group col-xs-6 col-sm-6 test">#}
+            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+            {#<input type="text" class="form-control" placeholder="Ville" name="q" aria-describedby="sizing-addon2">#}
+        {#</div><br><br>#}
+        {#<div class="input-group col-xs-6 col-sm-6 test">#}
+            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+            {#<input type="text" class="form-control" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">#}
+        {#</div>#}
     </div>
 
-    <div id="searchInline">
-        <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control ville" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 10px">
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2"></span>
-            <input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">
-        </div>
+    <div id="searchInline" style="display: flex;">
+        {#<div class="input-group">#}
+            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+            {#<input type="text" class="form-control ville" placeholder="Ville" name="q" aria-describedby="sizing-addon2" style="margin-right: 10px">#}
+        {#</div>#}
+        {#<div class="input-group">#}
+            {#<span class="input-group-addon" id="sizing-addon2"></span>#}
+            {#<input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">#}
+        {#</div>#}
     </div>
 
 
@@ -163,8 +147,16 @@
         {% endblock %}
 
         <script>
-            var input = $(window).width();
-            if(input < 992 ){
+            var size = $(window).width();
+            if(size < 576){
+                $('#searchResponsive').prepend($('#inputGG'))
+            }else if(size < 768){
+                $('#searchResponsive').prepend($('#inputGG'))
+            }else if(size < 992){
+                $('#searchResponsive').prepend($('#inputGG'))
+            }else if(size < 1280){
+                $('#searchResponsive').prepend($('#inputGG'))
+            }else if(size < 1920){
                 $('#searchResponsive').prepend($('#inputGG'))
             }
         </script>
@@ -233,12 +225,11 @@
             =============================================== -->
 
             <footer id="main-footer" class="add-padding border-top-color2">
-
                 <div class="container">
                     <p class="text-center">&copy;2018 - Vava</p>
                 </div>
-
             </footer>
+
         {% endblock %}
         </body>
 
