@@ -155,9 +155,7 @@
                 $( "#datenaissance" ).datepicker();
             } );
 
-            $('#delete').on('click', function() {
-                $('.ui.modal').modal('show')
-            });
+
 
                     table = $('#tablefav').DataTable( {
 
@@ -178,27 +176,27 @@
                                     // "<button class=\"ui primary basic button\" id=\"view\">Voir</button>\n" +
                                     "<button class=\"ui red basic button\" id=\"dell\">Supprimer</button>\n"
                             }
+
                         ]
                     } );
 
             var entreprise = null;
 
-
             $('#tablefav tbody').on( 'click', '#call', function () {
-                alert("Appeler ?");
+
                 entreprise = table.row( $(this).parents('tr') ).data();
 
-
-
-                console.log(entreprise.tel);
+                alert(entreprise.tel)
 
 
             } );
 
 
             $('#tablefav tbody').on( 'click', '#dell', function () {
-                alert("Supprimer ?");
+
                 entreprise = table.row( $(this).parents('tr') ).data();
+
+                alert("Entreprise en cour de suppresion...")
 
                 $.ajax({
                     url: '/favoris/del/'+entreprise.id,
