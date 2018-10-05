@@ -89,7 +89,8 @@ class FavorisController extends AbstractController
                     "ville" => $adr->getVille(),
                     "rue" => $adr->getRue(),
                     "numero" => $adr->getNumero(),
-                    "codePostal" => $adr->getCodePostal()
+                    "codePostal" => $adr->getCodePostal(),
+                    "adresse" => $adr->getNumero() . " " . $adr->getRue() . " " . $adr->getVille(),
                 );
             };
 
