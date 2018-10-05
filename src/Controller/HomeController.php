@@ -73,7 +73,7 @@ class HomeController extends AbstractController
         
         $message = (new \Swift_Message('Message provenant de '.$post['from']))
             ->setFrom($post['email'])
-            ->setTo('vavabeweb@gmail.com');
+            ->setTo('vavabeweb@gmail.com')
             ->setBody($post['contenu'],
                 'text/html'
             );
