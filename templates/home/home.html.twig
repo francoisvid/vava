@@ -3,43 +3,7 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-<style>
 
-    .titreActu{
-        margin-bottom: 368px !important;
-        text-align: center;
-    }
-
-    .imageActu{
-        height: 428px;
-    }
-
-    /*.contenuActu{*/
-        /*margin-top: 20px;*/
-        /*!*margin-bottom: 30px !important;*!*/
-    /*}*/
-
-
-    .overlay {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: rgb(0, 0, 0);
-        background: rgba(99, 110, 114,0.5); /* Black see-through */
-        color: #f1f1f1;
-        width: 100%;
-        transition: .5s ease;
-        opacity:0;
-        color: white;
-        font-size: 16px;
-        padding: 20px;
-        text-align: justify;
-    }
-
-    .container:hover .overlay {
-        opacity: 1;
-    }
-</style>
 
 <body>
         <div class="jumbotron" id="jumbo" style="background-image:url('{{ asset('./build/image/background.png') }}');">
@@ -87,8 +51,8 @@
                         {% endif %}
                         <img class="d-block w-100 imageActu" src="{{ actualite.image }}" alt="First slide">
                         <div class="container">
-                            <h2 class="titreActu overlay" style="text-align: center">{{ actualite.titre }}</h2>
-                            <p class="contenuActu overlay">{{ actualite.article }}</p>
+                            <h2 class="titreActu" style="text-align: center">{{ actualite.titre }}</h2>
+                            <p class="contenuActu">{{ actualite.article }}</p>
                         </div>
                     </div>
                     {#</div>#}
