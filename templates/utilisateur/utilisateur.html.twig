@@ -159,7 +159,7 @@
                 $('.ui.modal').modal('show')
             });
 
-                    $('#tablefav').DataTable( {
+                    table = $('#tablefav').DataTable( {
 
                         ajax: {
                             url: '/favoris/get/1',
@@ -181,21 +181,32 @@
                         ]
                     } );
 
+            var entreprise = null;
 
 
             $('#tablefav tbody').on( 'click', '#call', function () {
                 alert("Appeler ?");
+                entreprise = table.row( $(this).parents('tr') ).data();
 
 
 
-                
+                console.log(entreprise.tel);
+
+
             } );
 
 
             $('#tablefav tbody').on( 'click', '#dell', function () {
-                alert("Supprimer ?")
+                alert("Supprimer ?");
+                entreprise = table.row( $(this).parents('tr') ).data();
 
-
+                $.ajax({
+                    url: '/favoris/del/'+entreprise.id,
+                    type: 'GET',
+                    success: function(result) {
+                        $('#tablefav').DataTable().ajax.reload();
+                    }
+                });
 
             } );
 
