@@ -98,7 +98,7 @@
                                 </div>
                             </div>
                             <div class="iconEntreprise">
-                                <a class="ui icon button fav" ><i class="star icon"></i></a>
+                                {#<a class="ui icon button fav" ><i class="star icon"></i></a>#}
                                 <a class="ui icon button fav" href="tel:{{ d.tel }}" ><i class="phone icon"></i></a>
                                 {#<a class="ui icon button fav" {{ d.la }},  {{ d.lo }}, {{ counter }}  ><i class="location arrow icon"></i></a>#}
                             </div>
@@ -214,17 +214,17 @@
             {% if not app.user %}
 
                 ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
-                '  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +
-                '  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +
-                '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
+                // '  <a class="ui primary button"><i class="star icon"></i> Favoris</a>\n' +
+                '  <a class="ui primary button" style="margin-left:50px" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appeler</a>\n' +
+                // '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
                 '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
 
             {% else %}
 
                 ['{{ d.nom }} - {{ d.rue }} <hr><div class="ui buttons center aligned">\n' +
                 '  <a class="ui primary button" href="{{ path('favoris_add', { 'Utilisateur' : app.user.id, 'Entreprise': d.id }) }}"><i class="star icon"></i> Favoris</a>\n' +
-                '  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appler</a>\n' +
-                '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
+                '  <a class="ui primary button" href"tel:{{ d.tel }}"><i class="phone icon"></i> Appeler</a>\n' +
+                // '  <a class="ui primary button"><i class="location arrow icon"></i> Itinéraire</a>\n' +
                 '</div>',  {{ d.la }},  {{ d.lo }}, {{ counter }}],
 
             {% endif %}

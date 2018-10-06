@@ -153,6 +153,11 @@
         opacity: 1;
     }
 
+    .imageActu{
+        margin-bottom: 20px;
+        height: 330px !important;
+    }
+
     .titreActu {
         position: absolute;
         bottom: 0;
@@ -358,10 +363,6 @@
         margin-top: 50px;
     }
 
-    .imageActu{
-        margin-bottom: 20px;
-        height: 250px !important;
-    }
 
     .flowing{
         max-width: min-content !important;
@@ -380,6 +381,11 @@
 
     .carousel{
         margin-bottom: -20px !important;;
+    }
+
+    .imageActu{
+        margin-bottom: 20px;
+        height: 330px !important;
     }
 
     .titreActu {
@@ -442,8 +448,6 @@
     }
 
     /*-------------------------------------datatable---------------------------------------*/
-
-    /*-------------------------------------datatable---------------------------------------*/
     .dataTableCustom {
         margin-top: 4rem !important;
     }
@@ -483,7 +487,7 @@
 
     .jumbotron{
         max-width: 100%;
-        height: 350px;
+        height: 450px;
         margin-bottom: -2px;
         background-size: cover;
         display: block;
@@ -619,6 +623,11 @@
         margin-bottom: -20px !important;;
     }
 
+    .imageActu{
+        margin-bottom: 20px;
+        height: 530px !important;
+    }
+
     .titreActu {
         position: absolute;
         bottom: 0;
@@ -718,7 +727,7 @@
 
     .jumbotron{
         max-width: 100%;
-        height: 440px;
+        height: 540px;
         margin-bottom: -2px;
         background-size: cover;
         display: block;
@@ -825,11 +834,6 @@
         margin-top: 50px;
     }
 
-    .imageActu{
-        margin-bottom: 20px;
-        height: 350px !important;
-    }
-
     .flowing{
         max-width: min-content !important;
     }
@@ -852,6 +856,11 @@
 
     .carousel{
         margin-bottom: -20px !important;;
+    }
+
+    .imageActu {
+        margin-bottom: 20px;
+        height: 550px !important;
     }
 
     .titreActu {
@@ -953,7 +962,7 @@
 
     .jumbotron{
         max-width: 100%;
-        height: 440px;
+        height: 540px;
         margin-bottom: -2px;
         background-size: cover;
         display: block;
@@ -1079,11 +1088,6 @@
         margin-top: 50px;
     }
 
-    .imageActu{
-        margin-bottom: 20px;
-        height: 430px !important;
-    }
-
     .flowing{
         max-width: min-content !important;
     }
@@ -1106,6 +1110,11 @@
 
     .carousel{
         margin-bottom: -20px !important;;
+    }
+
+    .imageActu{
+        margin-bottom: 20px;
+        height: 530px !important;
     }
 
     .titreActu {
@@ -1321,10 +1330,6 @@
         margin-top: 50px;
     }
 
-    .imageActu {
-        margin-bottom: 20px;
-        height: 430px !important;
-    }
 
     .flowing {
         max-width: min-content !important;
@@ -1341,13 +1346,18 @@
         overflow: hidden;
     }
 
-    /*----------------------------------------caroussel*/
+    /*----------------------------------------caroussel----------------------------------------------*/
     .contenuActu {
         margin-top: 20px;
     }
 
     .carousel {
         margin-bottom: -20px !important;;
+    }
+
+    .imageActu {
+        margin-bottom: 20px;
+        height: 450px !important;
     }
 
     .titreActu {
