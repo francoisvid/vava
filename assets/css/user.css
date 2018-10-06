@@ -120,7 +120,6 @@
 
 .dataTables_wrapper .dataTables_filter {
     text-align: right;
-
     color: rgba(0, 0, 0, 0.87);
     display: inline-flex;
     position: relative;
@@ -152,6 +151,7 @@
     transition: background-color 0.1s ease 0s, box-shadow 0.1s ease 0s, border-color 0.1s ease 0s;
 }
 
-.dataTableCustom{
-    margin-top: 50px !important;
+
+#searchResponsive{
+    display: none !important;
 }

@@ -7,6 +7,7 @@
 
     <head>
         <link rel="stylesheet" href="{{ asset("./build/css/user.css")}}">
+
     </head>
 
 <body>
@@ -14,23 +15,17 @@
     <div class="ui grid dataTableCustom">
     <div class="four wide column">
         <div class="ui vertical fluid tabular menu">
-            <a class="item active" id="info">
-                Mes informations
-            </a>
-            <a class="item" id="fav">
-                Mes favoris
-            </a>
-            <a class="item" id="map" href="{{ path('map') }}">
-                Retour Map
-            </a>
+            <a class="item active" id="info">Infos</a>
+            <a class="item" id="fav">Favoris</a>
+            <a class="item" id="map" href="{{ path('map') }}">Retour Map</a>
         </div>
     </div>
     <div class="twelve wide stretched column">
-    <div class="container item fav" style="display:none; width:80%; margin-right: 190px; margin-top: 30px;min-height: 500px">
+    <div class="container item fav" style="display:none;">
         <div class="twelve wide stretched column">
             <div id="fav">
 
-
+                <h2 class="ui dividing header h2Fav">Mes Favoris</h2>
                 <table id="tablefav" class="ui compact selectable striped celled table" cellspacing="0" width="100%">
                     <thead>
                     <tr>
@@ -60,27 +55,27 @@
 
     {% if app.user %}
 
-    <div class="container item info centered active" style="width:80%;margin-right: 190px; margin-top: 30px;">
+    <div class="container item info centered active">
     <form method="POST" class="ui form" id="formUser">
         <h2 class="ui dividing header">Mes Informations</h2>
         <div class="two fields">
             <div class="field">
                 <label>Nom</label>
-                <input type="text" name="nom" id="nom" value="{{ utilisateur.nom }}">
+                <input type="text" name="nom" id="nom" placeholder="Nom" value="{{ utilisateur.nom }}">
             </div>
             <div class="field">
                 <label>Prenom</label>
-                <input type="text" name="prenom" id="prenom" value="{{ utilisateur.prenom }}">
+                <input type="text" name="prenom" id="prenom" placeholder="Prenom" value="{{ utilisateur.prenom }}">
             </div>
         </div>
         <div class="two fields">
             <div class="field">
                 <label>Adresse mail</label>
-                <input type="text" name="mail" id="mail" value="{{ utilisateur.mail }}">
+                <input type="text" name="mail" id="mail" placeholder="Email" value="{{ utilisateur.mail }}">
             </div>
             <div class="field">
                 <label>Numéro de téléphone</label>
-                <input type="text" name="tel" id="tel" value="{{ utilisateur.tel }}">
+                <input type="text" name="tel" id="tel" placeholder="Téléphone" value="{{ utilisateur.tel }}">
             </div>
         </div>
         <div class="four fields">
@@ -108,7 +103,7 @@
         <div class="four fields">
             <div class="field">
                 <label>Numéro</label>
-                <input type="number" name="numero" id="numero" placeholder="11" value="{{ utilisateur.adresse.numero }}">
+                <input type="number" name="numero" id="numero" placeholder="n°" value="{{ utilisateur.adresse.numero }}">
             </div>
             <div class="field">
                 <label>Rue</label>
@@ -147,6 +142,9 @@
         </div>
     </form>
     {% endif %}
+
+        {% block footer %}
+        {% endblock %}
 
 
     <script>
@@ -207,9 +205,6 @@
                 });
 
             } );
-
-
-
 
 
 

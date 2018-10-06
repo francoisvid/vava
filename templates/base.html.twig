@@ -64,8 +64,8 @@
         <div class="right menu">
             <div class="item btn-nav">
                 {% if not app.user %}
-                <button type="button" class="btn btn-outline-light"><a href="{{ path('inscription') }}">Inscription</a></button>
-                <button type="button" class="btn btn-outline-light" style="margin-right: 20px" id="popup"><a href="#">Connexion</a></button>
+                <a href="{{ path('inscription') }}" class="btn btn-outline-success">Inscription</a></button>
+                <a href="#" class="btn btn-outline-primary" id="popup">Connexion</a>
 
 
                 <div class="ui flowing popup top left transition hidden">
@@ -85,7 +85,7 @@
                             </div>
                         </form>
                         {% else %}
-                        <button class="ui btn btn btn-outline-light" id="monCompte" style="margin-right: 89px; padding: 5px 50px 5px 50px">{{ app.user.nom }}</button>
+                        <button class="ui btn btn btn-outline-primary" id="monCompte">{{ app.user.nom }}</button>
                         {#<span style="margin-right: 5px" id="monCompte"></span>#}
                         <div class="ui flowing popup top left transition hidden">
                             <div class="ui three column divided center aligned grid">
@@ -104,8 +104,10 @@
         </div>
     </div>
 </nav>
+{% endblock %}
 
 
+    {% block input %}
     <div id="searchResponsive" class="">
         {#<div class="input-group col-xs-6 col-sm-6 test">#}
             {#<span class="input-group-addon" id="sizing-addon2"></span>#}
@@ -127,10 +129,8 @@
             {#<input type="text" class="form-control categorie" placeholder="Banque, Restaurant..." name="c" id="c" aria-describedby="sizing-addon2">#}
         {#</div>#}
     </div>
-
-
-
 {% endblock %}
+
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
         {#<script src="https://code.jquery.com/jquery-3.3.1.js"></script>#}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
