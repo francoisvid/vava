@@ -45,6 +45,7 @@ Encore
     .addEntry('json/DT_French', './assets/DataTables/DT_French.json')
     .addEntry('js/user', './assets/js/user.js')
     .addEntry('js/form', './assets/js/form.js')
+    .addEntry('js/notify', './assets/js/notify.min.js')
     .addEntry('img', './assets/js/recursifEncore.js')
     .addEntry('sem', './assets/js/app.js')
     // .addEntry('js/base', './assets/js/base.js')

@@ -152,6 +152,27 @@
               </div>
             </form>
         </div>
+        {#-------------------------------Formulaire qui permet de rajouter des NEWS--------------------------------------#}
+        <div class="col bg-faded py-3  col-md-9 admincontent" id="addNews">
+            <form class="ui form" id="news">
+                <div class="field">
+                    <label>Titre</label>
+                    <input type="text" name="titre" id="titre" placeholder="First Name">
+                </div>
+                <div class="field">
+                    <label>Contenu</label>
+                    <textarea type="text" name="contenu" id="contenu" placeholder="Last Name"></textarea>
+                </div>
+                <div class="field">
+                    <div class="ui checkbox">
+                        <input type="checkbox" name="visibilite" id="visibilite" class="hidden">
+                        <label>Visible</label>
+                    </div>
+                </div>
+                <button type="submit" onclick="addNews()" class="btn btn-outline-success">Success</button>
+            </form>
+        </div>
+
 
                         
                         
@@ -279,14 +300,14 @@
                 <input type="tel" id="telCon" name="telCon" maxlength="100" class="form-control" placeholder="" required="" required oninvalid="this.setCustomValidity('Veuillez renseigner ce champ')"oninput="setCustomValidity('')">
             </div>
             <div class="form-group col-md-5 active-cyan-4">
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="homme" value="Homme">
-  <label class="form-check-label" for="inlineRadio1"><i class="fas fa-mars"></i></label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femme" value="Femme">
-  <label class="form-check-label" for="inlineRadio2"><i class="fas fa-venus"></i></label>
-</div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="homme" value="Homme">
+                  <label class="form-check-label" for="inlineRadio1"><i class="fas fa-mars"></i></label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femme" value="Femme">
+                  <label class="form-check-label" for="inlineRadio2"><i class="fas fa-venus"></i></label>
+                </div>
             </div>
       </div>
       <div class='row'>
@@ -299,8 +320,8 @@
 </div>
 <div style="overflow:auto;">
   <div style="float:right;">
-    <button type="button" class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-    <button type="button"  class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Next</button>
+    <button type="button" class="btn btn-primary" id="prevBtn" onclick="nextPrev(-1)">Précédent</button>
+    <button type="button"  class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
   </div>
 </div>
 
@@ -323,29 +344,33 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Edition de l'utilisateur</h5>
+        <h5 class="modal-title">Edition de l'adresse</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
     <div class="form-group">
-        <label for="nom">Nom :</label>
-        <input class="form-control" type="text" id="nom" name="nom" >
+        <label for="nom">Numero :</label>
+        <input class="form-control" type="number" id="adrEntNum" name="numéro" >
     </div>
     <div class="form-group">
-        <label for="prenom">Prenom :</label>
-        <input class="form-control" type="text" id="prenom" name="prenom" >
+        <label for="prenom">Rue :</label>
+        <input class="form-control" type="text" id="adrEntRue" name="rue" >
     </div>
     <div class="form-group">
-        <label for="prenom">Email :</label>
-        <input class="form-control" type="text" id="email" name="mail" >
+        <label for="prenom">Ville :</label>
+        <input class="form-control" type="text" id="adrEntVille" name="ville" >
+    </div>
+    <div class="form-group">
+        <label for="prenom">Code postal :</label>
+        <input class="form-control" type="text" id="adrEntCp" name="cp" >
     </div>
 
     
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Confirmer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
       </div>
     </div>
   </div>
@@ -524,23 +549,19 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button id='edit' class='btn btn-primary' data-toggle='modal' data-target='#editTable1'><i class='fas fa-edit'></i></button><button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
+        defaultContent: "<button class='btn btn-danger' id='suppr'><i class='fas fa-trash-alt'></i></button>"
     } ],
                     columns: cols
                 });
             }).fail(function(xhr, status, error){
-                alert(xhr.responseText)
-                console.log(status);
-                console.log(error);
+                $.notify("Une erreur est survenue lors du chargement de la table des utilisateurs actifs", "error");
+{#                alert(xhr.responseText)#}
+{#                console.log(status);#}
+{#                console.log(error);#}
             });
 } ); 
 
-    $('#table1 tbody').on( 'click', '#edit', function () {
-        var data = table.row( $(this).parents('tr') ).data();
-        $('#prenom').val(data["prenom"]);
-        $('#nom').val(data["nom"]);
-        $('#email').val(data["mail"]);
-    } );
+
     $('#table1 tbody').on( 'click', '#suppr', function () {
         $("#table1").notify("L'utilisateur à été désactivé avec");
         var data = table.row( $(this).parents('tr') ).data();
@@ -618,15 +639,14 @@ $(document).ready(function() {
         columnDefs: [ {
         targets: -1,
         data: null,
-        defaultContent: "<button class='btn btn-success' id='ContactEntreprise' data-toggle='modal' data-target='#contactModal'><i class='fas fa-address-book'></i></button>\n\
-<button type='button' class='btn btn-light' id='adresseEntreprise' data-toggle='modal' data-target='#adresseEntreprise'><i class='fas fa-map-marked-alt'></i></button>\n\
+        defaultContent: "\
+<button class='btn btn-success' id='ContactEntreprise' data-toggle='modal' data-target='#contactModal'><i class='fas fa-address-book'></i></button>\n\
+<button id='edit' class='btn btn-light' data-toggle='modal' data-target='#editTable1'><i class='fas fa-map-marked-alt'></i></button>\n\
 <button type='button' id='btnEnt' class='btn btn-primary' data-toggle='modal' data-target='#modalEnt'><i class='fas fa-edit'></i></button>\n\
-<button class='btn btn-warning'><i class='far fa-eye-slash'></i></button>\n\
 <button class='btn btn-danger' id='supprEntreprise'><i class='fas fa-trash-alt'></i></button>"
     } ],
                     columns: cols
                 });
-            
             
             
             /*
@@ -673,6 +693,9 @@ $(document).ready(function() {
     $('#table3 tbody').on( 'click', '#ContactEntreprise', function () {
         $('#titleModalContact').text('Contact de l\'entreprise '+ entreprise.nom)
     } );
+    $('#table3 tbody').on( 'click', '#ContactEntreprise', function () {
+        $('#titleModalContact').text('Contact de l\'entreprise '+ entreprise.nom)
+    } );
         
         //système de pagination
     function nextPrevCont(n){
@@ -693,12 +716,12 @@ $(document).ready(function() {
             data: "dumbData",
         }).done(function (response) {
             $('#table3').DataTable().ajax.reload();
-
-{#            console.log((response));#}
+            $.notify("Cette entreprise à bien été retirée", "info");
         }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
+            $.notify("Une erreur est survenue", "error");
+{#            alert(xhr.responseText)#}
+{#            console.log(status);#}
+{#            console.log(error);#}
         });
     } );
     
@@ -734,6 +757,8 @@ $(document).ready(function() {
               sexe = "Homme";
             }else if($('#contFemme').is(":checked")){
                 sexe = "Femme";
+            }else{
+              sexe = "Homme";
             }
                     console.log(sexe)
         var stuff = { 
@@ -760,7 +785,28 @@ $(document).ready(function() {
             $("#genreHiden").addClass("hide");
             $("#page").removeClass("hide");
             $("#contactAdd").removeClass("hide");
+            $.notify("Ajout effectué avec succès", "success");
 {#            console.log((response));#}
+        }).fail(function (xhr, status, error) {
+            $.notify("Une erreur est survenue", "error");
+{#            alert(xhr.responseText)#}
+{#            console.log(status);#}
+{#            console.log(error);#}
+        });
+    } );
+    
+        $('#table3 tbody').on( 'click', '#edit', function () {
+        var data = table3.row( $(this).parents('tr') ).data();
+        $.ajax({
+            method: "get",
+            url: window.location + "company/adr/"+data.id,
+        }).done(function (response) {
+
+            $('#adrEntNum').val(response.data[0].numero);
+            $('#adrEntRue').val(response.data[0].rue);
+            $('#adrEntVille').val(response.data[0].ville);
+            $('#adrEntCp').val(response.data[0].codePostal);
+            
         }).fail(function (xhr, status, error) {
             alert(xhr.responseText)
             console.log(status);
@@ -781,11 +827,13 @@ $(document).ready(function() {
             url: window.location + "contact/update/"+contact[currentContact].id,
             data: stuff,
         }).done(function (response) {
-            alert('ok');
+            $.notify("Les modifications ont été effectuées", "success");
+{#            alert('ok');#}
         }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
+            $.notify("Une erreur est survenue", "error");
+{#            alert(xhr.responseText)#}
+{#            console.log(status);#}
+{#            console.log(error);#}
         });
     });
     
@@ -830,13 +878,15 @@ $(document).ready(function() {
                 url: window.location + "company/active/"+entreprise.id,
                 data: "dumbData",
             }).done(function (response) {
+                $.notify("Entreprise réactivée avec succès", "success");
                 $('#table4').DataTable().ajax.reload();
                 table4.row( $(this).parents('tr') ).remove().draw();
                 $('#table3').DataTable().ajax.reload();
             }).fail(function (xhr, status, error) {
-                alert(xhr.responseText)
-                console.log(status);
-                console.log(error);
+                $.notify("Une erreur est survenue", "error");
+{#                alert(xhr.responseText)#}
+{#                console.log(status);#}
+{#                console.log(error);#}
             });
     } );  
                 
@@ -880,15 +930,30 @@ $(function() {
     e.preventDefault();
   });
 
-  {#$tabSelect.on('change', function() {
-    var target = $(this).val(),
-        targetSelectNum = $(this).prop('selectedIndex');
+                          
+$('#news').submit(function (e) {
+    e.preventDefault(e);
+    data = {
+        titre : $('#titre').val(),
+        article : $('#contenu').val(),
+    }
+    $.ajax({
+        method: 'post',
+        url: window.location + 'news/create',
+        data: data,
+        success : function(response){
+{#            console.log(response);#}
+            $.notify("Ajout effectué avec succès", "success");
+        },
+        error(xhr, status, error){
+            $.notify("Une erreur est survenue", "error");
+{#            alert(xhr.responseText)#}
+{#            console.log(status);#}
+{#            console.log(error);#}
+        }
+    })
 
-    $tabButtonItem.removeClass(activeClass);
-    $tabButtonItem.eq(targetSelectNum).addClass(activeClass);
-    $tabContents.hide();
-    $(target).show();
-  });#}
+});
 });
 
 </script>
@@ -903,6 +968,7 @@ $(function() {
         </script>
     <script src="{{ asset('build/js/form.js') }}"></script>
     <script src="{{ asset('build/js/admin.js') }}"></script>
+    <script src="{{ asset('build/js/notify.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.2/jquery.twbsPagination.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     

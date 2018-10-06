@@ -6,10 +6,12 @@ window.supprUsr =   function (id){
        url: window.location+"user/del/"+id,
        dataType: "json",
        success: function (datas) {
-           console.log(datas)
+           $.notify("Utilisateur désactivé", "info");
+//           console.log(datas)
        },
        error: function (xhr, status, error) {
-           alert(xhr.responseText);
+          $.notify("Une erreur est survenue", "error");
+//           alert(xhr.responseText);
        }
    });
         };
@@ -20,11 +22,13 @@ window.unbanUsr = function (id){
                 url: window.location+"user/unb/"+id,
                 dataType: "json",
             }).done( function(response) {
-                alert("success");
+                $.notify("Utilisateur réactivé", "success");
+//                alert("success");
             }).fail(function(xhr, status, error){
-                alert(xhr.responseText)
-                console.log(status);
-                console.log(error);
+                $.notify("Une erreur est survenue", "error");
+//                alert(xhr.responseText)
+//                console.log(status);
+//                console.log(error);
             });
         }
         
@@ -32,19 +36,21 @@ window.unbanUsr = function (id){
 /*  Creation categorie   */
     $("#createCat").submit(function (e) {
         
-        alert('submit intercepted');
+//        alert('submit intercepted');
         e.preventDefault(e);
-        alert($('#formcat').val());
+//        alert($('#formcat').val());
         $.ajax({
             method: "post",
             url: window.location + "cat/create",
             data: {type: $('#formcat').val()},
         }).done(function (response) {
-            console.log((response))
+            $.notify("Ajout effectué avec succès", "success");
+//            console.log((response))
         }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
+            $.notify("Une erreur est survenue", "error");
+//            alert(xhr.responseText)
+//            console.log(status);
+//            console.log(error);
         });
 
     });
@@ -57,12 +63,13 @@ window.unbanUsr = function (id){
             async: false,
 
             success: function (data) {
-                console.log(data.results["0"].geometry.location);
+//                console.log(data.results["0"].geometry.location);
                 sendData(data.results["0"].geometry.location)
 //                return data.results["0"].geometry.location;
             },
             error: function (param1, param2) {
-                console.log("error");
+                $.notify("Une erreur de géolocalisation est survenue", "error");
+//                console.log("error");
             }
         });
         
@@ -78,9 +85,10 @@ window.showContact = function(id){
             }).done( function(response) {
 //                alert("success");
             }).fail(function(xhr, status, error){
-                alert(xhr.responseText)
-                console.log(status);
-                console.log(error);
+                $.notify("Une erreur est survenue", "error");
+//                alert(xhr.responseText)
+//                console.log(status);
+//                console.log(error);
             });
 }
 
@@ -131,12 +139,14 @@ window.sendData = function(pos) {
         url: window.location + "company/create",
         data: data,
     }).done(function (response) {
-        alert("ok");
-        console.log((response));
+        $.notify("Ajout effectué avec succès", "success");
+//        alert("ok");
+//        console.log((response));
     }).fail(function (xhr, status, error) {
-        alert(xhr.responseText)
-        console.log(status);
-        console.log(error);
+        $.notify("Une erreur est survenue", "error");
+//        alert(xhr.responseText)
+//        console.log(status);
+//        console.log(error);
     });
 
 }
@@ -153,12 +163,14 @@ window.sendMail = function(pos) {
             url: window.location + "contact",
             data: data,
         }).done(function (response) {
-            alert("ok");
-            console.log((response));
+            $.notify("Votre email a bien été envoyé", "success");
+//            alert("ok");
+//            console.log((response));
         }).fail(function (xhr, status, error) {
-            alert(xhr.responseText)
-            console.log(status);
-            console.log(error);
+            $.notify("Une erreur est survenue, nous sommes désolés", "error");
+//            alert(xhr.responseText)
+//            console.log(status);
+//            console.log(error);
         });
 
 }
