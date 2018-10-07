@@ -293,6 +293,27 @@ class AdminController extends AbstractController
         
     }
     
+    
+    /**
+     * @Route("/company/update/{id}", name="company_update", methods="POST")
+     */
+    public function updateCompany(Request $request, Entreprise $ent, ObjectManager $em){
+        $post = $request->request->all();
+
+        $ent->setNom($post['nom']);
+        $ent->setTel((int)$post['tel']);
+        $ent->setMail($post['mail']);
+        $ent->setLogo($post['logo']);
+        $ent->setSiteWeb($post['site']);
+        $ent->setSalariesFormes($post['salaries']);
+        $ent->setRemarque($post['remarque']);
+        $ent->setPub($post['pub']);
+        $em->merge($ent);
+        $em->flush();
+        return $this->json(array("status" => "réussite"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        
+    }
+    
     /**
      * @Route("/company/create", name="ent_create", methods="POST")
      *

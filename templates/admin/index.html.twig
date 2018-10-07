@@ -417,17 +417,17 @@
                     <div class="two fields">
                         <div class="field">
                             <label>Salarie</label>
-                            <input type="number" name="numero" id="numero" >
+                            <input type="number" name="numero" id="salarieEn" >
                         </div>
-                        <div class="field" style="margin-top: 30px;">
+{#                        <div class="field" style="margin-top: 30px;">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" name="public">
+                                <input type="checkbox" name="public" id="">
                                 <label>Visible</label>
                             </div>
-                        </div>
+                        </div>#}
                         <div class="field" style="margin-top: 30px;">
                             <div class="ui toggle checkbox">
-                                <input type="checkbox" name="public">
+                                <input type="checkbox" name="public" id="pubEn">
                                 <label>Pub</label>
                             </div>
                         </div>
@@ -664,8 +664,13 @@ $(document).ready(function() {
         $("#mailEn").val(data.mail);
         $("#logo").val(data.logo);
         $("#siteEn").val(data.siteWeb);
-        $("#numero").val(data.salariesFormes);
+        $("#salarieEn").val(parseInt(data.salariesFormes));
         $("#remEn").val(data.remarque);
+        if(data.pub){
+            $("#pubEn").prop("checked", true);
+        }else{
+            $("#pubEn").prop("checked", false);
+        }
     } );
     $('#table3 tbody').on( 'click', '#ContactEntreprise', function () {
         entreprise = table3.row( $(this).parents('tr') ).data();
@@ -686,6 +691,45 @@ $(document).ready(function() {
     
     $('#modalEnt').submit(function (e) {
         e.preventDefault(e);
+{#        id="logo" id="telEn" id="siteEn" id="salarieEn" id="pubEn" id="remEn"#}
+                if ($('#pubEn').is(":checked")){
+                  pub = "true";
+                }else{
+                  pub = "false";
+                }
+                var stuff = { 
+                        "id": entreprise.id,
+                        "nom": $('#nomEn').val(),
+                        "tel": $('#telEn').val(),
+                        "mail": $('#mailEn').val(),
+                        "logo": $('#logo').val(),
+                        "site": $('#siteEn').val(),
+                        "salaries": $('#salarieEn').val(),
+                        "remarque": $('#remEn').val(),
+                        "pub": pub
+                    }
+                    
+        $.ajax({
+            method: "post",
+            url: window.location + "company/update/"+entreprise.id,
+            data: stuff,
+        }).done(function (response) {
+            $('#table3').DataTable().ajax.reload();
+            $("#validAdd").addClass("hide");
+            $("#cancelAdd").addClass("hide");
+            $("#fonctionHiden").addClass("hide");
+            $("#remarqueHiden").addClass("hide");
+            $("#genreHiden").addClass("hide");
+            $("#page").removeClass("hide");
+            $("#contactAdd").removeClass("hide");
+            $.notify("Ajout effectué avec succès", "success");
+{#            console.log((response));#}
+        }).fail(function (xhr, status, error) {
+            $.notify("Une erreur est survenue", "error");
+            alert(xhr.responseText)
+{#            console.log(status);#}
+{#            console.log(error);#}
+        });
         
     });
     
