@@ -15,6 +15,7 @@ use App\Entity\CategorieEntreprise;
 use App\Form\UtilisateurType;
 use App\Repository\ActualiteRepository;
 use App\Repository\EntrepriseRepository;
+use App\Repository\AdresseEntepriseRepository;
 use App\Repository\UtilisateurRepository;
 use App\Repository\CategorieRepository;
 use DateTime;
@@ -271,6 +272,42 @@ class AdminController extends AbstractController
 //        var_dump($ent->getId());
         $ent->setIsDeleted(false);
         $ent->setVisible(true);
+        $em->merge($ent);
+        $em->flush();
+        return $this->json(array("status" => "réussite"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+        
+    }
+    
+    /**
+     * @Route("/company/adr/{id}", name="adr_active", methods="GET")
+     */
+    public function adresseCompany(Entreprise $ent, AdresseEntepriseRepository $entRepo, ObjectManager $em){
+        $retour = array();
+        $adresses =  $entRepo->findBy(array("entreprise" => $ent->getId()));
+        foreach($adresses as $adresse){
+            array_push($retour,$em->find(Adresse::class, $adresse->getAdresse()));
+        }
+        //retourne la liste des adresses de la societe ciblé
+        return $this->json(array("data" => $retour), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+
+        
+    }
+    
+    
+    /**
+     * @Route("/company/update/{id}", name="company_update", methods="POST")
+     */
+    public function updateCompany(Request $request, Entreprise $ent, ObjectManager $em){
+        $post = $request->request->all();
+
+        $ent->setNom($post['nom']);
+        $ent->setTel((int)$post['tel']);
+        $ent->setMail($post['mail']);
+        $ent->setLogo($post['logo']);
+        $ent->setSiteWeb($post['site']);
+        $ent->setSalariesFormes($post['salaries']);
+        $ent->setRemarque($post['remarque']);
+        $ent->setPub($post['pub']);
         $em->merge($ent);
         $em->flush();
         return $this->json(array("status" => "réussite"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
