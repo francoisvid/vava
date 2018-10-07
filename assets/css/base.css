@@ -109,10 +109,6 @@
         margin-top: 50px;
     }
 
-    .imageActu {
-        margin-bottom: 20px;
-        height: 200px !important;
-    }
 
     .flowing {
         max-width: min-content !important;
@@ -153,9 +149,9 @@
         opacity: 1;
     }
 
-    .imageActu{
+    .imageActu {
         margin-bottom: 20px;
-        height: 330px !important;
+        height: 270px !important;
     }
 
     .titreActu {
