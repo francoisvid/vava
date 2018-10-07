@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container" style="margin-top:7%; margin-bottom: 3%">
+
+
+        <h1 class="text-center" style="text-decoration: underline;">
+            Obtenir Vava
+        </h1>
+
+        <em>* Selon votre système d'exploitation les options peuvent changer.</em>
+
+        <div class="ui top attached tabular menu">
+            <a class="item active" data-tab="first">iOs ?</a>
+            <a class="item" data-tab="second">Android ?</a>
+            <a class="item" data-tab="third">Windows Phone ?</a>
+        </div>
+        <div class="ui bottom attached tab segment active" data-tab="first">
+
+            <div class="ui">
+
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/futurama/300/450/2">
+                    <h3><u>Etape une :</u></h3>
+                    <p>Une fois rendu sur le site vous devez cliquer sur l'icône <img  class="ui mini right spaced image" src="{{ asset("./build/image/add.png") }}" alt=""> du menu du bas de safari.</p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/nemo/300/450/2">
+                    <h3><u>Etape deux :</u></h3>
+                    <p>Scroller vers la droite jusqu'à voir l'icon "Sur l'écran d'accueil" <img  class="ui mini right spaced image" src="{{ asset("./build/image/btnadd.png") }}" alt=""></p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/simpson/300/450/2">
+                    <h3><u>Etape trois :</u></h3>
+                    <p>Vous pouvez choisir un nom a l'application si vous le souhaitais sinon appuyer tout simplement sur "Ajouter".</p>
+                </div>
+
+
+
+                <h4 class="text-center"> <b class="text-danger">Bravo !</b> L'opération est terminer, vous avez Vava sur votre mobile !</h4>
+
+                <br><br>
+            </div>
+
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="second">
+
+
+            <div class="ui">
+
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/futurama/300/450/2">
+                    <h3><u>Etape une :</u></h3>
+                    <p>Une fois rendu sur le site vous devez cliquer sur l'icône <img  class="ui mini right spaced image" src="{{ asset("./build/image/point.png") }}" alt=""> dans la barre de recherche.</p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/nemo/300/450/2">
+                    <h3><u>Etape deux :</u></h3>
+                    <p>Scroller vers lle bas puis cliquer sur "Ajouter à écran d'accueil"</p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/simpson/300/450/2">
+                    <h3><u>Etape trois :</u></h3>
+                    <p>Vous pouvez choisir un nom a l'application si vous le souhaitais sinon appuyer tout simplement sur "Ajouter".</p>
+                </div>
+
+
+
+                <h4 class="text-center"> <b class="text-danger">Bravo !</b> L'opération est terminer, vous avez Vava sur votre mobile !</h4>
+
+                <br><br>
+            </div>
+
+
+        </div>
+        <div class="ui bottom attached tab segment" data-tab="third">
+
+            <div class="ui">
+
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/futurama/300/450/2">
+                    <h3><u>Etape une :</u></h3>
+                    <p>Une fois rendu sur le site vous devez cliquer sur l'icône <img  class="ui mini right spaced image" src="{{ asset("./build/image/point c.png") }}" alt=""> dans la barre de recherche en bas.</p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/nemo/300/450/2">
+                    <h3><u>Etape deux :</u></h3>
+                    <p>Scroller vers lle bas puis cliquer sur "Epingler sur l'écran d'accueil"</p>
+                </div>
+
+                <div style="padding-bottom: 15%">
+                    <img class="ui bottom aligned small fluid left floated image" src="http://lorempicsum.com/simpson/300/450/2">
+                    <h3><u>Etape trois :</u></h3>
+                    <p>Vous retrouvez votre tuile sur l'accueil du Windows Phone avec la possibilité de la réduire ou agrandir à mi-format.</p>
+                </div>
+
+
+
+                <h4 class="text-center"> <b class="text-danger">Bravo !</b> L'opération est terminer, vous avez Vava sur votre mobile !</h4>
+
+                <br><br>
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $('.menu .item')
+            .tab()
+        ;
+    </script>
+
+{% endblock %}
