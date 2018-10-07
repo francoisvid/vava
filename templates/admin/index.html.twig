@@ -9,7 +9,7 @@
     
     <div class="container-fluid" style="margin-top: 13rem">
     <div class="row">
-            <aside class="col-12 col-md-2 p-0 bg-dark">
+            <aside class="col-12 col-md-2 p-0 bg-dark" id="asideAdmin">
             <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
                 <div class="collapse navbar-collapse">
                     <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between" id="adminaside">
@@ -121,7 +121,7 @@
     <table id="table4" class="display table table-striped table-bordered nowrap" style="width:100%!important">
             <thead>
                 <tr>
-                    <th>Nom</th>
+                    <th>Nom</th>asideAdmin
                     <th>Tel</th>
                     <th>Mail</th>
                     <th>remarque</th>
@@ -164,11 +164,15 @@
                     <textarea type="text" name="contenu" id="contenu" placeholder="Last Name"></textarea>
                 </div>
                 <div class="field">
+                    <label>Image</label>
+                    <input type="text" name="image" id="image" placeholder="Url de l'image">
+                </div>
+{#                <div class="field">
                     <div class="ui checkbox">
                         <input type="checkbox" name="visibilite" id="visibilite" class="hidden">
                         <label>Visible</label>
                     </div>
-                </div>
+                </div>#}
                 <button type="submit" onclick="addNews()" class="btn btn-outline-success">Success</button>
             </form>
         </div>
@@ -563,7 +567,7 @@ $(document).ready(function() {
 
 
     $('#table1 tbody').on( 'click', '#suppr', function () {
-        $("#table1").notify("L'utilisateur à été désactivé avec");
+        $("#table1").notify("L'utilisateur à étaddNewsé désactivé avec");
         var data = table.row( $(this).parents('tr') ).data();
         supprUsr( data['id']);
             table
@@ -980,6 +984,7 @@ $('#news').submit(function (e) {
     data = {
         titre : $('#titre').val(),
         article : $('#contenu').val(),
+        image : $('#image').val()
     }
     $.ajax({
         method: 'post',

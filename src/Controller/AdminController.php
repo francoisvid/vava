@@ -433,6 +433,7 @@ class AdminController extends AbstractController
         $news->setAuteur($em->find(Utilisateur::class, 1));
         $news->setTitre($post['titre']);
         $news->setArticle($post['article']);
+        $news->setImage($post['image']);
         $news->setDateCreation(new \DateTime());
         $news->setVisible(1);
         $news->setIsDeleted(0);

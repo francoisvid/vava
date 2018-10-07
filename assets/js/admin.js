@@ -131,7 +131,7 @@ window.sendData = function(pos) {
         }
 
     };
-    console.log(data);
+//    console.log(data);
 
 
     $.ajax({
