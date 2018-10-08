@@ -4,13 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/admin/index.html.twig</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Actualite.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/config/packages/security.yaml</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/DataTables/DT_French.json</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Adresse.php</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/DataFixtures/VavaFixtures.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/AdminController.php</file>
+            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Controller/FavorisController.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/.env</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/templates/base.html.twig</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/webpack.config.js</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/form.js</file>
-            <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/src/Entity/Entreprise.php</file>
             <file>file:/home/alexandreplanque/ServeurWeb/Symfony/signe/assets/js/admin.js</file>
         </group>
     </open-files>

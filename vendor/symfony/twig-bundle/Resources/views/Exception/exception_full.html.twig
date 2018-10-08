@@ -1,4 +1,5 @@
 {% extends '@Twig/layout.html.twig' %}
+
 {% block head %}
     <style>
         .sf-reset .traces {
@@ -100,6 +101,7 @@
              font-size: 11px;
              font-weight: bold;
         }
+
         .sf-reset .support a {
             display: inline-block;
             -moz-border-radius: 6px;
@@ -111,6 +113,7 @@
             font-size: 11px;
             font-weight: bold;
         }
+
         .sf-reset .toggle {
             vertical-align: middle;
         }
@@ -129,26 +132,11 @@
         }
     </style>
 {% endblock %}
+
 {% block title %}
     {{ exception.message }} ({{ status_code }} {{ status_text }})
 {% endblock %}
+
 {% block body %}
-            <div class="container h-100 mt-4" >
-    {% if status_code == 404 %}
-    <h1 style='color: orange'>Erreur {{ status_code }} - Page introuvable</h1>
-    <p>
-        Nous sommes désolés, la page que vous avez demandée n'existe pas ou plus. <br>Vérifiez l'adresse que vous avez saisie.<br><br> <a href="{{ path('home') }}">retourner sur l'accueil</a>.
-    </p>
-    {% elseif status_code == 403 %}
-    <h1 style='color: orange'>Erreur {{ status_code }} - Page protégée</h1>
-    <p>
-        Nous sommes désolés, la page que vous avez demandée n'est pas accessible. <br><br> <a href="{{ path('home') }}">retourner sur l'accueil</a>.
-    </p>
-    {% else %}
-    <h1 style='color: orange'>Erreur {{ status_code }} - Une erreur est survenue!</h1>
-    <p>
-        Nous sommes désolés, une erreur interne est survenue et a causé l'echec de votre requête. <br><br> <a href="{{ path('home') }}">retourner sur l'accueil</a>.
-    </p>    
-    {% endif %}
-    </div>
+    {% include '@Twig/Exception/exception.html.twig' %}
 {% endblock %}
