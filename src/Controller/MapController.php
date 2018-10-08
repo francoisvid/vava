@@ -75,14 +75,20 @@ class MapController extends AbstractController
                 $idadresse =  $na->getId();
 
                 $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
-                    'id' => $idadresse
+                    'adresse' => $idadresse
                 ));
+
+                foreach ($newAdresseEntreprise as $i) {
 
                 $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
-                    'id'=>$newAdresseEntreprise
+                    'id'=> $i->getEntreprise()
                 ));
 
+
+
                 foreach ($newEntreprise as $item) {
+
+
 
                     if($item->getIsDeleted() != 1){
 
@@ -108,6 +114,8 @@ class MapController extends AbstractController
 
             }
             return $arrayVide;
+
+        }
 
         }
 
@@ -137,12 +145,16 @@ class MapController extends AbstractController
         ));
 
 
+
+
         if (!empty($newCategorie)) {
+
 
             // On va get toutes les boites qui on la categorie rechercher
             $newCategorieEntreprise = $this->getDoctrine()->getRepository(CategorieEntreprise::class)->findBy(array(
                 'categorie' => $newCategorie[0]->getId()
             ));
+
 
             // On boucle pour recup le nom de l'entreprise via son id
             foreach ($newCategorieEntreprise as $entry){
@@ -153,6 +165,7 @@ class MapController extends AbstractController
                 //Je stocke le nom pour le reutiliser
                 $nomentreprise = $ent->getNom();
                 $tel = $ent->getTel();
+
 
                 //Je regarde en bdd ce que contien mon enrtreprise via son nom
                 $entreprise = $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
@@ -167,38 +180,35 @@ class MapController extends AbstractController
 
                     // Je me sert de son id pour aller chercher son adresse.
                     $yolo = $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
-                        'id'=> $ide
+                        'entreprise'=> $ide
                     ));
-
-
-
 
                     //Je boucle pour sortir les info
                     foreach ($yolo as $y){
 
-                     if( $ent->getIsDeleted() != 1){
+                        if( $ent->getIsDeleted() != 1){
 
-                        // Call object manager sur l'apdresse
-                         $adr = $em->find(Adresse::class, $y->getAdresse());
-
-
-                        $nou = array(
-                            "id"=>$ide,
-                            "nom"=>$nomentreprise,
-                            "tel"=>$tel,
-                            "numero"=>  $adr->getNumero(),
-                            "rue"=>$adr->getRue(),
-                            "ville"=>$adr->getVille(),
-                            "codePostal"=>$adr->getCodePostal(),
-                            "la"=>$adr->getLatitude(),
-                            "lo"=>$adr->getLongitude(),
-                            "logo"=>$t->getLogo(),
+                            // Call object manager sur l'apdresse
+                            $adr = $em->find(Adresse::class, $y->getAdresse());
 
 
-                        );
+                            $nou = array(
+                                "id"=>$ide,
+                                "nom"=>$nomentreprise,
+                                "tel"=>$tel,
+                                "numero"=>  $adr->getNumero(),
+                                "rue"=>$adr->getRue(),
+                                "ville"=>$adr->getVille(),
+                                "codePostal"=>$adr->getCodePostal(),
+                                "la"=>$adr->getLatitude(),
+                                "lo"=>$adr->getLongitude(),
+                                "logo"=>$t->getLogo(),
 
-                        array_push($arrayVide, $nou);
-                     }
+
+                            );
+
+                            array_push($arrayVide, $nou);
+                        }
                     }
                 }
 
@@ -223,12 +233,12 @@ class MapController extends AbstractController
         if (!empty($newAdresse)){
             foreach ($newAdresse as $na){
 
-               $idadresse =  $na->getId();
+                $idadresse =  $na->getId();
 
-               $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
-                   'id' => $idadresse
-               ));
-               $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
+                $newAdresseEntreprise = $this->getDoctrine()->getRepository(AdresseEnteprise::class)->findBy(array(
+                    'id' => $idadresse
+                ));
+                $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
                     'id'=>$newAdresseEntreprise
                 ));
 
@@ -250,7 +260,7 @@ class MapController extends AbstractController
                         );
                     }
                     array_push($arrayVide, $nou);
-               }
+                }
 
             }
             return $arrayVide;
@@ -270,6 +280,8 @@ class MapController extends AbstractController
         $newEntreprise = $this->getDoctrine()->getRepository(Entreprise::class)->findBy(array(
             "nom"=> $data
         ));
+
+        if (!empty($newAdresse)){
 
         foreach ($newEntreprise as $item) {
             if($item->getIsDeleted() != 1){
@@ -293,11 +305,12 @@ class MapController extends AbstractController
                         "lo"=>$adr->getLongitude(),
 
                     );
-               }
+                }
             }
             array_push($arrayVide, $nou);
         }
         return $arrayVide;
+        }
     }
 
 
@@ -326,7 +339,7 @@ class MapController extends AbstractController
             }
             //je lui retourne un array avec les infos
             return $vide;
-        //Meme chose pour lr nom
+            //Meme chose pour lr nom
         }elseif ($this->rechercheNom($nc)){
             $result = $this->rechercheNom($nc);
             foreach ($result as $r){
@@ -336,14 +349,14 @@ class MapController extends AbstractController
                 }
             }
             return $vide;
-        //Si je trouve un truc qui corespond a mon champ ville je lui retourne
+            //Si je trouve un truc qui corespond a mon champ ville je lui retourne
         }elseif($this->rechercheVille($q)){
             return $this->rechercheVille($q);
 
-        // Je recherche dans les categories
+            // Je recherche dans les categories
         }elseif($this->rechercheCategorie($c)){
             return $this->rechercheCategorie($c);
-        //Sinon je le retourne une erreure
+            //Sinon je le retourne une erreure
         }else{
             $this->addFlash('error', "Deso j'ai pas en bdd ");
         }
@@ -360,28 +373,24 @@ class MapController extends AbstractController
         $nc = str_replace("%20", " ", $c);
         $vide = array();
 
-        if ($this->rechercheVille($q)){
-
-            if ($this->rechercheCategorie($nc)){
+        if (!is_null($this->rechercheVille($q))){
+            if (!is_null($this->rechercheCategorie($nc))){
                 $result = $this->rechercheCategorie($nc);
-
                 foreach ($result as $r){
-
                     $ville = $r["ville"];
                     if ($ville == $q){
                         array_push($vide, $r);
                     }
                 }
                 return $vide;
-            }elseif($this->rechercheVille($q)){
+            }elseif(!is_null($this->rechercheVille($q))){
                 return $this->rechercheVille($q);
-            }elseif($this->rechercheNom($nc)){
+            }elseif(!is_null($this->rechercheNom($nc))){
                 return $this->rechercheNom($nc);
             }
-
-        }elseif($this->rechercheCategorie($c)){
-            return $this->rechercheCategorie($c);
-        }elseif($this->rechercheNom($nc)){
+        }elseif(!is_null($this->rechercheCategorie($nc))){
+            return $this->rechercheCategorie($nc);
+        }elseif(count($this->rechercheNom($nc))  != 0){
             return $this->rechercheNom($nc);
         }else{
             $this->addFlash('error', "Désolé il n'y a rien en base de donnée 😢 ");
