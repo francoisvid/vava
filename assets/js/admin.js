@@ -95,8 +95,8 @@ window.showContact = function(id){
 window.sendData = function(pos) {
 
     var data = null;
-    alert('submit intercepted');
-    alert($('#nomEnt').val());
+//    alert('submit intercepted');
+//    alert($('#nomEnt').val());
     var genre;
     if ($('#homme').is(":checked")) {
         genre = "Homme";
@@ -118,7 +118,7 @@ window.sendData = function(pos) {
             "ville": $('#villeEnt').val(),
             "cp": $('#cpEnt').val(),
             "latitude": pos.lat,
-            "longitute": pos.lng
+            "longitude": pos.lng
         },
         "contact": {
             "nom": $('#nomCon').val(),

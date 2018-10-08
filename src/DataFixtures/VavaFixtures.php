@@ -28,13 +28,13 @@ class VavaFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $this->generateRole($manager);
-        $this->generateUser($manager);
         $this->generateCategorie($manager);
         $this->generateEntreprise($manager);
+        $this->generateAdresse($manager);
+        $this->generateUser($manager);
         $this->generateFavoris($manager);
         $this->generateCatEntreprise($manager);
         $this->generateContact($manager);
-        $this->generateAdresse($manager);
         $this->generateAdresseEnt($manager);
         $this->generateActu($manager);
 
@@ -204,12 +204,12 @@ class VavaFixtures extends Fixture
             $em->persist($ad);
         }
         $em->flush();
-        
-            $ad = new Adresse();
-            $ad->setCodePostal();
-            $ad->setNumero(random_int(11111,99595));
-            $ad->setRue("la rue qui pue".$i);
-            $ad->setVille("randomVille".$i);
+//        
+//            $ad = new Adresse();
+//            $ad->setCodePostal();
+//            $ad->setNumero(random_int(11111,99595));
+//            $ad->setRue("la rue qui pue".$i);
+//            $ad->setVille("randomVille".$i);
         
     }
 

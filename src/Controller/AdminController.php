@@ -5,34 +5,35 @@ namespace App\Controller;
 
 
 use App\Entity\Actualite;
-use App\Entity\Utilisateur;
-use App\Entity\Categorie;
 use App\Entity\Adresse;
-use App\Entity\Entreprise;
-use App\Entity\Contact;
 use App\Entity\AdresseEnteprise;
+use App\Entity\Categorie;
 use App\Entity\CategorieEntreprise;
+use App\Entity\Contact;
+use App\Entity\Entreprise;
+use App\Entity\Utilisateur;
 use App\Form\UtilisateurType;
 use App\Repository\ActualiteRepository;
-use App\Repository\EntrepriseRepository;
 use App\Repository\AdresseEntepriseRepository;
-use App\Repository\UtilisateurRepository;
 use App\Repository\CategorieRepository;
+use App\Repository\EntrepriseRepository;
+use App\Repository\UtilisateurRepository;
 use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 //use Symfony\Flex\Response;
 
@@ -444,4 +445,62 @@ class AdminController extends AbstractController
         return $this->json(array("data" => "news"), 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
 
     }
+    
+    
+    /**
+     * @Route("/dt/fr", name="DT_French", methods="get")
+     */
+    public function datatableFr(){
+
+    $data = '{
+	"sProcessing":     "Traitement en cours...",
+	"sSearch":         "Rechercher&nbsp;:",
+    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+	"sInfo":           "Affichage de l\'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+	"sInfoEmpty":      "Affichage de l\'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+	"sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+	"sInfoPostFix":    "",
+	"sLoadingRecords": "Chargement en cours...",
+    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+	"sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+	"oPaginate": {
+		"sFirst":      "Premier",
+		"sPrevious":   "Pr&eacute;c&eacute;dent",
+		"sNext":       "Suivant",
+		"sLast":       "Dernier"
+	},
+	"oAria": {
+		"sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+		"sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+	}';
+        $response = new Response($data);
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
 }
+
+
+//        return $this->json('{
+//	"sProcessing":     "Traitement en cours...",
+//	"sSearch":         "Rechercher&nbsp;:",
+//    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
+//	"sInfo":           "Affichage de l\'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+//	"sInfoEmpty":      "Affichage de l\'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+//	"sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+//	"sInfoPostFix":    "",
+//	"sLoadingRecords": "Chargement en cours...",
+//    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
+//	"sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
+//	"oPaginate": {
+//		"sFirst":      "Premier",
+//		"sPrevious":   "Pr&eacute;c&eacute;dent",
+//		"sNext":       "Suivant",
+//		"sLast":       "Dernier"
+//	},
+//	"oAria": {
+//		"sSortAscending":  ": activer pour trier la colonne par ordre croissant",
+//		"sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+//	}', 200, array("Content-Type" => "application/json", "charset" => "utf-8"));
+//
+//    }
