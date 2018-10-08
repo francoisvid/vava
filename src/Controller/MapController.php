@@ -69,7 +69,6 @@ class MapController extends AbstractController
         ));
 
         if (!empty($newAdresse)){
-
             foreach ($newAdresse as $na){
 
                 $idadresse =  $na->getId();
@@ -113,9 +112,9 @@ class MapController extends AbstractController
                 }
 
             }
-            return $arrayVide;
 
         }
+            return $arrayVide;
 
         }
 
