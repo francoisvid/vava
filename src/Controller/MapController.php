@@ -104,11 +104,11 @@ class MapController extends AbstractController
                             "la"=>$na->getLatitude(),
                             "lo"=>$na->getLongitude(),
                         );
+                    array_push($arrayVide, $nou);
                     }
 
 
 
-                    array_push($arrayVide, $nou);
                 }
 
             }
