@@ -1,6 +1,6 @@
-@media (min-width: 0px) and (max-width: 568px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
 
-    .jumbotron {
+.jumbotron {
         display: none;
     }
 
@@ -241,7 +241,7 @@
 
 }
 
-@media only screen and (min-device-width: 568px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+@media only screen and (min-device-width : 568px) and (max-device-width : 820px) and (-webkit-device-pixel-ratio : 3) {
 
     .jumbotron{
         display: none;
@@ -484,7 +484,7 @@
 
 }
 
-@media (min-width: 813px) and (max-width: 992px) {
+@media (min-width: 820px) and (max-width: 992px) {
 
     .jumbotron{
         max-width: 100%;
