@@ -486,19 +486,19 @@
 
 @media only screen and (min-device-width : 812px) and (max-device-width : 992px) and (-webkit-device-pixel-ratio : 3) {
 
-    .jumbotron{
-        max-width: 100%;
-        height: 450px;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 5px !important;
-        margin-top: 40px;
-    }
+    /*.jumbotron{*/
+        /*max-width: 100%;*/
+        /*height: 450px;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*display: block;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*padding-bottom: 5px !important;*/
+        /*margin-top: 40px;*/
+    /*}*/
 
 
     body{
@@ -511,8 +511,8 @@
 
     #map{
         display: inline-block;
-        height: 482px !important;
-        width: 100% !important;
+        height: 382px !important;
+        /*width: 70% !important;*/
         margin-bottom: -5px !important;
     }
 
