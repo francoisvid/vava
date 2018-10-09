@@ -251,23 +251,23 @@
         background-color: white !important;
     }
 
-    .jumbotronS{
-        /*display: none;*/
-        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
-        background-color: #D3FBF3 !important;
-        background-repeat:no-repeat;
-        margin-bottom: -2px;
-        background-size: cover;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        height: 610px;
-        width: auto;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        max-width: 100%;
-        background-position: 0% 25%;
-        /*margin-top: 0px !important;*/
-    }
+    /*.jumbotronS{*/
+        /*!*display: none;*!*/
+        /*!*background-image:url('{{ asset('./build/image/background.png') }}');*!*/
+        /*background-color: #D3FBF3 !important;*/
+        /*background-repeat:no-repeat;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*height: 610px;*/
+        /*width: auto;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*max-width: 100%;*/
+        /*background-position: 0% 25%;*/
+        /*!*margin-top: 0px !important;*!*/
+    /*}*/
 
     .logovava{
         max-width: 30%;
