@@ -251,23 +251,23 @@
         background-color: white !important;
     }
 
-    /*.jumbotronS{*/
-        /*!*display: none;*!*/
-        /*!*background-image:url('{{ asset('./build/image/background.png') }}');*!*/
-        /*background-color: #D3FBF3 !important;*/
-        /*background-repeat:no-repeat;*/
-        /*margin-bottom: -2px;*/
-        /*background-size: cover;*/
-        /*color: white;*/
-        /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*height: 610px;*/
-        /*width: auto;*/
-        /*border-radius: 0px;*/
-        /*font-family: 'Josefin Sans', sans-serif;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-        /*!*margin-top: 0px !important;*!*/
-    /*}*/
+    .jumbotronS{
+        /*display: none;*/
+        /*background-image:url('{{ asset('./build/image/background.png') }}');*/
+        background-color: #D3FBF3 !important;
+        background-repeat:no-repeat;
+        margin-bottom: -2px;
+        background-size: cover;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        height: 610px;
+        width: auto;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        max-width: 100%;
+        background-position: 0% 25%;
+        /*margin-top: 0px !important;*/
+    }
 
     .logovava{
         max-width: 30%;
@@ -486,7 +486,8 @@
 
 @media only screen and (min-device-width : 812px) and (max-device-width : 992px) and (-webkit-device-pixel-ratio : 3) {
 
-    /*.jumbotron{*/
+    .jumbotron{
+        display: none;
         /*max-width: 100%;*/
         /*height: 450px;*/
         /*margin-bottom: -2px;*/
@@ -498,7 +499,7 @@
         /*font-family: 'Josefin Sans', sans-serif;*/
         /*padding-bottom: 5px !important;*/
         /*margin-top: 40px;*/
-    /*}*/
+    }
 
 
     body{
@@ -506,13 +507,13 @@
     }
 
     .jumbotronS{
-        display: none;
+        /*display: none;*/
     }
 
     #map{
         display: inline-block;
         height: 382px !important;
-        /*width: 70% !important;*/
+        width: 100% !important;
         margin-bottom: -5px !important;
     }
 
@@ -723,7 +724,7 @@
     }
 }
 
-@media (min-width: 992px) and (max-width: 1180px) {
+@media only screen and (min-width: 992px) and (max-width: 1180px) {
 
     body{
         background-color: white !important;
