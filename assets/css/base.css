@@ -1,4 +1,4 @@
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+@media only screen and (min-device-width : 0px) and (max-device-width : 568px) and (orientation : portrait) {
 
 .jumbotron {
         display: none;
@@ -487,18 +487,17 @@
 @media only screen and (min-device-width : 812px) and (max-device-width : 992px) and (-webkit-device-pixel-ratio : 3) {
 
     .jumbotron{
-        display: none;
-        /*max-width: 100%;*/
-        /*height: 450px;*/
-        /*margin-bottom: -2px;*/
-        /*background-size: cover;*/
-        /*display: block;*/
-        /*color: white;*/
-        /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*border-radius: 0px;*/
-        /*font-family: 'Josefin Sans', sans-serif;*/
-        /*padding-bottom: 5px !important;*/
-        /*margin-top: 40px;*/
+        max-width: 100%;
+        height: 450px;
+        margin-bottom: -2px;
+        background-size: cover;
+        display: block;
+        color: white;
+        text-shadow: black 0.2em 0.2em 0.2em;
+        border-radius: 0px;
+        font-family: 'Josefin Sans', sans-serif;
+        padding-bottom: 5px !important;
+        margin-top: 40px;
     }
 
 
@@ -507,13 +506,13 @@
     }
 
     .jumbotronS{
-        /*display: none;*/
+        display: none;
     }
 
     #map{
         display: inline-block;
         height: 382px !important;
-        width: 100% !important;
+        /*width: 70% !important;*/
         margin-bottom: -5px !important;
     }
 
@@ -724,735 +723,735 @@
     }
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1180px) {
+/*@media (min-width: 992px) and (max-width: 1180px) {*/
 
-    body{
-        background-color: white !important;
-    }
+    /*body{*/
+        /*background-color: white !important;*/
+    /*}*/
 
-    .jumbotron{
-        max-width: 100%;
-        height: 540px;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 5px !important;
-        margin-top: 40px;
-    }
-
-    .jumbotronS{
-        display: none;
-
-    }
-
-    #map{
-        display: inline-block;
-        height: 382px !important;
-        /*width: 80% !important;*/
-        margin-bottom: -5px !important;
-    }
-
-    #liste {
-        display: inline-block;
-        margin-top: 2px;
-        height: 380px !important;
-        /*width: auto !important;*/
-        position: absolute;
-        /*margin-bottom: -5px !important;*/
-
-    }
-
-
-    #searchResponsive{
-        padding-top: 200px !important;
-        margin-bottom: -390px !important;
-        margin-right: 300px;
-        margin-left: 300px;
-    }
-
-
-    .social{
-        display: none;
-    }
-
-    .big-text{
-        margin-top: 10px !important;
-        margin-left: 290px !important;
-        font-size: 4vw !important;
-        text-align: center !important;
-    }
-
-    .lead{
-        text-align: justify;
-        margin-left: 30px !important;
-    }
-
-
-    .formulaire{
-        /*margin-right: -30px !important;*/
-        margin-left: 25px !important;
-        margin-top: 80px !important;
-    }
-
-
-    .a{
-        margin-left: 15px !important;
-        margin-right: 15px !important;
-        width: 225px !important;
-    }
-
-    .b{
-        margin-right: 15px !important;
-        width: 225px !important;
-    }
-
-
-    #searchInline{
-        display: none;
-    }
-
-    .bienvenue{
-        margin-top: 45px !important;
-        font-size: 7vw;
-        margin-bottom: 30px !important;
-    }
-
-    .logovava{
-        max-width: 20%;
-        height: auto;
-    }
-
-
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
-
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
-
-    .flowing{
-        max-width: min-content !important;
-    }
-
-    .iconEntreprise{
-        float: right;
-        margin-bottom: 5px;
-        margin-top: -40px ;
-    }
-
-    .infoEnt{
-        width: 125px;
-        word-wrap: break-word !important;
-    }
-
-    /*----------------------------------------caroussel--------------------------------------*/
-    .contenuActu{
-        margin-top: 20px;
-    }
-
-    .carousel{
-        margin-bottom: -20px !important;;
-    }
-
-    .imageActu {
-        margin-bottom: 20px;
-        height: 550px !important;
-    }
-
-    .titreActu {
-        position: absolute;
-        bottom: 0;
-        top:0;
-        right: 0;
-        /*background: rgb(0, 0, 0);*/
-        /*background: rgba(99, 110, 114,0.5); !* Black see-through *!*/
-        color: #f1f1f1;
-        width: 100%;
-        transition: .5s ease;
-        /*opacity:0;*/
-        color: white;
-        font-size: 3vw;
-        padding: 20px;
-        text-align: justify;
-    }
-
-    .contenuActu{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: #f1f1f1;
-        width: 100%;
-        transition: opacity .5s ease;
-        opacity:0;
-        color: white;
-        font-size: 2vw;
-        padding: 20px;
-        text-align: justify;
-        margin-left: 20px !important;
-    }
-
-    div.active .contenuActu{
-        opacity: 1;
-    }
-
-    .container:hover .test {
-        opacity: 1;
-    }
-
-    .titreActu{
-        margin-bottom: 290px !important;
-        text-align: center;
-    }
-
-    /*------------------------------inscription-----------------------------------*/
-
-    .titreRegister{
-        text-align: center;
-        font-size: 7vw !important;
-        margin-top: 80px !important;
-        margin-left: 170px !important;
-    }
-
-    .formRegister{
-        width: 700px !important;
-        margin-top: 50px;
-    }
-
-    /*-------------------------------------datatable---------------------------------------*/
-    .dataTableCustom {
-        margin-top: 4rem !important;
-    }
-
-    .info {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 30px;*/
-    }
-
-    .fav {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 2rem !important;*/
-        min-height: 500px;
-    }
-
-    .dataTables_wrapper .dataTables_filter {
-        display: none !important;
-    }
-
-    .dataTables_length select {
-        display: none !important;
-    }
-
-    .eight,wide,column{
-        display: none !important;
-    }
-
-}
-
-@media (min-width: 1180px) and (max-width: 1920px) {
-
-    body{
-        background-color: white !important;
-    }
-
-    .jumbotron{
-        max-width: 100%;
-        height: 540px;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 5px !important;
-        margin-top: 40px;
-    }
-
-    .jumbotronS{
-        display: none;
-        /*background-color:white;*/
-        /*background-repeat:no-repeat;*/
+    /*.jumbotron{*/
+        /*max-width: 100%;*/
+        /*height: 540px;*/
         /*margin-bottom: -2px;*/
         /*background-size: cover;*/
+        /*display: block;*/
         /*color: white;*/
         /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*height: 560px;*/
-        /*width: auto;*/
         /*border-radius: 0px;*/
         /*font-family: 'Josefin Sans', sans-serif;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-        /*margin-top: 90px !important;*/
+        /*padding-bottom: 5px !important;*/
+        /*margin-top: 40px;*/
+    /*}*/
 
-    }
+    /*.jumbotronS{*/
+        /*display: none;*/
 
-    #map{
-        display: inline-block;
-        height: 382px !important;
-        /*width: 80% !important;*/
-        margin-bottom: -5px !important;
-    }
+    /*}*/
 
-    #liste {
-        display: inline-block;
-        margin-top: 2px;
-        height: 380px !important;
-        /*width: auto !important;*/
-        position: absolute;
+    /*#map{*/
+        /*display: inline-block;*/
+        /*height: 382px !important;*/
+        /*!*width: 80% !important;*!*/
         /*margin-bottom: -5px !important;*/
+    /*}*/
 
-    }
+    /*#liste {*/
+        /*display: inline-block;*/
+        /*margin-top: 2px;*/
+        /*height: 380px !important;*/
+        /*!*width: auto !important;*!*/
+        /*position: absolute;*/
+        /*!*margin-bottom: -5px !important;*!*/
 
-
-    .inputHome{
-        /*display: none ;*/
-    }
-
-
-    #searchResponsive{
-        padding-top: 200px !important;
-        margin-bottom: -390px !important;
-        margin-right: 400px;
-        margin-left: 400px;
-    }
-
-
-    #searchInline{
-        display: none;
-    }
-
-
-    .inputHomeResponsive{
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
-
-    .social{
-        display: none;
-    }
-
-    .big-text{
-        margin-top: 30px !important;
-        margin-left: 320px !important;
-        font-size: 4vw !important;
-        text-align: center !important;
-    }
-
-    .lead{
-        text-align: justify;
-        margin-top: 20px;
-        margin-left: 30px !important;
-    }
-
-
-    .formulaire{
-        /*margin-right: -30px !important;*/
-        margin-left: 25px !important;
-        margin-top: 110px !important;
-    }
-
-
-    .bienvenue{
-        margin-top: 45px !important;
-        font-size: 7vw;
-        margin-bottom: 30px !important;
-    }
-
-    .logovava{
-        max-width: 20%;
-        height: auto;
-    }
-
-    /*.barNav{*/
-        /*background-color: #D2FCF3 !important;*/
     /*}*/
 
 
+    /*#searchResponsive{*/
+        /*padding-top: 200px !important;*/
+        /*margin-bottom: -390px !important;*/
+        /*margin-right: 300px;*/
+        /*margin-left: 300px;*/
+    /*}*/
 
-    .titreRegister{
-        text-align: left !important;
-        font-size:10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
 
-    .formRegister{
-        width: auto !important;
-        margin-top: 50px;
-    }
+    /*.social{*/
+        /*display: none;*/
+    /*}*/
 
-    .flowing{
-        max-width: min-content !important;
-    }
+    /*.big-text{*/
+        /*margin-top: 10px !important;*/
+        /*margin-left: 290px !important;*/
+        /*font-size: 4vw !important;*/
+        /*text-align: center !important;*/
+    /*}*/
 
-    .iconEntreprise{
-        float: right;
-        margin-bottom: 5px;
-        margin-top: -40px ;
-    }
+    /*.lead{*/
+        /*text-align: justify;*/
+        /*margin-left: 30px !important;*/
+    /*}*/
 
-    .infoEnt{
-        width: 230px;
-        overflow: hidden;
-    }
 
-    /*----------------------------------------caroussel-----------------------------------------*/
-    .contenuActu{
-        margin-top: 20px;
-    }
+    /*.formulaire{*/
+        /*!*margin-right: -30px !important;*!*/
+        /*margin-left: 25px !important;*/
+        /*margin-top: 80px !important;*/
+    /*}*/
 
-    .carousel{
-        margin-bottom: -20px !important;;
-    }
 
-    .imageActu{
-        margin-bottom: 20px;
-        height: 530px !important;
-    }
+    /*.a{*/
+        /*margin-left: 15px !important;*/
+        /*margin-right: 15px !important;*/
+        /*width: 225px !important;*/
+    /*}*/
 
-    .titreActu {
-        position: absolute;
-        bottom: 0;
-        top:0;
-        right: 0;
-        /*background: rgb(0, 0, 0);*/
-        /*background: rgba(99, 110, 114,0.5); !* Black see-through *!*/
-        color: #f1f1f1;
-        width: 100%;
-        transition: .5s ease;
+    /*.b{*/
+        /*margin-right: 15px !important;*/
+        /*width: 225px !important;*/
+    /*}*/
+
+
+    /*#searchInline{*/
+        /*display: none;*/
+    /*}*/
+
+    /*.bienvenue{*/
+        /*margin-top: 45px !important;*/
+        /*font-size: 7vw;*/
+        /*margin-bottom: 30px !important;*/
+    /*}*/
+
+    /*.logovava{*/
+        /*max-width: 20%;*/
+        /*height: auto;*/
+    /*}*/
+
+
+    /*.titreRegister{*/
+        /*text-align: left !important;*/
+        /*font-size:10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+
+    /*.formRegister{*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+
+    /*.flowing{*/
+        /*max-width: min-content !important;*/
+    /*}*/
+
+    /*.iconEntreprise{*/
+        /*float: right;*/
+        /*margin-bottom: 5px;*/
+        /*margin-top: -40px ;*/
+    /*}*/
+
+    /*.infoEnt{*/
+        /*width: 125px;*/
+        /*word-wrap: break-word !important;*/
+    /*}*/
+
+    /*!*----------------------------------------caroussel--------------------------------------*!*/
+    /*.contenuActu{*/
+        /*margin-top: 20px;*/
+    /*}*/
+
+    /*.carousel{*/
+        /*margin-bottom: -20px !important;;*/
+    /*}*/
+
+    /*.imageActu {*/
+        /*margin-bottom: 20px;*/
+        /*height: 550px !important;*/
+    /*}*/
+
+    /*.titreActu {*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*top:0;*/
+        /*right: 0;*/
+        /*!*background: rgb(0, 0, 0);*!*/
+        /*!*background: rgba(99, 110, 114,0.5); !* Black see-through *!*!*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: .5s ease;*/
+        /*!*opacity:0;*!*/
+        /*color: white;*/
+        /*font-size: 3vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+    /*}*/
+
+    /*.contenuActu{*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: opacity .5s ease;*/
         /*opacity:0;*/
-        color: white;
-        font-size: 3vw;
-        padding: 20px;
-        text-align: justify;
-    }
+        /*color: white;*/
+        /*font-size: 2vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+        /*margin-left: 20px !important;*/
+    /*}*/
 
-    .contenuActu{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: #f1f1f1;
-        width: 100%;
-        transition: opacity .5s ease;
-        opacity:0;
-        color: white;
-        font-size: 2vw;
-        padding: 20px;
-        text-align: justify;
-        margin-left: 20px !important;
-        text-align: center !important;
+    /*div.active .contenuActu{*/
+        /*opacity: 1;*/
+    /*}*/
 
-    }
+    /*.container:hover .test {*/
+        /*opacity: 1;*/
+    /*}*/
 
-    div.active .contenuActu{
-        opacity: 1;
-    }
+    /*.titreActu{*/
+        /*margin-bottom: 290px !important;*/
+        /*text-align: center;*/
+    /*}*/
 
-    .container:hover .test {
-        opacity: 1;
-    }
+    /*!*------------------------------inscription-----------------------------------*!*/
 
-    /*------------------------------inscription-----------------------------------*/
+    /*.titreRegister{*/
+        /*text-align: center;*/
+        /*font-size: 7vw !important;*/
+        /*margin-top: 80px !important;*/
+        /*margin-left: 170px !important;*/
+    /*}*/
 
-    .titreRegister{
-        text-align: center;
-        font-size: 7vw !important;
-        margin-top: 80px !important;
-        margin-left: 120px !important;
-    }
+    /*.formRegister{*/
+        /*width: 700px !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
 
-    .formRegister{
-        width: 700px !important;
-        margin-top: 50px;
-    }
+    /*!*-------------------------------------datatable---------------------------------------*!*/
+    /*.dataTableCustom {*/
+        /*margin-top: 4rem !important;*/
+    /*}*/
 
-    /*-------------------------------------datatable---------------------------------------*/
-    .dataTableCustom {
-        margin-top: 4rem !important;
-    }
+    /*.info {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 30px;*!*/
+    /*}*/
 
-    .info {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 30px;*/
-    }
+    /*.fav {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 2rem !important;*!*/
+        /*min-height: 500px;*/
+    /*}*/
 
-    .fav {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 2rem !important;*/
-        min-height: 500px;
-    }
+    /*.dataTables_wrapper .dataTables_filter {*/
+        /*display: none !important;*/
+    /*}*/
 
-    .dataTables_wrapper .dataTables_filter {
-        display: none !important;
-    }
+    /*.dataTables_length select {*/
+        /*display: none !important;*/
+    /*}*/
 
-    .dataTables_length select {
-        display: none !important;
-    }
+    /*.eight,wide,column{*/
+        /*display: none !important;*/
+    /*}*/
 
-    .eight,wide,column{
-        display: none !important;
-    }
+/*}*/
 
-}
+/*@media (min-width: 1180px) and (max-width: 1920px) {*/
 
+    /*body{*/
+        /*background-color: white !important;*/
+    /*}*/
 
-
-@media (min-width: 1920px) and (max-width: 2880px) {
-
-    body {
-        background-color: white !important;
-    }
-
-    .jumbotron {
-        max-width: 100%;
-        height: 440px;
-        margin-bottom: -2px;
-        background-size: cover;
-        display: block;
-        color: white;
-        text-shadow: black 0.2em 0.2em 0.2em;
-        border-radius: 0px;
-        font-family: 'Josefin Sans', sans-serif;
-        padding-bottom: 5px !important;
-        margin-top: 40px;
-    }
-
-    .jumbotronS {
-        display: none;
-        /*background-color:white;*/
-        /*background-repeat:no-repeat;*/
+    /*.jumbotron{*/
+        /*max-width: 100%;*/
+        /*height: 540px;*/
         /*margin-bottom: -2px;*/
         /*background-size: cover;*/
+        /*display: block;*/
         /*color: white;*/
         /*text-shadow: black 0.2em 0.2em 0.2em;*/
-        /*height: 560px;*/
-        /*width: auto;*/
         /*border-radius: 0px;*/
         /*font-family: 'Josefin Sans', sans-serif;*/
-        /*max-width: 100%;*/
-        /*background-position: 0% 25%;*/
-        /*margin-top: 90px !important;*/
-
-    }
-
-    #map {
-        display: inline-block;
-        height: 382px !important;
-        /*width: 80% !important;*/
-        margin-bottom: -5px !important;
-    }
-
-    #liste {
-        display: inline-block;
-        margin-top: 2px;
-        height: 380px !important;
-        /*width: auto !important;*/
-        position: absolute;
-        /*margin-bottom: -5px !important;*/
-
-    }
-
-    .inputHome {
-        /*display: none ;*/
-    }
-
-    #searchResponsive {
-        padding-top: 200px !important;
-        margin-bottom: -390px !important;
-        margin-right: 400px;
-        margin-left: 400px;
-    }
-
-    #searchInline {
-        display: none;
-    }
-
-    .inputHomeResponsive {
-        width: 300px !important;
-        margin-left: 30px !important;
-        /*display: inline-block; !important;*/
-    }
-
-    .social {
-        display: none;
-    }
-
-    .big-text {
-        margin-top: 30px !important;
-        margin-left: 320px !important;
-        font-size: 4vw !important;
-        text-align: center !important;
-    }
-
-    .lead {
-        text-align: justify;
-        margin-top: 20px;
-        margin-left: 30px !important;
-    }
-
-    .formulaire {
-        /*margin-right: -30px !important;*/
-        margin-left: 25px !important;
-        margin-top: 110px !important;
-    }
-
-    .bienvenue {
-        margin-top: 45px !important;
-        font-size: 7vw;
-        margin-bottom: 30px !important;
-    }
-
-    .logovava {
-        max-width: 20%;
-        height: auto;
-    }
-
-    /*.barNav{*/
-    /*background-color: #D2FCF3 !important;*/
+        /*padding-bottom: 5px !important;*/
+        /*margin-top: 40px;*/
     /*}*/
-    .titreRegister {
-        text-align: left !important;
-        font-size: 10vw !important;
-        margin-left: 100px !important;
-        margin-top: 20px !important;
-    }
 
-    .formRegister {
-        width: auto !important;
-        margin-top: 50px;
-    }
+    /*.jumbotronS{*/
+        /*display: none;*/
+        /*!*background-color:white;*!*/
+        /*!*background-repeat:no-repeat;*!*/
+        /*!*margin-bottom: -2px;*!*/
+        /*!*background-size: cover;*!*/
+        /*!*color: white;*!*/
+        /*!*text-shadow: black 0.2em 0.2em 0.2em;*!*/
+        /*!*height: 560px;*!*/
+        /*!*width: auto;*!*/
+        /*!*border-radius: 0px;*!*/
+        /*!*font-family: 'Josefin Sans', sans-serif;*!*/
+        /*!*max-width: 100%;*!*/
+        /*!*background-position: 0% 25%;*!*/
+        /*!*margin-top: 90px !important;*!*/
+
+    /*}*/
+
+    /*#map{*/
+        /*display: inline-block;*/
+        /*height: 382px !important;*/
+        /*!*width: 80% !important;*!*/
+        /*margin-bottom: -5px !important;*/
+    /*}*/
+
+    /*#liste {*/
+        /*display: inline-block;*/
+        /*margin-top: 2px;*/
+        /*height: 380px !important;*/
+        /*!*width: auto !important;*!*/
+        /*position: absolute;*/
+        /*!*margin-bottom: -5px !important;*!*/
+
+    /*}*/
 
 
-    .flowing {
-        max-width: min-content !important;
-    }
+    /*.inputHome{*/
+        /*!*display: none ;*!*/
+    /*}*/
 
-    .iconEntreprise {
-        float: right;
-        margin-bottom: 5px;
-        margin-top: -40px;
-    }
 
-    .infoEnt {
-        width: 230px;
-        overflow: hidden;
-    }
+    /*#searchResponsive{*/
+        /*padding-top: 200px !important;*/
+        /*margin-bottom: -390px !important;*/
+        /*margin-right: 400px;*/
+        /*margin-left: 400px;*/
+    /*}*/
 
-    /*----------------------------------------caroussel----------------------------------------------*/
-    .contenuActu {
-        margin-top: 20px;
-    }
 
-    .carousel {
-        margin-bottom: -20px !important;;
-    }
+    /*#searchInline{*/
+        /*display: none;*/
+    /*}*/
 
-    .imageActu {
-        margin-bottom: 20px;
-        height: 450px !important;
-    }
 
-    .titreActu {
-        position: absolute;
-        bottom: 0;
-        top: 0;
-        right: 0;
-        /*background: rgb(0, 0, 0);*/
-        /*background: rgba(99, 110, 114,0.5); !* Black see-through *!*/
-        color: #f1f1f1;
-        width: 100%;
-        transition: .5s ease;
+    /*.inputHomeResponsive{*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
+
+    /*.social{*/
+        /*display: none;*/
+    /*}*/
+
+    /*.big-text{*/
+        /*margin-top: 30px !important;*/
+        /*margin-left: 320px !important;*/
+        /*font-size: 4vw !important;*/
+        /*text-align: center !important;*/
+    /*}*/
+
+    /*.lead{*/
+        /*text-align: justify;*/
+        /*margin-top: 20px;*/
+        /*margin-left: 30px !important;*/
+    /*}*/
+
+
+    /*.formulaire{*/
+        /*!*margin-right: -30px !important;*!*/
+        /*margin-left: 25px !important;*/
+        /*margin-top: 110px !important;*/
+    /*}*/
+
+
+    /*.bienvenue{*/
+        /*margin-top: 45px !important;*/
+        /*font-size: 7vw;*/
+        /*margin-bottom: 30px !important;*/
+    /*}*/
+
+    /*.logovava{*/
+        /*max-width: 20%;*/
+        /*height: auto;*/
+    /*}*/
+
+    /*!*.barNav{*!*/
+        /*!*background-color: #D2FCF3 !important;*!*/
+    /*!*}*!*/
+
+
+
+    /*.titreRegister{*/
+        /*text-align: left !important;*/
+        /*font-size:10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+
+    /*.formRegister{*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+
+    /*.flowing{*/
+        /*max-width: min-content !important;*/
+    /*}*/
+
+    /*.iconEntreprise{*/
+        /*float: right;*/
+        /*margin-bottom: 5px;*/
+        /*margin-top: -40px ;*/
+    /*}*/
+
+    /*.infoEnt{*/
+        /*width: 230px;*/
+        /*overflow: hidden;*/
+    /*}*/
+
+    /*!*----------------------------------------caroussel-----------------------------------------*!*/
+    /*.contenuActu{*/
+        /*margin-top: 20px;*/
+    /*}*/
+
+    /*.carousel{*/
+        /*margin-bottom: -20px !important;;*/
+    /*}*/
+
+    /*.imageActu{*/
+        /*margin-bottom: 20px;*/
+        /*height: 530px !important;*/
+    /*}*/
+
+    /*.titreActu {*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*top:0;*/
+        /*right: 0;*/
+        /*!*background: rgb(0, 0, 0);*!*/
+        /*!*background: rgba(99, 110, 114,0.5); !* Black see-through *!*!*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: .5s ease;*/
+        /*!*opacity:0;*!*/
+        /*color: white;*/
+        /*font-size: 3vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+    /*}*/
+
+    /*.contenuActu{*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: opacity .5s ease;*/
         /*opacity:0;*/
-        color: white;
-        font-size: 3vw;
-        padding: 20px;
-        text-align: justify;
-    }
+        /*color: white;*/
+        /*font-size: 2vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+        /*margin-left: 20px !important;*/
+        /*text-align: center !important;*/
 
-    .contenuActu {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        color: #f1f1f1;
-        width: 100%;
-        transition: opacity .5s ease;
-        opacity: 0;
-        color: white;
-        font-size: 2vw;
-        padding: 20px;
-        text-align: justify;
-        margin-left: 20px !important;
-        text-align: center !important;
+    /*}*/
 
-    }
+    /*div.active .contenuActu{*/
+        /*opacity: 1;*/
+    /*}*/
 
-    div.active .contenuActu {
-        opacity: 1;
-    }
+    /*.container:hover .test {*/
+        /*opacity: 1;*/
+    /*}*/
 
-    .container:hover .test {
-        opacity: 1;
-    }
+    /*!*------------------------------inscription-----------------------------------*!*/
 
-    /*------------------------------inscription-----------------------------------*/
-    .titreRegister {
-        text-align: center;
-        font-size: 7vw !important;
-        margin-top: 80px !important;
-        margin-left: 120px !important;
+    /*.titreRegister{*/
+        /*text-align: center;*/
+        /*font-size: 7vw !important;*/
+        /*margin-top: 80px !important;*/
+        /*margin-left: 120px !important;*/
+    /*}*/
 
-    }
+    /*.formRegister{*/
+        /*width: 700px !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
 
-    .formRegister {
-        width: 700px !important;
-        margin-top: 50px;
-    }
+    /*!*-------------------------------------datatable---------------------------------------*!*/
+    /*.dataTableCustom {*/
+        /*margin-top: 4rem !important;*/
+    /*}*/
 
-    /*-------------------------------------datatable---------------------------------------*/
-    .dataTableCustom {
-        margin-top: 4rem !important;
-    }
+    /*.info {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 30px;*!*/
+    /*}*/
 
-    .info {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 30px;*/
-    }
+    /*.fav {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 2rem !important;*!*/
+        /*min-height: 500px;*/
+    /*}*/
 
-    .fav {
-        /*width:80%;*/
-        margin-right: 190px;
-        /*margin-top: 2rem !important;*/
-        min-height: 500px;
-    }
+    /*.dataTables_wrapper .dataTables_filter {*/
+        /*display: none !important;*/
+    /*}*/
 
-    .dataTables_wrapper .dataTables_filter {
-        display: none !important;
-    }
+    /*.dataTables_length select {*/
+        /*display: none !important;*/
+    /*}*/
 
-    .dataTables_length select {
-        display: none !important;
-    }
+    /*.eight,wide,column{*/
+        /*display: none !important;*/
+    /*}*/
 
-    .eight,wide,column{
-        display: none !important;
-    }
-}
+/*}*/
+
+
+
+/*@media (min-width: 1920px) and (max-width: 2880px) {*/
+
+    /*body {*/
+        /*background-color: white !important;*/
+    /*}*/
+
+    /*.jumbotron {*/
+        /*max-width: 100%;*/
+        /*height: 440px;*/
+        /*margin-bottom: -2px;*/
+        /*background-size: cover;*/
+        /*display: block;*/
+        /*color: white;*/
+        /*text-shadow: black 0.2em 0.2em 0.2em;*/
+        /*border-radius: 0px;*/
+        /*font-family: 'Josefin Sans', sans-serif;*/
+        /*padding-bottom: 5px !important;*/
+        /*margin-top: 40px;*/
+    /*}*/
+
+    /*.jumbotronS {*/
+        /*display: none;*/
+        /*!*background-color:white;*!*/
+        /*!*background-repeat:no-repeat;*!*/
+        /*!*margin-bottom: -2px;*!*/
+        /*!*background-size: cover;*!*/
+        /*!*color: white;*!*/
+        /*!*text-shadow: black 0.2em 0.2em 0.2em;*!*/
+        /*!*height: 560px;*!*/
+        /*!*width: auto;*!*/
+        /*!*border-radius: 0px;*!*/
+        /*!*font-family: 'Josefin Sans', sans-serif;*!*/
+        /*!*max-width: 100%;*!*/
+        /*!*background-position: 0% 25%;*!*/
+        /*!*margin-top: 90px !important;*!*/
+
+    /*}*/
+
+    /*#map {*/
+        /*display: inline-block;*/
+        /*height: 382px !important;*/
+        /*!*width: 80% !important;*!*/
+        /*margin-bottom: -5px !important;*/
+    /*}*/
+
+    /*#liste {*/
+        /*display: inline-block;*/
+        /*margin-top: 2px;*/
+        /*height: 380px !important;*/
+        /*!*width: auto !important;*!*/
+        /*position: absolute;*/
+        /*!*margin-bottom: -5px !important;*!*/
+
+    /*}*/
+
+    /*.inputHome {*/
+        /*!*display: none ;*!*/
+    /*}*/
+
+    /*#searchResponsive {*/
+        /*padding-top: 200px !important;*/
+        /*margin-bottom: -390px !important;*/
+        /*margin-right: 400px;*/
+        /*margin-left: 400px;*/
+    /*}*/
+
+    /*#searchInline {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.inputHomeResponsive {*/
+        /*width: 300px !important;*/
+        /*margin-left: 30px !important;*/
+        /*!*display: inline-block; !important;*!*/
+    /*}*/
+
+    /*.social {*/
+        /*display: none;*/
+    /*}*/
+
+    /*.big-text {*/
+        /*margin-top: 30px !important;*/
+        /*margin-left: 320px !important;*/
+        /*font-size: 4vw !important;*/
+        /*text-align: center !important;*/
+    /*}*/
+
+    /*.lead {*/
+        /*text-align: justify;*/
+        /*margin-top: 20px;*/
+        /*margin-left: 30px !important;*/
+    /*}*/
+
+    /*.formulaire {*/
+        /*!*margin-right: -30px !important;*!*/
+        /*margin-left: 25px !important;*/
+        /*margin-top: 110px !important;*/
+    /*}*/
+
+    /*.bienvenue {*/
+        /*margin-top: 45px !important;*/
+        /*font-size: 7vw;*/
+        /*margin-bottom: 30px !important;*/
+    /*}*/
+
+    /*.logovava {*/
+        /*max-width: 20%;*/
+        /*height: auto;*/
+    /*}*/
+
+    /*!*.barNav{*!*/
+    /*!*background-color: #D2FCF3 !important;*!*/
+    /*!*}*!*/
+    /*.titreRegister {*/
+        /*text-align: left !important;*/
+        /*font-size: 10vw !important;*/
+        /*margin-left: 100px !important;*/
+        /*margin-top: 20px !important;*/
+    /*}*/
+
+    /*.formRegister {*/
+        /*width: auto !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+
+
+    /*.flowing {*/
+        /*max-width: min-content !important;*/
+    /*}*/
+
+    /*.iconEntreprise {*/
+        /*float: right;*/
+        /*margin-bottom: 5px;*/
+        /*margin-top: -40px;*/
+    /*}*/
+
+    /*.infoEnt {*/
+        /*width: 230px;*/
+        /*overflow: hidden;*/
+    /*}*/
+
+    /*!*----------------------------------------caroussel----------------------------------------------*!*/
+    /*.contenuActu {*/
+        /*margin-top: 20px;*/
+    /*}*/
+
+    /*.carousel {*/
+        /*margin-bottom: -20px !important;;*/
+    /*}*/
+
+    /*.imageActu {*/
+        /*margin-bottom: 20px;*/
+        /*height: 450px !important;*/
+    /*}*/
+
+    /*.titreActu {*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*top: 0;*/
+        /*right: 0;*/
+        /*!*background: rgb(0, 0, 0);*!*/
+        /*!*background: rgba(99, 110, 114,0.5); !* Black see-through *!*!*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: .5s ease;*/
+        /*!*opacity:0;*!*/
+        /*color: white;*/
+        /*font-size: 3vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+    /*}*/
+
+    /*.contenuActu {*/
+        /*position: absolute;*/
+        /*bottom: 0;*/
+        /*right: 0;*/
+        /*color: #f1f1f1;*/
+        /*width: 100%;*/
+        /*transition: opacity .5s ease;*/
+        /*opacity: 0;*/
+        /*color: white;*/
+        /*font-size: 2vw;*/
+        /*padding: 20px;*/
+        /*text-align: justify;*/
+        /*margin-left: 20px !important;*/
+        /*text-align: center !important;*/
+
+    /*}*/
+
+    /*div.active .contenuActu {*/
+        /*opacity: 1;*/
+    /*}*/
+
+    /*.container:hover .test {*/
+        /*opacity: 1;*/
+    /*}*/
+
+    /*!*------------------------------inscription-----------------------------------*!*/
+    /*.titreRegister {*/
+        /*text-align: center;*/
+        /*font-size: 7vw !important;*/
+        /*margin-top: 80px !important;*/
+        /*margin-left: 120px !important;*/
+
+    /*}*/
+
+    /*.formRegister {*/
+        /*width: 700px !important;*/
+        /*margin-top: 50px;*/
+    /*}*/
+
+    /*!*-------------------------------------datatable---------------------------------------*!*/
+    /*.dataTableCustom {*/
+        /*margin-top: 4rem !important;*/
+    /*}*/
+
+    /*.info {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 30px;*!*/
+    /*}*/
+
+    /*.fav {*/
+        /*!*width:80%;*!*/
+        /*margin-right: 190px;*/
+        /*!*margin-top: 2rem !important;*!*/
+        /*min-height: 500px;*/
+    /*}*/
+
+    /*.dataTables_wrapper .dataTables_filter {*/
+        /*display: none !important;*/
+    /*}*/
+
+    /*.dataTables_length select {*/
+        /*display: none !important;*/
+    /*}*/
+
+    /*.eight,wide,column{*/
+        /*display: none !important;*/
+    /*}*/
+/*}*/
 
 
 
