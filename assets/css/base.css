@@ -260,7 +260,7 @@
         background-size: cover;
         color: white;
         text-shadow: black 0.2em 0.2em 0.2em;
-        height: 610px;
+        height: 810px !important;
         width: auto;
         border-radius: 0px;
         font-family: 'Josefin Sans', sans-serif;
