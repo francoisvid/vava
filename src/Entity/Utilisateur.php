@@ -19,7 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * message="L'email que vous avez indiqué est déjà utilisé !"
  * )
  */
-class Utilisateur implements UserInterface, SerializerInterface
+class Utilisateur implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -330,13 +330,13 @@ class Utilisateur implements UserInterface, SerializerInterface
         return $this;
     }
 
-    public function deserialize($data, $type, $format, array $context = array()): object {
-        return "";
-    }
+    // public function deserialize($data, $type, $format, array $context = array()): object {
+    //     return "";
+    // }
 
-    public function serialize($data, $format, array $context = array()): string {
-        return "";
-    }
+    // public function serialize($data, $format, array $context = array()): string {
+    //     return "";
+    // }
 
     /**
      * Returns the roles granted to the user.
